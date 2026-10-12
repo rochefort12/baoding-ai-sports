@@ -1,0 +1,11 @@
+---
+description: Execute the current handoff one step at a time
+alwaysApply: true
+---
+# Plan execution (not for pure Q&A)
+1. The current step is the latest 「下一步」 in `docs/01-development/交接记录.md`, read with the order in `docs/01-development/一期未完成事项.md`. Take one step. Do not change the same module in parallel.
+2. Read `docs/README.md`, the latest two 「本轮」 sections, and the ADR for that step. The user's current decision wins. Leave raw materials unchanged. Historical procedures, suggested parameters, and simulated data are not formal approval.
+3. If that step or module is already in progress in another window, name the window and ask: collaborate, wait, or reassign.
+4. A missing prerequisite or an unapproved business rule → modify nothing. Tell 曲箭龙 what is missing and the nearest step that can start. Skip only with explicit consent, then record the reason in the handoff and the backlog.
+5. Follow `AGENTS.md`, the ADR, and the existing module boundaries. If the instruction conflicts with an ADR, cite the clause and propose the change. On agreement, edit the ADR first, then execute. Domain meaning and architecture are L4 (rule 05).
+6. Deliver: verify against the step with real numbers; append 「本轮」; requirement changes go to the ADR; phase work still unfinished goes to `docs/01-development/一期未完成事项.md`.

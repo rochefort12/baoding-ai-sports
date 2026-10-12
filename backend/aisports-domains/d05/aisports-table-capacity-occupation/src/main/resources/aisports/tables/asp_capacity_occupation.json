@@ -1,0 +1,75 @@
+{
+  "name": "asp_capacity_occupation",
+  "domain": "D05",
+  "description": "容量唯一占用对象；同人兼项总人数只占一次",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "pool_id",
+      "type": "bigint",
+      "description": "容量池",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_capacity_pool",
+      "check": null
+    },
+    {
+      "name": "subject_key",
+      "type": "varchar(128)",
+      "description": "person:<ID> 或 entry:<ID> 等稳定单位键",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "person_id",
+      "type": "bigint",
+      "description": "按人占用时对应身份",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_person",
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：held effective released",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('held', 'effective', 'released')"
+    },
+    {
+      "name": "expires_at",
+      "type": "timestamptz",
+      "description": "仅临时占用期限；有时区业务时间",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": true,
+  "checks": [],
+  "unique": [
+    [
+      "pool_id, subject_key",
+      "status IN ('held','effective')"
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-capacity-occupation",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

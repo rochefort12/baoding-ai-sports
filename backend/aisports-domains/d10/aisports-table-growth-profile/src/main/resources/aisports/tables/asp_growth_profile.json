@@ -1,0 +1,88 @@
+{
+  "name": "asp_growth_profile",
+  "domain": "D10",
+  "description": "由可追溯成长事实汇总的个人或队伍运动成长；可重建，不是原始事实",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "owner_type",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：person team",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "owner_type IN ('person', 'team')"
+    },
+    {
+      "name": "owner_id",
+      "type": "bigint",
+      "description": "本人档案或长期队伍编号",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "sport_id",
+      "type": "bigint",
+      "description": "运动",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_sport",
+      "check": null
+    },
+    {
+      "name": "points",
+      "type": "integer",
+      "description": "当前有效成长分",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "points >= 0"
+    },
+    {
+      "name": "checkin_count",
+      "type": "integer",
+      "description": "真实报到赛事数",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "checkin_count >= 0"
+    },
+    {
+      "name": "finish_count",
+      "type": "integer",
+      "description": "有效完赛赛事数",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "finish_count >= 0"
+    },
+    {
+      "name": "policy_version",
+      "type": "varchar(64)",
+      "description": "汇总使用规则版本",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": false,
+  "checks": [],
+  "unique": [
+    [
+      "owner_type, owner_id, sport_id",
+      null
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-growth-profile",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

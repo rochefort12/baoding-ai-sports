@@ -1,0 +1,79 @@
+{
+  "name": "asp_matching_request",
+  "domain": "D03",
+  "description": "自动匹配排队意向；不占赛事正式报名名额",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "unit_id",
+      "type": "bigint",
+      "description": "同一报名项目",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_competition_unit",
+      "check": null
+    },
+    {
+      "name": "account_id",
+      "type": "bigint",
+      "description": "排队本人",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_account",
+      "check": null
+    },
+    {
+      "name": "room_id",
+      "type": "bigint",
+      "description": "补充现有房间；个人匹配可空",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_team_room",
+      "check": null
+    },
+    {
+      "name": "preferences",
+      "type": "jsonb",
+      "description": "本人选择的时间等偏好；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：waiting offered accepted cancelled expired",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('waiting', 'offered', 'accepted', 'cancelled', 'expired')"
+    },
+    {
+      "name": "expires_at",
+      "type": "timestamptz",
+      "description": "意向截止；有时区业务时间",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": false,
+  "checks": [],
+  "unique": [
+    [
+      "unit_id, account_id",
+      "status IN ('waiting','offered')"
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-matching-request",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

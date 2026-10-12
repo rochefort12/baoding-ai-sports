@@ -1,0 +1,99 @@
+{
+  "name": "asp_ai_invocation",
+  "domain": "D04",
+  "description": "模型或工具的一次调用。不保存密钥、登录令牌、资料正文和完整模型响应",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "task_id",
+      "type": "bigint",
+      "description": "所属任务",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_ai_task",
+      "check": null
+    },
+    {
+      "name": "kind",
+      "type": "varchar(16)",
+      "description": "model 或 tool",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "tool_name",
+      "type": "varchar(64)",
+      "description": "工具名。模型调用可空",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "model_name",
+      "type": "varchar(80)",
+      "description": "实际请求的模型名。工具调用可空",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：started succeeded failed refused",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('started', 'succeeded', 'failed', 'refused')"
+    },
+    {
+      "name": "attempt_no",
+      "type": "integer",
+      "description": "对应任务上的第几次识别",
+      "nullable": false,
+      "default": "0",
+      "reference": null,
+      "check": "attempt_no >= 0"
+    },
+    {
+      "name": "error_code",
+      "type": "varchar(64)",
+      "description": "失败或拒绝代码",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "summary",
+      "type": "jsonb",
+      "description": "耗时毫秒和是否降级。不存资料正文；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": true,
+  "checks": [
+    "kind IN ('model', 'tool')"
+  ],
+  "unique": [],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-ai-invocation",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

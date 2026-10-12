@@ -1,0 +1,74 @@
+{
+  "name": "asp_team_history",
+  "domain": "D03",
+  "description": "队伍改名、转让、解散的事实和快照。不代替成员终止行，也不回写已提交报名",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "team_id",
+      "type": "bigint",
+      "description": "长期队伍",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_team",
+      "check": null
+    },
+    {
+      "name": "action",
+      "type": "varchar(100)",
+      "description": "变更动作",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "before_snapshot",
+      "type": "jsonb",
+      "description": "原事实；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "after_snapshot",
+      "type": "jsonb",
+      "description": "新事实；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "reason",
+      "type": "varchar(1000)",
+      "description": "变更依据",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "effective_at",
+      "type": "timestamptz",
+      "description": "生效时间；有时区业务时间",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": false,
+  "checks": [],
+  "unique": [],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-team-history",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

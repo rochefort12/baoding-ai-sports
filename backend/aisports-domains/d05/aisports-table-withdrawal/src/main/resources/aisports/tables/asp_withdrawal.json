@@ -1,0 +1,88 @@
+{
+  "name": "asp_withdrawal",
+  "domain": "D05",
+  "description": "退赛申请、资格终止及退款义务接续",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "registration_id",
+      "type": "bigint",
+      "description": "报名",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_registration",
+      "check": null
+    },
+    {
+      "name": "person_id",
+      "type": "bigint",
+      "description": "允许局部退赛时对应成员",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_person",
+      "check": null
+    },
+    {
+      "name": "applicant_account_id",
+      "type": "bigint",
+      "description": "申请者",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_account",
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：requested approved rejected completed",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('requested', 'approved', 'rejected', 'completed')"
+    },
+    {
+      "name": "reason",
+      "type": "varchar(1000)",
+      "description": "请求及批准依据",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "impact",
+      "type": "jsonb",
+      "description": "资格、名单、名额、时间和资金影响；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "effective_at",
+      "type": "timestamptz",
+      "description": "退赛生效；有时区业务时间",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": true,
+  "checks": [],
+  "unique": [],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-withdrawal",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

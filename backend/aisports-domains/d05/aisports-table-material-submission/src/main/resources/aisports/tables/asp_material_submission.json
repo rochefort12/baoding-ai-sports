@@ -1,0 +1,93 @@
+{
+  "name": "asp_material_submission",
+  "domain": "D05",
+  "description": "报名材料提交版本、核验与现场验证分离",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "registration_id",
+      "type": "bigint",
+      "description": "报名",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_registration",
+      "check": null
+    },
+    {
+      "name": "roster_member_id",
+      "type": "bigint",
+      "description": "相关成员",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_roster_member",
+      "check": null
+    },
+    {
+      "name": "requirement_id",
+      "type": "bigint",
+      "description": "规程要求",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_material_requirement",
+      "check": null
+    },
+    {
+      "name": "file_id",
+      "type": "bigint",
+      "description": "受控材料",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_file",
+      "check": null
+    },
+    {
+      "name": "revision",
+      "type": "integer",
+      "description": "提交版本",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "revision >= 0"
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：submitted correction accepted rejected expired",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('submitted', 'correction', 'accepted', 'rejected', 'expired')"
+    },
+    {
+      "name": "valid_until",
+      "type": "timestamptz",
+      "description": "材料有效截止；有时区业务时间",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": true,
+  "checks": [],
+  "unique": [
+    [
+      "registration_id, requirement_id, roster_member_id, revision",
+      null
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-material-submission",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

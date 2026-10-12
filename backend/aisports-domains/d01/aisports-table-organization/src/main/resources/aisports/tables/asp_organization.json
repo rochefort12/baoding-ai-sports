@@ -1,0 +1,84 @@
+{
+  "name": "asp_organization",
+  "domain": "D01",
+  "description": "承办责任主体与租户映射。本期只在办赛申请通过后创建",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "name",
+      "type": "varchar(200)",
+      "description": "主体名称",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "subject_type",
+      "type": "varchar(100)",
+      "description": "企业/学校/协会/俱乐部等。本期办赛申请不采集，可空",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "subject_hash",
+      "type": "varchar(128)",
+      "description": "主体标识受控摘要。空摘要不互相占用",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：draft pending correction certified expired restricted",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('draft', 'pending', 'correction', 'certified', 'expired', 'restricted')"
+    },
+    {
+      "name": "contact_cipher",
+      "type": "varchar(1000)",
+      "description": "必要联系资料加密值",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "current_qualification_id",
+      "type": "bigint",
+      "description": "当前适用资质版本；服务核验归属",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": true,
+  "checks": [],
+  "unique": [
+    [
+      "subject_hash",
+      "subject_hash IS NOT NULL"
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-organization",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

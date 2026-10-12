@@ -1,0 +1,33 @@
+.team-share-card { max-width: 660px; margin: 24px auto; padding: 38px; text-align: center; }
+.team-share-art { display: block; width: 132px; height: 132px; margin: 0 auto 12px; object-fit: contain; }
+.team-share-eyebrow { color: var(--s-muted); font-size: 14px; margin: 0 0 8px; }
+.team-share-card h2 { font-size: 28px; line-height: 1.4; overflow-wrap: anywhere; margin: 0 0 16px; }
+.team-share-description { font-size: 16px; line-height: 1.8; }
+.team-share-actions { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin: 26px 0; }
+.team-share-actions .btn, .team-join-dialog .btn { min-height: 44px; }
+.team-share-note { color: var(--s-muted); font-size: 14px; line-height: 1.8; margin: 24px 0 0; }
+.team-join-dialog { max-width: calc(100vw - 32px); border-radius: 20px; }
+.team-join-dialog .el-dialog__body { max-height: min(58vh, 480px); overflow-y: auto; }
+.team-join-summary > span { color: var(--s-muted); font-size: 14px; }
+.team-join-summary h3 { font-size: 22px; margin: 8px 0 22px; overflow-wrap: anywhere; }
+.team-join-person { display: flex; align-items: center; gap: 12px; padding: 18px; background: var(--s-soft); border-radius: 14px; }
+.team-join-person .account-avatar { flex-shrink: 0; width: 40px; height: 40px; }
+.team-join-person strong { font-size: 16px; }
+.team-join-person p { margin: 4px 0 0; color: var(--s-muted); font-size: 14px; }
+.team-join-summary > p { font-size: 15px; line-height: 1.8; color: var(--s-muted); margin: 20px 0 0; }
+.team-join-error { margin: 18px 0; padding: 14px; border-radius: 12px; background: #fff3eb; text-align: left; }
+.team-join-error p { margin: 0 0 10px; color: var(--s-ink); font-size: 14px; line-height: 1.7; overflow-wrap: anywhere; }
+.team-share-manager { margin: 22px 0; padding: 22px; background: var(--s-soft); border: 1px solid var(--s-line); border-radius: 16px; }
+.team-share-manager h3 { margin: 0 0 8px; font-size: 18px; }
+.team-share-manager p { font-size: 14px; line-height: 1.8; color: var(--s-muted); margin: 8px 0; }
+.team-share-manager .action-row { margin-bottom: 0; }
+@media (max-width: 640px) {
+  .team-share-card { padding: 24px 20px; margin: 18px auto; }
+  .team-share-card h2 { font-size: 24px; }
+  .team-share-art { width: 112px; height: 112px; }
+  .team-share-actions { flex-direction: column; }
+  .team-share-actions .btn { width: 100%; }
+  .team-join-dialog .el-dialog__footer { display: flex; gap: 8px; }
+  .team-join-dialog .el-dialog__footer .btn { flex: 1; padding: 10px 12px; }
+  .team-share-manager { padding: 18px; }
+}

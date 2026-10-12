@@ -1,0 +1,126 @@
+{
+  "name": "asp_appeal",
+  "domain": "D09",
+  "description": "专业申诉与裁定；客服不能直接改赛果",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "match_id",
+      "type": "bigint",
+      "description": "比赛",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_match",
+      "check": null
+    },
+    {
+      "name": "registration_id",
+      "type": "bigint",
+      "description": "相关报名",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_registration",
+      "check": null
+    },
+    {
+      "name": "applicant_account_id",
+      "type": "bigint",
+      "description": "获授权申请者",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_account",
+      "check": null
+    },
+    {
+      "name": "result_version_id",
+      "type": "bigint",
+      "description": "争议结果",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_result_version",
+      "check": null
+    },
+    {
+      "name": "reason",
+      "type": "varchar(2000)",
+      "description": "申诉理由",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "evidence",
+      "type": "jsonb",
+      "description": "受控证据；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：submitted accepted rejected reviewing decided withdrawn",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('submitted', 'accepted', 'rejected', 'reviewing', 'decided', 'withdrawn')"
+    },
+    {
+      "name": "submitted_at",
+      "type": "timestamptz",
+      "description": "实际提交；有时区业务时间",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "deadline_at",
+      "type": "timestamptz",
+      "description": "规程期限；有时区业务时间",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "decision",
+      "type": "jsonb",
+      "description": "专业裁定及后续晋级影响；必须按版本校验结构",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "fee_obligation_id",
+      "type": "bigint",
+      "description": "如规程要求申诉费，另行费用义务核验",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": true,
+  "checks": [
+    "match_id IS NOT NULL OR result_version_id IS NULL"
+  ],
+  "unique": [],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-appeal",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

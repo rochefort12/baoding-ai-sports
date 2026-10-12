@@ -1,0 +1,199 @@
+{
+  "timestamp": "2026-10-10T18:46:32.733Z",
+  "frontend": "http://127.0.0.1:5192",
+  "backendPort": 8082,
+  "scope": "Actual isolated browser login; synthetic accounts only. No API routing overrides. No real event, bank, SMS, or model acceptance.",
+  "rows": [
+    {
+      "role": "主办方由已审核手机号进入",
+      "passed": true,
+      "path": "/org-desk/home",
+      "heading": "我要办赛"
+    },
+    {
+      "role": "球友1",
+      "username": "16693001000",
+      "passed": true,
+      "path": "/portal/home",
+      "heading": "赛事与体育服务"
+    },
+    {
+      "role": "球友2",
+      "username": "16693001001",
+      "passed": true,
+      "path": "/portal/home",
+      "heading": "赛事与体育服务"
+    },
+    {
+      "role": "球友3",
+      "username": "16693001002",
+      "passed": true,
+      "path": "/portal/home",
+      "heading": "赛事与体育服务"
+    },
+    {
+      "role": "球友4",
+      "username": "16693001003",
+      "passed": true,
+      "path": "/portal/home",
+      "heading": "赛事与体育服务"
+    },
+    {
+      "role": "球友5",
+      "username": "16693001004",
+      "passed": true,
+      "path": "/portal/home",
+      "heading": "赛事与体育服务"
+    },
+    {
+      "role": "球友6",
+      "username": "16693001005",
+      "passed": true,
+      "path": "/portal/home",
+      "heading": "赛事与体育服务"
+    },
+    {
+      "role": "普通政府",
+      "username": "phase1-government",
+      "passed": true,
+      "path": "/index",
+      "heading": "保定体育"
+    },
+    {
+      "role": "平台管理员",
+      "username": "admin",
+      "passed": true,
+      "path": "/index",
+      "heading": "保定体育"
+    }
+  ],
+  "fixtureMetadata": {
+    "events": [
+      {
+        "id": "2108894079239593985",
+        "name": "确认内容变化独立演练",
+        "publication_status": "published",
+        "closure_status": "open",
+        "starts_at": "2026-10-12T20:15:24.389+08:00",
+        "ends_at": "2026-10-13T00:15:24.389+08:00"
+      },
+      {
+        "id": "2108877387205746689",
+        "name": "一期闭环隔离测试羽毛球赛",
+        "publication_status": "published",
+        "closure_status": "closed",
+        "starts_at": "2026-10-12T19:08:44.764+08:00",
+        "ends_at": "2026-10-12T23:08:44.764+08:00"
+      },
+      {
+        "id": "2108883350730125313",
+        "name": "资金退改隔离测试赛",
+        "publication_status": "published",
+        "closure_status": "open",
+        "starts_at": "2026-10-12T19:32:26.58+08:00",
+        "ends_at": "2026-10-12T23:32:26.58+08:00"
+      }
+    ],
+    "units": [
+      {
+        "id": "2108877548267020290",
+        "event_id": "2108877387205746689",
+        "name": "测试双打",
+        "entry_type": "pair",
+        "min_members": 2,
+        "max_members": 2,
+        "limit_count": 2,
+        "used_count": 2
+      },
+      {
+        "id": "2108877548527067137",
+        "event_id": "2108877387205746689",
+        "name": "测试单打最后名额",
+        "entry_type": "individual",
+        "min_members": 1,
+        "max_members": 1,
+        "limit_count": 1,
+        "used_count": 1
+      },
+      {
+        "id": "2108883350931451906",
+        "event_id": "2108883350730125313",
+        "name": "退款单打",
+        "entry_type": "individual",
+        "min_members": 1,
+        "max_members": 1,
+        "limit_count": 1,
+        "used_count": 0
+      },
+      {
+        "id": "2108893984133750785",
+        "event_id": "2108883350730125313",
+        "name": "智能能力收费核对演练",
+        "entry_type": "individual",
+        "min_members": 1,
+        "max_members": 1,
+        "limit_count": 5,
+        "used_count": 0
+      },
+      {
+        "id": "2108894079830990849",
+        "event_id": "2108894079239593985",
+        "name": "独立收费确认演练",
+        "entry_type": "individual",
+        "min_members": 1,
+        "max_members": 1,
+        "limit_count": 5,
+        "used_count": 1
+      },
+      {
+        "id": "2108894192129286146",
+        "event_id": "2108883350730125313",
+        "name": "集结边界演练",
+        "entry_type": "pair",
+        "min_members": 2,
+        "max_members": 2,
+        "limit_count": 10,
+        "used_count": 0
+      },
+      {
+        "id": "2108894713573548033",
+        "event_id": "2108883350730125313",
+        "name": "长期队代表名单演练",
+        "entry_type": "pair",
+        "min_members": 2,
+        "max_members": 2,
+        "limit_count": 10,
+        "used_count": 2
+      },
+      {
+        "id": "2108898593376112641",
+        "event_id": "2108883350730125313",
+        "name": "成员站内确认提醒演练",
+        "entry_type": "pair",
+        "min_members": 2,
+        "max_members": 2,
+        "limit_count": 3,
+        "used_count": 0
+      },
+      {
+        "id": "2108899101524430849",
+        "event_id": "2108883350730125313",
+        "name": "房间公告与管理交接演练",
+        "entry_type": "pair",
+        "min_members": 2,
+        "max_members": 2,
+        "limit_count": 3,
+        "used_count": 0
+      }
+    ],
+    "room": {
+      "id": "2108877550129418240",
+      "name": "青绿集结 · 测试搭档",
+      "host_account_id": "839000001001",
+      "status": "submitted"
+    },
+    "teamId": "2108894712529166337",
+    "entryId": "2108877551786041345",
+    "complaintId": "2108883022450475008"
+  }
+}

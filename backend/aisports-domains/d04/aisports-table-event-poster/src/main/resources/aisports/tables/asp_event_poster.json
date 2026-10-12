@@ -1,0 +1,151 @@
+{
+  "name": "asp_event_poster",
+  "domain": "D04",
+  "description": "赛事宣传材料，来源V021/V024；来源编号仅汇总打开次数，不关联账号",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "event_id",
+      "type": "bigint",
+      "description": "所属赛事",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_event",
+      "check": null
+    },
+    {
+      "name": "channel_name",
+      "type": "varchar(40)",
+      "description": "承办方渠道名称",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "format",
+      "type": "varchar(32)",
+      "description": "资料版式：wechat_group moments a4",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "format IN ('wechat_group', 'moments', 'a4')"
+    },
+    {
+      "name": "source_code",
+      "type": "varchar(16)",
+      "description": "公开链接来源编号，不含个人信息",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "copy_headline",
+      "type": "varchar(80)",
+      "description": "模型生成标题，金额日期由赛事事实填入",
+      "nullable": false,
+      "default": "''",
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "copy_invitation",
+      "type": "varchar(300)",
+      "description": "模型生成邀请句",
+      "nullable": false,
+      "default": "''",
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "copy_body",
+      "type": "varchar(2000)",
+      "description": "群消息或朋友圈正文，海报可为空",
+      "nullable": false,
+      "default": "''",
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "fact_digest",
+      "type": "varchar(64)",
+      "description": "生成时事实摘要，与当前赛事不符则过期",
+      "nullable": false,
+      "default": "''",
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "link_path",
+      "type": "varchar(240)",
+      "description": "已发布的公开路径含来源编号，未发布为空",
+      "nullable": false,
+      "default": "''",
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "visual_file_id",
+      "type": "bigint",
+      "description": "模型生成的无字宣传主视觉，复用event-banner图片用途及组织隔离，不替换赛事封面；来源V025",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_file",
+      "check": null
+    },
+    {
+      "name": "visual_subject_digest",
+      "type": "varchar(64)",
+      "description": "生成时名称与运动项目摘要，变化后主视觉不可复用；来源V025",
+      "nullable": false,
+      "default": "''",
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "visual_request_digest",
+      "type": "varchar(64)",
+      "description": "名称项目受众关键词风格摘要，相同请求复用不重复生图；来源V025",
+      "nullable": false,
+      "default": "''",
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "visual_style",
+      "type": "varchar(24)",
+      "description": "主视觉风格competitive junior community，未生成为空；来源V025",
+      "nullable": false,
+      "default": "''",
+      "reference": null,
+      "check": "visual_style IN ('', 'competitive', 'junior', 'community')"
+    }
+  ],
+  "tenant": true,
+  "checks": [],
+  "unique": [
+    [
+      "source_code",
+      null
+    ],
+    [
+      "event_id, channel_name",
+      null
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-event-poster",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

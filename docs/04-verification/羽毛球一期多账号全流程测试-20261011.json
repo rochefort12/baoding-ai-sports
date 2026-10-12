@@ -1,0 +1,257 @@
+{
+  "schemaVersion": "1.0",
+  "at": "2026-10-11T07:49:54.072Z",
+  "runId": "626cd3f32f36461984a58973a8bab828",
+  "state": "LOCAL_MULTI_ROLE_SYNTHETIC_BADMINTON_REGRESSION_PASSED_WITH_EXTERNAL_GATES_OPEN",
+  "passed": true,
+  "scope": "Ordinary-role real HTTP, UI, PostgreSQL transactions, private storage and model calls; synthetic people, materials, money, scores and award grounds. Not whole-phase real-world acceptance.",
+  "sites": {
+    "main": "http://127.0.0.1:5190/portal/home",
+    "isolated": "http://127.0.0.1:5192/portal/home"
+  },
+  "roleCoverage": [
+    "ordinary organizer",
+    "scoped ordinary government reviewer",
+    "six ordinary participants",
+    "platform operator only for setup and explicit external-honor verification duty"
+  ],
+  "backend": {
+    "path": ".local/business-regression-20261011/626cd3f32f36461984a58973a8bab828/backend-full-r7-c9e1a232a467493a9ed9c12963f81340/maven-package.log",
+    "sha256": "72877a8270ec34652337544e7bad2d1dbe84936cdcb0683ab46c0a4b110b6b1a",
+    "classes": 82,
+    "tests": 391,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "backendJarSha256": "03da46e9cef78f6d72e4c9ebf79840652b7a91fc9ad6e7f01562ace32afd7d07",
+  "sourceBinding": {
+    "path": ".local/business-regression-20261011/626cd3f32f36461984a58973a8bab828/candidate-final-binding-1791703963854-f9c972e0/binding.json",
+    "sha256": "e16e77f92c143f5f879ac5f6817c94d77394e5a4fa9dc1aba52710f75449051d",
+    "sourceFileCount": 1908
+  },
+  "frontend": {
+    "path": ".local/product-release-20261011/frontend-refinement-06a3c80805bf4ad596858dd85c363f1d/receipt.json",
+    "sha256": "a082149f1f4a42da20dcd365d559d2d80cdbef18aadf467d3282226298385fed",
+    "originalBackendBinding": "2bc02718c44c12a185ae84664f9b9227eecf32b7a091fdbed4da0a9e26c34ed2",
+    "currentFrontendSourcesUnchanged": true
+  },
+  "acceptedGates": [
+    {
+      "gate": "canonical-proof",
+      "path": ".local/business-regression-20261011/626cd3f32f36461984a58973a8bab828/canonical-payment-proof-1791703381192-05fb5798/receipt.json",
+      "sha256": "eefd293dca9683dcbb6ee2e3c04d04a06f138cd965c79f6b2bc199f3a3fe9e08",
+      "checks": 12
+    },
+    {
+      "gate": "canonical-results",
+      "path": ".local/business-regression-20261011/626cd3f32f36461984a58973a8bab828/canonical-competition-results-1791703495345-9faa3bb2/receipt.json",
+      "sha256": "722828f191d21276633935ffad4acfd311249a2e6a0ac9645972e954e70097fc",
+      "checks": 45
+    },
+    {
+      "gate": "canonical-closure",
+      "path": ".local/business-regression-20261011/626cd3f32f36461984a58973a8bab828/badminton-aftercare-1791703624251-7e61dc05/receipt.json",
+      "sha256": "77557311e252523ec04bb2e1d389a555866dd3094be6fc4b87ab5fe9220c1579",
+      "checks": 8
+    },
+    {
+      "gate": "canonical-team-closure",
+      "path": ".local/business-regression-20261011/626cd3f32f36461984a58973a8bab828/participant-canonical-scheduled-closure-1791703692716/receipt.json",
+      "sha256": "8d76de1df247ddfeeb4789e9ff5784d2b03c38622979b7296ffb9e4c9e334ff5",
+      "checks": 16
+    },
+    {
+      "gate": "received-link",
+      "path": ".local/business-regression-20261011/626cd3f32f36461984a58973a8bab828/participant-received-1791703519237/receipt.json",
+      "sha256": "030652b402d71ad51fa8bf560bbf65085f41ae8adec995d3da928a94be5e33e2",
+      "checks": 37
+    },
+    {
+      "gate": "future-cancellation-refunds",
+      "path": ".local/business-regression-20261011/626cd3f32f36461984a58973a8bab828/badminton-temporal-boundary-1791703527665-63c072d3/receipt.json",
+      "sha256": "3c242c434f32b7a78b9c479455315b403276274e0af6c615b8dfc741937f9d50",
+      "checks": 35
+    },
+    {
+      "gate": "future-team-closure",
+      "path": ".local/business-regression-20261011/626cd3f32f36461984a58973a8bab828/participant-canonical-closure-1791703774721/receipt.json",
+      "sha256": "b5fa4b88b2dd4bb9399247caf62e894d695b8d052eab5e2ceffa348fd1ee0a1e",
+      "checks": 16
+    },
+    {
+      "gate": "complaint-wrap-up",
+      "path": ".local/business-regression-20261011/626cd3f32f36461984a58973a8bab828/badminton-aftercare-1791703623740-3af44bd4/receipt.json",
+      "sha256": "de91009c48c9b2f037a4d577f7f8620102426a2e5b33d0d9bed212f618fa3d58",
+      "checks": 5
+    },
+    {
+      "gate": "ai-materials-human-publication",
+      "path": ".local/business-regression-20261011/626cd3f32f36461984a58973a8bab828/ai-materials-handoff-9ad3d620-1fa9-4e51-a0b8-2efda9d15348/receipt.json",
+      "sha256": "428647f138f887cc9de0d7c85ace64a0b0c39e30b38a6949e32a65897192ba31",
+      "checks": null
+    },
+    {
+      "gate": "agent-read-only-final",
+      "path": ".local/business-regression-20261011/626cd3f32f36461984a58973a8bab828/agent-business-1791703854580-cf4ffcef/receipt.json",
+      "sha256": "e0fcc0576a43619a114b14912d1f55a8f1c202917d20bdd0f83a6535a0c2129e",
+      "checks": 15
+    },
+    {
+      "gate": "admission-government-scope",
+      "path": ".local/business-regression-20261011/626cd3f32f36461984a58973a8bab828/governance/423a61cd-dfe7-4b23-8ba1-8f708b6122bf/receipt.json",
+      "sha256": "4900fedb8c7fcea1c9e3006bbb63dcf893550e49ab98cce1a1d678b4fb5ba596",
+      "checks": 37
+    },
+    {
+      "gate": "event-and-qualification-gates",
+      "path": ".local/business-regression-20261011/626cd3f32f36461984a58973a8bab828/governance/fdc012da-6c16-485a-8a4b-45f6a8bc90bd/receipt.json",
+      "sha256": "7c2cf92cee38f73eef1ea32fff2ed575fe022bb4654e999a4855e54e5edae5f6",
+      "checks": 23
+    },
+    {
+      "gate": "payment-exception-round-one",
+      "path": ".local/business-regression-20261011/626cd3f32f36461984a58973a8bab828/payment-exception-resolution-1791699351394-0fb05ee6/receipt.json",
+      "sha256": "db020ca72c771e5ad3c32d60be6cc4fe8e9cd424f3b5234dfc9fd200713fc354",
+      "checks": 48
+    },
+    {
+      "gate": "payment-exception-round-two",
+      "path": ".local/business-regression-20261011/626cd3f32f36461984a58973a8bab828/payment-exception-resolution-round2-1791699469744-98da9a48/receipt.json",
+      "sha256": "4f26013c805f792fabda2829a146692db5b8d4f635f5f5ba93e9c38aa19e9f42",
+      "checks": 48
+    },
+    {
+      "gate": "historical-funds-final",
+      "path": ".local/business-regression-20261011/626cd3f32f36461984a58973a8bab828/historical-funds-final-1791701482132-f1fd086b/receipt.json",
+      "sha256": "84cc22c82143c2654757ffb934bf5230bd2ccaf1908d83babe248e138d700923",
+      "checks": 11
+    },
+    {
+      "gate": "identity-negative",
+      "path": ".local/business-regression-20261011/626cd3f32f36461984a58973a8bab828/identity-negative-1791699735369-3b277160/receipt.json",
+      "sha256": "e6dbaec33b3e4eeaf905b61c3ce9f033d254ea311e03083151d812c2347adb92",
+      "checks": 14
+    },
+    {
+      "gate": "creative-materials-current",
+      "path": ".local/business-regression-20261011/626cd3f32f36461984a58973a8bab828/badminton-creative-1791701269629-96bd18f9/receipt.json",
+      "sha256": "c9a788765ac9ddcf23f13d96fa7e2976a047948b21ddc745a975fd109e7ef16c",
+      "checks": 19
+    }
+  ],
+  "supplemental": [
+    {
+      "label": "backup-independent-restore",
+      "path": ".local/business-regression-20261011/626cd3f32f36461984a58973a8bab828/preflight-receipt.json",
+      "sha256": "487628a07814f60af44ebf42827ae8e5693f807ae264b9673a3486933a871cbc",
+      "checks": null
+    },
+    {
+      "label": "closed-private-history",
+      "path": ".local/business-regression-20261011/626cd3f32f36461984a58973a8bab828/participant-closed-history-1791704102294/receipt.json",
+      "sha256": "4ab8a62f5fb2bab71203390fbf766d8e107a73e190991bd28db8f57efe707d52",
+      "checks": 35
+    },
+    {
+      "label": "independent-fixture-and-payment-exception",
+      "path": ".local/business-regression-20261011/626cd3f32f36461984a58973a8bab828/badminton-isolated-boundaries-1791704412054-c0071657/receipt.json",
+      "sha256": "45c7a861ab3f505ed4b56f1fb6f16d134e4de929ab6ee932642be19846237679",
+      "checks": 24
+    },
+    {
+      "label": "live-schema-observation",
+      "path": ".local/business-regression-20261011/626cd3f32f36461984a58973a8bab828/schema-observation-804e1be17faf499fbbcb16efe7935cad.json",
+      "sha256": "aa2d8c02a0ad38270bd82456f10d40763d52be97135ec9905da1f366dd1d59e2",
+      "checks": null
+    },
+    {
+      "label": "ordinary-government-auth-recovery",
+      "path": ".local/business-regression-20261011/626cd3f32f36461984a58973a8bab828/ordinary-government-auth-recovery-1791703623347-598a315d/receipt.json",
+      "sha256": "0b7405c4a5f75359d7aa9b26c1560c327bce75d5999df6ac07beef6aa2fc1127",
+      "checks": 3
+    },
+    {
+      "label": "final-candidate-binding",
+      "path": ".local/business-regression-20261011/626cd3f32f36461984a58973a8bab828/candidate-final-binding-1791703963854-f9c972e0/receipt.json",
+      "sha256": "5c720abf86ad7a5edda3487fd064c9457bb9dc20f4c8414f6a08cc3d3453526d",
+      "checks": 6
+    }
+  ],
+  "indices": [
+    {
+      "label": "participants",
+      "path": ".local/business-regression-20261011/626cd3f32f36461984a58973a8bab828/participant-evidence-1791704145221.json",
+      "sha256": "737110c0cccc64d3f9be0f3784fc67eb093af49e73edad32ae35581a6b4acd01"
+    },
+    {
+      "label": "ai",
+      "path": ".local/business-regression-20261011/626cd3f32f36461984a58973a8bab828/ai-materials-handoff-9ad3d620-1fa9-4e51-a0b8-2efda9d15348/receipt.json",
+      "sha256": "428647f138f887cc9de0d7c85ace64a0b0c39e30b38a6949e32a65897192ba31"
+    },
+    {
+      "label": "governmentAndFunds",
+      "path": ".local/business-regression-20261011/626cd3f32f36461984a58973a8bab828/governance-funds-evidence-1791704942981-306ed88c-3185-40f7-bbd8-c0289ca26ea7.json",
+      "sha256": "b15394d61f42c64cbbaa4fa3a6c0fc19879ac7ce926941d0ce6d522c2f87c763"
+    }
+  ],
+  "main": {
+    "evidence": {
+      "label": "tested-main-package-install",
+      "path": ".local/main-access/business-regression-ed4ae9860a6144ad93ae1cf34e232fb4/receipt.json",
+      "sha256": "0a0a1c80c7d102a569118cd7ef59ad4ffd635e342de86ecfb23f23e94373323b",
+      "checks": null
+    },
+    "pid": 44424,
+    "jarSha256": "03da46e9cef78f6d72e4c9ebf79840652b7a91fc9ad6e7f01562ace32afd7d07",
+    "priorJarSha256": "7cdb504791077a2948b896751abe463d9f8ca504697ce55c1d9362c043ec15f8",
+    "backupSha256": "3c0ab3a1ec5c53ccfced7678a37082e2d2a0bdb769625db51c6e11d6d5cf71c1",
+    "businessFingerprintTables": 46,
+    "businessFactsUnchanged": true,
+    "uiEnabled": 56,
+    "readOnlyAgentEnabled": 5,
+    "agentWrites": 0,
+    "rebound": [
+      {
+        "code": "registration.create",
+        "channel": "ui",
+        "definitionHash": "1eb0cd9d7136ad8e53432b9e4f27ebd941b284517fd6262d9118a07205f6920e"
+      },
+      {
+        "code": "registration.mine",
+        "channel": "agent",
+        "definitionHash": "74cc82b7b50c0306ab376d33f53a6daafd7f7acf12fb34035eea2a333a201444"
+      },
+      {
+        "code": "registration.mine",
+        "channel": "ui",
+        "definitionHash": "74cc82b7b50c0306ab376d33f53a6daafd7f7acf12fb34035eea2a333a201444"
+      },
+      {
+        "code": "registration.submit",
+        "channel": "ui",
+        "definitionHash": "96033ed0f7bf55afc33de1f27739e9d7577d74bb1474fc8dbe7a62b9d7b956de"
+      }
+    ]
+  },
+  "historicalReports": {
+    "docs/04-verification/全局视觉与办理智能体验证-20261011.json": "04b80a823809cf6a5df3e222c2022999749a602b9bab5a8eb96df2f7513e1e71",
+    "docs/04-verification/正式产品界面与创作功能验证-20261011.json": "b9ae393cfd2e3bec596d5bfb0783489f91039d0b5d43cdadc4e7126a390991d5",
+    "docs/04-verification/羽毛球一期闭环本机验证-20261010.json": "6d18927802b75867876af4753f6cdc2b7151689b92af35eca8dc744ba687a0ee",
+    "docs/04-verification/产品组件与视觉验证-20261010.json": "855006d8e09bb1d2839c0bda1152dffa17a28be59a3d3fb6449cf659a7972bf5",
+    "docs/04-verification/浮泡交互与传奇荣誉认证验证-20261011.json": "63e6eb81e82bc610056bffd4cbd0e04890b17e1aa454c5acda2d57263c155d44"
+  },
+  "limitations": [
+    "Synthetic receipts/refunds are not actual bank transactions.",
+    "No real business SMS delivery or positive SMS-dependent registration/recovery/closure.",
+    "No physical on-site match or real world award credential acceptance.",
+    "Configured AI image provider remains unavailable.",
+    "Mobile viewport checks do not establish real-device keyboard or broad accessibility acceptance.",
+    "Natural 24-hour handover expiration and long-term retention remain unobserved.",
+    "Three legacy attribute catalog tables are model/module-only and remain outside enabled badminton workflows.",
+    "Generic Agent write tools and unverified cross-domain delegated actions remain closed.",
+    "Test counts include repeated prerequisites and must not be summed into business delivery or project completion."
+  ],
+  "countsAreNotProgress": true,
+  "noRealWorldAwardClaim": true
+}

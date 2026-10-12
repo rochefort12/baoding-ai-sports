@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "version": "v3-entry-scenes-20261011",
+  "usage": "Decorative navigation scenes; live text labels and actual routes remain in SportArtAction",
+  "resources": [
+    {
+      "key": "growth",
+      "path": "/images/sports/v3/entries/growth.svg",
+      "format": "image/svg+xml",
+      "width": 120,
+      "height": 96,
+      "bytes": 1911,
+      "sha256": "1a0283d7cd20c6396c9c5a8b470e4456c39eead48310d555ea0e300f19e75e12",
+      "source": "Project-authored vector sports scene; no model or user media"
+    },
+    {
+      "key": "registration",
+      "path": "/images/sports/v3/entries/registration.svg",
+      "format": "image/svg+xml",
+      "width": 120,
+      "height": 96,
+      "bytes": 1924,
+      "sha256": "086ef5434395d4e5905fe9237db6fd46427c28a94e966f15b1c68190ffac4392",
+      "source": "Project-authored vector sports scene; no model or user media"
+    },
+    {
+      "key": "results",
+      "path": "/images/sports/v3/entries/results.svg",
+      "format": "image/svg+xml",
+      "width": 120,
+      "height": 96,
+      "bytes": 1993,
+      "sha256": "89710c11f28279885f8ebcf18cc4ec7aff62d42aa5d48e4a7fad6eb398759c77",
+      "source": "Project-authored vector sports scene; no model or user media"
+    },
+    {
+      "key": "rooms",
+      "path": "/images/sports/v3/entries/rooms.svg",
+      "format": "image/svg+xml",
+      "width": 120,
+      "height": 96,
+      "bytes": 2018,
+      "sha256": "ccd0573bf84937708bb8c4527e2f0724f747a455c9b5ce8d38b6581255657ffa",
+      "source": "Project-authored vector sports scene; no model or user media"
+    },
+    {
+      "key": "teams",
+      "path": "/images/sports/v3/entries/teams.svg",
+      "format": "image/svg+xml",
+      "width": 120,
+      "height": 96,
+      "bytes": 1909,
+      "sha256": "91335515b839fa5a19a2c73fe22e4f41ffad96d0edaf138d0f32de11b207e889",
+      "source": "Project-authored vector sports scene; no model or user media"
+    }
+  ]
+}

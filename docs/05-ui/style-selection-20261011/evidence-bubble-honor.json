@@ -1,0 +1,1839 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-11T04:42:13.837Z",
+  "passed": true,
+  "scope": "Current local UI refinement, legend and manual world honor workflow. Controlled test version; not a public release, real world certification, or whole phase-one tournament acceptance.",
+  "jarSha256": "ffe94e14798cbee4627193e6456d17c766aba852ef1ddac46118c8644e0ee464",
+  "sourceFiles": [
+    {
+      "sha256": "4eda1a058ed0b56f10285373005e7af33cd494e0fb0801fbfad857bfa3ba7ce1",
+      "path": "plus-ui/src/animate.ts"
+    },
+    {
+      "sha256": "7ca457289eac6c0df6b1294755440c58cb7ca560cf728e4344284d9a5516df71",
+      "path": "plus-ui/src/api/demo/demo/index.ts"
+    },
+    {
+      "sha256": "c5982f7c4f16dbe9a267a9e8db18f5d59e41c769a924a58111c302fb27c70bb9",
+      "path": "plus-ui/src/api/demo/demo/types.ts"
+    },
+    {
+      "sha256": "48800c554c328366da5b733137b5a851ed00a1cea4786fefece8cde9ba839aa9",
+      "path": "plus-ui/src/api/demo/tree/index.ts"
+    },
+    {
+      "sha256": "e032c74f681ad4574f4f3a7444f893cff328547be0a88b596b90a5a876a8c0c7",
+      "path": "plus-ui/src/api/demo/tree/types.ts"
+    },
+    {
+      "sha256": "fc118226cdd3fd6f9cd5035ff7e44c4ae6380a72fc08652bbd8a526e7a796f11",
+      "path": "plus-ui/src/api/login.ts"
+    },
+    {
+      "sha256": "1726cf26b7e03fdd8866a77b798f8a545031634da899c30123cb3ff022074828",
+      "path": "plus-ui/src/api/menu.ts"
+    },
+    {
+      "sha256": "5a397fb3a058961865a3db414101a7e16c561aefdfee6943169a5cef862111dc",
+      "path": "plus-ui/src/api/monitor/cache/index.ts"
+    },
+    {
+      "sha256": "d69b46b52a24644a9fcb74beb873324b62862b28566c3dba0ac488ec2d08c08b",
+      "path": "plus-ui/src/api/monitor/cache/types.ts"
+    },
+    {
+      "sha256": "9c41193df0f343513b1ef0f597ef149a48d84fc5250b0829cf9a6e8a1325ea83",
+      "path": "plus-ui/src/api/monitor/loginInfo/index.ts"
+    },
+    {
+      "sha256": "9dee323c991116ad410390b7f4125468cbde28d8ae656b0bf84342120b567f8b",
+      "path": "plus-ui/src/api/monitor/loginInfo/types.ts"
+    },
+    {
+      "sha256": "e14a2c433b1f0129bb33718b4cefef87164528e958b90af76e8191b1667bd1e1",
+      "path": "plus-ui/src/api/monitor/online/index.ts"
+    },
+    {
+      "sha256": "9501ef35b6156661348ebcc04cdde88c44435b9830c3e68539d84f7cc2c3941b",
+      "path": "plus-ui/src/api/monitor/online/types.ts"
+    },
+    {
+      "sha256": "c157e636864944cc714810dc2c480b6957081def87b748a4f28e059a3526c07e",
+      "path": "plus-ui/src/api/monitor/operlog/index.ts"
+    },
+    {
+      "sha256": "41e85be2fb35f53168178d3507ec49c0f882139dd9454c06371655d3a4f4a4ae",
+      "path": "plus-ui/src/api/monitor/operlog/types.ts"
+    },
+    {
+      "sha256": "1df8cb016958503136b5b5b2bcb8ed48d53d4a8f63954b5b206ca318cfabe0a6",
+      "path": "plus-ui/src/api/sports/aiTask.ts"
+    },
+    {
+      "sha256": "5f6af357dea049aea621de59c7d733756230f45f6c4df03e2f2e9e5e6f182fae",
+      "path": "plus-ui/src/api/sports/avatar.ts"
+    },
+    {
+      "sha256": "1cc76f6a4ea2798ce69db21ea218e4f543ecbd5672ca695199bfeea0e3b80e9d",
+      "path": "plus-ui/src/api/sports/certifiedDisplay.ts"
+    },
+    {
+      "sha256": "0dca12ff10250b119cbc5862236d797b2de821344ae0236286ad07b1653a38fd",
+      "path": "plus-ui/src/api/sports/competition.ts"
+    },
+    {
+      "sha256": "46d53c0bebc2c93d22f9e3ddcbf7f3d0e54a3d43eb270fd69ff4ce5445f61123",
+      "path": "plus-ui/src/api/sports/consumerAi.ts"
+    },
+    {
+      "sha256": "17dec4f69b6828385ba7c5e7ef20dc233dbe0e2cf6405df1629f9dbb14442ab2",
+      "path": "plus-ui/src/api/sports/desk.ts"
+    },
+    {
+      "sha256": "c6a3d2d70ccdf951e3a589aafc55b08ee88b005e7831fef3d6bf0d6766ad5416",
+      "path": "plus-ui/src/api/sports/event.ts"
+    },
+    {
+      "sha256": "c8b9e1281806079fa6e8ab705cea79acecbf97b4bf9ecb1de5f27953d1e58e21",
+      "path": "plus-ui/src/api/sports/field.ts"
+    },
+    {
+      "sha256": "107a35ba720da8a2313257f97baa16849f95b8cd361f363deb974fe67630a9b6",
+      "path": "plus-ui/src/api/sports/finance.ts"
+    },
+    {
+      "sha256": "c298492184c5c614634874d783781ff7a7089ef5242178c949f4e69cd014a1a1",
+      "path": "plus-ui/src/api/sports/generated/tableObjects.ts"
+    },
+    {
+      "sha256": "fff71732e9bdbc08bb53f885956cd9894621720105a2bc89ca993ed14c409f4a",
+      "path": "plus-ui/src/api/sports/growth.ts"
+    },
+    {
+      "sha256": "6143d11875f15b85f73f880c849f09af865e84338c125e86c2a3f3e9bb59ac8e",
+      "path": "plus-ui/src/api/sports/honorCertification.ts"
+    },
+    {
+      "sha256": "cf32e15c73fe4a9705626d3de7aab0b00737e89b7931168000db8476666a0c1e",
+      "path": "plus-ui/src/api/sports/identity.ts"
+    },
+    {
+      "sha256": "75148bd0ecaa2bf02eb8e668246904f06778118b0341c21ac7deb84ec05877dc",
+      "path": "plus-ui/src/api/sports/media.ts"
+    },
+    {
+      "sha256": "999c535cb42df60d1bb8d401ef1e7ac1e6e66fe40bfde5b9c70bdd8117100c7b",
+      "path": "plus-ui/src/api/sports/notice.ts"
+    },
+    {
+      "sha256": "b0c48aa1a9081df206e8cc805e8b48da514d083b509fa4efa54f2a699f7b9dd9",
+      "path": "plus-ui/src/api/sports/organization.ts"
+    },
+    {
+      "sha256": "cd9251244feb933afb855fe7eb10e1b87658409b5281a650211ad7d0122d4b33",
+      "path": "plus-ui/src/api/sports/organizerMaterials.ts"
+    },
+    {
+      "sha256": "3819d8a2ef904a2b201c0227fa34b67859d47caff16f4a7cc3aff7d0852e626f",
+      "path": "plus-ui/src/api/sports/phase1.ts"
+    },
+    {
+      "sha256": "1eef5009dc891b0d3e0f3f1aa0e8f939054cca6cde6d5a717fa37f7820cf3a71",
+      "path": "plus-ui/src/api/sports/promotion.ts"
+    },
+    {
+      "sha256": "23f021f73f73baca89088c11d5f2da1bc039c08590655b6271c60742687476a8",
+      "path": "plus-ui/src/api/sports/registration.ts"
+    },
+    {
+      "sha256": "126071571b6a964a5d22b2872e10027582f59544d79544c9eba4ee3870106812",
+      "path": "plus-ui/src/api/sports/team.ts"
+    },
+    {
+      "sha256": "d8f7bbff95185ac706e2ed1bc65808cd75bf06d545411d1d6d328d5aef812957",
+      "path": "plus-ui/src/api/system/client/index.ts"
+    },
+    {
+      "sha256": "09be82d7e2ec58f799101b9cd24406282992e70b9c4e153ea7b9a572c5a34889",
+      "path": "plus-ui/src/api/system/client/types.ts"
+    },
+    {
+      "sha256": "2c5bc09b6986b4fdd8b1a506540459812efc5173eac8204eed8aa91b483d0e1a",
+      "path": "plus-ui/src/api/system/config/index.ts"
+    },
+    {
+      "sha256": "a6407237b1ffdad2ee56a3d369de8f09e7647216b9ea836eae52d5fe62782ee7",
+      "path": "plus-ui/src/api/system/config/types.ts"
+    },
+    {
+      "sha256": "b09b9a3e81580d3341827bf4fd0b3bc6e740be5b58e8b4ce6632aa61b75a236d",
+      "path": "plus-ui/src/api/system/dept/index.ts"
+    },
+    {
+      "sha256": "755556b9ef79a12747d34bc5dced9e1cecb96bdab10178aea8734344108475ac",
+      "path": "plus-ui/src/api/system/dept/types.ts"
+    },
+    {
+      "sha256": "db96456737e9d3d1943e34fed77e0265400e65572c56e94d9e82154f57d31b82",
+      "path": "plus-ui/src/api/system/dict/data/index.ts"
+    },
+    {
+      "sha256": "15893345fffe45767420dabf1a51cee3052326f57dc3cb8074067258ba7dfd2c",
+      "path": "plus-ui/src/api/system/dict/data/types.ts"
+    },
+    {
+      "sha256": "86b00236b7995ce0d386219913b1fcc964a0d657a74e7f63f3117ca1284eff72",
+      "path": "plus-ui/src/api/system/dict/type/index.ts"
+    },
+    {
+      "sha256": "db001dd1b3643baf7f212ebf7401deca40b6c3c7973e29bd718d85a75224f7d4",
+      "path": "plus-ui/src/api/system/dict/type/types.ts"
+    },
+    {
+      "sha256": "cf07f5c896e17a81220bdf1360a1699dfe1ea6508a62e7f8d7026a37d019d7bc",
+      "path": "plus-ui/src/api/system/menu/index.ts"
+    },
+    {
+      "sha256": "845765ebd72e3546f28096ab8156be60188b4db60c608a1c35dfc4da585414b6",
+      "path": "plus-ui/src/api/system/menu/types.ts"
+    },
+    {
+      "sha256": "a962fc8c9a2bcf08b73268a6af6ac212dcba3617967ebc2e21bf9aab01f78d7e",
+      "path": "plus-ui/src/api/system/notice/index.ts"
+    },
+    {
+      "sha256": "afdf9a576970d893f6b2b7be91fd5f8c267c9db0e01ff26d88337acb5fdad5af",
+      "path": "plus-ui/src/api/system/notice/types.ts"
+    },
+    {
+      "sha256": "ecd47a926200d02b5672976677fc9ab01af965204ec1f6f6af140061cfc64e1a",
+      "path": "plus-ui/src/api/system/oss/index.ts"
+    },
+    {
+      "sha256": "5e1e2254094cb2ad2fe8d08a35b421cf6387bb2ce85678b558af4cb6293d1f52",
+      "path": "plus-ui/src/api/system/oss/types.ts"
+    },
+    {
+      "sha256": "4923f2568601837dd68dd03d3f7ce1dff1dc1c5e69c5d6180cc0c003ef962066",
+      "path": "plus-ui/src/api/system/ossConfig/index.ts"
+    },
+    {
+      "sha256": "a584f88755d8f94f61e7c5b9357f500b697ce471add1e0560cd98ef8364cc805",
+      "path": "plus-ui/src/api/system/ossConfig/types.ts"
+    },
+    {
+      "sha256": "3b5ed361bc0c5da5cc9d97a843a226246fef7547ecfe64779de2b30e2ca45aa5",
+      "path": "plus-ui/src/api/system/post/index.ts"
+    },
+    {
+      "sha256": "e54ad5ee1020434876a59c372f3ef6d08bc1f63b25a947cacd37f9b2fdd7b1cb",
+      "path": "plus-ui/src/api/system/post/types.ts"
+    },
+    {
+      "sha256": "81a19149a19c4cf6a431dc433201b337a75f9bd3255401daae697906a075ee4a",
+      "path": "plus-ui/src/api/system/role/index.ts"
+    },
+    {
+      "sha256": "c758b07fba2553c10176c58352acab40e1ca2e66d58c1ba189f006c85c463445",
+      "path": "plus-ui/src/api/system/role/types.ts"
+    },
+    {
+      "sha256": "3682a1356d8e52ca3b7a80b3f270918ac6dcb07acc20529ebfc19922b7815dd8",
+      "path": "plus-ui/src/api/system/social/auth.ts"
+    },
+    {
+      "sha256": "c2aa5a2db73e06a048a462e976f4c9f1f446d205341fe8a4b3501001ce2c0f64",
+      "path": "plus-ui/src/api/system/tenant/index.ts"
+    },
+    {
+      "sha256": "e0ae7caa2eced5fc1d4787f1736af412181b26fbf15bd2a8d82529d87304f7e7",
+      "path": "plus-ui/src/api/system/tenant/types.ts"
+    },
+    {
+      "sha256": "279381016a7c8e2b57ec6bd0d76dc0ec8951a2870133d651560eb4b0043bcc7e",
+      "path": "plus-ui/src/api/system/tenantPackage/index.ts"
+    },
+    {
+      "sha256": "22d64e6b4824dd1eec5b8ab72e72b80d852f4b337a5cfc38c73defd3e4523c2f",
+      "path": "plus-ui/src/api/system/tenantPackage/types.ts"
+    },
+    {
+      "sha256": "284c532f1490cf44825a5b9f0c95eea05190aeb82a3b7b8d8baa196b7655b5a2",
+      "path": "plus-ui/src/api/system/user/index.ts"
+    },
+    {
+      "sha256": "7ec6747a0394ab4a161bf8e62164b7b5a7df8b40e6160b185d01c52bc7c551a8",
+      "path": "plus-ui/src/api/system/user/types.ts"
+    },
+    {
+      "sha256": "130cea3db446ce6dfaf6d82afec336aee7dcbf0ec9546fca5da89fd1382d2b5f",
+      "path": "plus-ui/src/api/tool/gen/index.ts"
+    },
+    {
+      "sha256": "7d8e6af42ada53415bafd959f269d3a54f13437ce29b1ee0bd9cb80f7edf6362",
+      "path": "plus-ui/src/api/tool/gen/types.ts"
+    },
+    {
+      "sha256": "081412a7a193f6a39eaa57277b34f973a3f51b775426297c4309ceff5fd305e9",
+      "path": "plus-ui/src/api/types.ts"
+    },
+    {
+      "sha256": "ac72d54e703eab163be9d52da61a280cca41cb0a5b3419dd64163bfc4283bff5",
+      "path": "plus-ui/src/api/workflow/category/index.ts"
+    },
+    {
+      "sha256": "85959733961f64ed05f4bcfad4cf10ef4d22b0ef8afa91ecf196bf043f57934f",
+      "path": "plus-ui/src/api/workflow/category/types.ts"
+    },
+    {
+      "sha256": "c3c07bec264856a2ed62fd76a55fe819248587b4d594439571b3724683fcf205",
+      "path": "plus-ui/src/api/workflow/definition/index.ts"
+    },
+    {
+      "sha256": "d16402a87d6fcc2c4e97d13cec1b865885fb65095ad961dbdd04d8532d2b5c2f",
+      "path": "plus-ui/src/api/workflow/definition/types.ts"
+    },
+    {
+      "sha256": "9773a62c059d1c5905ccd3319494d66e0ff95906412977b4aea2e09d6e669148",
+      "path": "plus-ui/src/api/workflow/instance/index.ts"
+    },
+    {
+      "sha256": "2f424dd74b320bea32ce2356e95cab3636adf87762c9b8eeb4f12cfc02d9206f",
+      "path": "plus-ui/src/api/workflow/instance/types.ts"
+    },
+    {
+      "sha256": "1d4858ceb59cbe1b99f918a9b4340577c3345ab14156b8c407974ae6294e5664",
+      "path": "plus-ui/src/api/workflow/leave/index.ts"
+    },
+    {
+      "sha256": "53a128e0e4b91526b05f1b4acf87a9a1f4bfb99a44c9322f851699df16c3180c",
+      "path": "plus-ui/src/api/workflow/leave/types.ts"
+    },
+    {
+      "sha256": "3766a3142ee8764265bc03a748418b8687c07975e33a2e1e448b05f129abadc8",
+      "path": "plus-ui/src/api/workflow/spel/index.ts"
+    },
+    {
+      "sha256": "4715c3e8d100d89555e7482728b9eb52f6c883132bd494a345c8645636a3c8a3",
+      "path": "plus-ui/src/api/workflow/spel/types.ts"
+    },
+    {
+      "sha256": "f8ed6a7847d41ce98c20db9ccf5bc5c68425c37585e9c85dcf2c4619f3a4b341",
+      "path": "plus-ui/src/api/workflow/task/index.ts"
+    },
+    {
+      "sha256": "06fb7eba9fb6c5739af77b120a9a7fe2007445e6921de742dc99ea7b47d5b0fc",
+      "path": "plus-ui/src/api/workflow/task/types.ts"
+    },
+    {
+      "sha256": "770389a5cc8dd9c34aca921b04228b3bb509531260c183fac3c35fe4a21da0d7",
+      "path": "plus-ui/src/api/workflow/workflowCommon/index.ts"
+    },
+    {
+      "sha256": "97d7bf165a83cef10ea9498229623687c72619c1fa42c3cee18cfcb2bc49cff6",
+      "path": "plus-ui/src/api/workflow/workflowCommon/types.ts"
+    },
+    {
+      "sha256": "f13271e5dfdab2f81fb29d6cad33b44ba7b6d0ed25e3f58a214978dae7dcf06f",
+      "path": "plus-ui/src/App.vue"
+    },
+    {
+      "sha256": "067afc1fd6ef59e1a6b50858893f8b5c91da56bf8e8416529976ffdd414f1a49",
+      "path": "plus-ui/src/assets/styles/assistant-markdown.scss"
+    },
+    {
+      "sha256": "8ee83b0300e734b129c04123204d307310a02e3e5c303cc08a2a1e0ef221b6a5",
+      "path": "plus-ui/src/assets/styles/btn.scss"
+    },
+    {
+      "sha256": "4f20cff250f76d655d8ecd905177ff66d0025f58a5d8175c4557aec8b4cf907c",
+      "path": "plus-ui/src/assets/styles/business-ai.scss"
+    },
+    {
+      "sha256": "062bf3d817303694e38922980cf8509945db0a486fb1e1e7d84f501153bff84b",
+      "path": "plus-ui/src/assets/styles/business-payments.scss"
+    },
+    {
+      "sha256": "91cd9f90401b640884d6b32c3a009d5e92a6b434de42a7c94390866aa335031c",
+      "path": "plus-ui/src/assets/styles/business.scss"
+    },
+    {
+      "sha256": "df878ffd2ea6462cf4100ba90aa3f11078b4bb1460b7f9a45b3e58c7af5997f6",
+      "path": "plus-ui/src/assets/styles/consumer-ai.scss"
+    },
+    {
+      "sha256": "f17310e500e0a073f18347b4b71f16a19ab5f1d59739925584abd3cb34ed772f",
+      "path": "plus-ui/src/assets/styles/consumer.scss"
+    },
+    {
+      "sha256": "1163d7c37d70744f04983a60e27ea40c4ab89a6ab2710ec5dfd6ee0e197fd67c",
+      "path": "plus-ui/src/assets/styles/design-system.scss"
+    },
+    {
+      "sha256": "c6ef261f97186b35fbcd8b7e50ce4ecf90d054bff7326981a627c123ca289e30",
+      "path": "plus-ui/src/assets/styles/element-ui.scss"
+    },
+    {
+      "sha256": "5c4e811668e0e00668e2f172d0022c470be3352c0c27268b060f75a344e5a1da",
+      "path": "plus-ui/src/assets/styles/generated-crud.scss"
+    },
+    {
+      "sha256": "0ee8f5af5502332e9ba2a06d9c1be87e350102d7d4f3967be84035bab628cf35",
+      "path": "plus-ui/src/assets/styles/honor-certification.scss"
+    },
+    {
+      "sha256": "7db85209b62a87fa373b4e77c6109406f9c78ead7dd0831aee02d356745cfb64",
+      "path": "plus-ui/src/assets/styles/index.scss"
+    },
+    {
+      "sha256": "715cba8c39c6ac243ad45bb12e6f10feaf03105847b3e68a721bdbb974768839",
+      "path": "plus-ui/src/assets/styles/mixin.scss"
+    },
+    {
+      "sha256": "13e512d7faea7ee2f79f1b32182a746dda79e56074a051fc9948a57ca6b24cd8",
+      "path": "plus-ui/src/assets/styles/product.scss"
+    },
+    {
+      "sha256": "6e91434aeed6dd472a07a7daf10bf128210bc997aa552bfb3e3265923ab5a07e",
+      "path": "plus-ui/src/assets/styles/ruoyi.scss"
+    },
+    {
+      "sha256": "1c6e3468648f570b97ecb2f1a95c9f512b81ffa1822c5fd77917338adb113085",
+      "path": "plus-ui/src/assets/styles/sidebar.scss"
+    },
+    {
+      "sha256": "3d6a0f6e36c53000b5aca8870e884574da6231c6084696021bf8d2b2d6f41c41",
+      "path": "plus-ui/src/assets/styles/sport-controls.scss"
+    },
+    {
+      "sha256": "f0701d6869e0442633e9a0b1eb1834d5ac574a595466731e4ad044a0b3d8f488",
+      "path": "plus-ui/src/assets/styles/sports-agent.scss"
+    },
+    {
+      "sha256": "5ef0f5ba9d6bd0457add5ce9af31c7c3af86d8f1c832fdf844106801cf5a3239",
+      "path": "plus-ui/src/assets/styles/sports-assistant.scss"
+    },
+    {
+      "sha256": "51528b7296815e1cb8ada1ff520b83aaeac4d34d9e67e84b817d0a121a4a6d7e",
+      "path": "plus-ui/src/assets/styles/transition.scss"
+    },
+    {
+      "sha256": "54d9a1e47326691926aeb275980014f07a15c3d9a0984fce7e59e9e405f0e46e",
+      "path": "plus-ui/src/assets/styles/variables.module.scss"
+    },
+    {
+      "sha256": "554dc9994abf7a81da16c7fd9b0a4718161e42febcdaeae5d2ece037961153be",
+      "path": "plus-ui/src/components/Breadcrumb/index.vue"
+    },
+    {
+      "sha256": "7c687de739ce172bbfca3513b810d1ab5d214efccffd6445b56a8138aa70f84a",
+      "path": "plus-ui/src/components/business/BusinessAssistant.vue"
+    },
+    {
+      "sha256": "5a0993fef1fd0f7bb83c3f25f7c0e301cfe2bef2209ef4a5faebea901958b1c8",
+      "path": "plus-ui/src/components/business/EventCoverEditor.vue"
+    },
+    {
+      "sha256": "5016890ae81cadc3511e0d0921844fa591785b0edf228bd2802bd863a9dda3f2",
+      "path": "plus-ui/src/components/business/EventCoverSettings.vue"
+    },
+    {
+      "sha256": "d5be048820b4b35f8bb982e48fce86e5d689baa8bcbf017f48f22efeafa66964",
+      "path": "plus-ui/src/components/business/EventMaterialStudio.vue"
+    },
+    {
+      "sha256": "612b40b0be46b7ab963ade90e88eb6054cf6ff09eb970899b9c90b02182812ee",
+      "path": "plus-ui/src/components/business/EventPaymentSettings.vue"
+    },
+    {
+      "sha256": "0d689fc27fd116c0eb9a79067c0fd7a98c5dd30c464eb8688b49f89077db8c44",
+      "path": "plus-ui/src/components/business/FeeChoice.vue"
+    },
+    {
+      "sha256": "1b46e6eb1234e68082001c5dad4741af17736ebfb4e1acbadab0c9f21de438b8",
+      "path": "plus-ui/src/components/business/HonorCertificationReview.vue"
+    },
+    {
+      "sha256": "eea76c4a2dd16c362ea5ce5a28f9ef0c50ed576cb0cbc85a48b5bc6563f187f2",
+      "path": "plus-ui/src/components/business/InlineFeeEditor.vue"
+    },
+    {
+      "sha256": "37bd1dde912cf9ad35146feb3271fbef068b36cd3139b6a583debf911c54166d",
+      "path": "plus-ui/src/components/business/OrganizerEventCover.vue"
+    },
+    {
+      "sha256": "d6277fe49b59bcdf4a94d02c688a95e1ae1193f01dd682f4aa99cde9e233dde2",
+      "path": "plus-ui/src/components/business/PaymentChannels.vue"
+    },
+    {
+      "sha256": "9615d0f8f00361ba28486c42d6b73f7141271555a03b87f91714e563a0f4d39a",
+      "path": "plus-ui/src/components/business/PaymentProofPanel.vue"
+    },
+    {
+      "sha256": "65d664907afc9b870cddfbf1e07eaf4d177edba3a15648adc36b290da77e434b",
+      "path": "plus-ui/src/components/business/PromotionBoard.vue"
+    },
+    {
+      "sha256": "de0fa592b9bfb2718d10e373423ab6ead2d7bdbccf7109f3615ef861f1e5f595",
+      "path": "plus-ui/src/components/consumer/AgentPanel.vue"
+    },
+    {
+      "sha256": "ef5b15c2efe16b30df9eafaa96eda4a98827cfde8faed276c06541c7cd8e11d6",
+      "path": "plus-ui/src/components/consumer/AssistantBubble.vue"
+    },
+    {
+      "sha256": "3029ed9f803962df7c3f28e79750b85c3ff0b8e58bdb23a369cc77633bff8876",
+      "path": "plus-ui/src/components/consumer/AssistantWindow.vue"
+    },
+    {
+      "sha256": "8d7f4d8057e098fdd0004f4153294fd5654d5dd11f60deebff0c5119409a7754",
+      "path": "plus-ui/src/components/consumer/AvatarFrame.vue"
+    },
+    {
+      "sha256": "6e199afeee2c764aad2249bdedb4f37be664dbd60939531ed7b1a11d82ad28bc",
+      "path": "plus-ui/src/components/consumer/BattleCardButton.vue"
+    },
+    {
+      "sha256": "86c21b453fad1265d5b1dc5427a345a0fb4c6689568434a9452423d4efe6c53f",
+      "path": "plus-ui/src/components/consumer/CertifiedHonorBadge.vue"
+    },
+    {
+      "sha256": "adcb217a42b17b5c2a4a75c816926c23d0b1142f6fa6c0dcfa52af75a7de5d49",
+      "path": "plus-ui/src/components/consumer/ConfirmationSummary.vue"
+    },
+    {
+      "sha256": "89541a1e10eef0e262145cd8ade71988f0b2b674e754bb17d3ddfd7d722aae2e",
+      "path": "plus-ui/src/components/consumer/ConsumerAssistant.vue"
+    },
+    {
+      "sha256": "8bb345aa62acff4d4fc767e75aaddf4d19f4381df2a72b395339beb5ea135928",
+      "path": "plus-ui/src/components/consumer/ConsumerAuthLayout.vue"
+    },
+    {
+      "sha256": "7db4f4edbab4686a7598cdc048be439b72f3f93e55b38666dc3614a5f9903abe",
+      "path": "plus-ui/src/components/consumer/ConsumerIcon.vue"
+    },
+    {
+      "sha256": "6284e8d1b8711ea3f1957303a60b51eceabdc8947cb8462e0d08de97e0f7bd1e",
+      "path": "plus-ui/src/components/consumer/ConsumerNextStep.vue"
+    },
+    {
+      "sha256": "252a12240206dd4af0190618883bbec2757f5cc2964a923d4e1315ff0255e7d2",
+      "path": "plus-ui/src/components/consumer/ConsumerPageHeader.vue"
+    },
+    {
+      "sha256": "1b1588bf2548173de30ed7cdb420758b88166913e92553d8d6dab12e48a7e1b3",
+      "path": "plus-ui/src/components/consumer/ConsumerState.vue"
+    },
+    {
+      "sha256": "dcaadc75193f7f642a14bf9644740293fc388ca1af114400a72d9a370a69856c",
+      "path": "plus-ui/src/components/consumer/CourtArt.vue"
+    },
+    {
+      "sha256": "06469cd20b91a4349ec2e1ff2a44df7a9c8b86bfadc10a91b6614641fd0d73aa",
+      "path": "plus-ui/src/components/consumer/EntryHandover.vue"
+    },
+    {
+      "sha256": "cff07b7d3868a16cc615c017ce72caf2e8596903854eba184796d85f088c94d9",
+      "path": "plus-ui/src/components/consumer/EventCover.vue"
+    },
+    {
+      "sha256": "6beca561a94e8d4f15579d07e237bb0a7acaa76ef0b455dfc9a85ab87b919641",
+      "path": "plus-ui/src/components/consumer/EventDetailContent.vue"
+    },
+    {
+      "sha256": "fc355b537e7bf1387e9a44d054254a71a8f8e0b95b15d93b92a2c61169f5a7bf",
+      "path": "plus-ui/src/components/consumer/GrowthTitleGoals.vue"
+    },
+    {
+      "sha256": "8e3b885a5e792b02e9130f416de5d5a0082952f53b8c187351549a0af40fbec4",
+      "path": "plus-ui/src/components/consumer/HonorCertification.vue"
+    },
+    {
+      "sha256": "89a6f529ee31d4274b8bd3b9a3e129471815c2123821dd72eb7ba7b13d54b7a0",
+      "path": "plus-ui/src/components/consumer/OfficialAwardMedal.vue"
+    },
+    {
+      "sha256": "02889ad84ba4c02f9a590cfa1f76d4ebc4e1d7e0f351c55f5048e7c65ba0eda5",
+      "path": "plus-ui/src/components/consumer/PlatformScene.vue"
+    },
+    {
+      "sha256": "1e4a7b9ca838da3ebcac438bba5efbb54fc398d1bbe9bf8cdb77172546760871",
+      "path": "plus-ui/src/components/consumer/ProofCardButton.vue"
+    },
+    {
+      "sha256": "730b9d67925e620059ad572e67d451121e43743fe3bb8b1d9487639d2a700a41",
+      "path": "plus-ui/src/components/consumer/PublicEventCard.vue"
+    },
+    {
+      "sha256": "a392922fcca528c0da63f8cad3ed06c0b74564578efbcbe1b55cc9181c95c707",
+      "path": "plus-ui/src/components/consumer/SportsAvatar.vue"
+    },
+    {
+      "sha256": "ed48a4639bd0f4d81db9c9bd51323bbf477e91feeb2a1585fea4413368583965",
+      "path": "plus-ui/src/components/consumer/SportsAvatarEditor.vue"
+    },
+    {
+      "sha256": "2a0b2a8aa5cb39fb2f8a126aeb2ac9d9d2559ffa055b3b3a75356f368a17476d",
+      "path": "plus-ui/src/components/consumer/SportsProfileCard.vue"
+    },
+    {
+      "sha256": "3e9a84c221002d7b12894361b88108183e0aa10d86310c8bb9f1fc1828ce9669",
+      "path": "plus-ui/src/components/consumer/SportsRankBadge.vue"
+    },
+    {
+      "sha256": "8afcc36cd238e2b93d37e52e005c2d96891ba8b32867d8dc5046a0a19970998f",
+      "path": "plus-ui/src/components/consumer/SportsTitleBadge.vue"
+    },
+    {
+      "sha256": "5ed8b89dc8b73fc621092e47a40f98ce5e559cfc2022ba5b04b5cac9ce54f067",
+      "path": "plus-ui/src/components/consumer/TeamGrowthPanel.vue"
+    },
+    {
+      "sha256": "21fbd60977cd4823dc77b93f5d60e5b0627b0fe77f0aa788e58c4950aada9d61",
+      "path": "plus-ui/src/components/DictTag/index.vue"
+    },
+    {
+      "sha256": "9f19dc1ebdb58184170bdeef9c61293c4dbd9ff0d2b77d399de044281251ce55",
+      "path": "plus-ui/src/components/Editor/index.vue"
+    },
+    {
+      "sha256": "666824e1758a91e0d9be7a1e166d00edb362000a2c440aa28469a613bb5b142b",
+      "path": "plus-ui/src/components/FileUpload/index.vue"
+    },
+    {
+      "sha256": "218c8c842813b0bbb475523a23e1005367724f7a0a523f7ef874f173e31c755b",
+      "path": "plus-ui/src/components/Hamburger/index.vue"
+    },
+    {
+      "sha256": "db09005b1c001d9e1843e57ceecc3c83309079e2b3b2f22efd3555f8b34efe0d",
+      "path": "plus-ui/src/components/IconSelect/index.vue"
+    },
+    {
+      "sha256": "c306385142e434fdfac3ea3fe1101b5e41b6495efbed3881857f56651aefb9d4",
+      "path": "plus-ui/src/components/IconSelect/requireIcons.ts"
+    },
+    {
+      "sha256": "f1774bf8228a70be0ed6e3f89dcedbea4d7874b6a42854d5ad5b2b493d3ece5e",
+      "path": "plus-ui/src/components/iFrame/index.vue"
+    },
+    {
+      "sha256": "bdcf6c5300390fd2af661e7448c5753fecbd8cdba05204267659b35cb99d2a2e",
+      "path": "plus-ui/src/components/ImagePreview/index.vue"
+    },
+    {
+      "sha256": "f3a21ea62400d2da987daa7384a0eb3c815fff5e828e63a8bcb40f56fe7ba294",
+      "path": "plus-ui/src/components/ImageUpload/index.vue"
+    },
+    {
+      "sha256": "bb2642b45a7c65ff02effd7a2e1340f1268ed1ad7f43311d9919453869930423",
+      "path": "plus-ui/src/components/LangSelect/index.vue"
+    },
+    {
+      "sha256": "65edfaa8a67f017485e7f9056edcac16853b463ac45a965e9b5a728d315f73d8",
+      "path": "plus-ui/src/components/Pagination/index.vue"
+    },
+    {
+      "sha256": "656e64166110b11cc4da47778d5605a4a495f10d30335172102f105d4b8b33a2",
+      "path": "plus-ui/src/components/ParentView/index.vue"
+    },
+    {
+      "sha256": "a0724e4f6bac02175f8a7a34f6b386e7634c566787b10b37f1ccf4aafe90ea1f",
+      "path": "plus-ui/src/components/Process/approvalButton.vue"
+    },
+    {
+      "sha256": "8120e166d7bbce69ae58c71721c254ad6d61ab57d7139434ee08e5091a8576c3",
+      "path": "plus-ui/src/components/Process/approvalRecord.vue"
+    },
+    {
+      "sha256": "86f94666c190f6bc95bdecf2439d3ab95ecfd09a930eb3e9b7264a5b334fb0fc",
+      "path": "plus-ui/src/components/Process/flowChart.vue"
+    },
+    {
+      "sha256": "ff1533b3039a0fb23482c0e9257e259e2aa699d92781fa92e1b14dd27be64a54",
+      "path": "plus-ui/src/components/Process/flowChartImg.vue"
+    },
+    {
+      "sha256": "78e00b3e9095df38ca2a8294475d79ef9dbe848e1e39349378a9e67160988de4",
+      "path": "plus-ui/src/components/Process/MessageType.vue"
+    },
+    {
+      "sha256": "7994ee8811d003ec4e1faed251edfc864d88593b48efad666715cb78795d9ad6",
+      "path": "plus-ui/src/components/Process/processMeddle.vue"
+    },
+    {
+      "sha256": "a814d8628dfb67e2b03c03ac2f73fafb0ad64681bfe87b96b5e2e9a7896338fb",
+      "path": "plus-ui/src/components/Process/submitVerify.vue"
+    },
+    {
+      "sha256": "41a9c62a86f1014c94c8cb1c1cff96f8798d921553719729c73d77488a273bfa",
+      "path": "plus-ui/src/components/RightToolbar/index.vue"
+    },
+    {
+      "sha256": "06de85710b2a7c4f2fe481ae6e92dbc120b25d44372e750cdf6266805f6b6d1b",
+      "path": "plus-ui/src/components/RoleSelect/index.vue"
+    },
+    {
+      "sha256": "bd9b3ea43ffb636a93d272f14d5f8258baa699b523861f770f0136344fbca1ff",
+      "path": "plus-ui/src/components/RuoYiDoc/index.vue"
+    },
+    {
+      "sha256": "3c27704d4eabfa6758d4266cf730a7c07364e67edf79b313f5459a47e39e0d47",
+      "path": "plus-ui/src/components/RuoYiGit/index.vue"
+    },
+    {
+      "sha256": "876d239902a98aafaced8f35affbd82649c5fd26d13bb132751cd77eeade39ef",
+      "path": "plus-ui/src/components/Screenfull/index.vue"
+    },
+    {
+      "sha256": "26c1149d75103b8b8cf4462bd99c2c5dd60638c91cbd8335a41cb3ef33d4a6af",
+      "path": "plus-ui/src/components/shared/AssistantMarkdown.vue"
+    },
+    {
+      "sha256": "8e97f4148bd9c53b949d1576402b8c0219362ae9c18c6a99026cf39f5590e418",
+      "path": "plus-ui/src/components/SizeSelect/index.vue"
+    },
+    {
+      "sha256": "079b12746d3985b3c8c56bbaa0f471f9c0677e06d28754aefc5df8d8658837c5",
+      "path": "plus-ui/src/components/sport-ui/CourtScene.vue"
+    },
+    {
+      "sha256": "a3c0e431faa892963237c0ee4b2d247934a6d864e3cd2907252aaae9f55fe1a7",
+      "path": "plus-ui/src/components/sport-ui/SportArtAction.vue"
+    },
+    {
+      "sha256": "b5cac3a02075333c6eab1abe7b9028c87e51af5a720574cf2007732965fa3fd8",
+      "path": "plus-ui/src/components/sport-ui/SportBrandMark.vue"
+    },
+    {
+      "sha256": "41c1b6874407e914c6e3dceef959795e66310908cc4f50395c07cff8e8d792df",
+      "path": "plus-ui/src/components/sport-ui/SportButton.vue"
+    },
+    {
+      "sha256": "5d81f3855fd417f369aa89e761f18a62af8f4f1a4085650ef2921a9eebc8154b",
+      "path": "plus-ui/src/components/sport-ui/SportCard.vue"
+    },
+    {
+      "sha256": "4a546553d2c40242f2fc999636aa2ed4a6f48b415e4897dfe7a7f73c0c43fa6a",
+      "path": "plus-ui/src/components/sport-ui/SportEmpty.vue"
+    },
+    {
+      "sha256": "de617fcfd86cca520727c7fb859b9b6e6ca4e15e54477ec3399d970ff6457618",
+      "path": "plus-ui/src/components/sport-ui/sportEntryArt.ts"
+    },
+    {
+      "sha256": "a05e33c2d0d2f7a5d666022b708569181cf1f6d3a6524257f4a9a9b59983535c",
+      "path": "plus-ui/src/components/sport-ui/SportEventFilters.vue"
+    },
+    {
+      "sha256": "298523fca644a8886a98c2df34578da4505ee2cf1ea40e71f88ed62c42481c8e",
+      "path": "plus-ui/src/components/sport-ui/SportField.vue"
+    },
+    {
+      "sha256": "cd6ae119a935a0e0f0bbb0cfc492cb522326e7231643bec4682a7906095947df",
+      "path": "plus-ui/src/components/sport-ui/SportHeader.vue"
+    },
+    {
+      "sha256": "8ca4250b64ae8127cfd18473dc4a335dafb4b7e0b56b936e88126cf1991772ff",
+      "path": "plus-ui/src/components/sport-ui/SportMetric.vue"
+    },
+    {
+      "sha256": "5de84f5fae2de429e09596921d789ac4a6f139b6380b56bdc8d587db2c25ac67",
+      "path": "plus-ui/src/components/sport-ui/SportPill.vue"
+    },
+    {
+      "sha256": "b9442a82de5f629adf7361215165a8c5f8c0192ae9bc8a5877a69f91af872a4b",
+      "path": "plus-ui/src/components/sport-ui/SportSelect.vue"
+    },
+    {
+      "sha256": "4a680a7ff2602a8bbd116c178e99543f82f83d21299a38f1bb8c229254295729",
+      "path": "plus-ui/src/components/sport-ui/SportTabs.vue"
+    },
+    {
+      "sha256": "47cd85785ec59d946c37b5d99bd5fee26ba99b796ddd92eb17f5c4e2b37581ee",
+      "path": "plus-ui/src/components/sport-ui/useAuthFields.spec.ts"
+    },
+    {
+      "sha256": "1f69c410e0e0aea0d46c9feee7ea076b399d31924830b43acb6c7d9d804c53d8",
+      "path": "plus-ui/src/components/sport-ui/useAuthFields.ts"
+    },
+    {
+      "sha256": "d59c3c477556eb32a55b8f72955fb7c7c02bc1a154081d8ba8c2c2484a5d024a",
+      "path": "plus-ui/src/components/SvgIcon/index.vue"
+    },
+    {
+      "sha256": "0bdb86af825ab049cbda1128984172ad4fc0bbb0455b4e07f2e82e75dd4f6923",
+      "path": "plus-ui/src/components/TestJourney.vue"
+    },
+    {
+      "sha256": "d82aed9411b6489f681045834b92f84695db6ffbb2a29cabac56eccc4c5a9bca",
+      "path": "plus-ui/src/components/TopNav/index.vue"
+    },
+    {
+      "sha256": "e2c2ea17ea80965bd5c4b6c4bc0dc34b7dabfa5d910ba738987093309fa38951",
+      "path": "plus-ui/src/components/UserSelect/index.vue"
+    },
+    {
+      "sha256": "58b2c9bc447899e63fd93985bf1da906cfac66d6aba818054fdc9f624989fb43",
+      "path": "plus-ui/src/directive/common/copyText.ts"
+    },
+    {
+      "sha256": "49ce5eef0526d23ad36b381512c7eae25ddfa4126807c66e58b311b8bf82aa4a",
+      "path": "plus-ui/src/directive/index.ts"
+    },
+    {
+      "sha256": "52c1986c92ea6a8952c91ea31bb161fbfe6f2842864670cd7cefc01aabe2ec88",
+      "path": "plus-ui/src/directive/permission/index.ts"
+    },
+    {
+      "sha256": "2163264be34ee20c2c91a39e38ff481b8b361d0af28b5e609435f4d2b5739a50",
+      "path": "plus-ui/src/enums/LanguageEnum.ts"
+    },
+    {
+      "sha256": "a159d89e797a65af8e292cb3baf6f9b7982125ada8132ac1509e377f392c0128",
+      "path": "plus-ui/src/enums/MenuTypeEnum.ts"
+    },
+    {
+      "sha256": "122a4585c18865a80a6021fe02bb63070faca7a366c84804f8e598b375d236c9",
+      "path": "plus-ui/src/enums/NavTypeEnum.ts"
+    },
+    {
+      "sha256": "9b0ee47b406c4fd4286a84a101f49c226f9e34a9ded6fb4c31c45103af992322",
+      "path": "plus-ui/src/enums/RespEnum.ts"
+    },
+    {
+      "sha256": "215f09ad99d183a95baa5ba39246dea1299592bcd962952bcf3ef434c4737f64",
+      "path": "plus-ui/src/enums/SideThemeEnum.ts"
+    },
+    {
+      "sha256": "07ad2f114ddbd88d796478b1413b15b81bb0406f4832566fa8da6b5df2adb74c",
+      "path": "plus-ui/src/hooks/useAssistantModalBoundary.ts"
+    },
+    {
+      "sha256": "c8fad8de81baf66b1901fe261a9d7ccbec7c401e28edebda0ab2b9dac352b5ca",
+      "path": "plus-ui/src/hooks/useDialog.ts"
+    },
+    {
+      "sha256": "29d5fdf60be319d00358e276869b93353ff6140c4a5a1c12aaed0b15d1d7ac20",
+      "path": "plus-ui/src/lang/en_US.ts"
+    },
+    {
+      "sha256": "c5bcf4531111e8fcb8b28ad3fdee4cbdc7c9ae853b1b005b97f5fa79a9052b27",
+      "path": "plus-ui/src/lang/index.ts"
+    },
+    {
+      "sha256": "ee99f7d5c5755d6de3e6cac996586dd254ef41f8f6d4bc64375111739e10a04f",
+      "path": "plus-ui/src/lang/zh_CN.ts"
+    },
+    {
+      "sha256": "0b32c7073271a015e9159b40f914888c523aebfddcb14d611f9d2045f614627e",
+      "path": "plus-ui/src/layout/business/BusinessFrame.vue"
+    },
+    {
+      "sha256": "73e37bc3006390afd874efb7b709c61a89961ecc00a82f77393c9825a7e0abb9",
+      "path": "plus-ui/src/layout/components/AppMain.vue"
+    },
+    {
+      "sha256": "9451a7f0b2c72386075fd846cf4b9db61e959e457f585a03706f70f130169567",
+      "path": "plus-ui/src/layout/components/IframeToggle/index.vue"
+    },
+    {
+      "sha256": "7d46accd78d339ba6e0497c19c058ffc4cb6409a4dc4216de87d69fbf97f6a49",
+      "path": "plus-ui/src/layout/components/index.ts"
+    },
+    {
+      "sha256": "5fb6808d82f3985a39b059aacf1c50e08b953b4dbc44a015e7f8b3fb2642306e",
+      "path": "plus-ui/src/layout/components/InnerLink/index.vue"
+    },
+    {
+      "sha256": "84041897bb7c9f569c96a9f509b1979fe2ead45aeecbf0bcb3e78d7a0672c2af",
+      "path": "plus-ui/src/layout/components/Navbar.vue"
+    },
+    {
+      "sha256": "bdc2c1c1337272592b709daa27062af9ee282a3128e7d73953f1caa01e86cc6e",
+      "path": "plus-ui/src/layout/components/notice/index.vue"
+    },
+    {
+      "sha256": "58d99ee24877b418885e5cf8a69fdd30f955d7c6c5eda17b08f1955a55d37e9c",
+      "path": "plus-ui/src/layout/components/Settings/index.vue"
+    },
+    {
+      "sha256": "1e224726d3fd8f7ef7e179b716fdcfb6f8018bf4249a7c7a7947a236cb8d0ae8",
+      "path": "plus-ui/src/layout/components/Sidebar/index.vue"
+    },
+    {
+      "sha256": "b6c067f47590a235d7438a473f02be0bed465902ce6894dd4ee11c221bc481e0",
+      "path": "plus-ui/src/layout/components/Sidebar/Link.vue"
+    },
+    {
+      "sha256": "afbf9ea62b6913286a922f79d8ce1d020521636f4062b41a7efe4f0fb4abb3ac",
+      "path": "plus-ui/src/layout/components/Sidebar/Logo.vue"
+    },
+    {
+      "sha256": "a31327cdf6cf816a895862d8d87dd6667064287254287d9e3ab5dd17a97c9fa5",
+      "path": "plus-ui/src/layout/components/Sidebar/SidebarItem.vue"
+    },
+    {
+      "sha256": "84542d9e5671a5c1a2251c8fef379bfacaae502cfcf6062717eaca9e3575ee6e",
+      "path": "plus-ui/src/layout/components/SocialCallback/index.vue"
+    },
+    {
+      "sha256": "5e54ee83dba3c826c68bc3f371081b564688f55f9d6ab44e9271e1709a7f082b",
+      "path": "plus-ui/src/layout/components/TagsView/index.vue"
+    },
+    {
+      "sha256": "cbe3a5b092c2f106ff6d3a0655ab0b803cfe31a9e2a8436833abe53a6d1d8d28",
+      "path": "plus-ui/src/layout/components/TagsView/ScrollPane.vue"
+    },
+    {
+      "sha256": "2b8bc26c6c0559756509f326fb792515836d140bfc8fe978e26808e2ec988259",
+      "path": "plus-ui/src/layout/components/TopBar/index.vue"
+    },
+    {
+      "sha256": "f3917744128f638df52355ea96c6dee0ab814df9e0189fba2f288e6023929a5d",
+      "path": "plus-ui/src/layout/components/TopBar/search.vue"
+    },
+    {
+      "sha256": "99e379a36b64ea0da95efbe6941d682d3abde09515110e217b74475682e0691d",
+      "path": "plus-ui/src/layout/consumer/ConsumerShell.vue"
+    },
+    {
+      "sha256": "c54a942904236bcfac4f267a62bd5164cb6188ca8c14c0ad1f21b62f026bba47",
+      "path": "plus-ui/src/layout/consumer/PortalFrame.vue"
+    },
+    {
+      "sha256": "cc564fe818b4b3d520f4f5b5169980c7cbe30a46347dc267e522238fa532ce74",
+      "path": "plus-ui/src/layout/index.vue"
+    },
+    {
+      "sha256": "30ba921de34ccb20e46e2c08951b981a8179404833a71d3603e9d73aec9ac25d",
+      "path": "plus-ui/src/main.ts"
+    },
+    {
+      "sha256": "cef0cd69f9d709a0eaa58cc04dbdf67cb2a5cac4e3553a614549e37c760ac1ea",
+      "path": "plus-ui/src/permission.ts"
+    },
+    {
+      "sha256": "63174940a42c156b7216b80d56f3c321e4a9d1d6e52c18d4329c3680285b761a",
+      "path": "plus-ui/src/plugins/auth.ts"
+    },
+    {
+      "sha256": "9ee607f7dbe6c524493c09b070f8187b92106501e77faa7f559692f30b80a695",
+      "path": "plus-ui/src/plugins/cache.ts"
+    },
+    {
+      "sha256": "77b990bf6403c718c5f4cd2ab88d4b0542ab4c83e75b0b0d4e8d8a46e3556b78",
+      "path": "plus-ui/src/plugins/download.ts"
+    },
+    {
+      "sha256": "4bd001ff5c9c5f1bf095d574a94053fd00bf77983d14de9a78e4d6f031a36c13",
+      "path": "plus-ui/src/plugins/index.ts"
+    },
+    {
+      "sha256": "1c1838525d857774b5d143c899bd05536fa07d07916cdb09459eb50346f4b028",
+      "path": "plus-ui/src/plugins/modal.ts"
+    },
+    {
+      "sha256": "86c979adf77434aa6778a075eb04bb798f9a4fa60fab9a7e9f0e9b478824ef01",
+      "path": "plus-ui/src/plugins/svgicon.ts"
+    },
+    {
+      "sha256": "e7cfc879e6ef4aebf432474b615452ebbe0f93dcc6b8bef477f3c4486d412bd2",
+      "path": "plus-ui/src/plugins/tab.ts"
+    },
+    {
+      "sha256": "0d7eafd83bfb10e445e08558633ca42ae3a4e0b74e6d251921fb80cc92a17778",
+      "path": "plus-ui/src/router/index.ts"
+    },
+    {
+      "sha256": "056ab5092fab43e8e0187eaabea0773450dad9bea7b5d6da97805d57d595dd5a",
+      "path": "plus-ui/src/settings.ts"
+    },
+    {
+      "sha256": "e84732ba11d8a41d76375c11df711dcbd7e4395d762ee197935bacbac0a15f34",
+      "path": "plus-ui/src/store/index.ts"
+    },
+    {
+      "sha256": "6bc11aabfa8a35a98e4eec9c1fabddb70a2de79ceef514813e4d58b67c58afbb",
+      "path": "plus-ui/src/store/modules/app.ts"
+    },
+    {
+      "sha256": "b82a19eec15afba9da4734cc001fc12a6f718960b9c70ad2fb003893c2e2c71f",
+      "path": "plus-ui/src/store/modules/dict.ts"
+    },
+    {
+      "sha256": "cc25148439e8f9a7931445da9854e97929f77b047315e4c3125f1b47851760ff",
+      "path": "plus-ui/src/store/modules/notice.ts"
+    },
+    {
+      "sha256": "3554a2469924737fd44c81c9b249b058036f4a771258ab1c3ec4712f4befe52c",
+      "path": "plus-ui/src/store/modules/permission.ts"
+    },
+    {
+      "sha256": "6f60c0bb334643931f188f0796e437841df7cfea98248206feec42e71bb9dd8b",
+      "path": "plus-ui/src/store/modules/settings.ts"
+    },
+    {
+      "sha256": "f4eb0e4840fb7700516e8fd8f7fd0714e5b3343385f96ad27b7233ab0103e014",
+      "path": "plus-ui/src/store/modules/tagsView.ts"
+    },
+    {
+      "sha256": "be8f5f9c94da95dea06b6bfb7d9fa2b9367e8992adb377c0095335fad88da5bc",
+      "path": "plus-ui/src/store/modules/user.ts"
+    },
+    {
+      "sha256": "eedf8792883f43dfd7f7b824cf2db15c382161ca6123483431239cc185863238",
+      "path": "plus-ui/src/types/axios.d.ts"
+    },
+    {
+      "sha256": "7d2d7f69ccb5695d8eb591b47a5aa09026ca47c5eb8a329eaf223a82c126ce2d",
+      "path": "plus-ui/src/types/element.d.ts"
+    },
+    {
+      "sha256": "529a3664990249dfa9fee247bd1fe628a7e5f87899903c5659e07b0bf0f711ea",
+      "path": "plus-ui/src/types/env.d.ts"
+    },
+    {
+      "sha256": "1019b0bb256eabff95cc2628229bc364d2d3784a854bf97ad7eb6357d55a9d39",
+      "path": "plus-ui/src/types/global.d.ts"
+    },
+    {
+      "sha256": "0fdae3204e295f0c80cd92b8f7fd5ab22e46a8a78bafcaf71e11ecdd663de99b",
+      "path": "plus-ui/src/types/module.d.ts"
+    },
+    {
+      "sha256": "442c303b716db8dbcd87bf2036f2feaadbea6299b947b8f09a7f6f6054618a09",
+      "path": "plus-ui/src/types/router.d.ts"
+    },
+    {
+      "sha256": "633bf0944c63c1f2ec49213ba28d06c769e4321b2aa71f87e04c8726306aab15",
+      "path": "plus-ui/src/utils/assistantMarkdown.ts"
+    },
+    {
+      "sha256": "2405daf8361877f69dc506e1f81df1dc653031c837e20d15cf389980dee649c9",
+      "path": "plus-ui/src/utils/assistantReadiness.spec.ts"
+    },
+    {
+      "sha256": "c882ec417c44324e6ad915d44eb349abf76358f445033fdd5c63777f560018fb",
+      "path": "plus-ui/src/utils/assistantReadiness.ts"
+    },
+    {
+      "sha256": "178b6cdea6cdc6f805c96e3ae82f4ce1bea5b760e4a0ed7d819d71a1fbab3315",
+      "path": "plus-ui/src/utils/auth.ts"
+    },
+    {
+      "sha256": "b9e1978fa46bb93da44bedfe1b41cfa30d92db3be6c1f2cf87c87480cec67045",
+      "path": "plus-ui/src/utils/business.ts"
+    },
+    {
+      "sha256": "f3b15899a54a44a6d2ffc3af7bb15919644dc2085bf61fb9d103e4a34b37e7cf",
+      "path": "plus-ui/src/utils/businessAi.ts"
+    },
+    {
+      "sha256": "82c40b3fd83960de4d9be1170ef211a98d89cf8ef171a264d1e871853922a239",
+      "path": "plus-ui/src/utils/consumerAi.ts"
+    },
+    {
+      "sha256": "f4f5e12d6a25fe315cf05bc87b36a542e706d6af8bac1dbbd56781b9e97b4485",
+      "path": "plus-ui/src/utils/consumerRegistration.ts"
+    },
+    {
+      "sha256": "310a4bcc404d6211a3afae47731ce9ddc7100e8b609eaedf636fe959fa332ac0",
+      "path": "plus-ui/src/utils/criticalBusiness.spec.ts"
+    },
+    {
+      "sha256": "c38a3a4b2641e71173cef50cb7ef93c1e91ae86bbda78aa8f96df80735de5702",
+      "path": "plus-ui/src/utils/crypto.ts"
+    },
+    {
+      "sha256": "95151e7f0c9b42ea6cd22cfbe912d580a967197fe80dc1fc9d578e148d9350c7",
+      "path": "plus-ui/src/utils/dict.ts"
+    },
+    {
+      "sha256": "3f62d9aecbe24d6cc65d69f037c2b3591ca191e0733b719352dcf977dcc4e24a",
+      "path": "plus-ui/src/utils/dynamicTitle.ts"
+    },
+    {
+      "sha256": "4828d7e87237e66341789afe27a13b93cbe28c4e48eceacddaea828fc9bd2804",
+      "path": "plus-ui/src/utils/errorCode.ts"
+    },
+    {
+      "sha256": "504b65884049a802fb53c3245631a4c90e519522edde55d4e7ead156856192e4",
+      "path": "plus-ui/src/utils/honorPresentation.ts"
+    },
+    {
+      "sha256": "9516b0d2849f222a93537448650e2e38276a54a865b74f95d72d7ac86b4602f2",
+      "path": "plus-ui/src/utils/i18n.ts"
+    },
+    {
+      "sha256": "25b45b6e11bca14e0a8d9835980dec1ff13ae13ca2d2c964e67d482a7f70d539",
+      "path": "plus-ui/src/utils/index.ts"
+    },
+    {
+      "sha256": "bbc2131976ff433bf47a96f44926a2d7f83948ae058b7224157e7fdca2972cbc",
+      "path": "plus-ui/src/utils/invitation.ts"
+    },
+    {
+      "sha256": "4f11dd18da1d5c62d14ac007dbba68a9d0c37bb5f4cdf2ab13afe5afef9af190",
+      "path": "plus-ui/src/utils/jsencrypt.ts"
+    },
+    {
+      "sha256": "768de724969e94e88f4b04ed384ffed0a4d9704ddcaea3d46bb94ae0ba535ac4",
+      "path": "plus-ui/src/utils/permission.ts"
+    },
+    {
+      "sha256": "14869db8dd5d64053069a36738cf35bec550af4b1e1d80e7713ce3863ec1a7ed",
+      "path": "plus-ui/src/utils/posterSheet.spec.ts"
+    },
+    {
+      "sha256": "223e1586af3d9c91f731a0eef7db9f8bfd538d235b03a6885bca0e88e7671d51",
+      "path": "plus-ui/src/utils/posterSheet.ts"
+    },
+    {
+      "sha256": "95edbf524e5f23fbdcbf2accd5387402fee4d247ba781dd37911ef0fb8325fdb",
+      "path": "plus-ui/src/utils/profileGate.ts"
+    },
+    {
+      "sha256": "e1234197957f3202f3af3e90c955a6b888693e99c6cd25b4a7714a417b62ca6e",
+      "path": "plus-ui/src/utils/promotionStyle.spec.ts"
+    },
+    {
+      "sha256": "8a353e3d98805b60e5d2585cbc4b59b235e4e22b83e14e6cbe04c705042f3f01",
+      "path": "plus-ui/src/utils/promotionStyle.ts"
+    },
+    {
+      "sha256": "d9eb45df91e498c8ca9bf7f3e4280a55f1e117edddd141a46c6ff4995290f452",
+      "path": "plus-ui/src/utils/propTypes.ts"
+    },
+    {
+      "sha256": "6acf546f8b7dc9ef1109fb3c087c17caca59662d2d8c59b7411c2380e45c292e",
+      "path": "plus-ui/src/utils/qrcodegen.ts"
+    },
+    {
+      "sha256": "a1fc1b4d9d19415012b3df0bd88be619616ab6231601b71e3131e73ed2fe65dc",
+      "path": "plus-ui/src/utils/qrMatrix.ts"
+    },
+    {
+      "sha256": "09357dd3cfbea1eb6ea999b7303648576399fb65e880ec92a8fc61482c6f29ca",
+      "path": "plus-ui/src/utils/registrationDraft.spec.ts"
+    },
+    {
+      "sha256": "277b5528c1818d7133a3af766e8a6ba4d44e479051276bc298cd98883846f803",
+      "path": "plus-ui/src/utils/registrationDraft.ts"
+    },
+    {
+      "sha256": "beb3e40a2bf550fdba5185f0a1ef70fcf4fbfacc0decd370694eb4fa32e549f8",
+      "path": "plus-ui/src/utils/request.ts"
+    },
+    {
+      "sha256": "9274efc2be674fa3f2e3d669578679944eb78a8d359c48e74fc8a0ae46198a80",
+      "path": "plus-ui/src/utils/requestKey.spec.ts"
+    },
+    {
+      "sha256": "231aca6d02a68041899d7ca8cf2551adfe1acee5abccb9594d742bf5ed5057c9",
+      "path": "plus-ui/src/utils/requestKey.ts"
+    },
+    {
+      "sha256": "8ea95b5cc3caa3d689449e2a40248b38c2fdf08d0b74ac2582bf07564adb4842",
+      "path": "plus-ui/src/utils/returnTo.spec.ts"
+    },
+    {
+      "sha256": "cd5cdc894c9c6c7f856fd5667491febb04ddab2815d5a6873883cfa91a6d743c",
+      "path": "plus-ui/src/utils/returnTo.ts"
+    },
+    {
+      "sha256": "61413db768180fee6c3ca385804b83d76a4aa08e75f9369f798cd9443ff5dbb1",
+      "path": "plus-ui/src/utils/ruoyi.ts"
+    },
+    {
+      "sha256": "9b69a60fa0354de073ebf3576970e8e4d6f80547489ed671b3d29f08cdd9faf3",
+      "path": "plus-ui/src/utils/scroll-to.ts"
+    },
+    {
+      "sha256": "ef603b85dd45a724b97a03efc8466049278d6c61f88443fb61d734fe0da47140",
+      "path": "plus-ui/src/utils/sportsRank.ts"
+    },
+    {
+      "sha256": "0134cc3bf1048f42edbe9dc8ff7f8404e5653643f291b5a01ce1fa529f0bbcb6",
+      "path": "plus-ui/src/utils/sse.ts"
+    },
+    {
+      "sha256": "0a33471db695c6e1e2e636f89ce230eb33be789929a1faf9a2707bfaeea2a751",
+      "path": "plus-ui/src/utils/testJourney.ts"
+    },
+    {
+      "sha256": "490924b1a0cba2ee1e46f856e279e764e3b93c688154ca8401b865c28a29ba9c",
+      "path": "plus-ui/src/utils/theme.ts"
+    },
+    {
+      "sha256": "8791b17bcfff78105c9d8d6fe14591a7c04bf4662e31f78aac86a0d8266f039a",
+      "path": "plus-ui/src/utils/useCleanReturnTo.ts"
+    },
+    {
+      "sha256": "d0231921894a3960c95302cdb7924996692a4c3c75fe39eb8c44ccb1c5834fbb",
+      "path": "plus-ui/src/utils/useSmsChallenge.ts"
+    },
+    {
+      "sha256": "391f27364ba0387d53e799a7dc5c287f2d565d64c63ba5a1c8f972735790c1e0",
+      "path": "plus-ui/src/utils/validate.ts"
+    },
+    {
+      "sha256": "9a928145acd6b4f6dc36a81051999510732673ccfc9f169623bdb22844164c26",
+      "path": "plus-ui/src/utils/websocket.ts"
+    },
+    {
+      "sha256": "def9653f561cf6af66c7769441d46aa21d045b47e4ae2dd3a2ee6fb865a90680",
+      "path": "plus-ui/src/views/demo/demo/index.vue"
+    },
+    {
+      "sha256": "6645382e8d406c6de4218fb3810b1f61cae9ca405e3b24e98cbabebc46a70f02",
+      "path": "plus-ui/src/views/demo/tree/index.vue"
+    },
+    {
+      "sha256": "d45df01e01bcfa94c63ffd4eed5d6c0ab5a2ec789f126bc67db2dc63c1686a6f",
+      "path": "plus-ui/src/views/error/401.vue"
+    },
+    {
+      "sha256": "043ab97c1b0c3ee1f57015356d8364bb05656ce6db7dbd84ad31eaa4690ec52d",
+      "path": "plus-ui/src/views/error/404.vue"
+    },
+    {
+      "sha256": "36fcb1f3dedaa05ed8a09976d229698595e6a5f87fe4cd41f1a36dc027afba3e",
+      "path": "plus-ui/src/views/forgot.vue"
+    },
+    {
+      "sha256": "a3461902466dc2230f7fb6736738464e117fffb317d59c8a5028dce1f3e75ac9",
+      "path": "plus-ui/src/views/index.vue"
+    },
+    {
+      "sha256": "f0031e6e6f7db6e75df4ab398be3e855204474b8a0dfd03e5f72cbd2e3aff53b",
+      "path": "plus-ui/src/views/login.vue"
+    },
+    {
+      "sha256": "a483cfb95da8cc80f4694e27669b72b477fea457cbbd4f290d592b964fea554a",
+      "path": "plus-ui/src/views/monitor/admin/index.vue"
+    },
+    {
+      "sha256": "fac830e68a923cfa74ce07260c497d74ead5081aa4f0d08bd4c63001ebc57f97",
+      "path": "plus-ui/src/views/monitor/cache/index.vue"
+    },
+    {
+      "sha256": "39900c692715c9b3fc25c175d7868558f76cfb9d045bd15aa42e63d250a6c8ec",
+      "path": "plus-ui/src/views/monitor/logininfor/index.vue"
+    },
+    {
+      "sha256": "a1813eaee4f901064121711d3f97a9c98cc761912c709de33fed2714da75090b",
+      "path": "plus-ui/src/views/monitor/online/index.vue"
+    },
+    {
+      "sha256": "5cabf318997a534ba5e18bb6b0645c62037821de2b7f4420303a6862052c74fd",
+      "path": "plus-ui/src/views/monitor/operlog/index.vue"
+    },
+    {
+      "sha256": "98b01e1c542d7a2b97a1062a79800ea7b3c6b235aae332476444d7f19575400e",
+      "path": "plus-ui/src/views/monitor/operlog/oper-info-dialog.vue"
+    },
+    {
+      "sha256": "488e4b7930995122e495808280ce49d52eafb577a9a74ee84ba47d9b4d4747dd",
+      "path": "plus-ui/src/views/monitor/snailjob/index.vue"
+    },
+    {
+      "sha256": "a7bf3244634aa5c04d371d3adacb2be8ffaf3cb34e784c7facc5df92ceeba3b0",
+      "path": "plus-ui/src/views/platform/tools.vue"
+    },
+    {
+      "sha256": "e55f783594009fc0798a5367a3cae3f5c19a704c12ac2e6006ddf85641c2c2f0",
+      "path": "plus-ui/src/views/portal/athlete.vue"
+    },
+    {
+      "sha256": "992c4c39337827baa5bbf7a3cd5ed0c7f010519cdcf08483c35428ff32c9c078",
+      "path": "plus-ui/src/views/portal/feedback.vue"
+    },
+    {
+      "sha256": "343e2697ed19e32bbcee816e149f4a2aa171b0ee4fbd24ffb21eb50cbfaea7d8",
+      "path": "plus-ui/src/views/portal/forgot.vue"
+    },
+    {
+      "sha256": "87b114335acb2d1a97baf2a51a785d6ab9e3401370b02f2f92cda4bdf4fcc01d",
+      "path": "plus-ui/src/views/portal/future.vue"
+    },
+    {
+      "sha256": "da22fa275f27a76f67db0580e39b2983564fb2f961220975fc3d1f70f245f19b",
+      "path": "plus-ui/src/views/portal/growth.vue"
+    },
+    {
+      "sha256": "7e2188ba5be4074a76f089e9cc2f52218f0393e055198b1784b9c005d4b9260f",
+      "path": "plus-ui/src/views/portal/home.vue"
+    },
+    {
+      "sha256": "7fa18c4c5f9f2086abdc8bee690e29c8966f89b8ad426f1e72bce4935153d667",
+      "path": "plus-ui/src/views/portal/identity.vue"
+    },
+    {
+      "sha256": "738c508a7d7d7906b0e91391c2cc00086df9d109693c732f5e74afc0e473560a",
+      "path": "plus-ui/src/views/portal/issues.vue"
+    },
+    {
+      "sha256": "546abef39027f26c79988585647d90169618e09a6987249472961f2c61a7b7f6",
+      "path": "plus-ui/src/views/portal/login.vue"
+    },
+    {
+      "sha256": "e9212305097bc609c4dddcb4e5b77d0f851c12f883d346a73868ef9db8d59c64",
+      "path": "plus-ui/src/views/portal/notices.vue"
+    },
+    {
+      "sha256": "e9e8b654df9a2ed9c6c44f93dcd771c59469a384ff11ddb074a68e0d8c8f4708",
+      "path": "plus-ui/src/views/portal/organization.vue"
+    },
+    {
+      "sha256": "0b0b7a2d17dff5e17970e1cafd83217b1493c1090e3433c9e5c27ac9126cb01e",
+      "path": "plus-ui/src/views/portal/proof.vue"
+    },
+    {
+      "sha256": "ad9c3bee502f9fbfc8f13a0f7241d1530e62d2ceaf7d52bb9262f19910b5e572",
+      "path": "plus-ui/src/views/portal/register.vue"
+    },
+    {
+      "sha256": "5307bfb5648d5f4e89e933e52945864e9b76fdec16b5b6a663eec32d50c72478",
+      "path": "plus-ui/src/views/portal/results.vue"
+    },
+    {
+      "sha256": "e586f2e337041999e61756eaf20356e5e3d279ee118416c66be45832534ff47a",
+      "path": "plus-ui/src/views/portal/rooms.vue"
+    },
+    {
+      "sha256": "46efa0c1018048743c29218883902eab46995c2dbaf89fc9a58073d73e6fa994",
+      "path": "plus-ui/src/views/portal/team-invitation.vue"
+    },
+    {
+      "sha256": "b5cd339feb8c23ecbf31e6f3b9d4b2fd2f4d99ea50ee79c219971c78aeb7a1b5",
+      "path": "plus-ui/src/views/portal/team.vue"
+    },
+    {
+      "sha256": "da2e40d2a12798eb1464d58c3bfc883c66b89dcba18dc5fcaba47184046990a8",
+      "path": "plus-ui/src/views/public/events/detail.vue"
+    },
+    {
+      "sha256": "36e4c9bf1b30ae5fd9b2b451df5b7264a52f788b3dfa2771c3b4339ea9ca80f3",
+      "path": "plus-ui/src/views/public/events/index.vue"
+    },
+    {
+      "sha256": "efe05273573d395751b9824670a53a32d6dea71f0dd438a976177b895a78f32b",
+      "path": "plus-ui/src/views/redirect/index.vue"
+    },
+    {
+      "sha256": "01970c5916c4f32f0f3fbeded501a2141b6b2e5d3951884e32d81c27bdaed8d2",
+      "path": "plus-ui/src/views/register.vue"
+    },
+    {
+      "sha256": "50997fbc6157440fa8a599b0f85d97a3d0ee2d4cb650a9dea120e53f74348e83",
+      "path": "plus-ui/src/views/sports/competition/index.vue"
+    },
+    {
+      "sha256": "f79871a4a3aa1fef0a0bbcfc0e28520a234de6bc7fa1fad95aff0d53747be88d",
+      "path": "plus-ui/src/views/sports/event/from-document.vue"
+    },
+    {
+      "sha256": "4e6ab3c35c5a496ed2960796d7ef2312c23217aae87411999abe8bebbc0b0912",
+      "path": "plus-ui/src/views/sports/event/index.vue"
+    },
+    {
+      "sha256": "185b66b001398e51870abc8b6d7e4a4b6f9870eb63b73d23554ddcd37d233158",
+      "path": "plus-ui/src/views/sports/field/index.vue"
+    },
+    {
+      "sha256": "0827843d83c89fcdb03009c1659f5be151350c88fc63fa09d4c31ae043445ed2",
+      "path": "plus-ui/src/views/sports/finance/index.vue"
+    },
+    {
+      "sha256": "cd4dd9d1e3665b85425e3b75971d7410b71a8ede157b3778b106f580ee4961fd",
+      "path": "plus-ui/src/views/sports/government/index.vue"
+    },
+    {
+      "sha256": "9b7a864a0d42512be75f61ec10b2ea3024b2e19d92e7ddf0897530f7b5ac37e7",
+      "path": "plus-ui/src/views/sports/organization/desk.vue"
+    },
+    {
+      "sha256": "01434e6ddf577f0bd9c7c58abdbbf8342ec96b58381b7dd573f681cefa9e2ceb",
+      "path": "plus-ui/src/views/sports/organization/review.vue"
+    },
+    {
+      "sha256": "35f99f13615f90ef567efa63657ddde41f023657391505910e4955ea65124940",
+      "path": "plus-ui/src/views/sports/platform/GovernmentAssignments.vue"
+    },
+    {
+      "sha256": "74945e6a0733d748d7fc0266c280f2869cd7d7dc4de46342b711f128e4fb7059",
+      "path": "plus-ui/src/views/sports/platform/GrowthRules.vue"
+    },
+    {
+      "sha256": "d3ba9b94eb67f3ebd1765eb9a1618e74c829cfcb2e405e225901bf66ce4671d6",
+      "path": "plus-ui/src/views/sports/platform/index.vue"
+    },
+    {
+      "sha256": "0ec26fde20817c85d53b8ceb5287585a884a7a8c888fde1aa4d98eaee6c950aa",
+      "path": "plus-ui/src/views/sports/registration/enter.vue"
+    },
+    {
+      "sha256": "39b6cd1c04a0cc4ac6642c1613a00fc0047aff9b69cd42994dedf6f7b5efd37c",
+      "path": "plus-ui/src/views/sports/registration/invite.vue"
+    },
+    {
+      "sha256": "a9ac55940f506579d165067ab8b7cec17dd7ad2ac0e1dd8555e0d92120922dfc",
+      "path": "plus-ui/src/views/sports/registration/review.vue"
+    },
+    {
+      "sha256": "b82d163d7a5c524b771bea2f6224a4a3ae2b9f827796420043685ca215a93486",
+      "path": "plus-ui/src/views/sports/workspace/ClosureAndFixtures.vue"
+    },
+    {
+      "sha256": "63c8cc6264662ece996725cbb197fb4ecdb632a66444b37fa6272397fd52ad6b",
+      "path": "plus-ui/src/views/sports/workspace/index.vue"
+    },
+    {
+      "sha256": "8c2cb2186d3c2c890db8da53e961bec4c5e5d1d0edb9ced10620590b3ecf7c92",
+      "path": "plus-ui/src/views/system/client/index.vue"
+    },
+    {
+      "sha256": "9cd7fc850c86838e329ef98500b8dfb9e8f23129b535ae4d73b7834d78d2a269",
+      "path": "plus-ui/src/views/system/config/index.vue"
+    },
+    {
+      "sha256": "8c4360d181c01f32a84109072eefdb5efb86de9c100dfd17a6944e6084999710",
+      "path": "plus-ui/src/views/system/dept/index.vue"
+    },
+    {
+      "sha256": "f8187862f7a161a69f1ba261cc90b1b6c26b4d7600917919fca7110a4887354f",
+      "path": "plus-ui/src/views/system/dict/index.vue"
+    },
+    {
+      "sha256": "19ed8076abca6151604ef2d28a3aa565c269ab1e683791a93587d3778026b0f7",
+      "path": "plus-ui/src/views/system/menu/index.vue"
+    },
+    {
+      "sha256": "8cc3dd7686010d9b81d51ba1d623a02e6d351875dad10f5cfebbe40b21ecf678",
+      "path": "plus-ui/src/views/system/notice/index.vue"
+    },
+    {
+      "sha256": "3406bc319a6b475847e2c52b6af291c5cb3f7a1412a32184214cae5299e37101",
+      "path": "plus-ui/src/views/system/oss/config.vue"
+    },
+    {
+      "sha256": "115af6f99574511b6d16b39771fa3ded0b72b451c4d5db86da6471d978e8a7c2",
+      "path": "plus-ui/src/views/system/oss/index.vue"
+    },
+    {
+      "sha256": "f69da80cea0982c9ad823be118359b27d1e359fdc38a50d05b37f651a7fbd6b3",
+      "path": "plus-ui/src/views/system/post/index.vue"
+    },
+    {
+      "sha256": "81fde3a054265e97492097ba2457d3c2bf1e19b8b9e33920f7a4fb903d7d4e11",
+      "path": "plus-ui/src/views/system/role/authUser.vue"
+    },
+    {
+      "sha256": "a446bff5807d40e5f1c1175aa65c4afa87fd04a628f5683296cfc4323932b3b3",
+      "path": "plus-ui/src/views/system/role/index.vue"
+    },
+    {
+      "sha256": "0b7b2845e584e493917a40ba12e5d2f8eccac916a0ff6524c2e961aafb00def4",
+      "path": "plus-ui/src/views/system/role/selectUser.vue"
+    },
+    {
+      "sha256": "86ca714fa444aec26d06b81e18fba203e3e715e8f845aee2611b3821757ec8ee",
+      "path": "plus-ui/src/views/system/tenant/index.vue"
+    },
+    {
+      "sha256": "2e75a082e247bd2ced34c546a889f479076bb39e01a55be7eebf15d8351d82a8",
+      "path": "plus-ui/src/views/system/tenantPackage/index.vue"
+    },
+    {
+      "sha256": "1bc59afe7a06763a7928d039a28b5fd3f4914090fb3a7c0b54f8226f3a0c66a4",
+      "path": "plus-ui/src/views/system/user/authRole.vue"
+    },
+    {
+      "sha256": "d45a3500930e7092a829470ffacc12e43eabbc67920cce39be376bb7ad2887c5",
+      "path": "plus-ui/src/views/system/user/index.vue"
+    },
+    {
+      "sha256": "7d61beb8769deb789b534c93d5d0b2406ee63482f9ffc659265206846febb660",
+      "path": "plus-ui/src/views/system/user/profile/index.vue"
+    },
+    {
+      "sha256": "fd9150281eec1817c7281d4c11256c8dc94a082935d7d5d00ddcc2edab93448c",
+      "path": "plus-ui/src/views/system/user/profile/onlineDevice.vue"
+    },
+    {
+      "sha256": "bea2771fb91170c90b90abd321442b8b7a444d99ac200ccfc1bdf291c5d9da28",
+      "path": "plus-ui/src/views/system/user/profile/resetPwd.vue"
+    },
+    {
+      "sha256": "50c25ed1ca4b78a5d2f7102cf4db3afde3c37ee63ea99b17988a4d234f4188bf",
+      "path": "plus-ui/src/views/system/user/profile/thirdParty.vue"
+    },
+    {
+      "sha256": "bfcf90dba067fee1bc41225167094fd1b25887f088f858ac60a66eed77e46876",
+      "path": "plus-ui/src/views/system/user/profile/userAvatar.vue"
+    },
+    {
+      "sha256": "44aa2fabbff762015efc07f1ef6e76d414bca07b7d56d137e8e55f8342f41882",
+      "path": "plus-ui/src/views/system/user/profile/userInfo.vue"
+    },
+    {
+      "sha256": "bfa9b7f75281c6cc0efbfcbe75ef2eef953ea2b29c541cee1b85fb4aa27a47e4",
+      "path": "plus-ui/src/views/tool/gen/basicInfoForm.vue"
+    },
+    {
+      "sha256": "18a84e0737a3dbf94182432f2853d838b7af16d318fd94c57001b86df09a32a6",
+      "path": "plus-ui/src/views/tool/gen/editTable.vue"
+    },
+    {
+      "sha256": "62c31f2155d606d44d2df0ac18579ce813e916dd3f51faac8bf795ae31a82cc1",
+      "path": "plus-ui/src/views/tool/gen/genInfoForm.vue"
+    },
+    {
+      "sha256": "ca627c3011b223ba83000032976144cdd9b63051e0996d5b1a7869d67cb7c037",
+      "path": "plus-ui/src/views/tool/gen/importTable.vue"
+    },
+    {
+      "sha256": "9ac87b7d662d1c858b6cc2a3f978dcb0372d7cbb6bb5494d1ebf959da98cadd8",
+      "path": "plus-ui/src/views/tool/gen/index.vue"
+    },
+    {
+      "sha256": "d53ac47ec71a83a96f813ba86f412ecd08666d44feee7bf8341c1e9b954ac12d",
+      "path": "plus-ui/src/views/workflow/category/index.vue"
+    },
+    {
+      "sha256": "0c9c2aaaadcaa78850244ba0cd56024648d4955a35a6e8b1a94448a246dcf85e",
+      "path": "plus-ui/src/views/workflow/leave/index.vue"
+    },
+    {
+      "sha256": "31fa6cf9c080a8ba7982993b469b3eaaf6a088171dac94e22e00b0df4f0ef2b0",
+      "path": "plus-ui/src/views/workflow/leave/leaveEdit.vue"
+    },
+    {
+      "sha256": "79bddb83869089d4e1b44da32c6a0041879cc36b8c4ce2c480ec0909af917ec7",
+      "path": "plus-ui/src/views/workflow/processDefinition/design.vue"
+    },
+    {
+      "sha256": "ef51edb91942e8916e39d11fb53050bebde9daeb71c4944f33a25e9860b2e584",
+      "path": "plus-ui/src/views/workflow/processDefinition/index.vue"
+    },
+    {
+      "sha256": "33a03aa9d2cd2b84270a61881cbafc5cde2005878ae3e1108a4529ca88e79d81",
+      "path": "plus-ui/src/views/workflow/processInstance/index.vue"
+    },
+    {
+      "sha256": "98f0ba4f7a0f3469abcb1731e9133152e9060b782e0ee1578f45a3869022de90",
+      "path": "plus-ui/src/views/workflow/spel/index.vue"
+    },
+    {
+      "sha256": "304aa7b2e8af6a2f0a3853ee9e6a3585efb0e242d57d8b355f7b766ba0bcde42",
+      "path": "plus-ui/src/views/workflow/task/allTaskWaiting.vue"
+    },
+    {
+      "sha256": "1aad2a655967ade4069b2593f960849f86ba0bbc6e10a83d4dac82e9cbbe9330",
+      "path": "plus-ui/src/views/workflow/task/myDocument.vue"
+    },
+    {
+      "sha256": "3b2dbe8f425274c7811e7f364d533582f53aea39dc91a480f139087e4cc03093",
+      "path": "plus-ui/src/views/workflow/task/taskCopyList.vue"
+    },
+    {
+      "sha256": "8e2d4a6fe1ff711ab6cd4e80fdc0245f6271fd86046d138140d576985540f58b",
+      "path": "plus-ui/src/views/workflow/task/taskFinish.vue"
+    },
+    {
+      "sha256": "9d15d3529a65ba70c8fb3bfd1772c7e909f4ad8e21029598407339733da13af3",
+      "path": "plus-ui/src/views/workflow/task/taskWaiting.vue"
+    }
+  ],
+  "certificationSourceFiles": [
+    {
+      "path": "backend/aisports-domains/d10/aisports-table-honor/src/main/java/org/dromara/sports/tables/d10/honor/HonorCertificationController.java",
+      "sha256": "3c807657432c124b60668d1700cf26e3942c2a9e362886f8ae51fb26518edcc8"
+    },
+    {
+      "path": "backend/aisports-domains/d10/aisports-table-honor/src/main/java/org/dromara/sports/tables/d10/honor/HonorCertificationService.java",
+      "sha256": "158600e1fdcb97fdb27e068067b077e8cea443388d267137a6add6d2bbe49dca"
+    },
+    {
+      "path": "backend/aisports-domains/d10/aisports-table-honor/src/main/java/org/dromara/sports/tables/d10/honor/HonorCertificationRules.java",
+      "sha256": "ea3b7767945517f00b912da04525dad8c7c04d2f7b46b24993adf4f719d9d96e"
+    },
+    {
+      "path": "backend/aisports-domains/d10/aisports-table-honor/src/test/java/org/dromara/sports/tables/d10/honor/HonorCertificationTest.java",
+      "sha256": "8d01ee9288e5def5da325ee3732abe21e60831e8cc69a69ede72781f1427c2c9"
+    },
+    {
+      "path": "backend/aisports-domains/d01/aisports-table-organization-application/src/main/java/org/dromara/sports/organization/service/StoredObjectApiImpl.java",
+      "sha256": "00ca1b97e12a4c663ddc497bd81e5c60648605f4483feae235276da898a29ab0"
+    },
+    {
+      "path": "backend/aisports-domains/d01/aisports-table-organization-application/src/main/java/org/dromara/sports/organization/service/UnreferencedFileCleanup.java",
+      "sha256": "c9dd5b90918fb2d4fa175d508814a4eb79d73fb43f2573a61eaab578f2463867"
+    },
+    {
+      "path": "backend/aisports-api/src/main/java/org/dromara/sports/api/HonorDisplayApi.java",
+      "sha256": "3998b61314850e5557f7abcdd876c69d4e7d860a48cc4eeb8f05f8faefbf3544"
+    },
+    {
+      "path": "backend/aisports-api/src/main/java/org/dromara/sports/api/StoredObjectApi.java",
+      "sha256": "6cb1e104ce281d505537fbc19eab94984e3a3fe705a2b1eab0f7c38dd8c0b593"
+    },
+    {
+      "path": "database/migrations/V038__personal_honor_certification.sql",
+      "sha256": "b21d76801d383b33d109dc1f871223288143b30d40b57fff1056802be4d1f2be"
+    },
+    {
+      "path": "plus-ui/src/api/sports/honorCertification.ts",
+      "sha256": "6143d11875f15b85f73f880c849f09af865e84338c125e86c2a3f3e9bb59ac8e"
+    },
+    {
+      "path": "plus-ui/src/components/business/HonorCertificationReview.vue",
+      "sha256": "1b46e6eb1234e68082001c5dad4741af17736ebfb4e1acbadab0c9f21de438b8"
+    },
+    {
+      "path": "plus-ui/src/components/consumer/HonorCertification.vue",
+      "sha256": "8e3b885a5e792b02e9130f416de5d5a0082952f53b8c187351549a0af40fbec4"
+    },
+    {
+      "path": "scripts/Test-HonorCertification.mjs",
+      "sha256": "f7a10dbe5b7d454d13d4dff6796451b27f506cb63a35a3080aed049747c633fa"
+    },
+    {
+      "path": "scripts/Release-HonorCertificationUi.ps1",
+      "sha256": "a3b5ca65c43e0d5108af582ae669bd19881b9c5e56a6298ec0181e3d20f205af"
+    },
+    {
+      "path": "scripts/Release-HonorCertificationUi.mjs",
+      "sha256": "4a7f5d40a652e143409c9f752d2db9032a912121fc429fdfe16a2be2ab98c394"
+    },
+    {
+      "path": "scripts/Write-HonorCertificationBinding.mjs",
+      "sha256": "fd0dace5876e7d63dbbb5a6e123bc60a92947968ab15320867985c85b16fc8ea"
+    }
+  ],
+  "checks": {
+    "frontend": {
+      "evidencePath": ".local/product-release-20261011/frontend-refinement-1ec202128d3f42bb8483a643b5060df1/receipt.json",
+      "sha256": "839911dd896b5afe6eddc182b3b880be9dca5b2f56a5f1c22585cac3b720f99e",
+      "passed": true,
+      "scope": "Final current frontend typecheck and build; not real tournament or performance acceptance"
+    },
+    "entry": {
+      "evidencePath": ".local/product-release-20261011/entry-ui-1791691539827/receipt.json",
+      "sha256": "04921aee4d7cb2c0c415423f25580d00012918d4784492418a02d63303356e7a",
+      "passed": true,
+      "scope": "Main 5190 and rehearsal 5192 public home/catalog at 390/730/1024/1440. Real GET data; client-side search, sport/status filters, keyboard focus, non-draggable authored navigation scenes and actual assistant open/close geometry. No login, prompt, model, API substitution or business mutation."
+    },
+    "floating": {
+      "evidencePath": ".local/product-release-20261011/floating-assistant-1791693679164/receipt.json",
+      "sha256": "d891820325a1ccd90b1c8eac78e19f8c0292d2599a38e456331a10491de5adeb",
+      "passed": true,
+      "scope": "Actual main/rehearsal anonymous chat and isolated ordinary participant saved task. Guide chips, empty default, preserved user drafts, single composer focus boundary, keyboard-open panel focus, pointer/keyboard geometry and factual history. Reduced motion. GET/HEAD only, no response stubs; any attempted write fails."
+    },
+    "motion": {
+      "evidencePath": ".local/product-release-20261011/assistant-motion-1791693549248/receipt.json",
+      "sha256": "e4b54459349a7680c0c9d54199e9e513260c7d53877a20e0ff4c52a1198a3d0d",
+      "passed": true,
+      "scope": "Actual anonymous 5190/5192 at 390/1440 in ordinary and reduced-motion mode. CSS enter/leave and WAAPI FLIP resize observed through getAnimations and rAF geometry samples. Additional ordinary A growth/legend readonly screenshot. No response stubs, model calls or business writes. Samples do not prove fixed fps."
+    },
+    "select": {
+      "evidencePath": ".local/product-release-20261011/sport-select-1791693448552/receipt.json",
+      "sha256": "51e9c095fa31f350acc15a7b16f4900bf9a3ebf8833279426ba7c309ce044965",
+      "passed": true,
+      "scope": "Actual 5190/5192 public home/catalog dropdown pointer and keyboard controls at desktop/mobile, focus and required error presentation on empty login. No auth request, model, API substitution or business writes."
+    },
+    "dateFocus": {
+      "evidencePath": ".local/product-release-20261011/sport-date-focus-1791693422132/receipt.json",
+      "sha256": "cd761264ac5b948825318182f452963913a617b93ddae2f14547d7043195e27a",
+      "passed": true,
+      "scope": "Actual isolated ordinary participant birth-date input and ordinary organizer unsaved event datetime input, including teleported date/time editors, at 390/1440. No forced clicks, model, API substitution, form save or business write. Range-editor focus receives source coverage only."
+    },
+    "workFocus": {
+      "evidencePath": ".local/product-release-20261011/work-login-focus-1791693448564/receipt.json",
+      "sha256": "2560c49f7227c92dc0e2498bf882ce797a3739b5087e7132ac146881719fd275",
+      "passed": true,
+      "scope": "Actual 5190/5192 empty work login at 390/1440: one field boundary, pointer/keyboard focus, normal empty blur validation and focused red errors. No login submission, credential, model, response mock, forced click or business write."
+    },
+    "runtime": {
+      "evidencePath": ".local/product-release-20261011/runtime-observation-866f1492-65fd-4fab-8f8f-09fbca07a033/receipt.json",
+      "sha256": "dc22bb4aec8f1f54cb38a9c9f4433c266417def8cbbe407998405bb5805735f0",
+      "passed": true,
+      "scope": "Fresh final independent read-only observation after root auth-only recovery. Existing participant A token read only in memory; no login, model, business action, migration or release."
+    },
+    "modal": {
+      "evidencePath": ".local/product-release-20261011/assistant-modal-1791690845953/receipt.json",
+      "sha256": "b4fecd026246004d315e8405f26cf2230e3e4487f4d99ce03eda9ed3c8700ae5",
+      "passed": true,
+      "scope": "Actual isolated ordinary participant: growth dialog, unsaved certification message box, assistant restoration, pointer/keyboard bubble position persistence, viewport clamp and real pointer resize. GET only; no model or business mutation."
+    },
+    "growth": {
+      "evidencePath": ".local/product-release-20261011/growth-ui-1791690624904/receipt.json",
+      "sha256": "4e9a5b299fcfdce930a97cd6691ec22097c8158f6d3600537cba88cc416436b4",
+      "passed": true,
+      "scope": "Actual isolated ordinary participant reads and static resource previews. No response interception, grade/award writes, registration, funds or match facts."
+    },
+    "identity": {
+      "evidencePath": ".local/product-release-20261011/identity-boundary-1791690505461/receipt.json",
+      "sha256": "7a74c72170a8a5b7bdbb1e40b59a801119ab46c000b137a3d7078ec1a31ed5b3",
+      "passed": true,
+      "scope": "Actual ordinary government and participant login, plus work/participant token restoration in isolated 5192/8082. No response interception, model requests or business mutations."
+    },
+    "profile": {
+      "evidencePath": ".local/product-release-20261011/profile-entry-1791690674314/receipt.json",
+      "sha256": "7af10d22c4fdec3bed578845bc1bd9ed1297c89d82d6a6f30c2322304e6b862a",
+      "passed": true,
+      "scope": "Actual isolated ordinary profile alias, centralized crop entry and cancel preservation, and unsaved certification editor on desktop/mobile. No upload, certification save/submit, model or business mutation."
+    },
+    "worldDisplay": {
+      "evidencePath": ".local/product-release-20261011/world-honor-ui-1791691931574/receipt.json",
+      "sha256": "f833de3cefe270c782098908cffd21f5b91ec0dbe989bedbcfc25aa3460abd4a",
+      "passed": true,
+      "scope": "Actual ordinary profile GET and unsaved SportSelect interaction; separate synthetic SSR world podium display. No upload, save, submit, wear, award, model, or business write."
+    },
+    "worldContracts": {
+      "evidencePath": ".local/product-release-20261011/world-honor-components-1791691725319/vitest.json",
+      "sha256": "7988eae55d41b34d70048502b96f79779a37a14056e8203374aebad7f0b55a17",
+      "passed": true,
+      "scope": "Synthetic component contracts"
+    },
+    "review": {
+      "evidencePath": ".local/honor-certification-20261011/review-ui-7a7dedfc-db5a-4d2f-8b07-bbf45b1c1dae/receipt.json",
+      "sha256": "52365f31b0da9c6a0436007ed8cc0b55fcb0a4826821d35d544f55995508b2dc",
+      "passed": true,
+      "scope": "Actual reviewer/browser inspection of already-revoked synthetic candidate record and readonly main empty pending queue; existing platform growth-policy preview is readonly POST; no new honor, approval, model or business action. Private proof GET creates its mandatory access audit."
+    },
+    "honorHttp": {
+      "evidencePath": ".local/honor-certification-20261011/actual-39fd23b5-4a5b-410c-aa23-eed5e3778c9a.json",
+      "sha256": "f17c281ad1817611db4cec6f466a6a4a625bf828683a10e12dd50bdadd9368a9",
+      "passed": true,
+      "scope": "Actual isolated services; entirely synthetic claims/proof, not factual world championship certification or production release."
+    },
+    "honorBinding": {
+      "evidencePath": ".local/honor-certification-20261011/binding-complete-61701549-2b69-4c39-af84-b53b07422191.json",
+      "sha256": "3234b079f292d1da9fd62bcde0356887754da9bcb17273436174b26bdc19790f",
+      "passed": true,
+      "scope": "local-honor-certification-ui"
+    },
+    "mainRelease": {
+      "evidencePath": ".local/honor-certification-release-20261011/main-cdeb0ba1-f6a4-4782-bb8f-29f262b94aa4/receipt.json",
+      "sha256": "c5b36b2899b54defd07e48f9349a041ab262c1c11374935cbd1f17f02c8d066e",
+      "passed": true,
+      "scope": "local-honor-certification-ui"
+    },
+    "candidateRelease": {
+      "evidencePath": ".local/honor-certification-release-20261011/candidate-32e8962e-6a38-4f3a-88a9-39abcd632290/receipt.json",
+      "sha256": "1160ff6843274cab58312072c2e9304066e1b039ea3b5919e257cadeb70622dd",
+      "passed": true,
+      "scope": "local-honor-certification-ui"
+    },
+    "mainLogin": {
+      "evidencePath": ".local/main-access/post-release-018d0896-936d-4426-a391-c9ba8ddbefb7/receipt.json",
+      "sha256": "d099802fda8a2f8c307e1de77eac2798b2d11d8bae8192a1c5b95d4403462eeb",
+      "passed": true,
+      "scope": "Actual main form login, authorization responses and unchanged facts; no model call"
+    },
+    "migration": {
+      "evidencePath": ".local/product-release-20261011/global-migration-2b16e4ad2c234a4da183f25ec5e5a1c3/receipt.json",
+      "sha256": "ae158e37c04eae97693303daefb193d433c7ddeb368adf88cc6c8400c33771c1",
+      "passed": true,
+      "scope": "Owned PostgreSQL snapshots, actual restore, forward and replay; not tournament acceptance"
+    },
+    "backend": {
+      "evidencePath": ".local/product-release-20261011/runtime-refresh-80aef47a68364630a1fa4d6dc2426749/receipt.json",
+      "sha256": "ff5c5242cdaeba00a1821b1c739629c2219283f7a547b7cf58321494006d9270",
+      "passed": true,
+      "scope": "Owned local product refresh; existing database/session facts retained"
+    }
+  },
+  "counts": {
+    "entryUi": 258,
+    "dropdownUi": 118,
+    "dateFocusUi": 44,
+    "workFocusUi": 38,
+    "floatingUi": 246,
+    "motionUi": 98,
+    "modalUi": 40,
+    "growthUi": 78,
+    "identityUi": 16,
+    "profileUi": 30,
+    "worldDisplayUi": 37,
+    "worldSyntheticContracts": 28,
+    "reviewReadonlyUi": 12,
+    "honorSyntheticHttp": 33,
+    "selectedJava": 66,
+    "certificationMockedJavaSubset": 24,
+    "mainLoginUi": 7,
+    "mainManualRelease": 10,
+    "candidateManualRelease": 10,
+    "newRasterAssets": 9
+  },
+  "observed": {
+    "inputDefaultEmpty": true,
+    "guidesPreserved": true,
+    "guideDoesNotOverwriteDraft": true,
+    "guidanceSubmission": "Selected visible topic and user-authored words only on explicit send; server-provided task answer options remain explicit user choices",
+    "motion": {
+      "openMs": 440,
+      "closeMs": 280,
+      "sizeMs": 540,
+      "method": "transform and opacity; FLIP layout committed once; reduced-motion skips"
+    },
+    "growthRanks": [
+      "新星",
+      "青铜",
+      "白银",
+      "黄金",
+      "铂金",
+      "钻石",
+      "星耀",
+      "王者",
+      "传奇"
+    ],
+    "equipableGrowthFrames": 8,
+    "worldHonors": [
+      "世界冠军",
+      "世界亚军",
+      "世界季军"
+    ],
+    "worldBadgeAndFrameAssets": 6,
+    "assistantFeatureAssets": 3,
+    "honorHumanUiActions": 6,
+    "honorAgentActions": 0,
+    "mainUiCapabilities": 56,
+    "mainReadonlyAgentCapabilities": 5,
+    "mainAgentWriteCapabilities": 0,
+    "certificationLifecycle": "Synthetic isolated claim approved, worn, public, hidden and revoked through real APIs; final claim revoked, private and unworn; no real world award granted"
+  },
+  "assets": {
+    "manifest": "docs/05-ui/assets-20261011-v4/assets.json",
+    "sha256": "b489e1d7803acbdd95fb438df7090f1093214c3acfebe63f24aec5249aac592f",
+    "generation": "Built-in image_gen; model identifier not exposed; original PNGs and prompts retained"
+  },
+  "screenshots": {
+    "manifest": "docs/05-ui/global-product-20261011-v3/screenshots.json",
+    "sha256": "c27831706c5c66440038ef504b887fb12532457d423fcc25730e9c2b4efa4b85",
+    "images": 43
+  },
+  "model": {
+    "log": ".local/product-release-20261011/latest-model-final-check.log",
+    "sha256": "e4aeb1e6a14176397b637df4cbb8374d70f357ad87b92ffb4285898163199cca",
+    "tables": 121,
+    "columns": 1835
+  },
+  "predecessorHashes": {
+    "docs/04-verification/全局视觉与办理智能体验证-20261011.json": "04b80a823809cf6a5df3e222c2022999749a602b9bab5a8eb96df2f7513e1e71",
+    "docs/04-verification/正式产品界面与创作功能验证-20261011.json": "b9ae393cfd2e3bec596d5bfb0783489f91039d0b5d43cdadc4e7126a390991d5",
+    "docs/04-verification/羽毛球一期闭环本机验证-20261010.json": "6d18927802b75867876af4753f6cdc2b7151689b92af35eca8dc744ba687a0ee",
+    "docs/04-verification/产品组件与视觉验证-20261010.json": "855006d8e09bb1d2839c0bda1152dffa17a28be59a3d3fb6449cf659a7972bf5"
+  },
+  "limitations": [
+    "Actual honor evidence/person/issuer validation and first real certification are not accepted by synthetic HTTP or component tests",
+    "No real bank transfer, SMS delivery, first registration/recovery or actual complete tournament was executed in this UI round",
+    "Generic Agent write/delegation and multi-format material scenarios still require their own acceptance; manual honor actions are closed to Agent",
+    "Runtime external image provider is separate from these installed static image_gen assets and remains unaccepted",
+    "Animation timings and browser intermediate-frame checks do not certify a fixed frame rate or all-device performance; broad soft-keyboard testing remains",
+    "Existing frontend large-chunk warning remains; gateway has no GET /health endpoint, observed response is not a complete dependency health test"
+  ],
+  "failureHistory": "Original compile, selector, model, auth, migration and evidence-export failures remain preserved in local evidence; no failed receipt rewritten as PASS."
+}

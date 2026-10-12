@@ -1,0 +1,222 @@
+{
+  "timestamp": "2026-10-10T15:14:38.450Z",
+  "scope": "Actual Vue product UI and actual local services. Role data are fictional isolated fixtures; main service was inspected anonymously. No SMS/model/money/event acceptance.",
+  "implementation": {
+    "nativeComponents": [
+      "CourtScene.vue",
+      "SportButton.vue",
+      "SportCard.vue",
+      "SportEmpty.vue",
+      "SportField.vue",
+      "SportHeader.vue",
+      "SportMetric.vue",
+      "SportPill.vue",
+      "SportTabs.vue"
+    ],
+    "style": "plus-ui/src/assets/styles/design-system.scss",
+    "complexControls": "Existing tables, uploads, date inputs, dialogs and transactional forms retained"
+  },
+  "checks": {
+    "types": "passed",
+    "deliveryBuild": "passed",
+    "fieldRules": 7,
+    "readOnlyPageChecks": 100,
+    "layoutFollowups": 10,
+    "nativeInteractionChecks": 23,
+    "mainAnonymousChecks": 4
+  },
+  "observedLimitations": [
+    "Existing shared JavaScript chunk exceeds 500KiB; build succeeds.",
+    "Real first registration/password recovery/SMS/model/event and money acceptance remain in the phase-one list."
+  ],
+  "preservedFailures": [
+    "Early role screenshots could not open with expired isolated sessions; safe session recovery performed without replaying business facts.",
+    "Earlier CSS specificity and duplicate imports overrode intended layout; centralized assembly fixed it."
+  ],
+  "parentEvidence": {
+    "path": "docs/04-verification/羽毛球一期闭环本机验证-20261010.json",
+    "sha256": "6d18927802b75867876af4753f6cdc2b7151689b92af35eca8dc744ba687a0ee"
+  },
+  "artifacts": [
+    {
+      "path": "docs/05-ui/native-product-ui/desktop-login.png",
+      "sha256": "7fd8d5ad1783624fd260ffbfc2a3ef3186705435c68144594f9289b43ed42394"
+    },
+    {
+      "path": "docs/05-ui/native-product-ui/mobile-login.png",
+      "sha256": "4c6696d91ba69d0ac809343efbab2e8227d865180dc7a68ee3f46938395e9011"
+    },
+    {
+      "path": "docs/05-ui/native-product-ui/desktop-home.png",
+      "sha256": "eff74055321af8e402dc51acceef27697ce0bcbfadabdc687fab49e07eb82704"
+    },
+    {
+      "path": "docs/05-ui/native-product-ui/mobile-home.png",
+      "sha256": "76570d817754bfa0e149326fe74bd59b6917e6ce3b0e46f6c383db201198aa58"
+    },
+    {
+      "path": "docs/05-ui/native-product-ui/desktop-work-login.png",
+      "sha256": "f5e2be0a0acad8fc88bf47ddab749433572a883301857d6285e0e8fb15b720be"
+    },
+    {
+      "path": "docs/05-ui/native-product-ui/desktop-room-detail.png",
+      "sha256": "12647a4643bd65b8026ffdc8175fd4b3942d19b3ed1df2f5f6cf3653e66b2ca4"
+    },
+    {
+      "path": "docs/05-ui/native-product-ui/mobile-room-detail.png",
+      "sha256": "2c196b72773c766e1e95827b7416e323dc2ae6e6e565e298f7a4e9aa7352515b"
+    },
+    {
+      "path": "docs/05-ui/native-product-ui/desktop-growth.png",
+      "sha256": "5439049e4cef584a4242091d30a4c814f8fc44e63bc2aaf17a72938a8ccfab26"
+    },
+    {
+      "path": "docs/05-ui/native-product-ui/desktop-organizer-home.png",
+      "sha256": "5066cc3dd0d9a8e83ffaa6bf46588499732610491c8eae6fd67861491edac019"
+    },
+    {
+      "path": "docs/05-ui/native-product-ui/mobile-organizer-home.png",
+      "sha256": "7c85c025f2c64e256561c0f19b8c57881f0b1e5365cd2f7b02748a4cbcc7b8af"
+    },
+    {
+      "path": "docs/05-ui/native-product-ui/desktop-government-home.png",
+      "sha256": "85c1976eadb82e2ad0a3ba73db931702fda768c8f09e0143d828120991123d65"
+    },
+    {
+      "path": "docs/05-ui/native-product-ui/desktop-platform-objects.png",
+      "sha256": "7bcef0128dfe99cb62a7212f657725c85184983f78f4ed9b8ed864338cbf9310"
+    },
+    {
+      "path": ".local/phase1-implementation/native-ui-final/product-screens-receipt.json",
+      "sha256": "78d660787e244e343564107d7ee974e0abb191d10b16cc55b9e25ad24211ea81"
+    },
+    {
+      "path": ".local/phase1-implementation/native-ui-polish/product-screens-targeted-receipt.json",
+      "sha256": "57b918dd7225c0662a5e3f6fc1da198c7f5e4a568772561e5da72e02fa4a8cdd"
+    },
+    {
+      "path": ".local/phase1-implementation/native-ui-growth-final/product-screens-targeted-receipt.json",
+      "sha256": "b6aecd6c6488ed7d0da3d591179ed54ddc9d0a7b8cd04836146ba0cd7818d6b2"
+    },
+    {
+      "path": ".local/phase1-implementation/native-ui-interactions/receipt.json",
+      "sha256": "82419b79fefaf814db528e236294eff50cdfa8d5c3fa10a2f1ecf36842a6c83c"
+    },
+    {
+      "path": ".local/phase1-implementation/native-ui-public-final/receipt.json",
+      "sha256": "ee3d27870ca60917f9aa7fc9912427e836fc38356e1cd264601cde9c9d0262ea"
+    },
+    {
+      "path": ".local/phase1-implementation/ui-auth-fields.log",
+      "sha256": "4e5d79daf4b5dcd7fd5e7aa2821bbfcc055dcc481f1374511d472e5e3aa0b1d7"
+    },
+    {
+      "path": ".local/phase1-implementation/ui-component-types-final.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/phase1-implementation/ui-component-build-accepted.log",
+      "sha256": "f403b47ba38496031704b52982058d17ad2c2147b514de6c44dbfa263f50f3c7"
+    },
+    {
+      "path": "plus-ui/src/components/sport-ui/CourtScene.vue",
+      "sha256": "079b12746d3985b3c8c56bbaa0f471f9c0677e06d28754aefc5df8d8658837c5"
+    },
+    {
+      "path": "plus-ui/src/components/sport-ui/SportButton.vue",
+      "sha256": "41c1b6874407e914c6e3dceef959795e66310908cc4f50395c07cff8e8d792df"
+    },
+    {
+      "path": "plus-ui/src/components/sport-ui/SportCard.vue",
+      "sha256": "5d81f3855fd417f369aa89e761f18a62af8f4f1a4085650ef2921a9eebc8154b"
+    },
+    {
+      "path": "plus-ui/src/components/sport-ui/SportEmpty.vue",
+      "sha256": "4a546553d2c40242f2fc999636aa2ed4a6f48b415e4897dfe7a7f73c0c43fa6a"
+    },
+    {
+      "path": "plus-ui/src/components/sport-ui/SportField.vue",
+      "sha256": "298523fca644a8886a98c2df34578da4505ee2cf1ea40e71f88ed62c42481c8e"
+    },
+    {
+      "path": "plus-ui/src/components/sport-ui/SportHeader.vue",
+      "sha256": "cd6ae119a935a0e0f0bbb0cfc492cb522326e7231643bec4682a7906095947df"
+    },
+    {
+      "path": "plus-ui/src/components/sport-ui/SportMetric.vue",
+      "sha256": "8ca4250b64ae8127cfd18473dc4a335dafb4b7e0b56b936e88126cf1991772ff"
+    },
+    {
+      "path": "plus-ui/src/components/sport-ui/SportPill.vue",
+      "sha256": "5de84f5fae2de429e09596921d789ac4a6f139b6380b56bdc8d587db2c25ac67"
+    },
+    {
+      "path": "plus-ui/src/components/sport-ui/SportTabs.vue",
+      "sha256": "4a680a7ff2602a8bbd116c178e99543f82f83d21299a38f1bb8c229254295729"
+    },
+    {
+      "path": "plus-ui/src/components/sport-ui/useAuthFields.ts",
+      "sha256": "1f69c410e0e0aea0d46c9feee7ea076b399d31924830b43acb6c7d9d804c53d8"
+    },
+    {
+      "path": "plus-ui/src/components/sport-ui/useAuthFields.spec.ts",
+      "sha256": "47cd85785ec59d946c37b5d99bd5fee26ba99b796ddd92eb17f5c4e2b37581ee"
+    },
+    {
+      "path": "plus-ui/src/assets/styles/design-system.scss",
+      "sha256": "a08b6d63fc4e86964f16fc36973771530ff3e4fdada6eee2cefc7c5dfe739544"
+    },
+    {
+      "path": "plus-ui/src/assets/styles/index.scss",
+      "sha256": "6b881d2db3d223abf292aff8fed239a1f517d4bdc742635699f2117b94a69b08"
+    },
+    {
+      "path": "plus-ui/src/assets/logo/sports-mark.svg",
+      "sha256": "0df173769d147a20c621eb7113a799766c38e1bffdd632fbd46c83ae031db2af"
+    },
+    {
+      "path": "plus-ui/src/views/login.vue",
+      "sha256": "e3b5ddb48dd7fd3409944a7a5b41dcb878ae1d53e9f0dcdcd232ac159ed6d91a"
+    },
+    {
+      "path": "plus-ui/src/views/portal/login.vue",
+      "sha256": "ebda182e7569449aed22f1771457a825037d93bf0ae75adf1e95aa7694a9f3ca"
+    },
+    {
+      "path": "plus-ui/src/views/portal/register.vue",
+      "sha256": "9d7bad312aaa8ee231ff123db5affe1ff552a643c26f310ba931a4b140fb1972"
+    },
+    {
+      "path": "plus-ui/src/views/portal/forgot.vue",
+      "sha256": "59f24f21e080c059ffedc57b186e8e8e8a931a6479b7bf2aa6e04145dc4bdce0"
+    },
+    {
+      "path": "plus-ui/src/views/portal/home.vue",
+      "sha256": "3b8cd742b5342b51daba2fc5ec8e15ad20423b597442417e48e814439b159a1a"
+    },
+    {
+      "path": "plus-ui/src/views/portal/rooms.vue",
+      "sha256": "d1dd299124523bb89fcbe66154495195bb9ec91aab07ab16fea7a5eb2cc61c4d"
+    },
+    {
+      "path": "plus-ui/src/views/portal/growth.vue",
+      "sha256": "a3c4e6f293af822c91c0945a6c8272087fa286c57270c08bb113234a4176abe2"
+    },
+    {
+      "path": "plus-ui/src/views/sports/government/index.vue",
+      "sha256": "55e80cfcf8aa1b6d235a97421a8630a1b4054cc45a8ced84ed35318e27cfbcc2"
+    },
+    {
+      "path": "plus-ui/src/views/sports/organization/desk.vue",
+      "sha256": "515e4140eb78bb895bebe45c0542241a77b73e1f873f6dfdf8d21224504a9e88"
+    },
+    {
+      "path": "plus-ui/src/layout/business/BusinessFrame.vue",
+      "sha256": "92e01bac669ad0b3a2016cc1a961837428642427e279bfc392d686d546ef30f3"
+    },
+    {
+      "path": "plus-ui/src/layout/consumer/ConsumerShell.vue",
+      "sha256": "8867f44875ba4d7e130f16c519b6064b8b773a441e1f3ac5639cff33b3853673"
+    }
+  ]
+}

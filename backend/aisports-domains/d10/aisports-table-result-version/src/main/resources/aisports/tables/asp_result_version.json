@@ -1,0 +1,114 @@
+{
+  "name": "asp_result_version",
+  "domain": "D10",
+  "description": "原始表现、有效性、专业确认及修订链",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "match_id",
+      "type": "bigint",
+      "description": "比赛",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_match",
+      "check": null
+    },
+    {
+      "name": "revision",
+      "type": "integer",
+      "description": "结果版本",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "revision >= 0"
+    },
+    {
+      "name": "previous_id",
+      "type": "bigint",
+      "description": "更正前版本",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_result_version",
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：draft confirmed appealed published superseded void",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('draft', 'confirmed', 'appealed', 'published', 'superseded', 'void')"
+    },
+    {
+      "name": "raw_performance",
+      "type": "jsonb",
+      "description": "比分/计时/计量/评分等原始分项；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "decision",
+      "type": "jsonb",
+      "description": "弃权、处罚、取消及结果专业依据；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "confirmer_id",
+      "type": "bigint",
+      "description": "有权确认人员",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "confirmed_at",
+      "type": "timestamptz",
+      "description": "确认；有时区业务时间",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "published_at",
+      "type": "timestamptz",
+      "description": "发布；有时区业务时间",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": true,
+  "checks": [
+    "revision > 0",
+    "previous_id IS NULL OR previous_id <> id"
+  ],
+  "unique": [
+    [
+      "match_id, revision",
+      null
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-result-version",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

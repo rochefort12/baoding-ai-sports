@@ -1,0 +1,25 @@
+/* Intermittent, dismissible introductions anchored to the existing movable orb. */
+.assistant-bubble-greeting {
+  position: fixed;
+  z-index: 2306;
+  box-sizing: border-box;
+  width: 276px;
+  max-width: calc(100vw - 24px);
+  padding: 16px 32px 15px 17px;
+  color: #30382e;
+  background: #fffefa;
+  border: 1px solid #dfdfd2;
+  border-radius: 19px;
+  box-shadow: 0 8px 28px #2930241c;
+  font-family: var(--s-font, Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif);
+  &::after { content: ''; position: absolute; bottom: -7px; left: var(--greeting-tail); width: 12px; height: 12px; background: #fffefa; border-right: 1px solid #dfdfd2; border-bottom: 1px solid #dfdfd2; transform: translateX(-50%) rotate(45deg); }
+  &.is-below::after { top: -7px; bottom: auto; transform: translateX(-50%) rotate(225deg); }
+  .assistant-greeting-copy { display: block; width: 100%; border: 0; padding: 0; background: transparent; color: inherit; text-align: left; font: inherit; font-size: 15px; line-height: 1.65; cursor: pointer; overflow-wrap: anywhere; }
+  .assistant-greeting-copy > span { display: block; margin-top: 7px; color: #b14b24; font-size: 14px; font-weight: 600; }
+  .assistant-greeting-mute { display: block; margin: 12px 0 0; padding: 8px 0 0; width: 100%; border: 0; border-top: 1px solid #e7e8de; background: transparent; text-align: left; color: #61695b; font: inherit; font-size: 13px; line-height: 1.5; cursor: pointer; }
+  .assistant-greeting-dismiss { position: absolute; right: 6px; top: 6px; display: grid; place-items: center; width: 26px; height: 26px; padding: 0; border: 0; border-radius: 50%; background: transparent; color: #646d60; font-size: 21px; line-height: 1; cursor: pointer; }
+  button:focus-visible { outline: 2px solid #7e906a; outline-offset: 3px; }
+}
+.assistant-greeting-enter-active,.assistant-greeting-leave-active { transition: opacity .2s ease, transform .2s ease; }
+.assistant-greeting-enter-from,.assistant-greeting-leave-to { opacity: 0; transform: translateY(5px); }
+@media (prefers-reduced-motion: reduce) { .assistant-greeting-enter-active,.assistant-greeting-leave-active { transition: none; } }

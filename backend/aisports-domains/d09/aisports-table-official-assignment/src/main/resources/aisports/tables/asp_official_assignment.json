@@ -1,0 +1,70 @@
+{
+  "name": "asp_official_assignment",
+  "domain": "D09",
+  "description": "裁判、记录员及结果确认人员到场次的授权任务",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "match_id",
+      "type": "bigint",
+      "description": "场次",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_match",
+      "check": null
+    },
+    {
+      "name": "person_id",
+      "type": "bigint",
+      "description": "现实执行人员",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_person",
+      "check": null
+    },
+    {
+      "name": "role",
+      "type": "varchar(100)",
+      "description": "录入/确认/发布等",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：proposed accepted replaced completed",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('proposed', 'accepted', 'replaced', 'completed')"
+    },
+    {
+      "name": "basis",
+      "type": "jsonb",
+      "description": "职责与专业资格来源；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": true,
+  "checks": [],
+  "unique": [],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-official-assignment",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

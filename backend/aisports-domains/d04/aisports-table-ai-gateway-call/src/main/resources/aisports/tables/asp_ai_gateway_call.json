@@ -1,0 +1,61 @@
+{
+  "name": "asp_ai_gateway_call",
+  "domain": "D04",
+  "description": "历史网关工具调用摘要，来源V023；不记录参数、响应或原文，不表示当前路径启用",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "task_id",
+      "type": "bigint",
+      "description": "所属历史提案",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_ai_gateway_task",
+      "check": null
+    },
+    {
+      "name": "tool_name",
+      "type": "varchar(80)",
+      "description": "业务域工具名称",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "phase",
+      "type": "varchar(32)",
+      "description": "读取或用户确认后的应用阶段：read apply",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "phase IN ('read', 'apply')"
+    },
+    {
+      "name": "outcome",
+      "type": "varchar(32)",
+      "description": "工具调用结果：ok rejected",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "outcome IN ('ok', 'rejected')"
+    }
+  ],
+  "tenant": true,
+  "checks": [],
+  "unique": [],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-ai-gateway-call",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

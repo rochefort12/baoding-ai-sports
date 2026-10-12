@@ -1,0 +1,101 @@
+{
+  "name": "asp_action_confirmation",
+  "domain": "D13",
+  "description": "登录本人对特定能力、输入摘要和对象版本的一次确认",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "run_id",
+      "type": "bigint",
+      "description": "关联运行",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_agent_run",
+      "check": null
+    },
+    {
+      "name": "actor_type",
+      "type": "varchar(32)",
+      "description": "确认主体类型",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "actor_id",
+      "type": "bigint",
+      "description": "确认人编号",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "action_code",
+      "type": "varchar(160)",
+      "description": "动作",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "payload_hash",
+      "type": "varchar(64)",
+      "description": "确认内容摘要",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "object_versions",
+      "type": "jsonb",
+      "description": "对象及预期版本；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：pending confirmed consumed expired",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('pending', 'confirmed', 'consumed', 'expired')"
+    },
+    {
+      "name": "expires_at",
+      "type": "timestamptz",
+      "description": "有效期限；有时区业务时间",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "confirmed_at",
+      "type": "timestamptz",
+      "description": "本人点击确认；有时区业务时间",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": false,
+  "checks": [],
+  "unique": [],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-action-confirmation",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

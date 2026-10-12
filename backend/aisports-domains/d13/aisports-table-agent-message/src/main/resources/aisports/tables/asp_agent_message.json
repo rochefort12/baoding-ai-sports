@@ -1,0 +1,56 @@
+{
+  "name": "asp_agent_message",
+  "domain": "D13",
+  "description": "本人可恢复的可见对话；用途受控，不向其他人共享",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "run_id",
+      "type": "bigint",
+      "description": "运行",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_agent_run",
+      "check": null
+    },
+    {
+      "name": "role",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：user assistant",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "role IN ('user', 'assistant')"
+    },
+    {
+      "name": "content",
+      "type": "text",
+      "description": "用户可见文本；不存密钥或隐藏思考",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "blocks",
+      "type": "jsonb",
+      "description": "经过校验的表单、确认、回执和跳转块；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": false,
+  "checks": [],
+  "unique": [],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-agent-message",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

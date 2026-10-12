@@ -1,0 +1,70 @@
+{
+  "name": "asp_recruitment",
+  "domain": "D03",
+  "description": "缺员招募；只展示受控运动名片，不公开私有联系与材料",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "room_id",
+      "type": "bigint",
+      "description": "招募房间",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_team_room",
+      "check": null
+    },
+    {
+      "name": "creator_account_id",
+      "type": "bigint",
+      "description": "发布人",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_account",
+      "check": null
+    },
+    {
+      "name": "message",
+      "type": "varchar(500)",
+      "description": "招募介绍",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：open filled closed",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('open', 'filled', 'closed')"
+    },
+    {
+      "name": "expires_at",
+      "type": "timestamptz",
+      "description": "招募截止；有时区业务时间",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": false,
+  "checks": [],
+  "unique": [
+    [
+      "room_id",
+      "status='open'"
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-recruitment",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

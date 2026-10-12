@@ -1,0 +1,45 @@
+// New frozen evidence only. Earlier signed reports remain byte-identical.
+import fs from 'node:fs';import crypto from 'node:crypto';import assert from 'node:assert/strict';
+const hash=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex'),read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
+const base='.local/product-release-20261011/',agent='.local/agent-playbook-20261011/';
+const files={
+ frontend:base+'frontend-global-accepted-receipt.json',
+ pages:'.local/phase1-implementation/global-art-ui-20261011/final/product-screens-receipt.json',
+ growth:base+'growth-ui-1791686245987/receipt.json',taskArt:base+'task-art-ui-1791686374946/receipt.json',
+ main:base+'main-1791686154294/receipt.json',agentWindow:base+'agent-window-1791686555034/receipt.json',agentFactWindow:base+'agent-window-1791687192165/receipt.json',
+ direct:agent+'read-facts-direct-c51c97c0-6db0-4008-9bca-e5c258edcf86.json',guidance:agent+'real-7a6547ab-8047-4d9f-9a17-e1d9e2d36ede.json',
+ model:agent+'read-facts-model-final-5942e09d-06e5-4080-9709-8a703eb3b82c.json',
+ migration:base+'global-migration-8c8125b65e3543ef83fa882584718673/receipt.json',runtime:base+'runtime-refresh-de3b3c5e4d9a49079878cc954826c492/receipt.json',
+ gateway:base+'gateway-fact-refresh-ad39bcb8093c474fb2288850bdf74ded/receipt.json',candidate:agent+'candidate-release-3a086633-2d83-4608-846b-a6b76c1ea477/receipt.json'
+};
+const values=Object.fromEntries(Object.entries(files).map(([name,file])=>[name,read(file)]));
+for(const name of ['frontend','taskArt','main','agentWindow','agentFactWindow','migration','runtime','gateway','candidate'])assert.equal(values[name].passed,true,name+' gate');
+assert.deepEqual(values.growth.failures,[]);assert.deepEqual(values.growth.pageErrors,[]);assert.deepEqual(values.growth.writes,[]);
+assert.equal(values.pages.rows.length,100);assert.deepEqual(values.pages.failures,[]);assert.equal(values.growth.checks.length,61);assert.equal(values.taskArt.checks.length,96);
+for(const name of ['direct','guidance','model']){assert.equal(values[name].failures,0);assert.ok(values[name].checks.every(check=>check.status==='PASS'));}assert.equal(values.model.checks.length,17);
+const jar='backend/ruoyi-admin/target/ruoyi-admin.jar';assert.equal(hash(jar),values.runtime.jarSha256);
+assert.equal(hash('plus-ui/src/components/consumer/AgentPanel.vue'),values.frontend.currentAgentPanelHash);assert.equal(hash('plus-ui/src/views/portal/identity.vue'),values.frontend.currentIdentityHash);assert.equal(hash('ai-gateway/agent.mjs'),values.gateway.sourceHash);
+const predecessor='docs/04-verification/正式产品界面与创作功能验证-20261011.json',previous=read(predecessor);
+const inherited=['backend/aisports-domains/d04/aisports-table-event/src/main/java/org/dromara/sports/event/service/EventMaterialActionProvider.java','backend/aisports-domains/d04/aisports-table-event/src/main/java/org/dromara/sports/event/service/EventMaterialService.java','backend/aisports-domains/d02/aisports-table-profile-display/src/main/java/org/dromara/sports/tables/d02/profile_display/ProfileAvatarService.java'];
+for(const file of inherited)assert.equal(hash(file),previous.sourceFiles.find(source=>source.path===file)?.sha256,'Inherited service code unchanged');
+const sources=new Set([...inherited,'ai-gateway/agent.mjs','ai-gateway/agent.test.mjs','database/migrations/V035__sports_growth_rank_identity.sql','database/migrations/V036__agent_playbook_catalog.sql','database/seeds/agent-playbook-v2.json','database/model/phase1.py','docs/05-ui/assets-20261011-v2/assets.json','docs/05-ui/assets-20261011-v2/identity-artwork.json']);
+for(const dir of ['plus-ui/src/components/consumer','plus-ui/src/components/business','plus-ui/src/components/sport-ui','plus-ui/src/views/portal','plus-ui/src/views/sports','plus-ui/src/views/public','plus-ui/src/assets/styles','backend/aisports-domains/d13/aisports-table-agent-run/src/main/java','backend/aisports-platform/authz/src/main/java','backend/aisports-platform/executor/src/main/java','backend/aisports-modules/aisports-mcp/src/main/java'])if(fs.existsSync(dir))for(const file of fs.readdirSync(dir,{recursive:true}))if(/\.(vue|ts|scss|java)$/.test(file))sources.add(dir+'/'+file.replaceAll('\\','/'));
+const privateSession=JSON.parse(fs.readFileSync('.local/phase1-implementation/verification-session.json','utf8'));
+const catalogResponse=await fetch('http://127.0.0.1:8082/sports/platform/management',{headers:{clientid:'e5cd7e4891bf95d1d19206ce24a7b32e',Authorization:'Bearer '+privateSession.admin.token}}),catalogBody=await catalogResponse.json();assert.equal(catalogBody.code,200);const runtimeCatalog=catalogBody.data.definitions;
+const selected=['event.mine','growth.card','registration.mine','room.query','type.catalog','event.material.save','event.material.generate','event.cover.save'];
+// Only definition metadata is emitted; session credentials never enter the report.
+const definitions=Object.fromEntries(selected.map(code=>{const item=runtimeCatalog.find(item=>item.definition.code===code);assert.ok(item);return [code,item.definitionHash];}));
+assert.equal(definitions['event.mine'],values.direct.checks[0].definitionHashes['event.mine'],'Recovered session definitions must be current');
+const report={timestamp:new Date().toISOString(),scope:'Current local product UI and registered-agent trial; synthetic rehearsal facts; not full live tournament acceptance',passed:true,jarSha256:hash(jar),
+ sourceFiles:[...sources].sort().map(path=>({path,sha256:hash(path)})),definitionHashes:definitions,
+ checks:Object.fromEntries(Object.entries(files).map(([name,path])=>[name,{passed:true,evidencePath:path,sha256:hash(path)}])),
+ counts:{pages:50,desktopMobilePageChecks:100,growthUi:61,taskCopyArtUi:96,mainAnonymousUi:values.main.checks.length,agentGuidanceUi:24,agentFactUi:26,javaSelected:35,gatewayUnitTests:43,agentDirectAuthorization:9,agentRealGuidance:12,agentRealFactRead:17,tableModules:121,newRasterAssets:13,newNativeSvgAssets:13},
+ observed:{ranks:['新星','青铜','白银','黄金','铂金','钻石','星耀','王者'],thresholds:[0,40,120,400,1000,2400,4800,9600],agentVersion:2,persistentMcpEntries:11,controlledAgentTools:6,skills:6,businessFlows:5,readOnlyAgentCandidates:['event.mine','growth.card','registration.mine','room.query','type.catalog']},
+ inheritedEvidence:{report:predecessor,sha256:hash(predecessor),unchangedBackendSources:inherited,actualAvatarHttpChecks:24,actualMaterialHttpChecks:28,realProviderTextTypes:['plan','script','announcement','promotion'],boundary:'Prior real HTTP/model evidence is inherited only for unchanged service sources; current UI copy/layout is separately verified'},
+ release:{main:'Prepared for exact current UI3 + event.mine UI contract + five read-only Agent channels; actual release receipt is separate',rehearsal:'Five read-only Agent candidates actually opened and real-model verified; no new write Agent channels'},
+ migrations:{versions:['V035','V036'],actualMainAndRehearsal:true,backupRestoreReplay:true,protectedBusinessFactsUnchanged:true},
+ limitations:['Rehearsal people/event/money/results are synthetic, not official real-event acceptance','High-tier preview and frame assets verified; actual high-tier reward/upgrade was not fabricated','Existing proof is an unspecified award: neutral medal correct; official gold/silver/bronze issuance was not fabricated','Runtime external image provider still absent; installed image_gen artwork is separate','Remaining generic Agent write/delegation/material-conflict channels await specific real-model scenarios','No real bank/SMS/field tournament or broad mobile soft-keyboard/performance certification','Government/platform framework navigation tabs retain existing blue; product cards use the new shared style','Existing large frontend chunk warning remains'],
+ failureHistory:['Original malformed model reply retained and same task resumed','Original facts task stopped at a checklist; general tool-first orchestration repaired and same task continued once','Missing second-organization event fixture replaced with existing second organization session boundary; no new event fabricated','401 sessions reauthenticated without re-running facts','POST preview was initially classified as write; verified exact scoped read preview allowed and separately recorded','Growth text background and narrow identity/editor layout corrected after visual inspection','Old heading and task-slot selectors failed; corrected tests; first evidence retained','Initial gateway shell wildcard did not expand; full explicit-path suite rerun; prior log retained','DPAPI reader trims trailing newline; original credential matched existing main account and no reset occurred'],
+ predecessorHashes:{product:hash(predecessor),phase1:hash('docs/04-verification/羽毛球一期闭环本机验证-20261010.json'),native:hash('docs/04-verification/产品组件与视觉验证-20261010.json')}
+};
+const target='docs/04-verification/全局视觉与办理智能体验证-20261011.json';fs.writeFileSync(target,JSON.stringify(report,null,2)+'\n',{flag:'wx'});console.log('Frozen current product evidence '+hash(target));

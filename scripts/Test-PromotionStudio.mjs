@@ -1,0 +1,104 @@
+/** Production Vue UI, synthetic event and isolated API responses. No external model/database writes. */
+import { createRequire } from 'node:module';
+import path from 'node:path';
+import fs from 'node:fs/promises';
+import assert from 'node:assert/strict';
+import { createFixtureAudit } from './lib/UiFixtureAudit.mjs';
+const { chromium } = createRequire(path.join(process.argv[2], '_resolve.cjs'))('playwright');
+const output = path.resolve('.local/promotion-studio-targeted-20261010');
+await fs.mkdir(output, { recursive: true });
+const browser = await chromium.launch({ executablePath: 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe', headless: true });
+const context = await browser.newContext({ viewport: { width: 1440, height: 900 }, permissions: ['clipboard-read', 'clipboard-write'] });
+const audit = createFixtureAudit(), writes = [], errors = [];
+let passed = 0, failRead = false, imageEnabled = true, failCopy = false, releaseImage;
+let imageGate = null;
+const check = (condition, label) => { assert.ok(condition, label); passed++; console.log('PASS ' + label); };
+const event = { id: '901', name: '秋日羽毛球交流赛（界面样例）', projectName: '羽毛球', location: '保定 · 城市运动馆', holdingStatus: 'normal', publicationStatus: 'draft', phase: 'pre_registration', editable: true, registrationReview: 'manual', registrationOpensAt: '2026-10-10T09:00:00+08:00', registrationClosesAt: '2026-10-18T18:00:00+08:00', startsAt: '2026-10-24T09:00:00+08:00', endsAt: '2026-10-24T18:00:00+08:00' };
+const initial = () => ({ copySource: 'basic', saved: false, stale: false, published: false, cancelled: false, imageEnabled, eventName: event.name, projectName: event.projectName, headline: event.name, invitation: '赛事正在筹备，具体报名安排以正式发布为准。', groupBody: event.name + '\n比赛地点：' + event.location + '\n男子单打：198.00元／单', momentsCaption: event.name + '\n欢迎关注赛事筹备。', groupPath: '', momentsPath: '', posterPath: '', whenText: '2026年10月24日 09:00—18:00', location: event.location, organizationName: '城市运动社（样例）', bannerFileId: null, fees: [{ name: '男子单打', amount: '198.00', mode: 'offline' }], factDigest: 'fixture' });
+let card = initial();
+await context.addInitScript(() => { localStorage.setItem('Admin-Token', 'fixture-only'); localStorage.setItem('Platform-Token', 'fixture-only'); });
+await context.route('**/*', async route => {
+  const request = route.request(), url = new URL(request.url()).pathname;
+  if (!['fetch', 'xhr'].includes(request.resourceType()) || url.startsWith('/images/promotion/')) return route.continue();
+  if (url.endsWith('/sports/b/media/555')) return route.fulfill({ contentType: 'image/jpeg', body: await fs.readFile('plus-ui/public/images/promotion/sport-flat-seedream.jpg') });
+  let data, code = 200;
+  if (request.method() !== 'GET') {
+    const body = request.postDataJSON(); writes.push({ path: url, body });
+    if (url.endsWith('/promotion/visual')) {
+      if (imageGate) await imageGate;
+      card = { ...card, visualFileId: '555', visualStyle: body.style }; data = card;
+    } else if (url.endsWith('/events/901/promotion')) {
+      if (failCopy) { code = 500; data = null; }
+      else data = card = { ...card, copySource: 'ai', saved: true, headline: '挥拍相聚，把热爱带上球场', invitation: '这个秋天，与运动伙伴打一场尽兴的比赛。', groupBody: '这个秋天，来保定挥拍相聚！查看规程，选择适合自己的项目，一起享受比赛。', momentsCaption: '这个秋天，把热爱带上球场。' };
+    } else return audit.reject(route);
+  } else if (url.endsWith('/system/user/getInfo')) data = { user: { userId: '201', tenantId: 'fixture', nickName: '样例办赛员', userName: 'fixture' }, roles: ['organizer'], permissions: [] };
+  else if (url.endsWith('/system/menu/getRouters')) data = [{ path: '/org-desk', name: 'OrgDesk', component: 'Layout', meta: { title: '办赛工作台' }, children: [{ path: 'events', name: 'OrgEvents', component: 'sports/event/index', meta: { title: '赛事管理' } }] }];
+  else if (url.endsWith('/sports/b/desk/context')) data = { organizationId: '601', organizationName: '城市运动社（样例）', organize: true, payment: true };
+  else if (url.endsWith('/sports/b/events')) data = [event];
+  else if (url.endsWith('/events/901/promotion')) { if (failRead) { code = 500; data = null; } else data = { ...card, imageEnabled }; }
+  else if (url.endsWith('/sports/b/ai/assistant/sessions')) data = [];
+  else return audit.reject(route);
+  return route.fulfill({ json: { code, msg: code === 200 ? '界面样例' : '读取失败（隔离）', data } });
+});
+const page = await context.newPage(); page.on('pageerror', error => errors.push(error.message));
+const studio = page.locator('.b-event-drawer:visible .b-promote');
+const open = async () => { await page.getByRole('button', { name: '宣传材料', exact: true }).click(); await studio.waitFor(); };
+const close = async () => { await page.locator('.b-event-drawer:visible .el-drawer__close-btn').click(); await studio.waitFor({ state: 'hidden' }); };
+try {
+  await page.goto('http://127.0.0.1:5173/org-desk/events');
+  failRead = true; await open(); await studio.getByText('宣传材料读取失败，请重试。', { exact: true }).waitFor();
+  check(await studio.getByRole('button', { name: 'AI 生成海报', exact: true }).isDisabled(), '读取失败时不能发起生成');
+  failRead = false; await studio.getByRole('button', { name: '重新读取', exact: true }).click(); await studio.locator('img').waitFor();
+  check(writes.length === 0, '打开、读取重试和排版预览不调用生成');
+  await studio.getByRole('tab', {name: '群消息', exact: true}).click();
+  check(await studio.getByRole('button', {name: '复制群消息', exact: true}).isEnabled() && (await studio.locator('.b-promotion-copy-preview').innerText()).includes('198.00'), '未调用模型已提供当前赛事基础文案');
+  await studio.getByRole('tab', {name: '海报', exact: true}).click();
+  await studio.getByRole('button', { name: '清新相聚', exact: false }).click();
+  check(writes.length === 0 && (await studio.getByLabel('海报创作要求').inputValue()).includes('清爽'), '灵感只填入描述，不自动收费调用');
+  await studio.locator('.b-promotion-consent').click();
+  imageGate = new Promise(resolve => { releaseImage = resolve; });
+  await studio.getByRole('button', { name: 'AI 生成海报', exact: true }).click();
+  await studio.getByText('正在为这场赛事生成图片…', { exact: true }).waitFor();
+  check(writes.length === 1 && writes[0].path.endsWith('/visual'), '进度显示真实图片步骤，文案未提前请求');
+  check(await studio.getByRole('button', { name: 'AI 正在创作', exact: true }).isDisabled() && await studio.getByLabel('海报创作要求').isDisabled(), '创作中阻止重复操作及输入混用');
+  releaseImage(); imageGate = null;
+  await studio.getByText('海报已生成。朋友圈配图和群消息也准备好了。', { exact: true }).waitFor();
+  check(writes.length === 2 && writes[1].path.endsWith('/promotion'), '一次点击完成生图后文案');
+  await studio.screenshot({ path: path.join(output, 'desktop-ready.png') });
+  await studio.getByRole('tab', { name: '海报', exact: true }).focus(); await page.keyboard.press('ArrowRight');
+  check(await studio.getByRole('tab', { name: '朋友圈', exact: true }).getAttribute('aria-selected') === 'true', '材料标签支持方向键切换');
+  await page.keyboard.press('End');
+  check(await studio.getByRole('tab', { name: '群消息', exact: true }).getAttribute('aria-selected') === 'true', '材料标签支持End键');
+  await studio.getByRole('button', { name: '复制群消息', exact: true }).click();
+  check((await page.evaluate(() => navigator.clipboard.readText())).includes('来保定挥拍相聚'), '群消息实际复制到剪贴板');
+  await studio.getByRole('tab', { name: '海报', exact: true }).click();
+  failCopy = true; const beforePartial = writes.length;
+  await studio.getByRole('button', { name: 'AI 生成海报', exact: true }).click();
+  await studio.getByText(/图片已生成，AI 文案未完成/).waitFor();
+  check(writes.length === beforePartial + 2 && await studio.locator('img').isVisible(), '文案失败保留已生成的图片并说明部分完成');
+  failCopy = false; await studio.locator('summary').click(); const retryStart = writes.length;
+  await studio.getByRole('button', { name: '只生成文案', exact: true }).click();
+  await studio.getByText('文案已生成，已有画面保留。可以切换查看朋友圈和群消息。', { exact: true }).waitFor();
+  check(writes.length === retryStart + 1 && writes.at(-1).path.endsWith('/promotion'), '补文案不再次请求生图');
+  await close(); card = initial(); failCopy = true; await open(); await studio.locator('.b-promotion-consent').click();
+  await studio.getByRole('button', {name: 'AI 生成海报', exact: true}).click(); await studio.getByText(/图片已生成，AI 文案未完成/).waitFor();
+  await studio.getByRole('tab', {name: '群消息', exact: true}).click();
+  check(await studio.getByRole('button', {name: '复制群消息', exact: true}).isEnabled() && (await studio.locator('.b-promotion-copy-preview').innerText()).includes('198.00'), '首次AI文案失败仍可复制基础文案和保留已生成图片');
+  failCopy = false;
+  await close(); card = {...initial(), published: true, cancelled: true, groupBody: '赛事已取消，请联系承办方了解后续安排。'}; await open(); await studio.getByRole('tab', {name: '群消息', exact: true}).click();
+  check(!(await studio.locator('.b-promotion-copy-preview').innerText()).includes('还没公开'), '已发布取消赛事的基础文案不误称尚未公开');
+  await close(); card = initial(); imageEnabled = false; await open(); await studio.getByText('AI 生图暂不可用。可以用现有图片生成文案。', { exact: true }).waitFor();
+  await studio.locator('.b-promotion-consent').click(); const fallbackStart = writes.length;
+  await studio.getByRole('button', { name: 'AI 生成文案', exact: true }).click();
+  await studio.getByText('文案已生成，已有画面保留。可以切换查看朋友圈和群消息。', { exact: true }).waitFor();
+  check(writes.length === fallbackStart + 1 && writes.at(-1).path.endsWith('/promotion'), '图像服务不可用时明确改为文案入口，不请求生图');
+  await close(); imageEnabled = true; card = initial(); await page.setViewportSize({ width: 390, height: 844 }); await open(); await studio.locator('img').waitFor();
+  check(await studio.evaluate(node => node.scrollWidth <= node.clientWidth + 1), '手机工作室不横向溢出');
+  check(await studio.locator('.el-checkbox__label').evaluate(node => node.scrollWidth <= node.clientWidth + 1), '手机授权说明完整换行');
+  await page.screenshot({ path: path.join(output, 'mobile-start.png'), animations: 'disabled' });
+  await studio.locator('.b-promotion-consent').click(); await studio.getByRole('button', { name: 'AI 生成海报', exact: true }).click();
+  await studio.getByText('海报已生成。朋友圈配图和群消息也准备好了。', { exact: true }).waitFor();
+  check(await studio.getByRole('button', { name: '下载图片', exact: true }).isEnabled(), '手机同样可完成生成与导出');
+  audit.assertClean(); check(!errors.length, '加载、恢复、部分失败、手机交互无脚本异常');
+  await fs.writeFile(path.join(output, 'results.json'), JSON.stringify({ scope: 'isolated API fixtures; synthetic event; no model calls or business writes', passed, errors, writes: writes.map(item => item.path) }, null, 2));
+} finally { releaseImage?.(); await context.close(); await browser.close(); }

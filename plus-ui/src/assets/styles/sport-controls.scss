@@ -1,0 +1,42 @@
+/* One quiet control language for native sport fields and retained RuoYi forms. */
+:root{--s-control-focus:#a0a69b;--s-control-keyboard:#75806b}
+.sport-select{position:relative;min-width:0;width:100%;font-family:var(--s-font)}
+.sport-select__trigger{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;min-width:0;min-height:42px;padding:10px 12px;border:1px solid var(--s-line,#e6e8e4);border-radius:12px;background:var(--s-surface,#fff);color:var(--s-ink,#202321);font:500 13px/20px var(--s-font);text-align:left;cursor:pointer;transition:border-color .18s,background .18s,box-shadow .18s}
+.sport-select__trigger>span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.sport-select__trigger>.is-placeholder{color:var(--s-muted)}.sport-select__trigger>svg{width:14px;height:14px;flex-shrink:0;fill:none;stroke:var(--s-muted);stroke-width:1.5;transition:transform .2s var(--s-ease)}
+.sport-select.is-open .sport-select__trigger{border-color:var(--s-control-focus);background:var(--s-surface);box-shadow:none}.sport-select.is-open .sport-select__trigger>svg{transform:rotate(180deg)}
+.sport-select .sport-select__trigger:focus{outline:none!important;box-shadow:none}.sport-select .sport-select__trigger:focus-visible{border-color:var(--s-control-keyboard)}.sport-select:not(.has-error) .sport-select__trigger:hover:not(:disabled):not(:focus-visible){border-color:#c2c7bd}.sport-select__trigger:disabled{cursor:not-allowed;background:var(--s-paper);color:#969d93;opacity:.7}.sport-select.has-error .sport-select__trigger,.sport-select.has-error .sport-select__trigger:focus-visible{border-color:var(--s-red,#b94743);box-shadow:none}
+.sport-select .sport-select__constraint{position:absolute;width:1px;height:1px;margin:0;padding:0;border:0;opacity:0;pointer-events:none;clip-path:inset(50%);overflow:hidden}
+.sport-select__popover{position:fixed;z-index:4600;padding:5px;overflow:auto;overscroll-behavior:contain;border:1px solid #e5e8e0;border-radius:14px;background:var(--s-surface,#fff);box-shadow:0 12px 32px #29311d12,0 2px 7px #29311d05;font-family:var(--s-font);scrollbar-width:thin;scrollbar-color:#d4d8cf transparent}
+.sport-select__option{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:37px;width:100%;padding:8px 10px;border:0;border-radius:9px;background:transparent;color:var(--s-ink,#202321);font:400 12px/20px var(--s-font);text-align:left;cursor:pointer}.sport-select__option>span{overflow-wrap:anywhere}.sport-select__option>svg{width:14px;height:14px;stroke:#6c7a5e;stroke-width:1.7;fill:none;flex-shrink:0}.sport-select__option.is-active{background:#f2f4ef}.sport-select__option.is-selected{color:#4a5840;font-weight:550;background:#f5f7f2}.sport-select__option.is-selected.is-active{background:#eaf0e3}.sport-select__option:disabled{color:#a1a69c;cursor:not-allowed;opacity:.65}.sport-select__empty{margin:0;padding:12px 10px;font-size:12px;color:var(--s-muted)}
+.sport-select-popover-enter-active,.sport-select-popover-leave-active{transition:opacity .16s,transform .2s var(--s-ease)}.sport-select-popover-enter-from,.sport-select-popover-leave-to{opacity:0;transform:translateY(-4px) scale(.985)}
+/* Focus changes the existing one-pixel boundary. Never stack an input outline,
+   wrapper outline and outer halo around the same editable field. The darker
+   keyboard stroke remains visible; error red takes precedence over focus. */
+:is(.consumer-app,.business-app,.product-admin,.sport-work-login,.el-dialog,.el-drawer,.el-message-box,.el-popper){
+  :is(input:not([type='checkbox']):not([type='radio']):not([type='range']):not([type='file']),textarea:not(.el-textarea__inner),select):focus{outline:none!important;box-shadow:none;border-color:var(--s-control-focus)}
+  :is(input:not([type='checkbox']):not([type='radio']):not([type='range']):not([type='file']),textarea:not(.el-textarea__inner),select):focus-visible{border-color:var(--s-control-keyboard)}
+  .sport-field-control:focus-within{border-color:var(--s-control-focus);background:var(--s-surface);box-shadow:none;outline:none!important}
+  .sport-field-control:has(:focus-visible){border-color:var(--s-control-keyboard)}
+  .sport-field-control input:focus{border:0;box-shadow:none!important;outline:none!important}
+  :is(.el-input__wrapper,.el-select__wrapper,.el-date-editor:not(.el-input),.el-range-editor):is(.is-focus,.is-focused,.is-active),:is(.el-input__wrapper,.el-select__wrapper,.el-date-editor:not(.el-input),.el-range-editor):focus-within{box-shadow:0 0 0 1px var(--s-control-focus) inset!important;outline:none!important}
+  :is(.el-input__wrapper,.el-select__wrapper,.el-date-editor:not(.el-input),.el-range-editor):has(:focus-visible){box-shadow:0 0 0 1px var(--s-control-keyboard) inset!important;outline:none!important}
+  :is(.el-input__inner,.el-range-input):focus{border:0;box-shadow:none!important;outline:none!important}
+  .el-textarea__inner:focus{box-shadow:0 0 0 1px var(--s-control-focus) inset!important;outline:none!important}
+  .el-textarea__inner:focus-visible{box-shadow:0 0 0 1px var(--s-control-keyboard) inset!important}
+  .sport-field.has-error .sport-field-control,.el-form-item.is-error .sport-field-control{border-color:var(--s-red,#b94743);box-shadow:none;background:#fff8f5}
+  .el-form-item.is-error :is(.el-input__wrapper,.el-select__wrapper,.el-date-editor:not(.el-input),.el-range-editor,.el-textarea__inner){box-shadow:0 0 0 1px var(--s-red,#b94743) inset!important;outline:none!important}
+  :is(input,textarea,select)[aria-invalid='true']:focus{border-color:var(--s-red,#b94743)!important}
+  /* Single-date editors are an el-input container around the real wrapper.
+     Clearing only this container preserves range editors, whose root itself
+     has el-input__wrapper and owns the one boundary, including error state. */
+  .el-date-editor.el-input:not(.el-input__wrapper){border:0!important;box-shadow:none!important;outline:none!important}
+  /* Opening the calendar moves focus into its teleported panel while the
+     date input remains active. Keep the real inner owner neutral then, too. */
+  .el-date-editor.el-input:is(.is-focus,.is-active)>.el-input__wrapper{box-shadow:0 0 0 1px var(--s-control-focus) inset}
+}
+.el-select-dropdown__item.is-selected{color:#4a5840!important;font-weight:550}.el-select-dropdown__item.is-hovering{background:#f2f4ef!important}.el-select__popper.el-popper{border-color:#e5e8e0!important;border-radius:14px!important;box-shadow:0 12px 32px #29311d12!important}.el-select-dropdown{padding:5px}.el-select-dropdown__item{border-radius:8px;font-size:12px;min-height:35px}
+/* Limit the calm calendar accent to date/time poppers. It cannot recolor
+   navigation, validation red or any unrelated RuoYi theme surface. */
+.el-picker__popper{--el-color-primary:#75806b;--el-color-primary-light-3:#a1ad96;--el-color-primary-light-9:#f3f5f0;--el-color-primary-dark-2:#626f58}
+html.dark .sport-select__popover{border-color:var(--s-line)}html.dark .sport-select__option.is-active,html.dark .sport-select__option.is-selected{background:#30392b;color:#dce3d5}html.dark .sport-select__option.is-selected.is-active{background:#3a4533}
+@media(prefers-reduced-motion:reduce){.sport-select__trigger,.sport-select__trigger>svg,.sport-select-popover-enter-active,.sport-select-popover-leave-active{transition:none}}

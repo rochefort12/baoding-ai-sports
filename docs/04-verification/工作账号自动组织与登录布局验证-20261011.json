@@ -1,0 +1,186 @@
+{
+  "at": "2026-10-11T08:32:02.347Z",
+  "passed": true,
+  "status": "LOCAL_WORK_LOGIN_REFINEMENT_PASSED_WITH_WECHAT_AUTHORIZATION_PENDING",
+  "scope": "Current work-password identity selection, work login visual layout and local package installation. This does not replace earlier tournament acceptance or prove real WeChat OAuth.",
+  "version": {
+    "branch": "ai-feature",
+    "backendJarSha256": "6320dee809a26392b6065fdbcd3d5fdf7f14c551b1ba4c92745aaef22134598b",
+    "priorMainJarSha256": "03da46e9cef78f6d72e4c9ebf79840652b7a91fc9ad6e7f01562ace32afd7d07",
+    "mainPid": 59180,
+    "candidatePid": 41152
+  },
+  "observed": {
+    "backendTests": 415,
+    "backendFailures": 0,
+    "backendErrors": 0,
+    "backendSkipped": 0,
+    "candidateApiChecks": 30,
+    "candidateFormChecks": 27,
+    "candidateLayoutChecks": 178,
+    "mainLayoutChecks": 140,
+    "mainFormChecks": 8,
+    "mainCompletionChecks": 12,
+    "mainBusinessTablesUnchanged": 46,
+    "uiEnabled": 56,
+    "agentEnabled": 5,
+    "agentWrites": 0,
+    "wechatAvailable": false
+  },
+  "sourceBinding": {
+    "path": ".local/login-refinement-20261011/main-release-b9077082fa5f4ebf9eb54cc6fdc9a6b3/source-binding.json",
+    "sha256": "75bebe622157b22fe1ac77e38157355ca75b3980e54befaace3f9bc0d0a04eb2",
+    "provenance": "Backend compiler inputs, source/build timing and packaged class equality; release-time hashes, not a pre-build hash manifest. Frontend type/build source hashes unchanged."
+  },
+  "evidence": [
+    {
+      "gate": "backend-build",
+      "path": ".local/login-refinement-20261011/backend-292da4a7acf345da9fab2ae62aea59ba/receipt.json",
+      "sha256": "8bea7864da05d1d1b4d4b1dc8c5f6c423596ef5f0898c479228ee4c03c1b3307",
+      "passed": true
+    },
+    {
+      "gate": "frontend-build",
+      "path": ".local/product-release-20261011/frontend-refinement-f46df6e570b14f2e9b0f92d8fa282edf/receipt.json",
+      "sha256": "1807d82c01f1e57d11d33af55c10eea661185c31efbd264c8386a594dcb09ed4",
+      "passed": true,
+      "checks": 3,
+      "scope": "Final current frontend typecheck and build; not real tournament or performance acceptance"
+    },
+    {
+      "gate": "candidate-account-api",
+      "path": ".local/business-regression-20261011/626cd3f32f36461984a58973a8bab828/work-account-auto-tenant-1791706347708-378f53c0/receipt.json",
+      "sha256": "d1b99e9e9a5d37b92250062bc8c96c9a4412c35dcbcf9674409052841074b2f1",
+      "passed": true,
+      "checks": 30,
+      "scope": "Actual isolated HTTP work-account authentication and public sys tenant/user fixture APIs; no main database, SQL writes, credential reset or tournament mutations."
+    },
+    {
+      "gate": "candidate-responsive-layout",
+      "path": ".local/login-refinement-20261011/ui-3e030a64-1cb4-482b-b0fe-e22e1be2d920/receipt.json",
+      "sha256": "f2a714762c22133437b1bcb2013d9dc3e5993fb24fb61722f31a39d323ccd551",
+      "passed": true,
+      "checks": 178,
+      "scope": "Actual anonymous local work/phone/register/reset layouts and work-WeChat unavailability. No credential submission, OAuth, SMS or business writes. Viewports are not physical-device acceptance."
+    },
+    {
+      "gate": "candidate-actual-form-login",
+      "path": ".local/login-refinement-20261011/authenticated-ui-9b3b27f9-46f7-4d85-bca7-545963436048/receipt.json",
+      "sha256": "fa9473fae6a7ac54fc3490b5f3c5f9fddeeb1c8c2ccf3d23d979b58de6be5154",
+      "passed": true,
+      "checks": 27,
+      "scope": "Real candidate work-login forms and server-issued identity; synthetic government/platform/nondefault work accounts. Authentication only. No pre-injected tokens, OAuth, SMS or tournament writes. Viewports are not physical devices."
+    },
+    {
+      "gate": "main-installation-completion",
+      "path": ".local/login-refinement-20261011/main-release-b9077082fa5f4ebf9eb54cc6fdc9a6b3/completion-6e635592c22247c9b6a14890dbce9bf0/receipt.json",
+      "sha256": "459f4b9d4548142dfc05f1d568a8184660e022dfbc92c871d06f885df10b16d2",
+      "passed": true,
+      "checks": 12,
+      "scope": "Complete existing main installation checks; no repeated restart, capability release or tournament write"
+    },
+    {
+      "gate": "main-responsive-layout",
+      "path": ".local/login-refinement-20261011/ui-9278462b-f833-4f39-8e0a-1c32a8c5697d/receipt.json",
+      "sha256": "d7eb14d4ca3e88e358f18489c662227552032fc6f769dd6e950001385a12504b",
+      "passed": true,
+      "checks": 140,
+      "scope": "Actual anonymous local work/phone/register/reset layouts and work-WeChat unavailability. No credential submission, OAuth, SMS or business writes. Viewports are not physical-device acceptance."
+    },
+    {
+      "gate": "main-actual-form-login",
+      "path": ".local/login-refinement-20261011/main-auth-ui-f8bb0d3f-0abd-4485-8f1e-9bab122b54fe/receipt.json",
+      "sha256": "18c9d91f7ce2dbb4809a920773067da9133485b63b8d5f9c70ae763ab8e443ae",
+      "passed": true,
+      "checks": 8,
+      "scope": "Actual main administrator password-form login in a fresh browser session; protected original credential and default organization. Authentication only, no business writes or OAuth."
+    },
+    {
+      "gate": "runtime-checkpoint",
+      "path": ".local/login-refinement-20261011/checkpoint-d66e3167aa4d46b2af9b3390f73fdec8.json",
+      "sha256": "5166cc7b2526f7077a977a7b2707ae11324a30f8ed0946b9c39216161080ef9a",
+      "passed": true,
+      "scope": "Current loopback listener ownership, immutable backend packages and listed public reads only; not new tournament or WeChat OAuth acceptance"
+    },
+    {
+      "gate": "stable-main-screenshots",
+      "path": "docs/05-ui/work-login-20261011/screenshots.json",
+      "sha256": "7ca9f13a3345c6c15009dc8fffc4e19cd182c41628ac480c5f9cc37b7fa8ce04",
+      "passed": true,
+      "scope": "Stable anonymous main login screenshots, not additional business acceptance"
+    }
+  ],
+  "failures": [
+    {
+      "path": ".local/business-regression-20261011/626cd3f32f36461984a58973a8bab828/work-account-auto-tenant-1791706045577-bca469aa/receipt.json",
+      "sha256": "b97bd895f8f0cc01a4a6a6b6789ec3314280dd16dc55b8c143326baff8077df7",
+      "passed": false,
+      "reason": "Node child process referenced an absent PowerShell executable. No authentication or fixture creation occurred; corrected test entry passed independently."
+    },
+    {
+      "path": ".local/login-refinement-20261011/main-release-90c54ec59d2047fdadf0f5709c86e528/receipt.json",
+      "sha256": "ca2fe041293e3e50a33b653ea84ab1ba4df3bef5202ed6154ac4bcf51327d6d4",
+      "passed": false,
+      "reason": "Protected saved session returned 401 before backup or stop. Original password reauthentication recovered the session; no reset."
+    },
+    {
+      "path": ".local/login-refinement-20261011/main-release-b9077082fa5f4ebf9eb54cc6fdc9a6b3/receipt.json",
+      "sha256": "0490e9e22316f83a10ea633e1614cdedf6f62cb36417feb823144a67dc26fe3a",
+      "passed": false,
+      "reason": "Installation succeeded but exact JSON serialization comparison incorrectly treated JVM set and object order as changes. Original failed receipt remains false."
+    },
+    {
+      "path": ".local/login-refinement-20261011/main-release-b9077082fa5f4ebf9eb54cc6fdc9a6b3/completion-52f060d346d140a6b005b324f3745f41/receipt.json",
+      "sha256": "4d0a408f2b77ada2e2b0eb49d3deab67a4f4c695d54b2772ad488fdeee520f2a",
+      "passed": false,
+      "reason": "Set normalization still compared JSON object property order. Original failure preserved."
+    },
+    {
+      "path": ".local/login-refinement-20261011/main-release-b9077082fa5f4ebf9eb54cc6fdc9a6b3/completion-c8fbcb611c3d4c3ca42850059197fbd8/receipt.json",
+      "sha256": "9fa2b50244627f63b236ad069ecf578c97fdd68273e963d7f30c8c41a1770975",
+      "passed": false,
+      "reason": "All content and 46 table checks passed; an empty events array was unwrapped by PowerShell and mistakenly classified as missing. Original failure preserved."
+    }
+  ],
+  "historicalReports": [
+    {
+      "path": "docs/04-verification/羽毛球一期多账号全流程测试-20261011.json",
+      "sha256": "ba6ea409563f6fbd4ac095ab63bb950989aaa15ef2ad074b58f5da742ca39aba",
+      "unchanged": true
+    },
+    {
+      "path": "docs/04-verification/浮泡交互与传奇荣誉认证验证-20261011.json",
+      "sha256": "63e6eb81e82bc610056bffd4cbd0e04890b17e1aa454c5acda2d57263c155d44",
+      "unchanged": true
+    },
+    {
+      "path": "docs/04-verification/全局视觉与办理智能体验证-20261011.json",
+      "sha256": "04b80a823809cf6a5df3e222c2022999749a602b9bab5a8eb96df2f7513e1e71",
+      "unchanged": true
+    },
+    {
+      "path": "docs/04-verification/正式产品界面与创作功能验证-20261011.json",
+      "sha256": "b9ae393cfd2e3bec596d5bfb0783489f91039d0b5d43cdadc4e7126a390991d5",
+      "unchanged": true
+    },
+    {
+      "path": "docs/04-verification/羽毛球一期闭环本机验证-20261010.json",
+      "sha256": "6d18927802b75867876af4753f6cdc2b7151689b92af35eca8dc744ba687a0ee",
+      "unchanged": true
+    },
+    {
+      "path": "docs/04-verification/产品组件与视觉验证-20261010.json",
+      "sha256": "855006d8e09bb1d2839c0bda1152dffa17a28be59a3d3fb6449cf659a7972bf5",
+      "unchanged": true
+    }
+  ],
+  "limits": [
+    "Real WeChat OAuth, state/callback and uniquely bound work identity are pending.",
+    "Actual HTTP uses captcha disabled; enabled captcha, stopped/expired tenants, consecutive failure locks and mapped identity restrictions are unit-test evidence only in this run.",
+    "Candidate workbench headings and identities passed; candidate tests do not assert all summary requests completed. Main administrator metrics loading was separately observed.",
+    "The legacy anonymous tenant-directory compatibility endpoint still exists; the new work login does not request it.",
+    "Synthetic organization fixtures were created only through public APIs in the isolated database; no tournament facts or existing roles were changed.",
+    "Viewports are browser emulation, not physical phone or soft-keyboard testing.",
+    "Previous real bank, SMS, physical tournament and general Agent write acceptance remain separate outstanding conditions."
+  ]
+}

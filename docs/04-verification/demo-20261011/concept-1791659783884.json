@@ -1,0 +1,191 @@
+{
+  "timestamp": "2026-10-10T19:16:23.884Z",
+  "scope": "Independent native HTML/CSS/JS design preview only; simulated display and local interactions. Not integrated business acceptance. User style approval pending.",
+  "rows": [
+    {
+      "name": "desktop discover loads without page overflow",
+      "passed": true
+    },
+    {
+      "name": "desktop room loads without page overflow",
+      "passed": true
+    },
+    {
+      "name": "desktop growth loads without page overflow",
+      "passed": true
+    },
+    {
+      "name": "desktop organizer loads without page overflow",
+      "passed": true
+    },
+    {
+      "name": "desktop free filter changes actual visible event list",
+      "passed": true
+    },
+    {
+      "name": "desktop weekend filter excludes Friday event",
+      "passed": true
+    },
+    {
+      "name": "desktop event dialog owns keyboard focus",
+      "passed": true
+    },
+    {
+      "name": "desktop event tabs change content",
+      "passed": true
+    },
+    {
+      "name": "desktop escape closes dialog",
+      "passed": true
+    },
+    {
+      "name": "desktop matching confirmation fills second seat",
+      "passed": true
+    },
+    {
+      "name": "desktop readiness enables review after both members prepare",
+      "passed": true
+    },
+    {
+      "name": "desktop registration confirmation shows both members and fee",
+      "passed": true
+    },
+    {
+      "name": "desktop consent enables actual demo link",
+      "passed": true
+    },
+    {
+      "name": "desktop chosen earned title updates avatar header",
+      "passed": true
+    },
+    {
+      "name": "desktop exported card is clearly marked preview",
+      "passed": true
+    },
+    {
+      "name": "desktop dark appearance preserves contrast surfaces",
+      "passed": true
+    },
+    {
+      "name": "desktop reduced motion disables entry animation",
+      "passed": true
+    },
+    {
+      "name": "desktop preview has no script errors",
+      "passed": true
+    },
+    {
+      "name": "desktop preview performs no business requests",
+      "passed": true
+    },
+    {
+      "name": "mobile discover loads without page overflow",
+      "passed": true
+    },
+    {
+      "name": "mobile room loads without page overflow",
+      "passed": true
+    },
+    {
+      "name": "mobile growth loads without page overflow",
+      "passed": true
+    },
+    {
+      "name": "mobile organizer loads without page overflow",
+      "passed": true
+    },
+    {
+      "name": "mobile free filter changes actual visible event list",
+      "passed": true
+    },
+    {
+      "name": "mobile weekend filter excludes Friday event",
+      "passed": true
+    },
+    {
+      "name": "mobile event dialog owns keyboard focus",
+      "passed": true
+    },
+    {
+      "name": "mobile event tabs change content",
+      "passed": true
+    },
+    {
+      "name": "mobile escape closes dialog",
+      "passed": true
+    },
+    {
+      "name": "mobile matching confirmation fills second seat",
+      "passed": true
+    },
+    {
+      "name": "mobile readiness enables review after both members prepare",
+      "passed": true
+    },
+    {
+      "name": "mobile registration confirmation shows both members and fee",
+      "passed": true
+    },
+    {
+      "name": "mobile consent enables actual demo link",
+      "passed": true
+    },
+    {
+      "name": "mobile chosen earned title updates avatar header",
+      "passed": true
+    },
+    {
+      "name": "mobile exported card is clearly marked preview",
+      "passed": true
+    },
+    {
+      "name": "mobile dark appearance preserves contrast surfaces",
+      "passed": true
+    },
+    {
+      "name": "mobile reduced motion disables entry animation",
+      "passed": true
+    },
+    {
+      "name": "mobile preview has no script errors",
+      "passed": true
+    },
+    {
+      "name": "mobile preview performs no business requests",
+      "passed": true
+    },
+    {
+      "name": "normal appearance retains entry motion",
+      "passed": true
+    },
+    {
+      "name": "gallery denies private or unrelated path /.env",
+      "passed": true
+    },
+    {
+      "name": "gallery denies private or unrelated path /.local/demo-20261011/演示账号.txt",
+      "passed": true
+    },
+    {
+      "name": "gallery denies private or unrelated path /scripts/Serve-UiSelectionGallery.mjs",
+      "passed": true
+    },
+    {
+      "name": "gallery denies private or unrelated path /%2e%2e/.env",
+      "passed": true
+    },
+    {
+      "name": "phone handbook loads and page stays inside viewport",
+      "passed": true
+    },
+    {
+      "name": "selection gallery includes twenty actual references",
+      "passed": true
+    },
+    {
+      "name": "skill gallery filter shows ten items",
+      "passed": true
+    }
+  ],
+  "failures": []
+}

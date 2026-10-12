@@ -1,0 +1,46 @@
+# GENERATED: shared ASP tables only; merge with upstream exclusions.
+tenant:
+  excludes:
+    - asp_account
+    - asp_login_identity
+    - asp_person
+    - asp_attribute_definition
+    - asp_person_attribute
+    - asp_consent
+    - asp_organization_application
+    - asp_organization_application_version
+    - asp_account_tenant_principal
+    - asp_sport
+    - asp_team
+    - asp_team_member
+    - asp_team_join_request
+    - asp_team_invitation
+    - asp_team_history
+    - asp_team_quota
+    - asp_time_constraint
+    - asp_file
+    - asp_data_request
+    - asp_competition_type
+    - asp_profile_display
+    - asp_team_room
+    - asp_team_room_member
+    - asp_recruitment
+    - asp_matching_request
+    - asp_matching_offer
+    - asp_matching_offer_member
+    - asp_room_interaction
+    - asp_governance_grant
+    - asp_growth_policy
+    - asp_growth_profile
+    - asp_title_equipment
+    - asp_capability_version
+    - asp_capability_activation
+    - asp_action_execution
+    - asp_agent
+    - asp_agent_version
+    - asp_agent_grant
+    - asp_agent_run
+    - asp_agent_step
+    - asp_agent_message
+    - asp_action_confirmation
+    - asp_complaint_message

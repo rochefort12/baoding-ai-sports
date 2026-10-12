@@ -1,0 +1,104 @@
+{
+  "name": "asp_team_member",
+  "domain": "D03",
+  "description": "队伍成员的一段关系。结束后不重新激活，再次加入另起一行",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "team_id",
+      "type": "bigint",
+      "description": "长期队伍",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_team",
+      "check": null
+    },
+    {
+      "name": "person_id",
+      "type": "bigint",
+      "description": "现实成员",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_person",
+      "check": null
+    },
+    {
+      "name": "role",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：captain member",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "role IN ('captain', 'member')"
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：active ended",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('active', 'ended')"
+    },
+    {
+      "name": "end_reason",
+      "type": "varchar(32)",
+      "description": "结束原因。有效成员必须为空：member_left captain_removed team_disbanded",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": "end_reason IS NULL OR end_reason IN ('member_left', 'captain_removed', 'team_disbanded')"
+    },
+    {
+      "name": "join_source",
+      "type": "varchar(100)",
+      "description": "create、application 或 invitation",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "joined_at",
+      "type": "timestamptz",
+      "description": "入队时间；有时区业务时间",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "left_at",
+      "type": "timestamptz",
+      "description": "离队时间；有时区业务时间",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": false,
+  "checks": [
+    "left_at IS NULL OR left_at >= joined_at",
+    "(status = 'active' AND left_at IS NULL AND end_reason IS NULL) OR (status = 'ended' AND left_at IS NOT NULL AND end_reason IS NOT NULL)"
+  ],
+  "unique": [
+    [
+      "team_id, person_id",
+      "status = 'active'"
+    ],
+    [
+      "team_id",
+      "status = 'active' AND role = 'captain'"
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-team-member",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

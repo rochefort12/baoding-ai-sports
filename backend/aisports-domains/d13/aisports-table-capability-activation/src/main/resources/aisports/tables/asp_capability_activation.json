@@ -1,0 +1,61 @@
+{
+  "name": "asp_capability_activation",
+  "domain": "D13",
+  "description": "能力在人工、Agent和系统渠道的明确开放指针",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "code",
+      "type": "varchar(160)",
+      "description": "能力编码",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "capability_version_id",
+      "type": "bigint",
+      "description": "已发布版本",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_capability_version",
+      "check": null
+    },
+    {
+      "name": "channel",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：ui agent system",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "channel IN ('ui', 'agent', 'system')"
+    },
+    {
+      "name": "enabled",
+      "type": "boolean",
+      "description": "允许新调用",
+      "nullable": false,
+      "default": "false",
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": false,
+  "checks": [],
+  "unique": [
+    [
+      "code, channel",
+      null
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-capability-activation",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

@@ -1,0 +1,25 @@
+---
+description: Java 后端约定：自建 Bean、@Bean 方法、MCP 工具按「模块名+工具名+业务名」命名防冲突；数据库操作走 MyBatis-Plus
+globs: **/*.java,**/*Mapper.xml
+alwaysApply: false
+---
+
+# Java 后端约定
+
+业务落在现有 Maven 模块（`ruoyi-sports-*` 等），不是一表一个模块。跨模块读数据走 `aisports-api` 公开契约，不引用其他模块的 Mapper 或实体。自建 Bean、`@Bean` 方法和 MCP 工具最容易撞名。
+
+## 命名防冲突
+格式：模块名 + 工具名 + 业务名。模块名取业务模块名（PascalCase），工具名说明做什么（Query、Sync、Check、Calc、Gate 等），业务名说明对象。
+
+| 对象 | 格式 | 示例：报名模块读取赛事 |
+|---|---|---|
+| 自建 Bean 类 | `{模块}{工具}{业务}{类型}` | `SportsRegistrationQueryEventService` |
+| `@Bean` 方法 | 同上，小驼峰 | `sportsRegistrationQueryEventClient()` |
+| MCP 工具名 | `{模块}_{工具}_{业务}` | `sports_registration_query_event` |
+
+- 代码生成器按表名产出的标准类（`XxxServiceImpl`、`XxxMapper`、`XxxController`）保持生成器命名。
+- Bean 名由类名派生，`@Service`、`@Component` 等注解里不另写名字。
+- 保持 `spring.main.allow-bean-definition-overriding=false`，漏网的重名在启动时直接报错。
+
+## 数据库
+- 数据库操作统一走 MyBatis-Plus / MyBatis（Mapper 接口 + XML 或注解），业务代码里不手拼、不直接执行 SQL（JdbcTemplate、Statement 等）。

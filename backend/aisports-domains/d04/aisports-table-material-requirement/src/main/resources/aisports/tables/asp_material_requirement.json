@@ -1,0 +1,84 @@
+{
+  "name": "asp_material_requirement",
+  "domain": "D04",
+  "description": "赛事文件材料、用途与各阶段前置；体检、保险和责任书走这里",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "rule_version_id",
+      "type": "bigint",
+      "description": "规则版本",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_rule_version",
+      "check": null
+    },
+    {
+      "name": "code",
+      "type": "varchar(100)",
+      "description": "材料编码",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "purpose",
+      "type": "varchar(500)",
+      "description": "资料使用用途",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "sensitivity",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：ordinary identity health finance",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "sensitivity IN ('ordinary', 'identity', 'health', 'finance')"
+    },
+    {
+      "name": "gates",
+      "type": "jsonb",
+      "description": "占位/审核/检录/公开分别的前置及确认；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "retention_days",
+      "type": "integer",
+      "description": "保留期限；0 须按政策明确解释",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": "retention_days >= 0"
+    }
+  ],
+  "tenant": true,
+  "checks": [],
+  "unique": [
+    [
+      "rule_version_id, code",
+      null
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-material-requirement",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

@@ -1,0 +1,38 @@
+---
+description: Delegation levels; Grok cluster dispatch and acceptance with minimal 总控 tokens
+alwaysApply: true
+---
+# Delegation
+总控 (main agent) sets standards, decides, accepts. Everything delegable goes to the Grok cluster (subagent model `grok-4.7-xhigh-fast`). Cluster quota is effectively unlimited; 总控 tokens are the scarce resource — delegate reading, research, drafting and implementation; keep decisions and targeted verification.
+
+Levels:
+- L1 mechanical, script-verifiable → cluster; verified by scripts.
+- L2 by-the-book (rules and samples exist) → cluster; separate cluster reviewer for big batches; 总控 spot-checks.
+- L3 design judgment (plan gaps, trade-offs, cross-domain placement, merging conflicting reports, standards/tool changes, systemic deviations) → 总控 decides; cluster may draft options.
+- L4 business semantics, domain ownership, cross-domain duties, overall architecture → 总控 proposes, 曲箭龙 decides.
+
+Dispatch — one shot, no back-and-forth:
+- This repo has no 集群任务手册. The brief itself carries: goal and acceptance; every foreseeable L3 point already decided; boundaries (files, allowed shared-data writes); interfaces with parallel windows. Do not repeat constraints already written in the named rule files.
+- Rules travel with every brief (曲箭龙 2026-10-05): subagents may not load workspace rules, so each brief — cluster, reviewer, explore or any other subagent — opens with a 「必读规则」 line naming the exact files to read before acting, and the subagent must follow them. Always `01-core.mdc`, `05-delegation.mdc`, and `AGENTS.md`, plus by task type:
+  - generator or generated pages: `04-java-backend.mdc`, `06-codegen-assembly.mdc`. Basic maintenance pages may be generated. Registration, quota, funds, competition, and cross-organization checks are handwritten. The generator downloads a ZIP only; review the diff; never overwrite handwritten business.
+  - business actions: `07-business-actions.mdc`, `09-platform-governance.mdc`; backend Java also `04-java-backend.mdc`.
+  - frontend: `08-frontend-ui.mdc`; browser checks: `03-web-verification.mdc`.
+  - Agent, MCP, permissions, data scope: `09-platform-governance.mdc`. Product AI stays off this phase.
+  A new caveat learned during acceptance goes into the matching rule file first, then into later briefs.
+- Acceptance criteria cover the applicable rule checks item by item, not only the defects being fixed; a narrow criterion gets exactly that and nothing more (曲箭龙 2026-10-07).
+- Specify outcomes and decisions, not implementation; the cluster gathers its own context (ADR, 交接记录, 一期未完成事项, model, code, logs) and owns design within scope.
+- Before dispatch read the latest 「下一步」 and any open 「窗口交接」 in `docs/01-development/交接记录.md`, and branches touching the same files; put every known cross-task contract in the brief.
+- Code phase: one subtask = one branch + one git worktree, distinct ports and databases when it runs an app.
+- Public files (`docs/01-development/交接记录.md`, `docs/01-development/一期未完成事项.md`, `docs/03-architecture/`, `docs/README.md`, `AGENTS.md`, `.cursor/rules/`, `database/model/`) are changed only by 总控.
+- Visual direction belongs to 总控; clusters implement the stated spec. Layout acceptance follows rule 03 (曲箭龙 2026-10-04).
+- Contracts decided after dispatch: don't interrupt; record them for integration; resume the same subagent after delivery.
+- Do not create `.必要流程说明/`, `改造计划执行/`, or another product's handbooks.
+
+Acceptance — lean:
+- Trust no reported number: rerun the scripts. Checks for this repo live under `scripts/`; run the ones that match the change. There is no `tools/qa/run_patrol.ps1` and no `tools/dev/run_admin_tests.ps1`.
+- Verify by targeted checks (the implementation, its boundaries, hot spots, and the decided items), not by reading whole diffs.
+- Before writing shared data through an API, make sure the local backend runs the latest build; afterwards check structure and flag columns that were not part of the task.
+- Reviewers may fix L1 issues and list them; L2+ only report. Systemic problems → whole-batch rework.
+- Subtasks report results. 总控 writes 「本轮」 and any ADR update. Subtasks never edit 交接记录, ADR, or 一期未完成事项.
+- Ignore intermediate shell-failure notices from running clusters; act on final reports.
+- An admin demo does not replace ordinary-role acceptance. Do not fake a payment or drop a hard constraint.

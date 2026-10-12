@@ -1,0 +1,101 @@
+{
+  "name": "asp_team",
+  "domain": "D03",
+  "description": "长期项目队伍。一期只有有效和解散，解散后不恢复，不归属组织",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "name",
+      "type": "varchar(200)",
+      "description": "当前队名。已提交报名使用自己的队名快照",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "sport_id",
+      "type": "bigint",
+      "description": "项目。一期创建时写入羽毛球，之后不改",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_sport",
+      "check": null
+    },
+    {
+      "name": "captain_person_id",
+      "type": "bigint",
+      "description": "当前队长档案。解散后保留最后一任，有效队伍还必须有一条有效队长成员",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_person",
+      "check": null
+    },
+    {
+      "name": "creator_account_id",
+      "type": "bigint",
+      "description": "创建人。不代表当前能否代表队伍报名",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_account",
+      "check": null
+    },
+    {
+      "name": "join_policy",
+      "type": "varchar(32)",
+      "description": "一期创建写 open。申请和邀请同时开放，服务不按这列分支：open application invitation closed",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "join_policy IN ('open', 'application', 'invitation', 'closed')"
+    },
+    {
+      "name": "visibility",
+      "type": "varchar(32)",
+      "description": "一期创建写 members。不做队伍广场，服务不按这列分支：private members public",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "visibility IN ('private', 'members', 'public')"
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：active disbanded",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('active', 'disbanded')"
+    },
+    {
+      "name": "region",
+      "type": "varchar(100)",
+      "description": "活动区域。一期页面不维护",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "profile",
+      "type": "jsonb",
+      "description": "非敏感展示资料。一期页面不维护；必须按版本校验结构",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": false,
+  "checks": [],
+  "unique": [],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-team",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

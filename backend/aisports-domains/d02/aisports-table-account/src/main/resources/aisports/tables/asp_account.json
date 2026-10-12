@@ -1,0 +1,83 @@
+{
+  "name": "asp_account",
+  "domain": "D02",
+  "description": "平台账号。一名自然人一份。参赛档案可选。登录号使用本表主键，不把后台用户当成平台身份",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "display_name",
+      "type": "varchar(100)",
+      "description": "登录账号展示名",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "password_hash",
+      "type": "varchar(100)",
+      "description": "登录密码散列。只供平台登录校验，不写入日志",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "backend_user_id",
+      "type": "bigint",
+      "description": "遗留的后台 sys_user。当前注册仍写入，平台登录不使用它判断身份",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "person_id",
+      "type": "bigint",
+      "description": "本人参赛档案；空表示尚未建档",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_person",
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：active restricted recovery closing closed",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('active', 'restricted', 'recovery', 'closing', 'closed')"
+    },
+    {
+      "name": "closed_at",
+      "type": "timestamptz",
+      "description": "账号服务停止时间；有时区业务时间",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": false,
+  "checks": [],
+  "unique": [
+    [
+      "backend_user_id",
+      "backend_user_id IS NOT NULL"
+    ],
+    [
+      "person_id",
+      "person_id IS NOT NULL"
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-account",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

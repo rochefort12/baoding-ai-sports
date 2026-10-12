@@ -1,0 +1,114 @@
+{
+  "name": "asp_qualification",
+  "domain": "D01",
+  "description": "组织资质申请及审核版本；失效不删除未完责任",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "organization_id",
+      "type": "bigint",
+      "description": "申请主体",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_organization",
+      "check": null
+    },
+    {
+      "name": "revision",
+      "type": "integer",
+      "description": "申请版本",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "revision >= 0"
+    },
+    {
+      "name": "proof_snapshot",
+      "type": "jsonb",
+      "description": "审核时材料与经办授权；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "business_scope",
+      "type": "jsonb",
+      "description": "可办业务范围；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：draft pending correction approved rejected expired restricted",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('draft', 'pending', 'correction', 'approved', 'rejected', 'expired', 'restricted')"
+    },
+    {
+      "name": "valid_from",
+      "type": "timestamptz",
+      "description": "有效开始；有时区业务时间",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "valid_until",
+      "type": "timestamptz",
+      "description": "有效截止；有时区业务时间",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "reviewer_id",
+      "type": "bigint",
+      "description": "平台审核人后台账号",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "review_reason",
+      "type": "varchar(1000)",
+      "description": "结论依据",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": true,
+  "checks": [
+    "revision > 0",
+    "valid_until IS NULL OR valid_from IS NULL OR valid_until > valid_from"
+  ],
+  "unique": [
+    [
+      "organization_id, revision",
+      null
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-qualification",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

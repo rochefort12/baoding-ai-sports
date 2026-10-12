@@ -1,0 +1,307 @@
+{
+  "at": "2026-10-11T04:42:13.155Z",
+  "scope": "Actual rendered UI; isolated people/events and honor evidence are synthetic. Rank previews do not issue awards.",
+  "images": [
+    {
+      "file": "home-desktop.png",
+      "source": ".local/product-release-20261011/entry-ui-1791691539827/5192-1440-home.png",
+      "caption": "首页，隔离演练数据",
+      "bytes": 1208227,
+      "sha256": "bbb792c2ad4d468f2977750a156628d19b5dab789236aba739f83e810d0be215"
+    },
+    {
+      "file": "events-mobile.png",
+      "source": ".local/product-release-20261011/entry-ui-1791691539827/5192-390-catalog.png",
+      "caption": "紧凑赛事筛选与手机赛事卡",
+      "bytes": 268968,
+      "sha256": "7089ab36feb74e2038bf9f5381286d6c9aad599f20de40380cbdf0fe45bad14d"
+    },
+    {
+      "file": "events-desktop.png",
+      "source": ".local/product-release-20261011/entry-ui-1791691539827/5192-1440-catalog.png",
+      "caption": "桌面赛事列表",
+      "bytes": 550490,
+      "sha256": "a6e27258c81bc69b2b1ed26e6fa31abfe60fb8081b1734ad5c3d8668b6f10534"
+    },
+    {
+      "file": "chat-public-mobile.png",
+      "source": ".local/product-release-20261011/floating-assistant-1791693679164/5192-390-chat.png",
+      "caption": "公开助手静态功能入口和本人草稿",
+      "bytes": 80138,
+      "sha256": "0b74a8091c134c77a11d7b537b933e1b49cae021c24aa348516446e620aa8764"
+    },
+    {
+      "file": "chat-public-desktop.png",
+      "source": ".local/product-release-20261011/floating-assistant-1791693679164/5190-1440-chat.png",
+      "caption": "主站聊天主题可取消，输入不预填指令",
+      "bytes": 651737,
+      "sha256": "897ff12079957973c9ae99cf30891a42762c2201de3dfc85544a637f72347a28"
+    },
+    {
+      "file": "chat-task-mobile.png",
+      "source": ".local/product-release-20261011/floating-assistant-1791693679164/participant-390-saved.png",
+      "caption": "已保存实际只读任务",
+      "bytes": 57025,
+      "sha256": "6a41b36a0a3f347867fb6f0fc43c4efeb04637cae9a91187fe928b2f1778829d"
+    },
+    {
+      "file": "chat-task-desktop.png",
+      "source": ".local/product-release-20261011/floating-assistant-1791693679164/participant-1440-saved.png",
+      "caption": "桌面办理进度与真实任务记录",
+      "bytes": 1008772,
+      "sha256": "9e94a188778da6134e61aef2afc31e19580c333dbdbf7965cd6f02606fb51264"
+    },
+    {
+      "file": "chat-resized.png",
+      "source": ".local/product-release-20261011/assistant-modal-1791690845953/desktop-pointer-resized.png",
+      "caption": "实际拖动调整聊天窗口尺寸",
+      "bytes": 290077,
+      "sha256": "08f82c1c46398423c505b53c0403a0d2d1aeeb80ffa09b5acd9482f235b750eb"
+    },
+    {
+      "file": "chat-modal-restored.png",
+      "source": ".local/product-release-20261011/assistant-modal-1791690845953/mobile-chat-restored.png",
+      "caption": "业务弹窗关闭后恢复聊天草稿",
+      "bytes": 61113,
+      "sha256": "af19bbca2d5eaee68681cd8dbcd31d4b178dcef8236105f0ba56d9a1d9e0d907"
+    },
+    {
+      "file": "profile-mobile.png",
+      "source": ".local/product-release-20261011/profile-entry-1791690674314/mobile-profile.png",
+      "caption": "资料页头像与认证入口",
+      "bytes": 129326,
+      "sha256": "e1282e34b49bc9c8350b0b89443548b4242d07ad54ac8de616892b214af9e0c7"
+    },
+    {
+      "file": "profile-crop-mobile.png",
+      "source": ".local/product-release-20261011/profile-entry-1791690674314/mobile-profile-crop.png",
+      "caption": "真实本地裁剪预览；未上传未保存",
+      "bytes": 116434,
+      "sha256": "1c30609c94be1521b17c69fb33278fb2c28ff671abc20cd49f324e1dbd9f791b"
+    },
+    {
+      "file": "main-management.png",
+      "source": ".local/main-access/post-release-018d0896-936d-4426-a391-c9ba8ddbefb7/main-platform-verified.png",
+      "caption": "真实主站管理员登录，认证六人工入口已开放",
+      "bytes": 96417,
+      "sha256": "c87b32664207e5bec703efd5d2f5cb3b061f5b9ee194f369691a479426d53cb0"
+    },
+    {
+      "file": "world-desktop-synthetic-podium-appearance.png",
+      "source": "docs/05-ui/world-honor-display-20261011/desktop-synthetic-podium-appearance.png",
+      "caption": "三项世界徽章与头像框的合成外观检验；未授予实际荣誉",
+      "bytes": 138763,
+      "sha256": "a9dbfe1d675f41c30b6f37a24473cafeceea8138b966d9694b773496f0f9bf84"
+    },
+    {
+      "file": "world-mobile-synthetic-podium-appearance.png",
+      "source": "docs/05-ui/world-honor-display-20261011/mobile-synthetic-podium-appearance.png",
+      "caption": "三项世界徽章与头像框的合成外观检验；未授予实际荣誉",
+      "bytes": 138157,
+      "sha256": "385df57d1f182faa9f7b040b7dec7e08082ad26bd97cfb45208b7c291f3d2017"
+    },
+    {
+      "file": "review-candidate-private-synthetic-proof.png",
+      "source": ".local/honor-certification-20261011/review-ui-7a7dedfc-db5a-4d2f-8b07-bbf45b1c1dae/candidate-private-synthetic-proof.png",
+      "caption": "真实合成认证历史界面，已撤销，无实际世界荣誉效力",
+      "bytes": 122350,
+      "sha256": "2afc280e963b713db149203f506801c59543af174125625099d2f30888a6d8fb"
+    },
+    {
+      "file": "review-candidate-revoked-desktop.png",
+      "source": ".local/honor-certification-20261011/review-ui-7a7dedfc-db5a-4d2f-8b07-bbf45b1c1dae/candidate-revoked-desktop.png",
+      "caption": "真实合成认证历史界面，已撤销，无实际世界荣誉效力",
+      "bytes": 136139,
+      "sha256": "a92e997f6b6262a2500c1c43898414f4b5b3e82f339d9f5909db9b8e9dfb2847"
+    },
+    {
+      "file": "review-candidate-revoked-mobile.png",
+      "source": ".local/honor-certification-20261011/review-ui-7a7dedfc-db5a-4d2f-8b07-bbf45b1c1dae/candidate-revoked-mobile.png",
+      "caption": "真实合成认证历史界面，已撤销，无实际世界荣誉效力",
+      "bytes": 62091,
+      "sha256": "5c9a66134fd0039e2bbb3247a5af42864bb3d02373674faffd832b2ca6dd2e74"
+    },
+    {
+      "file": "motion-5190-1440-no-preference-expanded.png",
+      "source": ".local/product-release-20261011/assistant-motion-1791693549248/5190-1440-no-preference-expanded.png",
+      "caption": "当前成长及聊天实际交互；段位预览不授予奖励",
+      "bytes": 264262,
+      "sha256": "c3ede6f03ea36ab8eefb40a2a504fba235e202595e5b4040ac5f5387e0a4d3ba"
+    },
+    {
+      "file": "motion-5190-1440-no-preference-normal.png",
+      "source": ".local/product-release-20261011/assistant-motion-1791693549248/5190-1440-no-preference-normal.png",
+      "caption": "当前成长及聊天实际交互；段位预览不授予奖励",
+      "bytes": 697453,
+      "sha256": "c177c606fb0c1cd936b56c844d6985d3dbc630aeac5c9a3d144dfd29e58c711b"
+    },
+    {
+      "file": "motion-5190-1440-reduce-expanded.png",
+      "source": ".local/product-release-20261011/assistant-motion-1791693549248/5190-1440-reduce-expanded.png",
+      "caption": "当前成长及聊天实际交互；段位预览不授予奖励",
+      "bytes": 264232,
+      "sha256": "22b53641d8b8ec6c41682fd64a36afd182a9ef42149aca18ea9dae0b4e540c1e"
+    },
+    {
+      "file": "motion-5190-1440-reduce-normal.png",
+      "source": ".local/product-release-20261011/assistant-motion-1791693549248/5190-1440-reduce-normal.png",
+      "caption": "当前成长及聊天实际交互；段位预览不授予奖励",
+      "bytes": 697918,
+      "sha256": "f70df0fdfe2328970ffc14d05278917fe546435a9cb436afcb6dafd7fd0f6362"
+    },
+    {
+      "file": "motion-5190-390-no-preference-expanded.png",
+      "source": ".local/product-release-20261011/assistant-motion-1791693549248/5190-390-no-preference-expanded.png",
+      "caption": "当前成长及聊天实际交互；段位预览不授予奖励",
+      "bytes": 70561,
+      "sha256": "aea77338465247b42b96632e0cb2fd3cadf4c86b94436220a4af321515093ce9"
+    },
+    {
+      "file": "motion-5190-390-no-preference-normal.png",
+      "source": ".local/product-release-20261011/assistant-motion-1791693549248/5190-390-no-preference-normal.png",
+      "caption": "当前成长及聊天实际交互；段位预览不授予奖励",
+      "bytes": 71035,
+      "sha256": "f1e0dec6b2f47d7f632de1b39a47952713caf2fb8ecc32578361302ad9c032ac"
+    },
+    {
+      "file": "motion-5190-390-reduce-expanded.png",
+      "source": ".local/product-release-20261011/assistant-motion-1791693549248/5190-390-reduce-expanded.png",
+      "caption": "当前成长及聊天实际交互；段位预览不授予奖励",
+      "bytes": 70559,
+      "sha256": "e75581b408578b8f2f80ad28a0a28a41035f0ee98741e6c9a97964e16d864da2"
+    },
+    {
+      "file": "motion-5190-390-reduce-normal.png",
+      "source": ".local/product-release-20261011/assistant-motion-1791693549248/5190-390-reduce-normal.png",
+      "caption": "当前成长及聊天实际交互；段位预览不授予奖励",
+      "bytes": 71035,
+      "sha256": "f1e0dec6b2f47d7f632de1b39a47952713caf2fb8ecc32578361302ad9c032ac"
+    },
+    {
+      "file": "motion-5192-1440-no-preference-expanded.png",
+      "source": ".local/product-release-20261011/assistant-motion-1791693549248/5192-1440-no-preference-expanded.png",
+      "caption": "当前成长及聊天实际交互；段位预览不授予奖励",
+      "bytes": 332954,
+      "sha256": "ca975cc0b67f0d03c2e82765806bac627b91427f2251caebecb19f565ab3de66"
+    },
+    {
+      "file": "motion-5192-1440-no-preference-normal.png",
+      "source": ".local/product-release-20261011/assistant-motion-1791693549248/5192-1440-no-preference-normal.png",
+      "caption": "当前成长及聊天实际交互；段位预览不授予奖励",
+      "bytes": 807134,
+      "sha256": "486b31b2e57fe5d8c4110ea234d8fc055eedf506e0b7b9791d377a951b6d1701"
+    },
+    {
+      "file": "motion-5192-1440-reduce-expanded.png",
+      "source": ".local/product-release-20261011/assistant-motion-1791693549248/5192-1440-reduce-expanded.png",
+      "caption": "当前成长及聊天实际交互；段位预览不授予奖励",
+      "bytes": 332935,
+      "sha256": "d5d57e20093c4e82cfc3cace6bedf2efe9dff39f6da265561bb24d20e9709cf4"
+    },
+    {
+      "file": "motion-5192-1440-reduce-normal.png",
+      "source": ".local/product-release-20261011/assistant-motion-1791693549248/5192-1440-reduce-normal.png",
+      "caption": "当前成长及聊天实际交互；段位预览不授予奖励",
+      "bytes": 807605,
+      "sha256": "e44cc3142093a691ef024575ba407df261b40ae28559f9de9cfcd136b2af9762"
+    },
+    {
+      "file": "motion-5192-390-no-preference-expanded.png",
+      "source": ".local/product-release-20261011/assistant-motion-1791693549248/5192-390-no-preference-expanded.png",
+      "caption": "当前成长及聊天实际交互；段位预览不授予奖励",
+      "bytes": 70561,
+      "sha256": "aea77338465247b42b96632e0cb2fd3cadf4c86b94436220a4af321515093ce9"
+    },
+    {
+      "file": "motion-5192-390-no-preference-normal.png",
+      "source": ".local/product-release-20261011/assistant-motion-1791693549248/5192-390-no-preference-normal.png",
+      "caption": "当前成长及聊天实际交互；段位预览不授予奖励",
+      "bytes": 71027,
+      "sha256": "1ba95bf8f9cbb9051467cdb887412c1a3aee8c9bd4dba5394cdfe4966c79ffa0"
+    },
+    {
+      "file": "motion-5192-390-reduce-expanded.png",
+      "source": ".local/product-release-20261011/assistant-motion-1791693549248/5192-390-reduce-expanded.png",
+      "caption": "当前成长及聊天实际交互；段位预览不授予奖励",
+      "bytes": 70559,
+      "sha256": "e75581b408578b8f2f80ad28a0a28a41035f0ee98741e6c9a97964e16d864da2"
+    },
+    {
+      "file": "motion-5192-390-reduce-normal.png",
+      "source": ".local/product-release-20261011/assistant-motion-1791693549248/5192-390-reduce-normal.png",
+      "caption": "当前成长及聊天实际交互；段位预览不授予奖励",
+      "bytes": 71027,
+      "sha256": "1ba95bf8f9cbb9051467cdb887412c1a3aee8c9bd4dba5394cdfe4966c79ffa0"
+    },
+    {
+      "file": "motion-ordinary-current-growth-directory.png",
+      "source": ".local/product-release-20261011/assistant-motion-1791693549248/ordinary-current-growth-directory.png",
+      "caption": "当前成长及聊天实际交互；段位预览不授予奖励",
+      "bytes": 376999,
+      "sha256": "3f066a00c776d88baf589d9ce3f967c14ee500ae7032d6226edaf34593b3b27f"
+    },
+    {
+      "file": "motion-ordinary-current-legend-preview.png",
+      "source": ".local/product-release-20261011/assistant-motion-1791693549248/ordinary-current-legend-preview.png",
+      "caption": "当前成长及聊天实际交互；段位预览不授予奖励",
+      "bytes": 252483,
+      "sha256": "72e054701238eea598108bdb08f7177a38826a61fc8dfbe8c4ff1e87d9ebb708"
+    },
+    {
+      "file": "focus-5190-1440-account-focus.png",
+      "source": ".local/product-release-20261011/work-login-focus-1791693448564/5190-1440-account-focus.png",
+      "caption": "工作账号与表单实际单边框焦点检验",
+      "bytes": 461134,
+      "sha256": "97d4afaab3da292450caec871b49b4e50b6cc5e2b27e0ffc4782091aa6e25b6b"
+    },
+    {
+      "file": "focus-5190-1440-focused-errors.png",
+      "source": ".local/product-release-20261011/work-login-focus-1791693448564/5190-1440-focused-errors.png",
+      "caption": "工作账号与表单实际单边框焦点检验",
+      "bytes": 461831,
+      "sha256": "3640f6bae1e363ef5e28957164bbf00c909a736032f9d2aa77eeccdb6386e8e2"
+    },
+    {
+      "file": "focus-5190-390-account-focus.png",
+      "source": ".local/product-release-20261011/work-login-focus-1791693448564/5190-390-account-focus.png",
+      "caption": "工作账号与表单实际单边框焦点检验",
+      "bytes": 112462,
+      "sha256": "0308c53396f92d9f95a375bb8efd88b0bece435bb21327fcaf7400b67eb1b4ce"
+    },
+    {
+      "file": "focus-5190-390-focused-errors.png",
+      "source": ".local/product-release-20261011/work-login-focus-1791693448564/5190-390-focused-errors.png",
+      "caption": "工作账号与表单实际单边框焦点检验",
+      "bytes": 112525,
+      "sha256": "573a89d23bfb7469247648ec4e8cab71ebe11dac05ddcf96f11a683b334bb69a"
+    },
+    {
+      "file": "focus-5192-1440-account-focus.png",
+      "source": ".local/product-release-20261011/work-login-focus-1791693448564/5192-1440-account-focus.png",
+      "caption": "工作账号与表单实际单边框焦点检验",
+      "bytes": 461862,
+      "sha256": "03866fe68b1fa6a3b56e17b3c509ad7c248244db52d5064f4b67a82abd4812dd"
+    },
+    {
+      "file": "focus-5192-1440-focused-errors.png",
+      "source": ".local/product-release-20261011/work-login-focus-1791693448564/5192-1440-focused-errors.png",
+      "caption": "工作账号与表单实际单边框焦点检验",
+      "bytes": 461844,
+      "sha256": "c8dbafc71a3834d4ddca0865a2fcce9430085802655d6ade603603863287c71b"
+    },
+    {
+      "file": "focus-5192-390-account-focus.png",
+      "source": ".local/product-release-20261011/work-login-focus-1791693448564/5192-390-account-focus.png",
+      "caption": "工作账号与表单实际单边框焦点检验",
+      "bytes": 113355,
+      "sha256": "c76dd10ee5d536c1e3ab011c98b17adbcea68712b97cf631a09aa2a5afa16348"
+    },
+    {
+      "file": "focus-5192-390-focused-errors.png",
+      "source": ".local/product-release-20261011/work-login-focus-1791693448564/5192-390-focused-errors.png",
+      "caption": "工作账号与表单实际单边框焦点检验",
+      "bytes": 112525,
+      "sha256": "573a89d23bfb7469247648ec4e8cab71ebe11dac05ddcf96f11a683b334bb69a"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "name": "asp_registration_submit_key",
+  "domain": "D05",
+  "description": "已经完成的报名提交请求键。撤回或拒绝后重放旧键不得再次占用",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "registration_id",
+      "type": "bigint",
+      "description": "报名",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_registration",
+      "check": null
+    },
+    {
+      "name": "submitter_account_id",
+      "type": "bigint",
+      "description": "提交人",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_account",
+      "check": null
+    },
+    {
+      "name": "request_key",
+      "type": "varchar(128)",
+      "description": "已经完成一次提交的请求键",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "roster_revision",
+      "type": "integer",
+      "description": "这次提交冻结的名单版本",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "roster_revision >= 0"
+    }
+  ],
+  "tenant": true,
+  "checks": [
+    "roster_revision > 0"
+  ],
+  "unique": [
+    [
+      "submitter_account_id, request_key",
+      null
+    ],
+    [
+      "registration_id, roster_revision",
+      null
+    ]
+  ],
+  "responsibility": "同一提交人的一个请求键只完成一次提交。主动重提使用新键并另记一行，对应这次的名单版本和独立付款义务。未完成提交的创建键不记入本表。",
+  "moduleId": "aisports-table-registration-submit-key",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

@@ -1,0 +1,159 @@
+{
+  "name": "asp_time_constraint",
+  "domain": "D07",
+  "description": "受控跨赛事时间事实；与名额生命周期关联但独立",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "person_id",
+      "type": "bigint",
+      "description": "实际相关人员",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_person",
+      "check": null
+    },
+    {
+      "name": "resource_id",
+      "type": "bigint",
+      "description": "资源 ID；source_tenant_id 标识资源所属方",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "source_tenant_id",
+      "type": "varchar(20)",
+      "description": "来源租户；只返回受限冲突结果",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "source_type",
+      "type": "varchar(100)",
+      "description": "报名/阶段/场次/裁判任务",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "source_id",
+      "type": "bigint",
+      "description": "来源业务 ID",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "parent_id",
+      "type": "bigint",
+      "description": "父子安排，避免自冲突",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_time_constraint",
+      "check": null
+    },
+    {
+      "name": "starts_at",
+      "type": "timestamptz",
+      "description": "约束开始；有时区业务时间",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "ends_at",
+      "type": "timestamptz",
+      "description": "约束结束；有时区业务时间",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "certainty",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：tentative conditional confirmed",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "certainty IN ('tentative', 'conditional', 'confirmed')"
+    },
+    {
+      "name": "strength",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：soft hard",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "strength IN ('soft', 'hard')"
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：held active released cancelled",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('held', 'active', 'released', 'cancelled')"
+    },
+    {
+      "name": "buffer_before_seconds",
+      "type": "integer",
+      "description": "确认的准备或转场缓冲",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "buffer_before_seconds >= 0"
+    },
+    {
+      "name": "buffer_after_seconds",
+      "type": "integer",
+      "description": "确认的恢复缓冲",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "buffer_after_seconds >= 0"
+    },
+    {
+      "name": "expires_at",
+      "type": "timestamptz",
+      "description": "临时约束期限；有时区业务时间",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "basis",
+      "type": "jsonb",
+      "description": "来源版本、晋级路径与排他条件；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": false,
+  "checks": [
+    "ends_at > starts_at",
+    "(person_id IS NOT NULL) <> (resource_id IS NOT NULL)",
+    "parent_id IS NULL OR parent_id <> id"
+  ],
+  "unique": [],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-time-constraint",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

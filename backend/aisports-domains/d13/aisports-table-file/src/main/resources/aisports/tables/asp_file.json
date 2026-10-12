@@ -1,0 +1,97 @@
+{
+  "name": "asp_file",
+  "domain": "D13",
+  "description": "共享文件元数据；无永久公开凭据，访问由用途授权",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "owner_account_id",
+      "type": "bigint",
+      "description": "上传及权利主体",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_account",
+      "check": null
+    },
+    {
+      "name": "owning_tenant_id",
+      "type": "varchar(20)",
+      "description": "组织资料归属租户；个人资料可为空",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "object_key",
+      "type": "varchar(500)",
+      "description": "存储键；不能直接形成无鉴权 URL",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "sha256",
+      "type": "varchar(64)",
+      "description": "内容摘要",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "purpose",
+      "type": "varchar(200)",
+      "description": "必要用途",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "sensitivity",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：public ordinary identity guardian health finance result",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "sensitivity IN ('public', 'ordinary', 'identity', 'guardian', 'health', 'finance', 'result')"
+    },
+    {
+      "name": "retain_until",
+      "type": "timestamptz",
+      "description": "保留政策截止；有时区业务时间",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：active restricted expired deleted",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('active', 'restricted', 'expired', 'deleted')"
+    }
+  ],
+  "tenant": false,
+  "checks": [],
+  "unique": [
+    [
+      "object_key",
+      null
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-file",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

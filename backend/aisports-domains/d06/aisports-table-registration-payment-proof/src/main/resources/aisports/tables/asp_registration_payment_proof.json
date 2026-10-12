@@ -1,0 +1,97 @@
+{
+  "name": "asp_registration_payment_proof",
+  "domain": "D06",
+  "description": "报名管理人自愿上传的私有付款图片。只关联一次提交的义务，不代表到账，撤回重提不沿用",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "registration_id",
+      "type": "bigint",
+      "description": "凭证所属报名",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_registration",
+      "check": null
+    },
+    {
+      "name": "obligation_id",
+      "type": "bigint",
+      "description": "本次提交的付款义务",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_fee_obligation",
+      "check": null
+    },
+    {
+      "name": "uploaded_by_account_id",
+      "type": "bigint",
+      "description": "本人或当前队长的上传账号",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_account",
+      "check": null
+    },
+    {
+      "name": "file_id",
+      "type": "bigint",
+      "description": "私有 payment-proof 图片，金融敏感材料，不公开 URL",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_file",
+      "check": null
+    },
+    {
+      "name": "request_key",
+      "type": "varchar(128)",
+      "description": "上传幂等键，同键不能更换内容",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "content_digest",
+      "type": "varchar(64)",
+      "description": "图片 SHA-256，用于重复请求核验",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "length(content_digest) = 64"
+    },
+    {
+      "name": "uploaded_at",
+      "type": "timestamptz",
+      "description": "上传完成时间，不是到账时间；有时区业务时间",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": true,
+  "checks": [],
+  "unique": [
+    [
+      "obligation_id, uploaded_by_account_id, request_key",
+      null
+    ],
+    [
+      "file_id",
+      null
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-registration-payment-proof",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

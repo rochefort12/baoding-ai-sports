@@ -1,0 +1,216 @@
+{
+  "timestamp": "2026-10-10T18:46:55.973Z",
+  "scope": "Actual primary-source pages in Edge, not project outputs. Skills are reference candidates only.",
+  "records": [
+    {
+      "id": "S01",
+      "status": 200,
+      "title": "skills/skills/frontend-design/SKILL.md at main · anthropics/skills · GitHub",
+      "url": "https://github.com/anthropics/skills/blob/main/skills/frontend-design/SKILL.md",
+      "capturedAt": "2026-10-10T18:46:55.553Z",
+      "file": "screenshots/S01.png",
+      "sha256": "5e97f69767faaa5ee4fa2c33efc60dbff673bf470edcfddf90350bdec59a08ce",
+      "text": "Skip to content\nNavigation Menu\nPlatform\nSolutions\nResources\nOpen Source\nEnterprise\nPricing\nSearch\n/\nSign in\nSign up\nanthropics\nskills\nRepository navigation\nCode\nIssues\n398\n (398)\nPull requests\n998\n (998)\nDiscussions\nActions\nSecurity and quality\nInsights\nFiles\nmain\n.claude-plugin\nskills\nacademy-guide\nalgorithmic-art\nbrand-guidelines\ncanvas-design\nclaude-api\ndiscernment-nudge\ndoc-coauthoring\ndocx\nfrontend-design\nLICENSE.txt\nSKILL.md\ninternal-comms\nmcp-builder\npdf\npptx\nskill-creator\nslack-gif-creator\ntheme-factory\nweb-artifacts-builder\nwebapp-testing\nxlsx\nspec\ntemplate\n.gitignore\nREADME.md\nTHIRD_PARTY_NOTICES.md\nBreadcrumbs\nskills/skills/frontend-design\n/SKILL.md\nLatest commit\nwilliamqian12\nUpdate frontend-design skill to avoid generic design defaults (#1713)\n41bbe19\n · \nHistory\nHistory\nFile metadata and controls\nPreview\nCode\nBlame\n71 lines (44 loc) · 9.17 KB\nRaw\nname\tfrontend-design\ndescription\tGuidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps with aesthetic direction, typography, and making choices that don't read as templated defaults.\nlicense\tComplete terms in LICENSE.txt\nFrontend Design\n\nApproach this as the design lead ",
+      "links": [
+        {
+          "text": "Skip to content",
+          "url": "https://github.com/anthropics/skills/blob/main/skills/frontend-design/SKILL.md#start-of-content"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/"
+        },
+        {
+          "text": "Sign in",
+          "url": "https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fanthropics%2Fskills%2Fblob%2Fmain%2Fskills%2Ffrontend-design%2FSKILL.md"
+        },
+        {
+          "text": "GitHub CopilotWrite better code with AI",
+          "url": "https://github.com/features/copilot"
+        },
+        {
+          "text": "GitHub Copilot appDirect agents from issue to merge",
+          "url": "https://github.com/features/ai/github-app"
+        },
+        {
+          "text": "MCP RegistryIntegrate external tools",
+          "url": "https://github.com/mcp"
+        },
+        {
+          "text": "ActionsAutomate any workflow",
+          "url": "https://github.com/features/actions"
+        },
+        {
+          "text": "CodespacesInstant dev environments",
+          "url": "https://github.com/features/codespaces"
+        },
+        {
+          "text": "IssuesPlan and track work",
+          "url": "https://github.com/features/issues"
+        },
+        {
+          "text": "Code ReviewManage code changes",
+          "url": "https://github.com/features/code-review"
+        },
+        {
+          "text": "Code QualityEnforce quality at merge",
+          "url": "https://github.com/features/code-quality"
+        },
+        {
+          "text": "GitHub Advanced SecurityFind and fix vulnerabilities",
+          "url": "https://github.com/security/advanced-security"
+        },
+        {
+          "text": "Code securitySecure your code as you build",
+          "url": "https://github.com/security/advanced-security/code-security"
+        },
+        {
+          "text": "Secret protectionStop leaks before they start",
+          "url": "https://github.com/security/advanced-security/secret-protection"
+        }
+      ],
+      "frames": [],
+      "error": null
+    },
+    {
+      "id": "S08",
+      "status": 200,
+      "title": "skills/skills/vue-best-practices/SKILL.md at main · vuejs-ai/skills · GitHub",
+      "url": "https://github.com/vuejs-ai/skills/blob/main/skills/vue-best-practices/SKILL.md",
+      "capturedAt": "2026-10-10T18:46:55.588Z",
+      "file": "screenshots/S08.png",
+      "sha256": "12ba6168afea4c62b116235d0e3738d6f519f08c453be1d37958606697302bf8",
+      "text": "Skip to content\nNavigation Menu\nPlatform\nSolutions\nResources\nOpen Source\nEnterprise\nPricing\nSearch\n/\nSign in\nSign up\nvuejs-ai\nskills\nRepository navigation\nCode\nIssues\n9\n (9)\nPull requests\n2\n (2)\nActions\nProjects\nSecurity and quality\nInsights\nFiles\nmain\n.claude-plugin\n.github\nskills\ncreate-adaptable-composable\nvue-best-practices\nreferences\nSKILL.md\nvue-debug-guides\nvue-jsx-best-practices\nvue-options-api-best-practices\nvue-pinia-best-practices\nvue-router-best-practices\nvue-testing-best-practices\nAGENTS.md\nCLAUDE.md\nLICENSE\nREADME.md\nBreadcrumbs\nskills/skills/vue-best-practices\n/SKILL.md\nLatest commit\nserkodev\nchore: bump skills versions\nb9d14d0\n · \nHistory\nHistory\nFile metadata and controls\nPreview\nCode\nBlame\n154 lines (115 loc) · 8.6 KB\nRaw\nname\tvue-best-practices\ndescription\tMUST be used for Vue.js tasks. Strongly recommends Composition API with `<script setup>` and TypeScript as the standard approach. Covers Vue 3, SSR, Volar, vue-tsc. Load for any Vue, .vue files, Vue Router, Pinia, or Vite with Vue work. ALWAYS use Composition API unless the project explicitly requires Options API.\nlicense\tMIT\nmetadata\t\nauthor\tversion\n\ngithub.com/vuejs-ai\n\t\n18.0.0\nVue Best Practices Workflow\n\nUs",
+      "links": [
+        {
+          "text": "Skip to content",
+          "url": "https://github.com/vuejs-ai/skills/blob/main/skills/vue-best-practices/SKILL.md#start-of-content"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/"
+        },
+        {
+          "text": "Sign in",
+          "url": "https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fvuejs-ai%2Fskills%2Fblob%2Fmain%2Fskills%2Fvue-best-practices%2FSKILL.md"
+        },
+        {
+          "text": "GitHub CopilotWrite better code with AI",
+          "url": "https://github.com/features/copilot"
+        },
+        {
+          "text": "GitHub Copilot appDirect agents from issue to merge",
+          "url": "https://github.com/features/ai/github-app"
+        },
+        {
+          "text": "MCP RegistryIntegrate external tools",
+          "url": "https://github.com/mcp"
+        },
+        {
+          "text": "ActionsAutomate any workflow",
+          "url": "https://github.com/features/actions"
+        },
+        {
+          "text": "CodespacesInstant dev environments",
+          "url": "https://github.com/features/codespaces"
+        },
+        {
+          "text": "IssuesPlan and track work",
+          "url": "https://github.com/features/issues"
+        },
+        {
+          "text": "Code ReviewManage code changes",
+          "url": "https://github.com/features/code-review"
+        },
+        {
+          "text": "Code QualityEnforce quality at merge",
+          "url": "https://github.com/features/code-quality"
+        },
+        {
+          "text": "GitHub Advanced SecurityFind and fix vulnerabilities",
+          "url": "https://github.com/security/advanced-security"
+        },
+        {
+          "text": "Code securitySecure your code as you build",
+          "url": "https://github.com/security/advanced-security/code-security"
+        },
+        {
+          "text": "Secret protectionStop leaks before they start",
+          "url": "https://github.com/security/advanced-security/secret-protection"
+        }
+      ],
+      "frames": [],
+      "error": null
+    },
+    {
+      "id": "S07",
+      "status": 200,
+      "title": "skills/skills/improve-animations/SKILL.md at main · emilkowalski/skills · GitHub",
+      "url": "https://github.com/emilkowalski/skills/blob/main/skills/improve-animations/SKILL.md",
+      "capturedAt": "2026-10-10T18:46:55.704Z",
+      "file": "screenshots/S07.png",
+      "sha256": "cc592b048db442fc2c1a114c9edd78a2ca77abc8ad63ab230281ec1be503a861",
+      "text": "Skip to content\nNavigation Menu\nPlatform\nSolutions\nResources\nOpen Source\nEnterprise\nPricing\nSearch\n/\nSign in\nSign up\nemilkowalski\nskills\nRepository navigation\nCode\nIssues\n3\n (3)\nPull requests\nActions\nProjects\nSecurity and quality\nInsights\nFiles\nmain\nskills\nanimate-expo\nanimate\nanimation-vocabulary\napple-design\nask-sonner\nbreak-ui\nemil-design-eng\nfind-animation-opportunities\nimprove-animations\nAUDIT.md\nPLAN-TEMPLATE.md\nSKILL.md\nmobile-native\npick-ui-library\nprototype\nreview-animations\nwrite-swift\n.gitattributes\n.gitignore\n.pl\nLICENSE\nREADME.md\nperformance-cheatsheet.md\nBreadcrumbs\nskills/skills/improve-animations\n/SKILL.md\nLatest commit\nemilkowalski\nRemove course mention\n85e8e23\n · \nHistory\nHistory\nFile metadata and controls\nPreview\nCode\nBlame\n109 lines (70 loc) · 8.02 KB\nRaw\nname\timprove-animations\ndescription\tSurvey a codebase's animation and motion code as a senior motion advisor, then produce a prioritized audit and self-contained implementation plans for other agents (or cheaper models) to execute. Read-only on source code — it plans improvements, it does not apply them. Use when the user asks to \"improve the animations\", \"audit the motion\", \"make this app feel better\", or want",
+      "links": [
+        {
+          "text": "Skip to content",
+          "url": "https://github.com/emilkowalski/skills/blob/main/skills/improve-animations/SKILL.md#start-of-content"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/"
+        },
+        {
+          "text": "Sign in",
+          "url": "https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Femilkowalski%2Fskills%2Fblob%2Fmain%2Fskills%2Fimprove-animations%2FSKILL.md"
+        },
+        {
+          "text": "GitHub CopilotWrite better code with AI",
+          "url": "https://github.com/features/copilot"
+        },
+        {
+          "text": "GitHub Copilot appDirect agents from issue to merge",
+          "url": "https://github.com/features/ai/github-app"
+        },
+        {
+          "text": "MCP RegistryIntegrate external tools",
+          "url": "https://github.com/mcp"
+        },
+        {
+          "text": "ActionsAutomate any workflow",
+          "url": "https://github.com/features/actions"
+        },
+        {
+          "text": "CodespacesInstant dev environments",
+          "url": "https://github.com/features/codespaces"
+        },
+        {
+          "text": "IssuesPlan and track work",
+          "url": "https://github.com/features/issues"
+        },
+        {
+          "text": "Code ReviewManage code changes",
+          "url": "https://github.com/features/code-review"
+        },
+        {
+          "text": "Code QualityEnforce quality at merge",
+          "url": "https://github.com/features/code-quality"
+        },
+        {
+          "text": "GitHub Advanced SecurityFind and fix vulnerabilities",
+          "url": "https://github.com/security/advanced-security"
+        },
+        {
+          "text": "Code securitySecure your code as you build",
+          "url": "https://github.com/security/advanced-security/code-security"
+        },
+        {
+          "text": "Secret protectionStop leaks before they start",
+          "url": "https://github.com/security/advanced-security/secret-protection"
+        }
+      ],
+      "frames": [],
+      "error": null
+    }
+  ]
+}

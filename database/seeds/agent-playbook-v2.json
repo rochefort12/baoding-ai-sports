@@ -1,0 +1,537 @@
+{
+  "tools": {
+    "schemaVersion": 1,
+    "transport": "authenticated-local-mcp",
+    "entries": [
+      {
+        "name": "sports_playbook",
+        "purpose": "读取本次运行锁定的技能与业务地图，以及当前角色实际可用的页面/Agent能力",
+        "arguments": {},
+        "usage": "开始办理及授权变化后先读取；这是引导资料，不能扩大操作权限",
+        "agentAllowed": true,
+        "channel": "controlled-agent-run"
+      },
+      {
+        "name": "sports_capabilities",
+        "purpose": "查询本人当前已开放的Agent能力",
+        "arguments": {},
+        "usage": "选择实际工具动作之前读取，不把页面能力当Agent授权",
+        "agentAllowed": true,
+        "channel": "controlled-agent-run"
+      },
+      {
+        "name": "sports_preview",
+        "purpose": "核对真实对象、缺项和当前版本",
+        "arguments": {
+          "code": "registered-action-code",
+          "inputJson": "JSON object encoded as string"
+        },
+        "usage": "编号来自本人已授权查询或本人明确提供，不猜编号",
+        "agentAllowed": true,
+        "channel": "controlled-agent-run"
+      },
+      {
+        "name": "sports_execute",
+        "purpose": "执行已开放、无需本人确认的授权动作",
+        "arguments": {
+          "code": "registered-action-code",
+          "inputJson": "JSON object encoded as string",
+          "requestKey": "stable unique request key"
+        },
+        "usage": "同一办理断线重试沿用原参数与原编号；资金、审核与正式结果不得代确认",
+        "agentAllowed": true,
+        "channel": "controlled-agent-run"
+      },
+      {
+        "name": "sports_propose",
+        "purpose": "准备本人核对的具体确认卡",
+        "arguments": {
+          "code": "registered-action-code",
+          "inputJson": "JSON object encoded as string"
+        },
+        "usage": "确认卡绑定实际对象、版本、名单、金额；准备后停止，等待本人明确点击",
+        "agentAllowed": true,
+        "channel": "controlled-agent-run"
+      },
+      {
+        "name": "sports_delegate",
+        "purpose": "把必要的跨流程目标交给已授权职能助手",
+        "arguments": {
+          "agentCode": "registered-agent-code",
+          "goal": "visible subgoal"
+        },
+        "usage": "简单任务直接处理；权限与对象范围只能继承或收窄，不替用户做决定",
+        "agentAllowed": true,
+        "channel": "controlled-agent-run"
+      },
+      {
+        "name": "sports_event_query_ai_constraints",
+        "purpose": "读取旧资料办赛流程允许的字段、审核方式和免费约束",
+        "arguments": {},
+        "usage": "仅旧登录会话调用；新 Agent 必须走能力注册表与 sports_preview",
+        "channel": "legacy-session",
+        "agentAllowed": false
+      },
+      {
+        "name": "sports_event_query_ai_document",
+        "purpose": "读取旧资料任务已授权的原文块",
+        "arguments": {
+          "taskId": "long task id",
+          "fileIndex": "integer file index",
+          "blockLabel": "string block label"
+        },
+        "usage": "组织授权由既有资料接口检查；不能以 Agent-run 令牌绕过受控执行器",
+        "channel": "legacy-session",
+        "agentAllowed": false
+      },
+      {
+        "name": "sports_event_check_ai_proposal",
+        "purpose": "校验旧办赛候选方案中的字段与玩法边界",
+        "arguments": {
+          "proposalJson": "JSON proposal encoded as string"
+        },
+        "usage": "仅校验，不能代表创建或发布；新 Agent 走已登记动作预览",
+        "channel": "legacy-session",
+        "agentAllowed": false
+      },
+      {
+        "name": "sports_event_query_public",
+        "purpose": "按条件分页检索已公开赛事，每页最多八场",
+        "arguments": {
+          "text": "string search term",
+          "project": "string project code",
+          "phase": "string phase",
+          "includeCancelled": "boolean",
+          "offset": "integer offset"
+        },
+        "usage": "仅旧登录会话用途；不暴露材料、私人资料或未公开赛事",
+        "channel": "legacy-session",
+        "agentAllowed": false
+      },
+      {
+        "name": "sports_registration_query_mine",
+        "purpose": "读取旧登录者本人的报名进度",
+        "arguments": {
+          "offset": "integer offset"
+        },
+        "usage": "当前本人由服务端取得，不能指定其他用户；Agent 使用已登记 registration.mine",
+        "channel": "legacy-session",
+        "agentAllowed": false
+      }
+    ]
+  },
+  "skills": {
+    "schemaVersion": 1,
+    "entries": [
+      {
+        "code": "understand-goal",
+        "name": "明确这次目标",
+        "actors": [
+          "platform",
+          "organizer",
+          "government",
+          "admin"
+        ],
+        "purpose": "理解用户希望完成的任务，区分咨询、草稿、已确认办理和继续处理",
+        "procedure": [
+          "结合页面对象、当前进度和最近消息理解目标",
+          "用一句自然的话说明正在帮用户处理什么",
+          "最多先问三个真正阻塞下一步的问题，能从授权事实取得的资料不反复问"
+        ],
+        "tools": [
+          "sports_playbook",
+          "sports_capabilities"
+        ]
+      },
+      {
+        "code": "material-to-draft",
+        "name": "从材料整理可核对草稿",
+        "actors": [
+          "organizer"
+        ],
+        "workflow": "organize-event",
+        "procedure": [
+          "按文件名、页码或段落引用，明确未覆盖范围",
+          "识别日期、地点、人数、费用、联系人等缺项与冲突",
+          "缺项向主办方补问；未经核对的安排保持待确认",
+          "选择已授权的建草稿动作，发布前交本人核对"
+        ],
+        "tools": [
+          "sports_preview",
+          "sports_execute",
+          "sports_propose"
+        ]
+      },
+      {
+        "code": "assemble-teammates",
+        "name": "陪用户完成本场集结",
+        "actors": [
+          "platform"
+        ],
+        "workflow": "join-and-team",
+        "procedure": [
+          "先问目标赛事、比赛类型和是否已有搭档",
+          "区分长期成员与本场参赛名单，房主占一席",
+          "缺人时说明招募与自动匹配两条路径；本人接受后才进房",
+          "引导各自补资料、声明和准备，不能代队员确认"
+        ],
+        "tools": [
+          "sports_preview",
+          "sports_execute",
+          "sports_propose"
+        ]
+      },
+      {
+        "code": "registration-readiness",
+        "name": "把报名缺项拆成可完成的下一步",
+        "actors": [
+          "platform"
+        ],
+        "workflow": "register-event",
+        "procedure": [
+          "核对项目、可用名额、报名管理人和队员本人资料",
+          "把当前真实缺项列为待办，优先最小阻塞项",
+          "正式提交前准备版本绑定的名单、规则和费用确认",
+          "付款申报与实际收款分别说明，只按回执解释当前状态"
+        ],
+        "tools": [
+          "sports_preview",
+          "sports_propose"
+        ]
+      },
+      {
+        "code": "responsible-aftercare",
+        "name": "接续比赛与问题收尾",
+        "actors": [
+          "platform",
+          "organizer",
+          "government"
+        ],
+        "workflow": "after-event",
+        "procedure": [
+          "分别核对比赛结束、资金收尾和问题处理",
+          "责任人办理正式赛果、真实收退款和投诉协调",
+          "解释历史、下一步与人工入口，不制造完成或荣誉",
+          "公开分享只使用本人已授权的名片与脱敏战绩"
+        ],
+        "tools": [
+          "sports_preview",
+          "sports_delegate"
+        ]
+      },
+      {
+        "code": "recover-and-guide",
+        "name": "失败后接住用户继续办理",
+        "actors": [
+          "platform",
+          "organizer",
+          "government",
+          "admin"
+        ],
+        "procedure": [
+          "说明实际失败点，不把等待或HTTP成功当办理成功",
+          "保留原目标、编辑内容、问题和已成功的回执",
+          "授权或内容变化时重新核对，不能沿旧确认执行",
+          "给一个可以立即继续的选择，语气自然，避免配置术语和演示口号"
+        ],
+        "tools": [
+          "sports_playbook",
+          "sports_preview"
+        ]
+      }
+    ]
+  },
+  "businessMap": {
+    "schemaVersion": 1,
+    "code": "badminton-phase1",
+    "title": "赛事服务流程",
+    "flows": [
+      {
+        "code": "organize-event",
+        "title": "办一场赛事",
+        "actors": [
+          "organizer"
+        ],
+        "goal": "材料齐全后建立赛事，核对比赛类型、报名与费用，再由主办方明确发布",
+        "steps": [
+          {
+            "code": "event-draft",
+            "title": "整理赛事基本资料",
+            "capabilities": [
+              "event.mine",
+              "event.create",
+              "event.update"
+            ],
+            "path": "/org-desk/events/from-document",
+            "questions": [
+              "准备办什么运动和比赛类型？",
+              "比赛时间和场地定了吗？",
+              "规程或材料可以发给我吗？"
+            ]
+          },
+          {
+            "code": "event-units",
+            "title": "核对项目人数与名额",
+            "capabilities": [
+              "type.catalog",
+              "unit.create"
+            ],
+            "path": "/org-desk/workspace/{eventId}?task=publication",
+            "dependsOn": [
+              "event-draft"
+            ],
+            "checks": [
+              "比赛类型的人数约束",
+              "项目名额与报名时间"
+            ]
+          },
+          {
+            "code": "event-fees",
+            "title": "核对收费与收款指引",
+            "capabilities": [
+              "fee.configure"
+            ],
+            "path": "/org-desk/workspace/{eventId}?task=payment",
+            "dependsOn": [
+              "event-units"
+            ],
+            "checks": [
+              "免费或收费",
+              "收费金额与收款渠道",
+              "退款联系人及说明"
+            ]
+          },
+          {
+            "code": "event-release",
+            "title": "核对并发布",
+            "capabilities": [
+              "event.publish"
+            ],
+            "path": "/org-desk/workspace/{eventId}?task=publication",
+            "dependsOn": [
+              "event-fees"
+            ],
+            "checks": [
+              "联系人",
+              "时间地点和声明",
+              "本人确认当前版本"
+            ]
+          },
+          {
+            "code": "event-materials",
+            "title": "准备策划、脚本和宣传",
+            "capabilities": [
+              "event.material.save",
+              "event.material.generate",
+              "event.cover.save"
+            ],
+            "path": "/org-desk/workspace/{eventId}?task=materials",
+            "dependsOn": [
+              "event-draft"
+            ],
+            "checks": [
+              "文稿仍是工作草稿",
+              "封面明确选择后保存"
+            ]
+          }
+        ]
+      },
+      {
+        "code": "join-and-team",
+        "title": "找赛事与队友",
+        "actors": [
+          "platform"
+        ],
+        "goal": "找到合适赛事，建立本场房间并由成员本人完成加入与准备",
+        "steps": [
+          {
+            "code": "room-discovery",
+            "title": "查看本场集结",
+            "capabilities": [
+              "room.query"
+            ],
+            "path": "/portal/rooms",
+            "questions": [
+              "已经有想参加的赛事了吗？",
+              "想参加单打，还是找个双打搭档？"
+            ]
+          },
+          {
+            "code": "room-assemble",
+            "title": "建房、招募或匹配",
+            "capabilities": [
+              "room.create",
+              "room.recruit",
+              "room.apply",
+              "room.match"
+            ],
+            "path": "/portal/rooms",
+            "dependsOn": [
+              "room-discovery"
+            ],
+            "checks": [
+              "房主计入人数",
+              "匹配邀请由本人接受"
+            ]
+          },
+          {
+            "code": "room-ready",
+            "title": "各自补资料并准备",
+            "capabilities": [
+              "room.ready",
+              "room.prepare"
+            ],
+            "path": "/portal/rooms",
+            "dependsOn": [
+              "room-assemble"
+            ],
+            "checks": [
+              "成员本人确认",
+              "本场名单与长期队伍分开"
+            ]
+          }
+        ]
+      },
+      {
+        "code": "register-event",
+        "title": "完成报名",
+        "actors": [
+          "platform"
+        ],
+        "goal": "补齐成员资料后核对整单并正式报名，分别跟进付款与资格",
+        "steps": [
+          {
+            "code": "registration-draft",
+            "title": "查看或建立本人报名",
+            "capabilities": [
+              "registration.mine",
+              "registration.create"
+            ],
+            "path": "/portal/registration",
+            "questions": [
+              "报名哪一场赛事和项目？",
+              "这次是个人参赛还是和队友一起？"
+            ]
+          },
+          {
+            "code": "registration-submit",
+            "title": "核对名单、规则与费用",
+            "capabilities": [
+              "registration.submit"
+            ],
+            "path": "/portal/registration",
+            "dependsOn": [
+              "registration-draft"
+            ],
+            "checks": [
+              "本人资料与声明",
+              "整单名额和当前版本",
+              "本人明确确认"
+            ]
+          }
+        ]
+      },
+      {
+        "code": "after-event",
+        "title": "赛后与问题处理",
+        "actors": [
+          "platform",
+          "organizer",
+          "government"
+        ],
+        "goal": "查看正式赛果、证明与成长，并接续退款或投诉责任",
+        "steps": [
+          {
+            "code": "aftercare-progress",
+            "title": "查看赛后收尾",
+            "capabilities": [
+              "event.closure"
+            ],
+            "path": "/org-desk/workspace/{eventId}?task=closure",
+            "actors": [
+              "organizer"
+            ],
+            "checks": [
+              "比赛状态",
+              "资金责任",
+              "未完投诉"
+            ]
+          },
+          {
+            "code": "aftercare-growth",
+            "title": "查看本人运动成长",
+            "capabilities": [
+              "growth.card",
+              "growth.equip"
+            ],
+            "path": "/portal/growth",
+            "actors": [
+              "platform"
+            ],
+            "checks": [
+              "成长来源与真实事实",
+              "本人选择佩戴称号"
+            ]
+          },
+          {
+            "code": "aftercare-issue",
+            "title": "提交或接续问题",
+            "capabilities": [
+              "complaint.submit",
+              "complaint.reply"
+            ],
+            "path": "/portal/issues",
+            "actors": [
+              "platform"
+            ],
+            "checks": [
+              "问题编号",
+              "实际责任人与回复"
+            ]
+          }
+        ]
+      },
+      {
+        "code": "government-service",
+        "title": "主办方审核与协调",
+        "actors": [
+          "government",
+          "admin"
+        ],
+        "goal": "按已指定的管理范围审核、协调与恢复资格",
+        "steps": [
+          {
+            "code": "government-scope",
+            "title": "核对主办方资格",
+            "capabilities": [
+              "government.qualify"
+            ],
+            "questions": [
+              "要处理哪家主办方？"
+            ],
+            "checks": [
+              "明确分配的主办方范围",
+              "材料和协调责任"
+            ]
+          },
+          {
+            "code": "government-issue",
+            "title": "协调具体问题",
+            "capabilities": [
+              "complaint.handle",
+              "complaint.reply"
+            ],
+            "path": "/government/issues",
+            "questions": [
+              "要接续哪一个问题编号？"
+            ],
+            "checks": [
+              "责任人",
+              "历史回复和当前状态"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

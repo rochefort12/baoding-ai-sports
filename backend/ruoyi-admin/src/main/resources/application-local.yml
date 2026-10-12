@@ -1,0 +1,105 @@
+# Local-only profile. Reuse upstream provider configuration; override infrastructure explicitly.
+spring.config.import: classpath:application-dev.yml
+---
+# Later document has priority over imported development defaults.
+spring:
+  boot:
+    admin:
+      client:
+        enabled: false
+        username: aisports-monitor
+        password: ${MONITOR_PASSWORD}
+  datasource:
+    dynamic:
+      p6spy: false
+      datasource:
+        master:
+          driverClassName: org.postgresql.Driver
+          url: jdbc:postgresql://127.0.0.1:${POSTGRES_PORT:25432}/${POSTGRES_DB:aisports}?reWriteBatchedInserts=true
+          username: ${APP_DB_USER:aisports_app}
+          password: ${APP_DB_PASSWORD}
+      hikari:
+        maxPoolSize: 10
+        minIdle: 2
+  data:
+    redis:
+      host: 127.0.0.1
+      port: ${REDIS_PORT:26379}
+      password: ${REDIS_PASSWORD}
+  servlet:
+    multipart:
+      max-file-size: 15MB
+      max-request-size: 40MB
+  ai:
+    mcp:
+      server:
+        enabled: ${MCP_ENABLED:false}
+        name: aisports
+        version: 0.1.0
+        type: SYNC
+        protocol: STATELESS
+        capabilities:
+          tool: true
+          resource: false
+          prompt: false
+          completion: false
+        annotation-scanner:
+          enabled: false
+        stateless:
+          mcp-endpoint: /mcp
+server:
+  address: 127.0.0.1
+  port: 8080
+redisson:
+  keyPrefix: "aisports:local:"
+  singleServerConfig:
+    clientName: aisports-local
+snail-job:
+  enabled: false
+warm-flow:
+  enabled: true
+  ui: false
+api-decrypt:
+  enabled: false
+sa-token:
+  jwt-secret-key: ${JWT_SECRET}
+justauth:
+  address: http://localhost:5173
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: never
+springdoc:
+  info:
+    title: AISports 体育综合服务平台接口
+    description: 框架接口与体育领域接口；领域功能按交接记录逐步交付
+participant:
+  phone-pepper: local-dev-phone-pepper
+  sms-echo-code: ${PARTICIPANT_SMS_ECHO_CODE:false}
+aliyun:
+  captcha:
+    region: ${ALIYUN_CAPTCHA_REGION:cn}
+    prefix: ${ALIYUN_CAPTCHA_PREFIX:}
+    ekey: ${ALIYUN_CAPTCHA_EKEY:}
+    scene-id: ${ALIYUN_CAPTCHA_SCENE_ID:}
+    scene-name: ${ALIYUN_CAPTCHA_SCENE_NAME:}
+    mode: ${ALIYUN_CAPTCHA_MODE:traceless}
+    client: ${ALIYUN_CAPTCHA_CLIENT:web}
+    access-key-id: ${ALIYUN_CAPTCHA_ACCESS_KEY_ID:}
+    access-key-secret: ${ALIYUN_CAPTCHA_ACCESS_KEY_SECRET:}
+    server-verify: false
+aisports:
+  ai:
+    api-key: ${DEEPSEEK_API_KEY:${DASHSCOPE_API_KEY:}}
+    gateway-url: ${AI_GATEWAY_URL:http://127.0.0.1:8091}
+    internal-token: ${AI_INTERNAL_TOKEN:}
+    max-scan-pages: ${AI_MAX_SCAN_PAGES:15}
+    daily-tasks: ${AI_DAILY_TASK_LIMIT:20}
+    ops-session-limit: ${AI_OPS_SESSION_LIMIT:8}
+    image-api-key: ${AI_IMAGE_API_KEY:}
+    image-endpoint: ${AI_IMAGE_ENDPOINT:}
+    image-model: ${AI_IMAGE_MODEL:}

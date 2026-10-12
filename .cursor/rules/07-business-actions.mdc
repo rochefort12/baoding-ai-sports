@@ -1,0 +1,15 @@
+---
+description: Strong business actions own the confirmed chain in one local transaction
+alwaysApply: true
+---
+# Business actions
+Basis: `AGENTS.md`, the current ADR, rule 11. Do not add another product's action-list templates, role-config JSON, or D16 paths.
+
+- Registration, quota, payment, roster freeze, check-in, and results change through an explicit action in the owning module. Those facts do not get a generic write API for pages, Agents, or MCP.
+- The confirmed ADR is the definition. A new business meaning is written into the ADR and confirmed before code. Older materials stay; mark a replacement with 「被取代：见 xxx」. Runtime does not read markdown.
+- A strong action finishes its confirmed chain in one local PostgreSQL transaction, then commits or rolls back. It does not leave half-written local facts. Retry, receipt, and compensation are for outside systems (SMS, payment, platforms).
+- The action states which tables and columns it changes. Anything beyond that is rejected.
+- Humans and a future agent call the same action with the same auth, validation, transaction, and audit. Product AI is off this phase. Separate human and agent switches are not added unless the task says so.
+- Actions live in the owning `ruoyi-sports-*` module. Modules do not call each other's Service or Mapper, and they do not depend on each other. A chain that crosses modules uses `aisports-api` inside the same local transaction.
+- Money, quota, and results are not kept only in Redis. Keep the rule, roster, fee, and result snapshots the model already defines. Qualification, collection, refund, and quota stay separate states.
+- Roles and menus stay on the existing RuoYi permission model. Do not invent demo roles to make a chain look open. A slice that claims a business role can do the work needs ordinary-role evidence.

@@ -1,0 +1,224 @@
+{
+  "name": "asp_honor",
+  "domain": "D10",
+  "description": "分级荣誉及来源；当前佩戴不替代历史获得记录",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "event_id",
+      "type": "bigint",
+      "description": "来源赛事",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_event",
+      "check": null
+    },
+    {
+      "name": "registration_id",
+      "type": "bigint",
+      "description": "获奖报名。同一 award_key 的个人证明行属于这一条报名获奖事实",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_registration",
+      "check": null
+    },
+    {
+      "name": "person_id",
+      "type": "bigint",
+      "description": "个人获得者",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_person",
+      "check": null
+    },
+    {
+      "name": "team_id",
+      "type": "bigint",
+      "description": "队伍获得者",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_team",
+      "check": null
+    },
+    {
+      "name": "award_key",
+      "type": "varchar(64)",
+      "description": "同一条报名获奖事实的编号。双打和团体的多行个人证明共用",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "category",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：official event achievement self_reported",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "category IN ('official', 'event', 'achievement', 'self_reported')"
+    },
+    {
+      "name": "title",
+      "type": "varchar(200)",
+      "description": "含项目、届次、层级和范围的名称",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "source",
+      "type": "jsonb",
+      "description": "授予或公布主体、证据和实际获奖成员快照；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：pending verified suspended revised revoked",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('pending', 'verified', 'suspended', 'revised', 'revoked')"
+    },
+    {
+      "name": "awarded_at",
+      "type": "timestamptz",
+      "description": "获得时间；有时区业务时间",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "display_until",
+      "type": "timestamptz",
+      "description": "当前展示期限；有时区业务时间",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "applicant_account_id",
+      "type": "bigint",
+      "description": "外部荣誉申请本人账号；旧赛事及成长荣誉为空",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_account",
+      "check": null
+    },
+    {
+      "name": "certification_status",
+      "type": "varchar(32)",
+      "description": "外部荣誉认证流程 draft submitted correction approved rejected revoked；历史荣誉为空",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "certification_details",
+      "type": "jsonb",
+      "description": "本人申请事实与私有honor-proof编号；只限本人及平台审核人",
+      "nullable": false,
+      "default": "'{}'::jsonb",
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "verified_snapshot",
+      "type": "jsonb",
+      "description": "审核人独立确认的真实年份赛事项目名次及公布依据；公开投影不含证明及审核隐私",
+      "nullable": false,
+      "default": "'{}'::jsonb",
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "certification_history",
+      "type": "jsonb",
+      "description": "追加的提交与审核快照，不覆写既有历史；只限本人及平台审核人",
+      "nullable": false,
+      "default": "'[]'::jsonb",
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "certification_public",
+      "type": "boolean",
+      "description": "本人公开同意；仅审核通过且运动名片也公开时生效",
+      "nullable": false,
+      "default": "false",
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "certification_worn",
+      "type": "boolean",
+      "description": "本人选择佩戴的已通过认证荣誉；每人每运动最多一项",
+      "nullable": false,
+      "default": "false",
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "sport_id",
+      "type": "bigint",
+      "description": "所属运动；历史奖项可空",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_sport",
+      "check": null
+    },
+    {
+      "name": "title_code",
+      "type": "varchar(64)",
+      "description": "成长称号规则编码；正式奖项可空",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": true,
+  "checks": [
+    "(person_id IS NOT NULL) <> (team_id IS NOT NULL)",
+    "jsonb_typeof(certification_details) = 'object' AND jsonb_typeof(verified_snapshot) = 'object' AND jsonb_typeof(certification_history) = 'array'",
+    "certification_status IS NULL OR (certification_status IN ('draft','submitted','correction','approved','rejected','revoked') AND applicant_account_id IS NOT NULL AND person_id IS NOT NULL AND team_id IS NULL AND category = 'self_reported' AND sport_id IS NOT NULL AND ((certification_status = 'approved' AND status = 'verified' AND verified_snapshot <> '{}'::jsonb) OR (certification_status = 'revoked' AND status = 'revoked') OR (certification_status IN ('draft','submitted','correction','rejected') AND status = 'pending')))",
+    "NOT certification_worn OR (certification_status = 'approved' AND status = 'verified')",
+    "NOT certification_public OR (certification_status = 'approved' AND status = 'verified')"
+  ],
+  "unique": [
+    [
+      "award_key, person_id",
+      "award_key IS NOT NULL"
+    ],
+    [
+      "registration_id, person_id, title",
+      "registration_id IS NOT NULL AND status = 'verified'"
+    ],
+    [
+      "person_id, sport_id",
+      "certification_status = 'approved' AND certification_worn"
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-honor",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

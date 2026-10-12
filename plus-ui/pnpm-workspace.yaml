@@ -1,0 +1,6 @@
+# pnpm 11: explicit dependency build permissions, no blanket approval.
+allowBuilds:
+  esbuild: true
+  '@parcel/watcher': true
+overrides:
+  quill: 1.3.7

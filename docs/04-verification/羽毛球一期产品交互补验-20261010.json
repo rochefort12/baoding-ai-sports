@@ -1,0 +1,38 @@
+{
+  "failures": 0,
+  "agentEnabled": 0,
+  "changes": [
+    "Organizer reauthentication preserves registrations, competition, issues and closure task",
+    "Private/external redirect rejection retained"
+  ],
+  "humanUiEnabled": 47,
+  "releaseReceiptSha256": "9316115890bddb6b3058f90912ee385eead120af3fcfbf39e594c37ca0ce78f2",
+  "tests": {
+    "build": "PASS with existing chunk-size warning",
+    "typecheck": "PASS",
+    "returnTargetTests": 9,
+    "mainAnonymousBrowserAndAuthorizationChecks": 6
+  },
+  "jarSha256": "1b020d2434c2e12a992a6ce6ce3ffa9a58be3aea176ffea174d3cb495801f5c5",
+  "timestamp": "2026-10-10T21:42:58.6983207+08:00",
+  "parentEvidenceSha256": "6d18927802b75867876af4753f6cdc2b7151689b92af35eca8dc744ba687a0ee",
+  "scope": "local-controlled-trial",
+  "evidence": [
+    {
+      "path": ".local/phase1-implementation/product-return-to-final.log",
+      "sha256": "11806a4a0e67fdac11fe374c43782f8feb4c809efda68bf3997a58f3556400d2"
+    },
+    {
+      "path": ".local/phase1-implementation/product-task-return-typecheck.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/phase1-implementation/product-task-return-build.log",
+      "sha256": "b985aa35be68d897c680d32550860010a4e396c3f29f8f9216fa928f872499eb"
+    },
+    {
+      "path": ".local/phase1-implementation/main-product-receipt.json",
+      "sha256": "ccac47d89332f00eb4bbc39fdeba6d987d2b2481b39d5075c2b829dfea9052c9"
+    }
+  ]
+}

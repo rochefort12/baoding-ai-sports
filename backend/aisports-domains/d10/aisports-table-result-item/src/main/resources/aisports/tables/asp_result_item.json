@@ -1,0 +1,84 @@
+{
+  "name": "asp_result_item",
+  "domain": "D10",
+  "description": "每参赛单位原始成绩及单位；零与缺失/未完赛分开",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "result_version_id",
+      "type": "bigint",
+      "description": "结果版本",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_result_version",
+      "check": null
+    },
+    {
+      "name": "match_entry_id",
+      "type": "bigint",
+      "description": "实际参赛单位",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_match_entry",
+      "check": null
+    },
+    {
+      "name": "performance_status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：valid did_not_start did_not_finish forfeited disqualified invalid",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "performance_status IN ('valid', 'did_not_start', 'did_not_finish', 'forfeited', 'disqualified', 'invalid')"
+    },
+    {
+      "name": "value",
+      "type": "numeric(20,6)",
+      "description": "可比较主数值；分项另存，缺失不是零",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "unit",
+      "type": "varchar(100)",
+      "description": "second/metre/point/kg 等确认单位",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "components",
+      "type": "jsonb",
+      "description": "局、试次、裁判分项和处罚；必须按版本校验结构",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": true,
+  "checks": [],
+  "unique": [
+    [
+      "result_version_id, match_entry_id",
+      null
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-result-item",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

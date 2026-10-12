@@ -1,0 +1,66 @@
+{
+  "name": "asp_payment_action",
+  "domain": "D06",
+  "description": "已付款报名失效后的资金后续。平台不发起退款",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "payment_id",
+      "type": "bigint",
+      "description": "已确认的付款",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_payment",
+      "check": null
+    },
+    {
+      "name": "obligation_id",
+      "type": "bigint",
+      "description": "当时的义务",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_fee_obligation",
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：pending closed_no_refund refunded",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('pending', 'closed_no_refund', 'refunded')"
+    },
+    {
+      "name": "note",
+      "type": "varchar(1000)",
+      "description": "承办方说明",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": true,
+  "checks": [],
+  "unique": [
+    [
+      "payment_id",
+      "status = 'pending'"
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-payment-action",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

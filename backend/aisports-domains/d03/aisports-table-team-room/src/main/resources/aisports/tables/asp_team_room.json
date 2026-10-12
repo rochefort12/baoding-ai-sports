@@ -1,0 +1,92 @@
+{
+  "name": "asp_team_room",
+  "domain": "D03",
+  "description": "本场参赛房间，与长期队伍及已提交名单分开；房主计入成员人数",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "unit_id",
+      "type": "bigint",
+      "description": "赛事报名单元",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_competition_unit",
+      "check": null
+    },
+    {
+      "name": "competition_type_id",
+      "type": "bigint",
+      "description": "比赛类型",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_competition_type",
+      "check": null
+    },
+    {
+      "name": "host_account_id",
+      "type": "bigint",
+      "description": "当前房主",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_account",
+      "check": null
+    },
+    {
+      "name": "team_id",
+      "type": "bigint",
+      "description": "可选长期代表队",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_team",
+      "check": null
+    },
+    {
+      "name": "name",
+      "type": "varchar(100)",
+      "description": "房间名称",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：forming ready submitted closed",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('forming', 'ready', 'submitted', 'closed')"
+    },
+    {
+      "name": "registration_id",
+      "type": "bigint",
+      "description": "成功生成的报名草稿或事实编号",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "announcement",
+      "type": "varchar(1000)",
+      "description": "房间公告",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": false,
+  "checks": [],
+  "unique": [],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-team-room",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

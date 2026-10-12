@@ -1,0 +1,19 @@
+{
+  "tool": "image_gen",
+  "underlyingModel": "not returned by tool",
+  "timestamp": "2026-10-11",
+  "prompts": [
+    {
+      "name": "assistant",
+      "prompt": "Use case: stylized-concept. Asset type: transparent app AI assistant launcher icon, 1024x1024 square. A premium sculptural pearl-white translucent glass orb with an elegant small burnt-orange orbital ribbon and a subtle glowing four-point sparkle inset into the orb. One single cohesive compact shape, friendly and intelligent, sports app emotional warmth, highly legible at 64px, Apple-like industrial design and calm tactile 3D, soft neutral studio light, satin specular highlights, no dark hard outline. Centered object occupies 78 percent canvas. Transparent background with clean alpha and no ground plane, no cast rectangle shadow, no text, logo words, UI, human face, robot eyes, circuitry, neon or watermark. Beautiful restrained original icon for a real interactive button."
+    },
+    {
+      "name": "brand",
+      "prompt": "Use case: logo-brand. Asset type: transparent original sports brand symbol for Baoding Sports, no wordmark; 1024x1024 square. Design one premium minimal burnt-orange sculptural emblem: two flowing aerodynamic curved bands unite into a compact rounded loop suggesting both a flying shuttlecock and people coming together. Strong recognizable silhouette at 32px, simple readable geometry, refined satin enamel orange with a subtle warm highlight, quiet Apple-like finish. Centered symbol, occupy 72 percent canvas; genuinely transparent background. No letters, words, numbers, complete interface, decorative circle badge, corporate brand resemblance, multiple alternatives, neon, watermark or background plate. Sport, motion and connection in one symbol."
+    },
+    {
+      "name": "medal",
+      "prompt": "Use case: product-mockup. Asset type: transparent bronze rank reward illustration for an actual sports growth profile, 1024x1024. One elegant bronze participation medal, viewed almost front on with slight natural depth; circle of brushed warm champagne bronze, one simple raised five-point star, two folded short cream-gold ribbon tails extending above, soft physically credible shadow inside geometry, premium restrained Apple-like product photograph. No words, numeric ranks, laurel crown, invented official seals or winner text. Isolated centered object fills 80 percent canvas, genuine transparent background, no rectangular shadow or surface. Readable at small card sizes, warm emotional value, realistic material without cartoon exaggeration."
+    }
+  ]
+}

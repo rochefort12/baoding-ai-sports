@@ -1,0 +1,197 @@
+{
+  "at": "2026-10-12T00:12:10.619Z",
+  "scope": "Eight general material tasks with real configured model; one actual human-saved source draft and bounded observer recovery; no publication or money",
+  "passed": true,
+  "database": "aisports_verify_phase1_242ded43673246699be6bb0f596aa59b",
+  "runtimeJarSha256": "e8a4d34311f4cfd09cd7b604cdaa24d94415f30eec514ebf613b39779e1cf079",
+  "current": [
+    {
+      "runId": "2109430742101696512",
+      "status": "waiting_input",
+      "visibleAssistantMessages": 2,
+      "tokensUsed": 19270
+    },
+    {
+      "runId": "2109430788268400640",
+      "status": "waiting_input",
+      "visibleAssistantMessages": 2,
+      "tokensUsed": 9788
+    },
+    {
+      "runId": "2109430825908084736",
+      "status": "waiting_input",
+      "visibleAssistantMessages": 3,
+      "tokensUsed": 45300
+    },
+    {
+      "runId": "2109430921689210880",
+      "status": "waiting_input",
+      "visibleAssistantMessages": 3,
+      "tokensUsed": 68310
+    },
+    {
+      "runId": "2109431046239068160",
+      "status": "waiting_input",
+      "visibleAssistantMessages": 2,
+      "tokensUsed": 14241
+    },
+    {
+      "runId": "2109431090971320320",
+      "status": "waiting_input",
+      "visibleAssistantMessages": 2,
+      "tokensUsed": 10701
+    },
+    {
+      "runId": "2109432045024485376",
+      "status": "waiting_input",
+      "visibleAssistantMessages": 3,
+      "tokensUsed": 15856
+    },
+    {
+      "runId": "2109433426200403968",
+      "status": "waiting_input",
+      "visibleAssistantMessages": 2,
+      "tokensUsed": 19066
+    }
+  ],
+  "enabledAgentWrites": 0,
+  "artifacts": [
+    {
+      "path": ".local/business-regression-20261011/a006561dd66540c2b383415b02480f2c/preflight-receipt.json",
+      "sha256": "b72bcf43fd898aaa1c01520b75c1efb66ab053b6c567f7965dc4a45da6b9923e",
+      "role": "accepted backup and independent full restore",
+      "passed": true
+    },
+    {
+      "path": ".local/business-regression-20261011/a006561dd66540c2b383415b02480f2c/notice-agent-initial.json",
+      "sha256": "ef5701ce41cb5a58dc49b04188fd4298d5c4872cc7c265e8c094c6158bea27bc",
+      "role": "original generic run history including budget failure and two strict-phrase failures",
+      "passed": false
+    },
+    {
+      "path": ".local/business-regression-20261011/a006561dd66540c2b383415b02480f2c/notice-recovery-1791762705848-6f17f2d2/receipt.json",
+      "sha256": "aef82bb63359daffb0196cd0e0ef78470cbd3388604fbc9aab62260c818fff7f",
+      "role": "accepted original-task recovery and semantic recheck; 5 checks",
+      "passed": true
+    },
+    {
+      "path": ".local/business-regression-20261011/a006561dd66540c2b383415b02480f2c/notice-ui-1791762761380-32676905/receipt.json",
+      "sha256": "9e14d1eec953dea0223fa6ecdb93da09c0b9cae89caff0c333154e48d01c8537",
+      "role": "partial actual PNG selection/upload and followup proof; consumer host and unsettled first screenshot superseded",
+      "passed": true
+    },
+    {
+      "path": ".local/business-regression-20261011/a006561dd66540c2b383415b02480f2c/notice-ui-1791762970816-0e2fcaa4/receipt.json",
+      "sha256": "a8d54f0474c1cfc78c99e842103e79b68bf129db40e45fce7cfead4bc9e2f84a",
+      "role": "accepted proper organizer desktop/mobile reopen; 5 checks",
+      "passed": true
+    },
+    {
+      "path": ".local/business-regression-20261011/a006561dd66540c2b383415b02480f2c/notice-six-scans-1791763094068-d82a112c/receipt.json",
+      "sha256": "9dd24ff7ba1efaa5a17aa5c3cf03b1ce6f0e8e828c0acda2f7a7f1aade5904d4",
+      "role": "accepted six real scanned pages; 4 checks",
+      "passed": true
+    },
+    {
+      "path": ".local/business-regression-20261011/a006561dd66540c2b383415b02480f2c/notice-draft-ui-1791763384290-fd7ffd01/receipt.json",
+      "sha256": "adc97a912ae77d681d9dbd439421566fea9f85b39d40e78729555796137fcbbf",
+      "role": "actual successful UI confirmation; later observation query failed, no write replay",
+      "passed": false
+    },
+    {
+      "path": ".local/business-regression-20261011/a006561dd66540c2b383415b02480f2c/notice-draft-accepted-1791763510245-e7c313db/receipt.json",
+      "sha256": "81cee5b23059e05640c527a2e4e49706f2b549c52a6f6698686adfc0c8359926",
+      "role": "accepted same actual draft read-only verification; 6 checks",
+      "passed": true
+    }
+  ],
+  "frontend": {
+    "path": ".local/product-release-20261011/frontend-refinement-574d52fa3c5a4e48bdc75c9fe15cffd8/receipt.json",
+    "sha256": "03d9c03b735d496a53005e445bbdc37dee527fd6a89bb96b860980bfd9577188",
+    "passed": true
+  },
+  "gateway": {
+    "path": ".local/agent-runtime-20261012/build-d06bbb7a4c6b40fc8fb4c69f016edc63/receipt.json",
+    "sha256": "d2ba9ed9636c1cb021c9d77c4e73c5441f17588ad8658ef242d0b6710aa4ba22",
+    "tests": 63,
+    "passed": true
+  },
+  "failedUiHistory": [
+    {
+      "path": ".local/business-regression-20261011/a006561dd66540c2b383415b02480f2c/notice-draft-ui-1791763039646-f824cf3d/receipt.json",
+      "sha256": "c1148cc4c8d49c0e36b47af12339cade41a8999d6c64563b0a11962829e16f2f",
+      "role": "retained source/test/UI/observer history; not promoted to PASS",
+      "passed": false
+    },
+    {
+      "path": ".local/business-regression-20261011/a006561dd66540c2b383415b02480f2c/notice-draft-ui-1791763124146-1a04b056/receipt.json",
+      "sha256": "3d5ccb54274b48a16851d239715f424aac7e371d94496c3da1642c2272e1b843",
+      "role": "retained source/test/UI/observer history; not promoted to PASS",
+      "passed": false
+    },
+    {
+      "path": ".local/business-regression-20261011/a006561dd66540c2b383415b02480f2c/notice-draft-ui-1791763243018-db020901/receipt.json",
+      "sha256": "76a7a91edae7ea6a523ef36ef987ea8b3ba4f6874ff0d4fbb6a3dc6a7d8662e7",
+      "role": "retained source/test/UI/observer history; not promoted to PASS",
+      "passed": false
+    },
+    {
+      "path": ".local/business-regression-20261011/a006561dd66540c2b383415b02480f2c/notice-draft-ui-1791763384290-fd7ffd01/receipt.json",
+      "sha256": "adc97a912ae77d681d9dbd439421566fea9f85b39d40e78729555796137fcbbf",
+      "role": "retained source/test/UI/observer history; not promoted to PASS",
+      "passed": false
+    }
+  ],
+  "sources": [
+    {
+      "path": "ai-gateway/agent.mjs",
+      "sha256": "d79ae9fce3012d40ae74b4ce42eab0688180049165018f7696cadeca7277a609"
+    },
+    {
+      "path": "ai-gateway/kernel.mjs",
+      "sha256": "91b1388bc5d7caf57c3aa8a6b83817582906c9e3237254addf28e1f17806f5ee"
+    },
+    {
+      "path": "ai-gateway/agent-material.test.mjs",
+      "sha256": "7cb374d309e3ddd3caadc730d76ecdbc5a5ed7cd3ac1db20514fc417421d3214"
+    },
+    {
+      "path": "ai-gateway/source-price.test.mjs",
+      "sha256": "7e1248afbf7ec2b9a91348ca79c19e8d54f0bb552f82fb79c20f926586296b07"
+    },
+    {
+      "path": "plus-ui/src/views/sports/event/from-document.vue",
+      "sha256": "58e3694658ddf3c165b2b24bd5fcf92fc0bfaec6c79e1832ad6c8f8565339d66"
+    },
+    {
+      "path": "scripts/Test-AgentRuntime.ps1",
+      "sha256": "ba399883dfd6231cbb3755b7cb1c869cace522a564ebb1a0f6aa2c3d3c0c3e80"
+    }
+  ],
+  "limitations": [
+    "Government attachment originals did not download; two attributed notice-body extracts are bounded derivatives.",
+    "Synthetic notices and prices; no live event publication, registration or bank transaction.",
+    "Six scan pages tested; not arbitrary PDFs, spreadsheets, DOCX tables, phone hardware or load acceptance.",
+    "Historical failed receipts remain failed; accepted followups keep their original task or draft ID.",
+    "Main Java was not started; unchanged installed backend plus new gateway/frontend sources are prepared for next launch."
+  ],
+  "liveCapture": {
+    "path": ".local/business-regression-20261011/a006561dd66540c2b383415b02480f2c/notice-final-live.json",
+    "sha256": "04c2f1ec85d324030a79c22a4203a6a56070cc6c983507f641a5908482f716b1"
+  },
+  "shutdown": {
+    "path": ".local/shutdown-20261011-718cafc48bc2478f917fe7350d3bca8d.json",
+    "sha256": "ffac5056f98b07a5338658c2da25f4cba1daa5b62b68d282d5be3493dab6866f",
+    "passed": true
+  },
+  "outputs": [
+    {
+      "path": "docs/04-verification/办赛通知测试资料-20261012.zip",
+      "sha256": "be43e8442d051a4d996f04067fcba8dc0731ed1f8b262403d8f686a490365f90"
+    },
+    {
+      "path": "docs/04-verification/办赛通知阅读测试集-20261012.pdf",
+      "sha256": "b0b81520648a253173f972c8eef311a133785a3cddff7d44c778e650e5f7e24e"
+    }
+  ]
+}

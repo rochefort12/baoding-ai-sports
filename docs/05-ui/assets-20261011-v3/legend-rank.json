@@ -1,0 +1,17 @@
+{
+  "generation": "built-in image_gen; model identifier unavailable",
+  "assets": [
+    {
+      "key": "legend",
+      "file": "plus-ui/public/images/sports/ranks/legend.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 93076,
+      "sha256": "f740c84ad17968f0728eb5c0ddaff1d70c69c42fad159b978a4a0e2f7320121e",
+      "original": "docs/05-ui/assets-20261011-v3/originals/badge-legend.png",
+      "originalSha256": "4297e7897cdee1f8bedb082d3ff99de316e097bc0825a7b1c82e7a76911b5f29",
+      "prompt": "Use case: stylized-concept. Asset type: transparent rank emblem for legend tier, the highest participation sports achievement above king. Single centered exquisite sculptural emblem, black titanium sports victory crest, lustrous rose-gold aerodynamic wings swept elegantly upward, glowing translucent amber central shield gem with subtle opal highlights, small laurel base. Sophisticated extraordinary premium metal and crystal craftsmanship. Symmetric vertical compact silhouette, 82% square width with transparent margins, centered front view, soft studio light. Separate emblem for small rank display. No text, letters, portrait, stars, brands, trophy cup, background, checkerboard, interface.",
+      "centerAlpha": 0
+    }
+  ]
+}

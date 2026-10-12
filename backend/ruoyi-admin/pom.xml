@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>ruoyi-vue-plus</artifactId>
+        <groupId>org.dromara</groupId>
+        <version>${revision}</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>jar</packaging>
+    <artifactId>ruoyi-admin</artifactId>
+
+    <properties>
+        <!-- Verification builds use a distinct name while local services retain their immutable runtime package. -->
+        <aisports.package.name>ruoyi-admin</aisports.package.name>
+    </properties>
+
+    <description>
+        web服务入口
+    </description>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.dromara</groupId>
+            <artifactId>aisports-api</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.dromara</groupId>
+            <artifactId>aisports-mcp</artifactId>
+            <version>${revision}</version>
+        </dependency>
+
+        <!-- PostgreSQL：本工程业务权威数据库 -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+        </dependency>
+
+        <!-- 验证码 2.0 服务端验签。只在 ruoyi-admin 调用，不进入身份模块。 -->
+        <dependency>
+            <groupId>com.aliyun</groupId>
+            <artifactId>captcha20230305</artifactId>
+            <version>1.2.0</version>
+        </dependency>
+
+<!--        &lt;!&ndash; mp支持的数据库均支持 只需要增加对应的jdbc依赖即可 &ndash;&gt;-->
+<!--        &lt;!&ndash; Oracle &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>com.oracle.database.jdbc</groupId>-->
+<!--            <artifactId>ojdbc8</artifactId>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash; 兼容oracle低版本 &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>com.oracle.database.nls</groupId>-->
+<!--            <artifactId>orai18n</artifactId>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash; PostgreSql &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.postgresql</groupId>-->
+<!--            <artifactId>postgresql</artifactId>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash; SqlServer &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>com.microsoft.sqlserver</groupId>-->
+<!--            <artifactId>mssql-jdbc</artifactId>-->
+<!--        </dependency>-->
+
+        <dependency>
+            <groupId>org.dromara</groupId>
+            <artifactId>ruoyi-common-doc</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.dromara</groupId>
+            <artifactId>ruoyi-common-social</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.dromara</groupId>
+            <artifactId>ruoyi-common-ratelimiter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.dromara</groupId>
+            <artifactId>ruoyi-common-mail</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.dromara</groupId>
+            <artifactId>ruoyi-system</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.dromara</groupId>
+            <artifactId>ruoyi-job</artifactId>
+        </dependency>
+
+        <!-- 代码生成-->
+        <dependency>
+            <groupId>org.dromara</groupId>
+            <artifactId>ruoyi-generator</artifactId>
+        </dependency>
+
+        <!--  demo模块  -->
+        <dependency>
+            <groupId>org.dromara</groupId>
+            <artifactId>ruoyi-demo</artifactId>
+        </dependency>
+
+        <!--  工作流模块  -->
+        <dependency>
+            <groupId>org.dromara</groupId>
+            <artifactId>ruoyi-workflow</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>de.codecentric</groupId>
+            <artifactId>spring-boot-admin-starter-client</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- skywalking 整合 logback -->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.skywalking</groupId>-->
+<!--            <artifactId>apm-toolkit-logback-1.x</artifactId>-->
+<!--            <version>${与你的agent探针版本保持一致}</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.skywalking</groupId>-->
+<!--            <artifactId>apm-toolkit-trace</artifactId>-->
+<!--            <version>${与你的agent探针版本保持一致}</version>-->
+<!--        </dependency>-->
+
+            <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-account-tenant-principal</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-collaboration</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-governance-grant</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-organization</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-organization-application</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-organization-application-version</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-qualification</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-staff-grant</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-account</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-attribute-definition</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-consent</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-login-identity</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-person</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-person-attribute</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-profile-display</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-matching-offer</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-matching-offer-member</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-matching-request</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-recruitment</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-room-interaction</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-team</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-team-history</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-team-invitation</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-team-join-request</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-team-member</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-team-quota</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-team-room</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-team-room-member</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-ai-gateway-call</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-ai-gateway-task</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-ai-invocation</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-ai-task</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-ai-task-file</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-attribute-requirement</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-competition-type</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-competition-unit</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-event</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-event-command</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-event-field</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-event-poster</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-event-poster-stat</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-event-revision</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-material-requirement</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-org-field</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-rule-version</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-sport</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-capacity-occupation</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-capacity-pool</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-declaration-ack</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-entry-field-value</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-material-submission</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-occupation-reference</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-qualification-review</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-registration</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-registration-batch</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-registration-member</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-registration-submit-key</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-roster-member</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-roster-version</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-waitlist</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-withdrawal</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-event-payment-config</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-fee-item</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-fee-obligation</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-fee-policy</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-fee-share</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-payment</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-payment-action</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-payment-allocation</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-payment-exception</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-refund</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-registration-payment-proof</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-service-fee</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-settlement</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-conflict-case</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-time-constraint</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-advancement</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-draw-run</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-ranking-item</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-ranking-run</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-schedule-run</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-stage</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-appeal</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-checkin</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-execution-command</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-lineup-member</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-match</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-match-entry</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-official-assignment</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-growth-policy</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-growth-profile</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-growth-record</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-honor</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-result-item</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-result-version</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-title-equipment</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-notification</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-notification-delivery</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-resource</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-resource-reservation</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-venue</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-action-confirmation</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-action-execution</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-agent</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-agent-grant</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-agent-message</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-agent-run</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-agent-step</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-agent-version</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-audit-event</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-capability-activation</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-capability-version</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-change-case</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-complaint</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-complaint-message</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-data-request</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-file</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-idempotency</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-migration-batch</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-migration-mapping</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-table-outbox</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-platform-registry</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-platform-authz</artifactId><version>${revision}</version></dependency>
+        <dependency><groupId>org.dromara</groupId><artifactId>aisports-platform-executor</artifactId><version>${revision}</version></dependency>
+    </dependencies>
+
+    <build>
+        <finalName>${aisports.package.name}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>${maven-jar-plugin.version}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>${maven-war-plugin.version}</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                    <warName>${project.artifactId}</warName>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

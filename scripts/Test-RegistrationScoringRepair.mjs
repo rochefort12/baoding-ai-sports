@@ -1,0 +1,113 @@
+// Real isolated HTTP and independent ordinary-role browsers. No bank receipts, clock edits or user-event mutations.
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import assert from 'node:assert/strict';
+import { createRequire } from 'node:module';
+import { context, api, request, key, iso, createEvidence } from './lib/BusinessRegression.mjs';
+const run = process.env.AISPORTS_REPAIR_RUN || path.resolve('.local/registration-scoring-20261012',crypto.randomUUID());
+fs.mkdirSync(run,{recursive:true});
+if(fs.existsSync(path.join(run,'receipt.json'))) fs.copyFileSync(path.join(run,'receipt.json'),path.join(run,'attempt-'+crypto.randomUUID()+'.json'));
+const file = path.join(run,'state.private.json');
+const state = fs.existsSync(file) ? JSON.parse(fs.readFileSync(file,'utf8')) : { keys:{}, steps:{} };
+const save = () => fs.writeFileSync(file,JSON.stringify(state,null,2));
+const remember = async (name, fn) => { if(state[name]===undefined) { state[name]=await fn();save(); } return state[name]; };
+const once = async (name, fn) => { if(!state.steps[name]) { await fn();state.steps[name]=true;save(); } };
+const requestKey = name => { state.keys[name] ||= key();save();return state.keys[name]; };
+const receipt = { at:new Date().toISOString(),scope:'Actual existing isolated database; synthetic event and accounts; no real funds, no user-event edits, no date/clock bypass',checks:[],passed:false,objects:{} };
+const check = (name, condition) => { receipt.checks.push({name,passed:!!condition}); fs.writeFileSync(path.join(run,'receipt.json'),JSON.stringify(receipt,null,2));assert.ok(condition,name);console.log('PASS '+name); };
+const runtime = JSON.parse(fs.readFileSync('.local/phase1-implementation/verification-runtime.json','utf8').replace(/^\uFEFF/,''));
+receipt.jarSha256=runtime.jarSHA256;
+const session = JSON.parse(fs.readFileSync('.local/phase1-implementation/verification-session.json','utf8').replace(/^\uFEFF/,''));
+const login = async (phone,password) => ({token:(await api(null,'/auth/login','POST',{username:phone,password,grantType:'platform',tenantId:'900001',clientId:context.clientId})).access_token});
+let browser;
+try {
+  const platformOrg = await login(session.people[0].phone,session.password);
+  const organizer = {token:(await api(platformOrg,'/auth/organization/enter','POST',{})).access_token};
+  const people = await Promise.all(context.people.slice(0,2).map(person=>login(person.phone,context.password)));
+  const [a,b] = people;
+  const original = (await api(organizer,'/sports/b/events')).find(event=>event.name==='保定羽毛球赛');
+  if(original) {
+    const fees = await api(null,`/sports/public/events/${original.id}/fees`);
+    const paid=fees.units.filter(unit=>unit.paymentMode!=='free'&&unit.amount!=null);
+    check('Original published event returns positive event-wide fees without editing it',paid.length>0&&paid.every(unit=>unit.paymentMode==='event'&&Number(unit.amount)>0));
+    state.originalEvent=original.id;save();
+  }
+  const label='报名录分修复演练 '+path.basename(run).slice(0,8)+'（模拟）';
+  const event = await remember('event',()=>api(organizer,'/sports/b/events','POST',{name:label,location:'隔离模拟球馆',projectName:'羽毛球',feeDescription:'模拟：收费项目100元/单，免费项目0元',registrationOpensAt:iso(-1),registrationClosesAt:iso(24),startsAt:iso(48),endsAt:iso(54),registrationReview:'manual',rulesText:'隔离功能测试，不举行真实比赛。',noticeText:'仅本地演练，无真实付款。',declarationText:''}));
+  const field = await remember('field',()=>api(organizer,'/sports/b/fields','POST',{code:'repair_'+path.basename(run).replace(/-/g,'').slice(0,16),label:'参赛组别（模拟）',valueType:'text',options:[]}));
+  await once('fields-selected',()=>api(organizer,`/sports/b/fields/events/${event.id}`,'PUT',[{orgFieldId:field.id,required:true,note:'按正式提交快照审核'}]));
+  await once('payment-settings',()=>api(organizer,`/sports/b/fees/events/${event.id}/payment-config`,'PUT',{revision:0,instruction:'模拟线下渠道，仅核对展示，不付款',channels:[{type:'offline',label:'模拟线下办理',instruction:'仅演练，不实际付款'}]}));
+  const createUnit = (name,charged) => api(organizer,'/sports/b/registrations/units','POST',{eventId:event.id,name,entryType:'individual',minMembers:1,maxMembers:1,limitCount:16,charged,amount:charged?100:0,paymentMode:charged?'event':'free',requestKey:requestKey('unit-'+name)});
+  const free = await remember('free',()=>createUnit('免费单打（模拟）',false));
+  const paid = await remember('paid',()=>createUnit('收费单打（模拟）',true));
+  await once('published',()=>api(organizer,`/sports/b/events/${event.id}/publish`,'POST',{requestKey:requestKey('publish'),contactConfirmed:true,contactName:'模拟赛事联系人',contactMethod:'本地测试，不实际联系'}));
+  const prices=await api(null,`/sports/public/events/${event.id}/fees`);
+  check('Public contract preserves free zero and paid 100 in event collection mode',prices.units.some(unit=>unit.unitId===free.id&&unit.paymentMode==='free'&&Number(unit.amount)===0)&&prices.units.some(unit=>unit.unitId===paid.id&&unit.paymentMode==='event'&&Number(unit.amount)===100));
+  for(const [name,actor] of [['a',a],['b',b]]) {
+    const draft = await remember(name,()=>api(actor,'/sports/c/registrations','POST',{unitId:free.id,requestKey:requestKey('create-'+name)}));
+    await once('filled-'+name,async()=>{const fields=await api(actor,`/sports/c/registrations/${draft.id}/fields`);await api(actor,`/sports/c/registrations/${draft.id}/fields`,'PUT',fields.map(item=>({eventFieldId:item.eventFieldId,valueText:'公开组（模拟）'})));});
+    await once('submitted-'+name,()=>api(actor,`/sports/c/registrations/${draft.id}/submit`,'POST',{requestKey:draft.requestKey}));
+    await once('approved-'+name,()=>api(organizer,`/sports/b/registrations/${draft.id}/approve`,'POST'));
+  }
+  const roster=await api(organizer,`/sports/b/registrations/${state.a.id}/submitted-roster`);
+  check('Organizer receives submitted birth date, gender, contact and frozen custom answer',roster.length===1&&roster[0].birthDate&&roster[0].gender&&roster[0].mobile&&roster[0].fieldsCaptured&&roster[0].fields.some(item=>item.label===field.label&&item.value==='公开组（模拟）'));
+  check('Participant cannot read organizer-only submitted personal data',(await request(b,`/sports/b/registrations/${state.a.id}/submitted-roster`)).code!==200);
+  const before=JSON.stringify(roster);
+  check('Submitted field answers cannot be overwritten',(await request(a,`/sports/c/registrations/${state.a.id}/fields`,'PUT',[{eventFieldId:(await api(a,`/sports/c/registrations/${state.a.id}/fields`))[0].eventFieldId,valueText:'attempted overwrite'}])).code!==200);
+  check('Rejected edit leaves the submitted snapshot unchanged',JSON.stringify(await api(organizer,`/sports/b/registrations/${state.a.id}/submitted-roster`))===before);
+  const paidDraft=await remember('paidDraft',()=>api(a,'/sports/c/registrations','POST',{unitId:paid.id,requestKey:requestKey('paid-draft')}));
+  const matches=[];
+  for(let i=1;i<=6;i++) matches.push(await remember('match-'+i,()=>api(organizer,`/sports/b/competition/units/${free.id}/matches`,'POST',{code:String(i).padStart(2,'0'),registrationA:state.a.id,registrationB:state.b.id,requestKey:requestKey('match-'+i)})));
+  state.matches=matches;save();
+  const csv=matches.map((_,i)=>`${String(i+1).padStart(2,'0')},A,win,2:1,21:18|18:21|21:17 \\`).join('\n');
+  await once('six-imported',()=>api(organizer,`/sports/b/competition/events/${event.id}/result-import`,'POST',{unitId:free.id,text:csv,requestKey:requestKey('six-import')}));
+  let results=await api(organizer,`/sports/b/competition/units/${free.id}/matches`);
+  check('Exact 01–06 single-side input produces six complementary drafts',results.length===6&&results.every(row=>row.resultStatus==='draft'&&row.outcomeA==='win'&&row.outcomeB==='loss'&&row.summary==='2:1'&&row.games==='21:18|18:21|21:17'));
+  await api(organizer,`/sports/b/competition/events/${event.id}/result-import`,'POST',{unitId:free.id,text:csv,requestKey:requestKey('six-import')});
+  check('Same import request is idempotent',(await api(organizer,`/sports/b/competition/units/${free.id}/matches`)).length===6);
+  check('Changed input under the same request key is rejected',(await request(organizer,`/sports/b/competition/events/${event.id}/result-import`,'POST',{unitId:free.id,text:csv.replace('2:1','2:0'),requestKey:requestKey('six-import')})).code!==200);
+  const snapshot=JSON.stringify(await api(organizer,`/sports/b/competition/units/${free.id}/matches`));
+  check('Contradictory batch is rejected with no partial updates',(await request(organizer,`/sports/b/competition/events/${event.id}/result-import`,'POST',{unitId:free.id,text:'01,A,loss,0:2,\n02,A,win,2:1,\n02,B,win,1:2,',requestKey:key()})).code!==200&&JSON.stringify(await api(organizer,`/sports/b/competition/units/${free.id}/matches`))===snapshot);
+  check('Unknown later match rolls back an earlier valid row',(await request(organizer,`/sports/b/competition/events/${event.id}/result-import`,'POST',{unitId:free.id,text:'01,A,loss,0:2,\nUNKNOWN,A,win,2:0,',requestKey:key()})).code!==200&&JSON.stringify(await api(organizer,`/sports/b/competition/units/${free.id}/matches`))===snapshot);
+  check('Import stays inside the selected unit',(await request(organizer,`/sports/b/competition/events/${event.id}/result-import`,'POST',{unitId:paid.id,text:'01,A,win,2:0,',requestKey:key()})).code!==200);
+  check('Participant cannot import organizer results',(await request(a,`/sports/b/competition/events/${event.id}/result-import`,'POST',{unitId:free.id,text:csv,requestKey:key()})).code!==200);
+  check('Future match cannot become an official result',(await request(organizer,`/sports/b/competition/matches/${matches[0].matchId}/finalize`,'POST',{requestKey:key()})).code!==200);
+  check('Drafts remain absent from participant official results',!(await api(a,'/sports/c/results')).some(row=>row.eventName===label));
+  const {chromium}=createRequire('C:/Users/ADMIN/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/package.json')('playwright');
+  browser=await chromium.launch({headless:true,executablePath:'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe'});
+  const uiLogin = async (phone,password,viewport) => { const ctx=await browser.newContext({viewport});const page=await ctx.newPage();await page.goto(context.frontend+'/portal/login');await page.getByPlaceholder('请输入手机号').fill(phone);await page.getByPlaceholder('请输入密码').fill(password);await page.getByRole('button',{name:'登录',exact:true}).click();await page.waitForURL(url=>!url.pathname.includes('/login'));return {ctx,page}; };
+  for(const [device,viewport] of [['desktop',{width:1440,height:1000}],['mobile',{width:390,height:844}]]) {
+    const {ctx,page}=await uiLogin(context.people[0].phone,context.password,viewport);
+    await page.goto(context.frontend+'/public/events/'+event.id);await page.locator('#event-projects').getByText('¥100.00 / 单',{exact:true}).waitFor();
+    check(device+' participant sees paid amount and selectable project',await page.locator('.detail-project').filter({hasText:'收费单打（模拟）'}).getByRole('link',{name:'选择项目'}).count()===1);
+    await page.goto(context.frontend+'/portal/registration/detail/'+paidDraft.id);await page.getByText('预计报名费',{exact:true}).waitFor();await page.getByText('¥100.00 / 单',{exact:true}).waitFor();
+    const geometry=await page.evaluate(()=>({scroll:document.documentElement.scrollWidth,width:innerWidth,avatar:getComputedStyle(document.querySelector('.participant-item .account-avatar')).width,body:getComputedStyle(document.querySelector('.premium-registration .consumer-muted')).fontSize}));
+    receipt[device+'Geometry']=geometry;await page.screenshot({path:path.join(run,'registration-'+device+'.png'),fullPage:true});
+    check(device+' registration has aligned 40px avatar, readable text and no horizontal overflow',geometry.scroll<=geometry.width+1&&geometry.avatar==='40px'&&parseFloat(geometry.body)>=14);
+    await page.screenshot({path:path.join(run,'registration-'+device+'.png'),fullPage:true});await ctx.close();
+  }
+  const {ctx,page}=await uiLogin(session.people[0].phone,session.password,{width:1440,height:1000});
+  await page.goto(context.frontend+'/portal/organization?tab=status');const enter=page.getByRole('button',{name:'进入办赛工作台',exact:true});await enter.first().waitFor();await enter.first().click();await page.waitForURL(url=>url.pathname.startsWith('/org-desk'));
+  await page.goto(context.frontend+`/org-desk/workspace/${event.id}?task=registrations`);await page.getByRole('button',{name:/已通过/}).first().click();await page.getByRole('button',{name:'查看办理',exact:true}).first().click();await page.locator('[data-testid="submitted-member"]').getByText('联系电话',{exact:true}).waitFor();
+  await page.waitForFunction(()=>{const rect=document.querySelector('.b-drawer')?.getBoundingClientRect();return rect&&Math.abs(rect.right-innerWidth)<2;});
+  check('Ordinary organizer UI displays submitted qualification and field answers',await page.locator('[data-testid="submitted-member"]').getByText('公开组（模拟）',{exact:true}).count()===1);await page.screenshot({path:path.join(run,'review-desktop.png'),fullPage:false});
+  await page.goto(context.frontend+`/org-desk/workspace/${event.id}?task=matches`);await page.getByRole('button',{name:'录入',exact:true}).first().click();const dialog=page.getByRole('dialog');await dialog.getByRole('group',{name:'选择比赛胜方'}).waitFor();
+  await dialog.getByLabel('A 侧当前比分',{exact:true}).fill('20');await dialog.getByLabel('B 侧当前比分',{exact:true}).fill('18');await dialog.getByRole('button',{name:'A 侧加一分',exact:true}).click();await dialog.getByText(/达到你设置的提示分/).waitFor();
+  check('Reaching a target point prompts manual action without auto-ending the game',await dialog.locator('.score-games li').count()===3);
+  check('Unfinished live scoring cannot be silently saved',await dialog.getByRole('button',{name:'核对并保存草稿',exact:true}).isDisabled());
+  await dialog.getByRole('button',{name:'结束本局',exact:true}).click();await dialog.locator('.score-games li').nth(3).waitFor();await dialog.getByRole('button',{name:'结束比赛并核对胜方',exact:true}).click();
+  check('Manual finish derives winner and keeps the result in the editor',await dialog.locator('.score-winner').first().getAttribute('aria-pressed')==='true');
+  check('Score dialog and its save button fit the desktop viewport',await dialog.evaluate(node=>{const rect=node.getBoundingClientRect();return rect.top>=0&&rect.bottom<=innerHeight+1;}));await page.screenshot({path:path.join(run,'scoring-desktop.png'),fullPage:false});
+  await dialog.getByRole('button',{name:'核对并保存草稿',exact:true}).click();await dialog.waitFor({state:'hidden'});
+  const scored=(await api(organizer,`/sports/b/competition/units/${free.id}/matches`)).find(row=>row.code==='01');check('Click scoring saves a draft through the real service',scored.resultStatus==='draft'&&scored.summary==='3:1'&&scored.games.endsWith('|21:18'));
+  await ctx.close();
+  const mobile=await uiLogin(session.people[0].phone,session.password,{width:390,height:844});
+  await mobile.page.goto(context.frontend+'/portal/organization?tab=status');await mobile.page.getByRole('button',{name:'进入办赛工作台',exact:true}).first().click();await mobile.page.waitForURL(url=>url.pathname.startsWith('/org-desk'));
+  await mobile.page.goto(context.frontend+`/org-desk/workspace/${event.id}?task=matches`);await mobile.page.getByRole('button',{name:'录入',exact:true}).first().click();const mobileDialog=mobile.page.getByRole('dialog');await mobileDialog.locator('.score-winner').first().waitFor();
+  await mobileDialog.locator('.score-winner').nth(1).click();
+  check('Mobile winner selection is clickable and the complete dialog fits the viewport',await mobileDialog.locator('.score-winner').nth(1).getAttribute('aria-pressed')==='true'&&await mobileDialog.evaluate(node=>{const rect=node.getBoundingClientRect();return rect.left>=0&&rect.right<=innerWidth+1&&rect.top>=0&&rect.bottom<=innerHeight+1&&node.scrollWidth<=node.clientWidth+1;}));
+  await mobile.page.screenshot({path:path.join(run,'scoring-mobile.png'),fullPage:false});await mobileDialog.getByRole('button',{name:'取消',exact:true}).click();await mobile.ctx.close();
+  receipt.objects={eventId:event.id,freeUnit:free.id,paidUnit:paid.id,registration:paidDraft.id};receipt.passed=true;receipt.finishedAt=new Date().toISOString();fs.writeFileSync(path.join(run,'receipt.json'),JSON.stringify(receipt,null,2));console.log('Evidence: '+run);
+} catch(error) { receipt.failure=String(error.message);fs.writeFileSync(path.join(run,'receipt.json'),JSON.stringify(receipt,null,2));console.error('Repair verification failed: '+error.message);process.exitCode=1; }
+finally { await browser?.close(); }

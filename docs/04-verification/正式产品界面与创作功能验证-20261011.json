@@ -1,0 +1,230 @@
+{
+  "timestamp": "2026-10-11T01:46:33.859Z",
+  "scope": "local-product-studio-trial",
+  "passed": true,
+  "jarSha256": "5f9c97226dca54a819f238bd416343127ec99140fbc6441f2b56e347d0b30289",
+  "sourceFiles": [
+    {
+      "path": "backend/aisports-domains/d04/aisports-table-event/src/main/java/org/dromara/sports/event/service/EventMaterialActionProvider.java",
+      "sha256": "8a0080df7a456a2f83b9cd50ae35b14c9328b3c7295c1234d14d82aea946f3f3"
+    },
+    {
+      "path": "backend/aisports-domains/d04/aisports-table-event/src/main/java/org/dromara/sports/event/service/EventMaterialService.java",
+      "sha256": "045d79b5a0af911475ad2b4b3d6c71cd120b7637b55ac6d3cbf7abcc42b83c57"
+    },
+    {
+      "path": "backend/aisports-domains/d02/aisports-table-profile-display/src/main/java/org/dromara/sports/tables/d02/profile_display/ProfileAvatarService.java",
+      "sha256": "e9b8a8bbd33c2315d033b79870faa275aae76fea9f8dde9afa8c7ea0f6e3fd29"
+    },
+    {
+      "path": "plus-ui/src/components/business/EventMaterialStudio.vue",
+      "sha256": "ad5771d099476b66c4dd4b487cc73abc1df2028bd2aa4c634f8ca757bc744058"
+    },
+    {
+      "path": "plus-ui/src/components/business/EventCoverEditor.vue",
+      "sha256": "ad323d3aa2baf0a422edd5ad1491915076b21ec3f7dc965148f519c952baed68"
+    },
+    {
+      "path": "plus-ui/src/components/consumer/SportsAvatarEditor.vue",
+      "sha256": "ed48a4639bd0f4d81db9c9bd51323bbf477e91feeb2a1585fea4413368583965"
+    },
+    {
+      "path": "plus-ui/src/components/consumer/SportsAvatar.vue",
+      "sha256": "40b888b491ffc61e3a5dce91b6679fd882b4f566f6691720a377120379600d9a"
+    },
+    {
+      "path": "plus-ui/src/api/sports/organizerMaterials.ts",
+      "sha256": "cd9251244feb933afb855fe7eb10e1b87658409b5281a650211ad7d0122d4b33"
+    },
+    {
+      "path": "plus-ui/src/assets/styles/design-system.scss",
+      "sha256": "343aa38cf3d4b526ca0aefed697ebfd95836da7710198193594ced01fa7285ea"
+    },
+    {
+      "path": "plus-ui/src/assets/styles/business-ai.scss",
+      "sha256": "4f20cff250f76d655d8ecd905177ff66d0025f58a5d8175c4557aec8b4cf907c"
+    },
+    {
+      "path": "plus-ui/src/layout/consumer/ConsumerShell.vue",
+      "sha256": "5ed6aaa38a1b6887623b27eeda375581cfe7a7816dbb024cd7638c9a062c8de2"
+    },
+    {
+      "path": "plus-ui/src/components/consumer/ConsumerAssistant.vue",
+      "sha256": "da3db64ffd7ba9e559a8d0aa30ea96659d4e0127b4e195288346d6238df264c5"
+    },
+    {
+      "path": "plus-ui/src/components/consumer/ConsumerAuthLayout.vue",
+      "sha256": "33129fbf82c7f05ceffa2e15648443bd21988065e07ded62d9c20d7994b650de"
+    },
+    {
+      "path": "plus-ui/src/views/portal/home.vue",
+      "sha256": "fb4947c69120e9a77806c577bae08ec58fe385075eaecffa9d06804e81c4a9b0"
+    },
+    {
+      "path": "plus-ui/src/views/portal/login.vue",
+      "sha256": "d744ebb8a61eec3ed0e7e4c000e7897e7f4221ad7bb27952800a82a6216bdd23"
+    },
+    {
+      "path": "plus-ui/src/views/portal/rooms.vue",
+      "sha256": "24706cb3d314fe1735594cd8f4374918f383ca18c471689291162d545092dd95"
+    },
+    {
+      "path": "plus-ui/src/views/portal/growth.vue",
+      "sha256": "cf921e6314fc192b3438b1feb687cd35edff431475e53bbf3ba876657a1e9aff"
+    },
+    {
+      "path": "plus-ui/src/views/sports/organization/review.vue",
+      "sha256": "d8ef234e7564986b7aa13f9316cf89a1190fda3e4b1c0d3b457d11759011feae"
+    },
+    {
+      "path": "ai-gateway/materials.mjs",
+      "sha256": "c09d429e6fe7fbcc03afad4d8f21f193d222098565ce8343095b27273171a610"
+    },
+    {
+      "path": "database/migrations/V034__event_material_studio.sql",
+      "sha256": "e7e91008c005ca3db1b38e3b510e4d614ca517fb2b0ba288255f6a7c5c4bc482"
+    },
+    {
+      "path": "plus-ui/src/views/sports/event/index.vue",
+      "sha256": "237b8332a42e7bab3ed15faa2468fdfc892d1936048895f043d632e66c16345e"
+    },
+    {
+      "path": "plus-ui/src/views/sports/organization/desk.vue",
+      "sha256": "2a244ebca3a8a9583ac0538703d93c192230955f0b36588b5161b8f21a1b49ec"
+    }
+  ],
+  "checks": {
+    "frontendTypecheck": {
+      "passed": true,
+      "evidencePath": ".local/product-release-20261011/frontend-acceptance-typecheck.log",
+      "sha256": "241be48e89412fbf6fed0e7e10a0217d6a564c74e44cc6906baaac9d4715a40a"
+    },
+    "frontendBuild": {
+      "passed": true,
+      "evidencePath": ".local/product-release-20261011/frontend-product-built.log",
+      "sha256": "a683c0c1a20966909d8528e6f5df39f127c59dccb062fdda2cf8b7ad43b97a59"
+    },
+    "realModel": {
+      "passed": true,
+      "evidencePath": ".local/product-release-20261011/materials-http-7c7c8cb9-e758-43f2-9ce8-127344462970.json",
+      "sha256": "099d6ac6d1ba998411452f8268c1bfbddd268cb777d5f29e7cc9601bb2222442"
+    },
+    "avatarHttp": {
+      "passed": true,
+      "evidencePath": ".local/product-release-20261011/avatar-http-1791682444992-583136b5.json",
+      "sha256": "ede03417e85e5749b6a084414bdba5e45c3e026a059a120c88bed492dc0a48c6"
+    },
+    "roomUi": {
+      "passed": true,
+      "evidencePath": ".local/product-release-20261011/room-ui-1791682396829/receipt.json",
+      "sha256": "5dfa548c0766697781717a824eda6f79c0f00250a4c780bdb44c539de536f2a1"
+    },
+    "ordinaryOrganizerUi": {
+      "passed": true,
+      "evidencePath": ".local/product-release-20261011/ui-1791682998396/receipt.json",
+      "sha256": "d3f69b6a7798e839fb5497ca4f9bfe46fa5466853606f7edc3b145c543620142"
+    },
+    "roomUiRecovery": {
+      "passed": true,
+      "evidencePath": ".local/product-release-20261011/room-ui-1791682582190/receipt.json",
+      "sha256": "b031b8a1dd1a5e8878343cb91e21e706a15ddb344c2afeb01566f14946d714b8"
+    },
+    "avatarUi": {
+      "passed": true,
+      "evidencePath": ".local/product-release-20261011/ui-1791682521592/receipt.json",
+      "sha256": "efc81e8906fbbe87eb7c06730bc7befab7d41e44d0f4eaa6351b9623e725b13e"
+    },
+    "coverMobileUi": {
+      "passed": true,
+      "evidencePath": ".local/product-release-20261011/ui-1791682546545/receipt.json",
+      "sha256": "99432341f34c89c627a812ff6f6108e24dc0263319d67c9794f620b590867796"
+    },
+    "motion": {
+      "passed": true,
+      "evidencePath": ".local/product-release-20261011/motion-1791682992672/receipt.json",
+      "sha256": "857e1e6afd1b148559ffb4f3934171a6e45f0ddb6ac5ef67052d67faa907b5a9"
+    },
+    "pageScreens": {
+      "passed": true,
+      "evidencePath": ".local/phase1-implementation/product-release-ui-20261011/final/product-screens-receipt.json",
+      "sha256": "e1731d3600bf7f9aa4465fe145b38f0ed92a4a1ef98624c1df234dda30bda097"
+    },
+    "restoreMigration": {
+      "passed": true,
+      "evidencePath": ".local/product-release-20261011/migration-aeb19c87b50d4ec0a3c826c7c0723f98.json",
+      "sha256": "86d224324422fd67d5d9c28c21e44a4273c640b7d7ef1e2f8b1c01abe0e0ef7f"
+    },
+    "javaSelected": {
+      "passed": true,
+      "evidencePath": ".local/product-release-20261011/java-verified-tests-rerun.log",
+      "sha256": "98c9b9300832a0818f4f8e192c24c5ff44e33643b0d5d365221230df249cdb4d"
+    },
+    "gatewayTests": {
+      "passed": true,
+      "evidencePath": ".local/product-release-20261011/ai-node-verified-suite.log",
+      "sha256": "06ff296e06f8cc18fe650f7306977a09fef4dced03cbac3d98bdd4fcecc96d29"
+    }
+  },
+  "counts": {
+    "formalPages": 50,
+    "desktopMobilePageChecks": 100,
+    "avatarRealHttp": 24,
+    "materialCoverRealHttp": 28,
+    "roomActualUi": 14,
+    "roomRecoveryAndFaultUi": 9,
+    "avatarActualUi": 4,
+    "materialActualUi": 5,
+    "coverMobileActualUi": 12,
+    "motionActualUi": 6,
+    "javaSelected": 30,
+    "gatewayUnitTests": 40,
+    "tableModules": 121
+  },
+  "realModel": {
+    "provider": "DeepSeek",
+    "configuredModel": "deepseek-flash",
+    "types": [
+      "plan",
+      "script",
+      "announcement",
+      "promotion"
+    ],
+    "transport": "actual authenticated provider call",
+    "secrets": "DPAPI server-only; excluded from evidence"
+  },
+  "migration": {
+    "version": "V034",
+    "restoreAndReplay": true,
+    "priorMigrationsUnchanged": true
+  },
+  "staticAssets": {
+    "manifest": "docs/05-ui/assets-20261011/assets.json",
+    "sha256": "9151c3158189625e7fc48fc38d8ea7189979d422f7fb9ba833012dd000e94291",
+    "generation": "built-in image_gen; underlying model name not returned"
+  },
+  "release": {
+    "target": "three UI-only capabilities on loopback main 8080",
+    "state": "tested and prepared; actual activation receipt is a separate immutable artifact",
+    "agentChannel": "closed"
+  },
+  "limitations": [
+    "Synthetic rehearsal people and events; no real bank, official match or business SMS acceptance in this run",
+    "Live cross-organization material read not observed: no second-organization event in fixture; rejection unit-tested only",
+    "Image provider credential missing: upload/platform artwork verified, real runtime AI image generation not accepted",
+    "No real mobile-device soft-keyboard or broad accessibility/performance certification",
+    "Existing large frontend bundles remain; no claim of cold-start performance benchmark",
+    "Original full phase-one ordinary-role and real-event completion gates remain open"
+  ],
+  "failureHistory": [
+    "Initial avatar JUnit tags excluded 10 cases: corrected local tags and observed all ten actual tests",
+    "Initial typecheck: team union and review busy string corrected",
+    "Initial page inspection: bronze decoration overflow corrected; final 100/0",
+    "Room full-count string comparison and offline hiding fixed; network recovery independently tested",
+    "UI selector assertions and repeat-draft fixture assumptions corrected; first failure files retained",
+    "Migration/backup and HTTP checkpoints retained; no payment/result replays"
+  ],
+  "predecessorHashes": {
+    "phase1": "6d18927802b75867876af4753f6cdc2b7151689b92af35eca8dc744ba687a0ee",
+    "nativeUi": "855006d8e09bb1d2839c0bda1152dffa17a28be59a3d3fb6449cf659a7972bf5"
+  }
+}

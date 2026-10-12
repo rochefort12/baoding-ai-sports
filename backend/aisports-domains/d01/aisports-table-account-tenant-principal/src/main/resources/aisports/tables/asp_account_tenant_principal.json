@@ -1,0 +1,67 @@
+{
+  "name": "asp_account_tenant_principal",
+  "domain": "D01",
+  "description": "平台账号在一个租户里的若依用户映射。映射存在不等于可以进入组织",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "account_id",
+      "type": "bigint",
+      "description": "平台账号",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_account",
+      "check": null
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织租户编号。由服务写入和查询，不作为租户拦截条件",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "sys_user_id",
+      "type": "bigint",
+      "description": "该租户内的若依用户。不是平台自然人",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：active revoked",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('active', 'revoked')"
+    }
+  ],
+  "tenant": false,
+  "checks": [
+    "length(tenant_id) > 0"
+  ],
+  "unique": [
+    [
+      "account_id, tenant_id",
+      null
+    ],
+    [
+      "sys_user_id",
+      null
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-account-tenant-principal",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

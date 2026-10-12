@@ -1,0 +1,178 @@
+{
+  "timestamp": "2026-10-10T13:36:19.444763+00:00",
+  "scope": "local-controlled-trial",
+  "completion": "Implemented and locally verified paths only; not full phase-one or real-business acceptance",
+  "sourceCommit": "e3000ec0cdb3b8e78659894dfdb47601103fca84",
+  "jarSha256": "1b020d2434c2e12a992a6ce6ce3ffa9a58be3aea176ffea174d3cb495801f5c5",
+  "failures": 0,
+  "database": {
+    "baselineTables": 132,
+    "baselineSportsTables": 94,
+    "sportsTables": 118,
+    "modelTables": 121,
+    "plannedTables": 3,
+    "migrations": "V030-V033",
+    "restoredCountsMatch": true,
+    "replayVerified": true
+  },
+  "tests": {
+    "java": {
+      "skipped": 0,
+      "log": "product-final-java.log",
+      "scope": "Local Java unit suite; dependencies simulated where specified",
+      "reportCount": 50,
+      "timestamp": "2026-10-10T21:30:07.0199667+08:00",
+      "errors": 0,
+      "failures": 0,
+      "since": "2026-10-10T20:57:35.0474400+08:00",
+      "tests": 212
+    },
+    "aiUnit": {
+      "tests": 35,
+      "pass": 35,
+      "fail": 0,
+      "skipped": 0,
+      "boundary": "Mocked model/tool transport; not live DeepSeek"
+    },
+    "isolatedHttpChecks": 104,
+    "pageInspection": {
+      "routes": 49,
+      "desktopAndMobile": 98,
+      "failures": 0
+    },
+    "finalPageInspection": {
+      "checks": 6,
+      "failures": 0
+    },
+    "readOnlyNavigation": 3,
+    "participantBrowser": 7,
+    "ordinaryRoleBrowser": 5,
+    "tableArchitecture": {
+      "tableModules": 121,
+      "tableDependencyViolations": 0,
+      "catalogOwnership": "PASS"
+    },
+    "repeatAssembly": {
+      "tableModules": 121,
+      "changedFiles": 0,
+      "mode": "check"
+    },
+    "frontendTypecheck": "PASS",
+    "frontendBuild": "PASS with existing chunk-size warning"
+  },
+  "capabilities": {
+    "humanUi": 47,
+    "mutationsWithActualReceipt": 39,
+    "queryChecks": 8,
+    "agentActivation": "CLOSED pending live model verification",
+    "genericSqlWriteGuard": "NOT globally enforced"
+  },
+  "businessEvidenceBoundary": "Actual isolated PostgreSQL/Redis/MinIO/HTTP/MCP and Vue. Fictional users/events/materials and simulated money/match facts. No real transfer, SMS, model recognition or actual event asserted.",
+  "remainingGates": [
+    "DPAPI model credential and live model/vision/tool tests",
+    "Business SMS templates and actual delivery/recovery",
+    "Specified operators with a real event, verified real funds and complaint closure",
+    "Legacy AI/async writer hardening and global action-context enforcement",
+    "Full 21/17/7 ordinary-role acceptance and privacy/account recovery/closure checks"
+  ],
+  "screenshots": [
+    {
+      "path": "docs/05-ui/phase1-product/participant-home.png",
+      "sha256": "82749d6e58f1f32249e3df22bde182351cf05bf3093816e79d85c0043a19ba1f"
+    },
+    {
+      "path": "docs/05-ui/phase1-product/room-mobile.png",
+      "sha256": "6fa1cbbeed9f735e9b3a4d4ae133d3f8b2162cdb231a4340eade18255935d783"
+    },
+    {
+      "path": "docs/05-ui/phase1-product/growth-mobile.png",
+      "sha256": "02e62ceb6d3853c7893d969ed961ff5715d77d7fb94051dc6a85d08ab7712e15"
+    },
+    {
+      "path": "docs/05-ui/phase1-product/government-organizers.png",
+      "sha256": "b13e7199d0affd39a6d265af16519f83c085fce63a4ff730f90de75429b4acdb"
+    },
+    {
+      "path": "docs/05-ui/phase1-product/platform-objects.png",
+      "sha256": "891392dc326259d20df54afd319abf72267b030c1db980e6c2ac04cacefbc983"
+    },
+    {
+      "path": "docs/05-ui/phase1-product/event-closure-mobile.png",
+      "sha256": "967f5e9bf83dabfe23c6947e7db15079f1c6483173d536dda03cffdaba0b32a5"
+    },
+    {
+      "path": "docs/05-ui/phase1-product/registration-detail-mobile.png",
+      "sha256": "b052a6d19a1cebdfca83de031b2bc6a725355ddc66b8a9aeffbadea80c90a32e"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".local/phase1-implementation/baseline-receipt.json",
+      "sha256": "0ca62249c1dcc7142b42eb80474c19e3ec131311c8ca461bb5105128ca9cdd51"
+    },
+    {
+      "path": ".local/phase1-implementation/migration-phase1-receipt.json",
+      "sha256": "2bb0c91ee3f531bf5fc2d49695d4602624d66318c95320360d6ae97b2019bcff"
+    },
+    {
+      "path": ".local/phase1-implementation/java-product-suite-result.json",
+      "sha256": "c8133b5ac10d37fe1776a6ff762b9ecef51ac7288ff249640837fc9ec9ea1d08"
+    },
+    {
+      "path": ".local/phase1-implementation/product-final-java.log",
+      "sha256": "23d9a31319f561e98147af7d9bf578b115980068db32325fb411c6a444123b2a"
+    },
+    {
+      "path": ".local/phase1-implementation/product-room-context-package.log",
+      "sha256": "2f3df658d7e039b3958943afb77526a418f2d7cf4a2819a78a533c645ece123d"
+    },
+    {
+      "path": ".local/phase1-implementation/product-architecture.log",
+      "sha256": "fbc5463dac848439455d3b710b01d70bc8bfc82dc0a37c442f634d3b32b1bab4"
+    },
+    {
+      "path": ".local/phase1-implementation/product-generation.log",
+      "sha256": "22c29eca65ebd37adb85ee84871a0f103e91341af50d532c274f2b38fb520f94"
+    },
+    {
+      "path": ".local/phase1-implementation/product-ai-all-tests-second.log",
+      "sha256": "4235a5cffe13b54687bfee973fff5825f3086ebaf71ab29c22a9c45d581d59c5"
+    },
+    {
+      "path": ".local/phase1-implementation/product-screens-receipt.json",
+      "sha256": "77e90c6a0b3a53ee0c7a13378ed1cf7e731a5e8a2a95e881573fc093cb574582"
+    },
+    {
+      "path": ".local/phase1-implementation/product-screens-targeted-receipt.json",
+      "sha256": "88a4b59ec62d76d81d2ff70c2bfe01ca0b420c4ce89bb7e6afc04a84e53f671c"
+    },
+    {
+      "path": ".local/phase1-implementation/product-navigation-receipt.json",
+      "sha256": "15e6a0f84887084a5a5b5d107bf66a92590eb2e27b73d276ba55069e04763477"
+    },
+    {
+      "path": ".local/phase1-implementation/real-experience-receipt.json",
+      "sha256": "bdd2c35d26a89d4d4d41c3620894fe2f99705fef72bfb83896ed9d61e7896dd2"
+    },
+    {
+      "path": ".local/phase1-implementation/real-operator-experience-receipt.json",
+      "sha256": "4c7fa815c1a2b607f59b50d4d842f17b662ccffca0b6a819046160af106427f9"
+    },
+    {
+      "path": ".local/phase1-implementation/http-flow-progress.json",
+      "sha256": "94b0a3e65c2c8be149fbbd019924e49e571ab92d130dc48352e4536f643f1da8"
+    },
+    {
+      "path": ".local/phase1-implementation/verified-ui-capabilities.json",
+      "sha256": "3b6372b651f46e449d99c05efe3e9a24c274def05aa35eb3c7cbb00d62827b39"
+    },
+    {
+      "path": ".local/phase1-implementation/product-delivery-ui-typecheck.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/phase1-implementation/product-delivery-ui-build.log",
+      "sha256": "80b35a75d87f18fc09ce9f91049941b024b18e17aa0c2212c3092e358f2407e5"
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "name": "asp_roster_member",
+  "domain": "D05",
+  "description": "名单内实际参赛人及资格快照",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "roster_version_id",
+      "type": "bigint",
+      "description": "名单版本",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_roster_version",
+      "check": null
+    },
+    {
+      "name": "person_id",
+      "type": "bigint",
+      "description": "现实选手",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_person",
+      "check": null
+    },
+    {
+      "name": "role",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：starter substitute leader",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "role IN ('starter', 'substitute', 'leader')"
+    },
+    {
+      "name": "person_snapshot",
+      "type": "jsonb",
+      "description": "报名当时的身份列和本场选中属性；之后修改档案不回写；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "qualification_status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：pending supplement approved rejected restricted",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "qualification_status IN ('pending', 'supplement', 'approved', 'rejected', 'restricted')"
+    },
+    {
+      "name": "position",
+      "type": "integer",
+      "description": "顺序或位置；0 是否适用由规则解释",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": "position >= 0"
+    }
+  ],
+  "tenant": true,
+  "checks": [],
+  "unique": [
+    [
+      "roster_version_id, person_id",
+      null
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-roster-member",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

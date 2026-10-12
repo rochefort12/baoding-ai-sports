@@ -1,0 +1,176 @@
+{
+  "name": "asp_ai_task",
+  "domain": "D04",
+  "description": "通用 AI 任务。按场景和业务对象记录资料、候选方案和最终业务对象，模型不直接写业务表",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "scene",
+      "type": "varchar(64)",
+      "description": "场景编码。首个为 event.create_from_document",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "business_object",
+      "type": "varchar(32)",
+      "description": "业务对象类型。首个为 event",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "organization_id",
+      "type": "bigint",
+      "description": "发起任务的组织",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_organization",
+      "check": null
+    },
+    {
+      "name": "initiator_account_id",
+      "type": "bigint",
+      "description": "发起人平台账号。账号表无租户列，这里不建外键",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：UPLOADED PROCESSING PENDING_CONFIRMATION CREATED FAILED ABANDONED",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('UPLOADED', 'PROCESSING', 'PENDING_CONFIRMATION', 'CREATED', 'FAILED', 'ABANDONED')"
+    },
+    {
+      "name": "bailian_consent",
+      "type": "boolean",
+      "description": "已同意把本次资料发给阿里云百炼",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "extraction",
+      "type": "jsonb",
+      "description": "本地解析出的原文块和位置。放弃任务后清空；必须按版本校验结构",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "proposal",
+      "type": "jsonb",
+      "description": "候选方案、来源、缺失、冲突和建议。放弃任务后清空；必须按版本校验结构",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "error_code",
+      "type": "varchar(64)",
+      "description": "失败代码。可空",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "error_message",
+      "type": "varchar(500)",
+      "description": "给操作者看的失败说明。不含密钥和堆栈",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "attempt_count",
+      "type": "integer",
+      "description": "已经执行的识别次数",
+      "nullable": false,
+      "default": "0",
+      "reference": null,
+      "check": "attempt_count >= 0"
+    },
+    {
+      "name": "result_object_id",
+      "type": "bigint",
+      "description": "确认后写入的业务对象编号。可空，不建跨模块外键",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "confirm_key",
+      "type": "varchar(128)",
+      "description": "确认幂等键。同一任务成功后重复确认不再创建",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "provider_consent",
+      "type": "boolean",
+      "description": "对当前资料任务的实际模型供应商告知确认",
+      "nullable": false,
+      "default": "false",
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "provider_name",
+      "type": "varchar(64)",
+      "description": "实际获授权供应商；旧百炼授权保留原含义",
+      "nullable": false,
+      "default": "'legacy-bailian'",
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "consent_version",
+      "type": "varchar(64)",
+      "description": "实际告知版本",
+      "nullable": false,
+      "default": "'legacy'",
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": true,
+  "checks": [
+    "bailian_consent = true OR (provider_consent = true AND provider_name = 'deepseek')"
+  ],
+  "unique": [
+    [
+      "confirm_key",
+      "confirm_key IS NOT NULL"
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-ai-task",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

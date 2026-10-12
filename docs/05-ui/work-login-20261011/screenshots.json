@@ -1,0 +1,17 @@
+{
+  "at": "2026-10-11T08:30:15.401Z",
+  "passed": true,
+  "scope": "Stable anonymous main login screenshots, not additional business acceptance",
+  "screenshots": [
+    {
+      "path": "docs/05-ui/work-login-20261011/desktop.png",
+      "sha256": "18ad93c3cae2e1249075e60fdeadb47445752f94abf270da20d3fb964feae250"
+    },
+    {
+      "path": "docs/05-ui/work-login-20261011/mobile.png",
+      "sha256": "1145872f0cf90e9855e98efaa48f511a3f0d685f20dbfa2b506b46643d7e06e9"
+    }
+  ],
+  "blockedWrites": [],
+  "finishedAt": "2026-10-11T08:30:18.134Z"
+}

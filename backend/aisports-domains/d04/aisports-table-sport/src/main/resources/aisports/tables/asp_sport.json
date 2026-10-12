@@ -1,0 +1,70 @@
+{
+  "name": "asp_sport",
+  "domain": "D04",
+  "description": "开放运动目录与变体；收录不等于自动规则已验证",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "code",
+      "type": "varchar(100)",
+      "description": "稳定运动或变体编码",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "name",
+      "type": "varchar(100)",
+      "description": "名称",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "rule_family",
+      "type": "varchar(100)",
+      "description": "对抗/计时/评分/综合等规则族",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "capability_status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：catalog registration manual automatic verified",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "capability_status IN ('catalog', 'registration', 'manual', 'automatic', 'verified')"
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：active disabled",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('active', 'disabled')"
+    }
+  ],
+  "tenant": false,
+  "checks": [],
+  "unique": [
+    [
+      "code",
+      null
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-sport",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

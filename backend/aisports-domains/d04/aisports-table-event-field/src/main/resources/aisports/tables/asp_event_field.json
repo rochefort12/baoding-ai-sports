@@ -1,0 +1,75 @@
+{
+  "name": "asp_event_field",
+  "domain": "D04",
+  "description": "一场赛事选用的组织字段。一期全赛事同一套，首笔正式提交后不再改",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "event_id",
+      "type": "bigint",
+      "description": "赛事",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_event",
+      "check": null
+    },
+    {
+      "name": "org_field_id",
+      "type": "bigint",
+      "description": "组织字段",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_org_field",
+      "check": null
+    },
+    {
+      "name": "required",
+      "type": "boolean",
+      "description": "true 为本人必须填写",
+      "nullable": false,
+      "default": "false",
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "sort_order",
+      "type": "integer",
+      "description": "显示顺序",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "sort_order >= 0"
+    },
+    {
+      "name": "note",
+      "type": "varchar(500)",
+      "description": "给参赛者的说明",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": true,
+  "checks": [],
+  "unique": [
+    [
+      "event_id, org_field_id",
+      null
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-event-field",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

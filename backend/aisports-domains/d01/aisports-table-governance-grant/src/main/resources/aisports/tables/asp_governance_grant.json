@@ -1,0 +1,70 @@
+{
+  "name": "asp_governance_grant",
+  "domain": "D01",
+  "description": "政府后台账号对指定主办方的管理范围；不能由模型或普通经办人自授",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "sys_user_id",
+      "type": "bigint",
+      "description": "政府若依用户编号",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "organization_id",
+      "type": "bigint",
+      "description": "指定主办方",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_organization",
+      "check": null
+    },
+    {
+      "name": "permissions",
+      "type": "jsonb",
+      "description": "准入、资格管理、汇总和投诉权限；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：active revoked",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('active', 'revoked')"
+    },
+    {
+      "name": "valid_until",
+      "type": "timestamptz",
+      "description": "授权截止；有时区业务时间",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": false,
+  "checks": [],
+  "unique": [
+    [
+      "sys_user_id, organization_id",
+      "status='active'"
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-governance-grant",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

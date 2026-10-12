@@ -1,0 +1,89 @@
+{
+  "generation": "built-in image_gen; model identifier unavailable",
+  "assets": [
+    {
+      "key": "king",
+      "file": "plus-ui/public/images/sports/frames-v2/king.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 70170,
+      "sha256": "547f933b9f6379a7920301a94d8538f291c183c9308fc23029365aecdcd8fd71",
+      "original": "docs/05-ui/assets-20261011-v3/originals/frame-king.png",
+      "originalSha256": "e718d2ccbab08bfd10ea53cf793557cfa4f2da42ad73b2ec2d06010d34fbb492",
+      "prompt": "Use case: stylized-concept. Asset type: production transparent circular avatar frame for a refined Chinese sports app, king tier. One centered circular frame, front view, no portrait. A precise luminous champagne-gold titanium ring with sophisticated sculpted fluid-metal ribbons curling subtly along its exterior, two tiny athletic victory wing accents, micro opal glass highlights, elegant premium product rendering with soft studio light. Ring occupies 82% of square width, empty perfectly transparent circular center occupying 59% of total width for user photo, truly transparent exterior. Crown hint integrated at top, small lower jewel, symmetric balanced silhouette, restrained sparkle points only outside photo aperture. High-end modern sports achievement, exceptional material detail, clean readable at 64px. No text, letters, logos, diamond-star AI symbol, background, shadow plane, person, trophy, hands, interface or checkerboard.",
+      "centerAlpha": 0
+    },
+    {
+      "key": "bronze",
+      "file": "plus-ui/public/images/sports/frames-v2/bronze.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 50666,
+      "sha256": "191275ce01d69530df9f373c5698b6c2b8b3c7e5a825cfc8173ab41eb22535f8",
+      "original": "docs/05-ui/assets-20261011-v3/originals/frame-bronze.png",
+      "originalSha256": "652aeaf2b40a153459f59f95f03c9caec1ea3edae2bf1d6baf25e15a21380bc1",
+      "prompt": "Use case: stylized-concept. Asset type: production transparent circular avatar frame for a refined Chinese sports app, bronze tier. One centered circular frame front view, no portrait. brushed copper and dark warm bronze, narrow layered athletic ring, tiny laurel engraving, elegant simple silhouette, no wings. High-end modern sports achievement product render with soft studio lighting, extraordinary believable material detail. Ring occupies 82% of square width; perfectly empty truly transparent circular center approximately 62% of total width for user photo. Exterior truly transparent. Circular and balanced, sleek and refined, readable at 64px, no huge protrusions. No text, letters, logos, star-shaped AI symbol, backdrop, shadow plane, portrait, trophy, hands, interface or checkerboard.",
+      "centerAlpha": 0
+    },
+    {
+      "key": "silver",
+      "file": "plus-ui/public/images/sports/frames-v2/silver.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 52324,
+      "sha256": "7588d45fe4751eb1acb0f6811c63aa63e2da08dfd462c910576ddbfc15cd651f",
+      "original": "docs/05-ui/assets-20261011-v3/originals/frame-silver.png",
+      "originalSha256": "cd1b7b2c2ee8103a8f31254f7fc82909745eed3e525d4869bf480b972c840aa5",
+      "prompt": "Use case: stylized-concept. Asset type: production transparent circular avatar frame for a refined Chinese sports app, silver tier. One centered circular frame front view, no portrait. polished silver and pearlescent cool white, layered aerodynamic metal arcs with finely etched laurel details, a tiny clean victory chevron. High-end modern sports achievement product render with soft studio lighting, extraordinary believable material detail. Ring occupies 82% of square width; perfectly empty truly transparent circular center approximately 62% of total width for user photo. Exterior truly transparent. Circular and balanced, sleek and refined, readable at 64px, no huge protrusions. No text, letters, logos, star-shaped AI symbol, backdrop, shadow plane, portrait, trophy, hands, interface or checkerboard.",
+      "centerAlpha": 0
+    },
+    {
+      "key": "gold",
+      "file": "plus-ui/public/images/sports/frames-v2/gold.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 71058,
+      "sha256": "fb4157135169111280f89cc85e89b954d51eb3d841a651fe4f9d8c6ebf5c8d4c",
+      "original": "docs/05-ui/assets-20261011-v3/originals/frame-gold.png",
+      "originalSha256": "af0e2c7ebe0af1a66b0257aa94c4d60bddacc4a16fcca62aa38110075bafd0d9",
+      "prompt": "Use case: stylized-concept. Asset type: production transparent circular avatar frame for a refined Chinese sports app, gold tier. One centered circular frame front view, no portrait. champagne gold and deep warm gold, elegantly curved titanium laurels around a refined ring, small pearl-gold lower jewel, modest victory crest. High-end modern sports achievement product render with soft studio lighting, extraordinary believable material detail. Ring occupies 82% of square width; perfectly empty truly transparent circular center approximately 62% of total width for user photo. Exterior truly transparent. Circular and balanced, sleek and refined, readable at 64px, no huge protrusions. No text, letters, logos, star-shaped AI symbol, backdrop, shadow plane, portrait, trophy, hands, interface or checkerboard.",
+      "centerAlpha": 0
+    },
+    {
+      "key": "platinum",
+      "file": "plus-ui/public/images/sports/frames-v2/platinum.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 51846,
+      "sha256": "87b1f16a88ea11bd10d69ec0438da09836bf83062af38f85d7f33c5b85d97440",
+      "original": "docs/05-ui/assets-20261011-v3/originals/frame-platinum.png",
+      "originalSha256": "796a62cc1552c06fc05bb5dd78d78227de0f9c5d4ad1629f72da83b8205a1023",
+      "prompt": "Use case: stylized-concept. Asset type: production transparent circular avatar frame for a refined Chinese sports app, platinum tier. One centered circular frame front view, no portrait. platinum silver and pale teal, translucent frosted-glass inlays, sculpted asymmetric sports speed accents in a balanced ring, precise restrained silhouette. High-end modern sports achievement product render with soft studio lighting, extraordinary believable material detail. Ring occupies 82% of square width; perfectly empty truly transparent circular center approximately 62% of total width for user photo. Exterior truly transparent. Circular and balanced, sleek and refined, readable at 64px, no huge protrusions. No text, letters, logos, star-shaped AI symbol, backdrop, shadow plane, portrait, trophy, hands, interface or checkerboard.",
+      "centerAlpha": 0
+    },
+    {
+      "key": "diamond",
+      "file": "plus-ui/public/images/sports/frames-v2/diamond.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 76952,
+      "sha256": "06ecd6bfaa7911b6121c6223449a22e134c44ee56bd4095df7f0276c00c30e30",
+      "original": "docs/05-ui/assets-20261011-v3/originals/frame-diamond.png",
+      "originalSha256": "ba6808968742ff5da0b0362036479532d3cb894b697bfdbac6160c8b4d45cee4",
+      "prompt": "Use case: stylized-concept. Asset type: production transparent circular avatar frame for a refined Chinese sports app, diamond tier. One centered circular frame front view, no portrait. icy silver and clear pale blue crystal, faceted glass arcs with tiny luminous prism highlights, sweeping aerodynamic crescents, a small blue crystal crest. High-end modern sports achievement product render with soft studio lighting, extraordinary believable material detail. Ring occupies 82% of square width; perfectly empty truly transparent circular center approximately 62% of total width for user photo. Exterior truly transparent. Circular and balanced, sleek and refined, readable at 64px, no huge protrusions. No text, letters, logos, star-shaped AI symbol, backdrop, shadow plane, portrait, trophy, hands, interface or checkerboard.",
+      "centerAlpha": 0
+    },
+    {
+      "key": "stellar",
+      "file": "plus-ui/public/images/sports/frames-v2/stellar.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 70660,
+      "sha256": "4f49e61ea45d1b8b727457487a06e36748048f531993db905bd3835d56bf7b88",
+      "original": "docs/05-ui/assets-20261011-v3/originals/frame-stellar.png",
+      "originalSha256": "4281281ece2923889cd1a083b1024c7e917eb7f14822b13eb24aa0b30d0294c8",
+      "prompt": "Use case: stylized-concept. Asset type: production transparent circular avatar frame for a refined Chinese sports app, stellar tier. One centered circular frame front view, no portrait. silver platinum and soft violet crystal, sculpted cosmic fluid-metal ribbons along exterior, small opal gem crest, refined orbit-like curved accents without star symbols. High-end modern sports achievement product render with soft studio lighting, extraordinary believable material detail. Ring occupies 82% of square width; perfectly empty truly transparent circular center approximately 62% of total width for user photo. Exterior truly transparent. Circular and balanced, sleek and refined, readable at 64px, no huge protrusions. No text, letters, logos, star-shaped AI symbol, backdrop, shadow plane, portrait, trophy, hands, interface or checkerboard.",
+      "centerAlpha": 0
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "name": "asp_rule_version",
+  "domain": "D04",
+  "description": "资格、赛制、晋级和排名规则版本与专业来源",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "unit_id",
+      "type": "bigint",
+      "description": "适用竞赛单元",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_competition_unit",
+      "check": null
+    },
+    {
+      "name": "revision",
+      "type": "integer",
+      "description": "规则版本",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "revision >= 0"
+    },
+    {
+      "name": "source",
+      "type": "varchar(1000)",
+      "description": "专业/地方/特别规程来源",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "parameters",
+      "type": "jsonb",
+      "description": "结构化规则；不得猜测缺项；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：draft confirmed retired",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('draft', 'confirmed', 'retired')"
+    },
+    {
+      "name": "verification_level",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：unverified samples_verified professional_verified",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "verification_level IN ('unverified', 'samples_verified', 'professional_verified')"
+    },
+    {
+      "name": "confirmed_by",
+      "type": "bigint",
+      "description": "有权确认人",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "confirmed_at",
+      "type": "timestamptz",
+      "description": "确认时间；有时区业务时间",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": true,
+  "checks": [
+    "revision > 0"
+  ],
+  "unique": [
+    [
+      "unit_id, revision",
+      null
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-rule-version",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

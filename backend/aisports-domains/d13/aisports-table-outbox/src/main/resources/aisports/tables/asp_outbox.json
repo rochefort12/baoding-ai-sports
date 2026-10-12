@@ -1,0 +1,111 @@
+{
+  "name": "asp_outbox",
+  "domain": "D13",
+  "description": "本地事务提交的跨模块通知/事件；消费必须幂等",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "event_key",
+      "type": "varchar(128)",
+      "description": "稳定事件去重 ID",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "aggregate_type",
+      "type": "varchar(100)",
+      "description": "来源聚合",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "aggregate_id",
+      "type": "bigint",
+      "description": "来源 ID",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "aggregate_revision",
+      "type": "integer",
+      "description": "来源业务版本",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "aggregate_revision >= 0"
+    },
+    {
+      "name": "event_type",
+      "type": "varchar(100)",
+      "description": "版本化事件名",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "payload",
+      "type": "jsonb",
+      "description": "最小必要跨模块契约；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：pending processing delivered failed",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('pending', 'processing', 'delivered', 'failed')"
+    },
+    {
+      "name": "attempts",
+      "type": "integer",
+      "description": "尝试数",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "attempts >= 0"
+    },
+    {
+      "name": "next_attempt_at",
+      "type": "timestamptz",
+      "description": "下次尝试；有时区业务时间",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": true,
+  "checks": [],
+  "unique": [
+    [
+      "event_key",
+      null
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-outbox",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

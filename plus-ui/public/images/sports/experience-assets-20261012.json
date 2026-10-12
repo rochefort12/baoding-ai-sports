@@ -1,0 +1,43 @@
+{
+  "createdAt": "2026-10-12",
+  "generation": "Built-in imagegen; separate original calls; no external source photo; model identity is not returned by the tool",
+  "usage": "Original decorative illustrations; dynamic scores, forms and proof facts remain HTML components",
+  "assets": [
+    {
+      "width": 1254,
+      "colorType": 6,
+      "sha256": "65f48b36cdeb92fedc55f79fc41c6b3211e4c4edef67ee68f2dd4f54827dd173",
+      "file": "team-welcome-v1.png",
+      "bytes": 1432026,
+      "height": 1254,
+      "key": "team",
+      "prompt": "Use case: stylized-concept. Asset type: original static decoration for a Chinese community badminton sports app, invitation and team pages. Primary request: one polished, compact sports-team illustration: three friendly stylized adult badminton teammates in orange, ivory and deep forest-green sportswear standing together beside two racquets and a shuttlecock, welcoming gesture, no facial identity claims. Style: premium soft matte 3D clay illustration, refined shapes and subtle shadows, warm and clean. Composition: one centered complete scene, square, generous transparent margins, all subjects fully within frame. Palette: warm off-white, burnt orange #f6532f, forest green #176658, muted sage. Background: genuinely transparent alpha. Text: none. Avoid: any words, logos, numbers, UI panels, watermark, atlas, multiple separate images, badges, busy details.",
+      "reviewed": "Subject, framing, no text and unified orange/green palette visually inspected; PNG RGBA",
+      "license": "AI-generated project asset; no claim of exclusive copyright or external certification"
+    },
+    {
+      "width": 1254,
+      "colorType": 6,
+      "sha256": "e2269bbfd5d70fd7a3a4c578bbd63d42268886af391fd34d82c38da102c7a7ad",
+      "file": "match-court-v1.png",
+      "bytes": 1412353,
+      "height": 1254,
+      "key": "match",
+      "prompt": "Use case: stylized-concept. Asset type: original compact decorative illustration for competition schedule, match score cards and award-review panels in a community badminton app. Primary request: a miniature badminton court with a net, one ivory shuttlecock and two crossed racquets beside it, no people. Premium soft matte clay 3D aesthetic, crisp simple geometry, refined soft contact shadows. Single complete centered composition with generous transparent margins, square. Palette warm ivory, sage court, deep forest green, restrained burnt orange accents #f6532f. Genuine transparent alpha background. No text, no numbers, no scoreboard, no logo, no watermark, no atlas or multiple panels. All objects inside frame. It must remain legible as a small 96-pixel app illustration; avoid dense details and photoreal stadium.",
+      "reviewed": "Subject, framing, no text and unified orange/green palette visually inspected; PNG RGBA",
+      "license": "AI-generated project asset; no claim of exclusive copyright or external certification"
+    },
+    {
+      "width": 1254,
+      "colorType": 6,
+      "sha256": "f6e6bd1fe6a0cc0ca80d2a94e1b3f3322c8cca7e0474a95fc3cedf974e067efb",
+      "file": "material-notes-v1.png",
+      "bytes": 893977,
+      "height": 1254,
+      "key": "material",
+      "prompt": "Use case: stylized-concept. Asset type: original static decoration for the event-material writing and empty-state pages of a community badminton sports app. Primary request: a neat small ivory clipboard with blank paper, an orange pencil, two gently floating blank sheets and an ivory shuttlecock beside it, one complete centered object composition. Premium soft matte clay 3D illustration with refined simple shapes, soft shadows, polished and calm. Palette ivory, burnt orange #f6532f, forest green #176658, muted sage. Composition square, generous genuine transparent margins; readable at 100 pixels. Transparent alpha background. No words, letters, pseudo text, numbers, UI panel, logo, watermark, atlas or multiple images. Papers completely blank, no line art resembling writing.",
+      "reviewed": "Subject, framing, no text and unified orange/green palette visually inspected; PNG RGBA",
+      "license": "AI-generated project asset; no claim of exclusive copyright or external certification"
+    }
+  ]
+}

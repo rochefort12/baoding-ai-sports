@@ -1,0 +1,70 @@
+{
+  "name": "asp_agent",
+  "domain": "D13",
+  "description": "智能体定义，按平台、业务域和职能分层；没有原始SQL能力",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "code",
+      "type": "varchar(64)",
+      "description": "稳定编码",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "name",
+      "type": "varchar(100)",
+      "description": "名称",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "layer",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：global domain function",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "layer IN ('global', 'domain', 'function')"
+    },
+    {
+      "name": "domain_scope",
+      "type": "varchar(32)",
+      "description": "体育业务域范围",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：active disabled",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('active', 'disabled')"
+    }
+  ],
+  "tenant": false,
+  "checks": [],
+  "unique": [
+    [
+      "code",
+      null
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-agent",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

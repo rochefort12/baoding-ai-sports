@@ -1,0 +1,93 @@
+{
+  "name": "asp_schedule_run",
+  "domain": "D08",
+  "description": "约束编排草案、不可行原因及发布版本",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "stage_id",
+      "type": "bigint",
+      "description": "阶段",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_stage",
+      "check": null
+    },
+    {
+      "name": "draw_run_id",
+      "type": "bigint",
+      "description": "抽签依据",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_draw_run",
+      "check": null
+    },
+    {
+      "name": "revision",
+      "type": "integer",
+      "description": "排程版本",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "revision >= 0"
+    },
+    {
+      "name": "input_snapshot",
+      "type": "jsonb",
+      "description": "规则、人员、资源、窗口、时长和缓冲；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "diagnostics",
+      "type": "jsonb",
+      "description": "已排/未排/冲突及取舍；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：draft feasible infeasible published superseded",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('draft', 'feasible', 'infeasible', 'published', 'superseded')"
+    },
+    {
+      "name": "published_at",
+      "type": "timestamptz",
+      "description": "生效发布；有时区业务时间",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": true,
+  "checks": [],
+  "unique": [
+    [
+      "stage_id, revision",
+      null
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-schedule-run",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

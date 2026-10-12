@@ -1,0 +1,75 @@
+{
+  "name": "asp_execution_command",
+  "domain": "D09",
+  "description": "报到、录分和发奖的请求幂等。不替代赛事一个人一次报到，也不替代一场一条结果",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "action",
+      "type": "varchar(32)",
+      "description": "动作。checkin match result result_finalize result_import award",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "request_key",
+      "type": "varchar(128)",
+      "description": "客户端幂等键",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "payload_hash",
+      "type": "varchar(64)",
+      "description": "请求内容摘要。相同键不同摘要视为冲突",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "subject_type",
+      "type": "varchar(32)",
+      "description": "指向的事实类型",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "subject_id",
+      "type": "bigint",
+      "description": "已经生效的业务事实编号",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": true,
+  "checks": [],
+  "unique": [
+    [
+      "action, request_key",
+      null
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-execution-command",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

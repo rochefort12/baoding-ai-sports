@@ -1,0 +1,70 @@
+{
+  "timestamp": "2026-10-10T18:43:21.822Z",
+  "frontend": "http://127.0.0.1:5192",
+  "backendPort": 8082,
+  "scope": "Actual isolated browser login; synthetic accounts only. No API routing overrides. No real event, bank, SMS, or model acceptance.",
+  "rows": [
+    {
+      "role": "主办方由已审核手机号进入",
+      "passed": true,
+      "path": "/org-desk/home",
+      "heading": "我要办赛"
+    },
+    {
+      "role": "球友1",
+      "username": "16693001000",
+      "passed": true,
+      "path": "/portal/home",
+      "heading": "赛事与体育服务"
+    },
+    {
+      "role": "球友2",
+      "username": "16693001001",
+      "passed": true,
+      "path": "/portal/home",
+      "heading": "赛事与体育服务"
+    },
+    {
+      "role": "球友3",
+      "username": "16693001002",
+      "passed": true,
+      "path": "/portal/home",
+      "heading": "赛事与体育服务"
+    },
+    {
+      "role": "球友4",
+      "username": "16693001003",
+      "passed": true,
+      "path": "/portal/home",
+      "heading": "赛事与体育服务"
+    },
+    {
+      "role": "球友5",
+      "username": "16693001004",
+      "passed": true,
+      "path": "/portal/home",
+      "heading": "赛事与体育服务"
+    },
+    {
+      "role": "球友6",
+      "username": "16693001005",
+      "passed": true,
+      "path": "/portal/home",
+      "heading": "赛事与体育服务"
+    },
+    {
+      "role": "普通政府",
+      "username": "phase1-government",
+      "passed": true,
+      "path": "/index",
+      "heading": "保定体育"
+    },
+    {
+      "role": "平台管理员",
+      "username": "admin",
+      "passed": true,
+      "path": "/index",
+      "heading": "保定体育"
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "at": "2026-10-12T13:10:59.2748565+08:00",
+  "scope": "Implemented local material and candidate interaction acceptance; not production or full phase-one acceptance",
+  "passed": true,
+  "database": "aisports_verify_phase1_242ded43673246699be6bb0f596aa59b",
+  "backendJarSha256": "32ca4ceff3b9e3a31e302b21967d875ad827b6b1c39ea06c0b42994558e3aaa4",
+  "sourceInputsMatched": 1582,
+  "frontendInputsMatched": 395,
+  "checks": {
+    "actualMaterialChecks": 19,
+    "actualUiChecks": 19,
+    "candidateChainChecks": 14,
+    "actualIntentChecks": 3,
+    "candidatePredecessorHashesMatched": true,
+    "frontendTypecheck": true,
+    "javaTests": 431,
+    "gatewayTests": 76,
+    "frontendBuild": true
+  },
+  "currentState": {
+    "sourceStatus": "PENDING_CONFIRMATION",
+    "originalEventCreated": false,
+    "syntheticStatus": "CREATED",
+    "syntheticPublication": "draft",
+    "coverPresent": true,
+    "firstFailureRetained": true
+  },
+  "listeners": [
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 8091,
+      "OwningProcess": 67208
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 8082,
+      "OwningProcess": 61828
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 5192,
+      "OwningProcess": 53748
+    }
+  ],
+  "originalSha256": "0b2140be2f395b2f1c7659c28ee77022ce02637b5cfda50d2530d28cacd2c646",
+  "artifacts": [
+    {
+      "sha256": "0c7273429e55d9205c56fcb79c4f23bd8fb67e7a1e7b762ddc8f0035dd98320e",
+      "path": ".local/agent-runtime-20261012/build-8c8dd822bfa641839ac9a66024f2a7e9/receipt.json"
+    },
+    {
+      "sha256": "4c5e6bce37a214fb67f700377de80e298a76b24b2e5e320d2269de417854bbfd",
+      "path": ".local/product-release-20261011/frontend-refinement-7444caeb80ec443a8d602fecc11afeac/receipt.json"
+    },
+    {
+      "sha256": "5cd1513a4f753e59f4299b339998680c0298ae63f69e84a930f8d443ae16242a",
+      "path": ".local/agent-material-progress-20261012/live-63c3401e-6552-4217-a1f1-5e29b247579d/receipt.json"
+    },
+    {
+      "sha256": "a6a2ef625c4103a14dcb09f1abf954f1a1fdef31b85d5e8e8edb3c79b572221d",
+      "path": ".local/agent-material-progress-20261012/form-7248ec9d-0791-4450-9417-e7af893f5a1a/receipt.json"
+    },
+    {
+      "sha256": "26d7778d3680c754127f869e56a46748328694118dc338ab2c43588304f23f1a",
+      "path": ".local/agent-material-progress-20261012/ui-a57f9713-dd55-4183-bfd1-1707fb5684ab/receipt.json"
+    },
+    {
+      "sha256": "7008c96a1c68f85a9680da83312134cea904914834b0f68161bd1266c8c285ad",
+      "path": ".local/agent-material-progress-20261012/intent-3e7376f5-e7f2-43ea-b850-ab810ca0888b/receipt.json"
+    },
+    {
+      "sha256": "9e6fdb4118d5eec1ad16c69986de589b01bedaa3b4216da4b3d146a628367743",
+      "path": ".local/agent-material-progress-20261012/form-3f882912-2ca7-4dcb-bfed-4735bd31c04d/receipt.json"
+    },
+    {
+      "sha256": "1e6047e87d45ad345161de68de4e7ec08c04f1934e33de3754128c517c6d11a7",
+      "path": ".local/agent-material-progress-20261012/form-c624cdcd-0e8b-4bf9-95f4-7d70b58b692d/receipt.json"
+    },
+    {
+      "sha256": "6b5d2cfc3c2f046065f27c1e8ac4376849c7bfa224e032bc9a2f40013bbe8259",
+      "path": ".local/agent-runtime-20261012/build-8c8dd822bfa641839ac9a66024f2a7e9/gateway-tests.log"
+    },
+    {
+      "sha256": "dd1e7c4dccea033d644bf8d1d20af0401a4c00dce7249c2a3ed43e05a1f8ac7d",
+      "path": ".local/agent-runtime-20261012/build-8c8dd822bfa641839ac9a66024f2a7e9/maven-package.log"
+    },
+    {
+      "sha256": "401faad9a6f1a5bc8f6d477e22cb58d9265c8b53c9baef71ac25f17a1d0cd250",
+      "path": "docs/04-verification/强Agent材料与交互验证-20261012.md"
+    },
+    {
+      "sha256": "5e23072af34690a3721c4031fdc101b19b360c6586f3696463ada8f7cb4a5a66",
+      "path": "scripts/Test-AiDraftInteraction.mjs"
+    },
+    {
+      "sha256": "1c190108f15e3e3f864901592fb5cd79923e87a11a3572a080aa39ffc1f306d8",
+      "path": "scripts/Test-AgentConversationUi.mjs"
+    },
+    {
+      "sha256": "067541245058611591e5662e032060adf3d7eb70285744b83acd7c736fac0a54",
+      "path": "scripts/Freeze-AgentMaterialEvidence.ps1"
+    }
+  ],
+  "unverified": [
+    "Word headers/footers/VML/textboxes/other objects",
+    "Graphics on text-bearing PDF pages",
+    "Low-quality OCR and all visual text accuracy",
+    "Full official attachments and additional formats",
+    "Load, physical-device and all disconnect submission timings",
+    "Main-site activation, real external services and full phase-one acceptance"
+  ]
+}

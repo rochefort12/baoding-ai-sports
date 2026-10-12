@@ -1,0 +1,21 @@
+{
+  "files": [
+    {
+      "sha256": "c0afdf6ca076c462ef6df7f860708c76d4bb63634bf66af91b910f377eb6ffd4",
+      "derivedFrom": "01-测试收费双打通知.pdf",
+      "name": "08-测试通知图片.png",
+      "from": ".local/notice-trial-20261012/qa/01-测试收费双打通知-1.png",
+      "kind": "rendered-image"
+    },
+    {
+      "sha256": "8ddec5eef28be8c5ca7e0573e6d104b2d59d6b6a887467591aa0e3bb1241e7f4",
+      "derivedFrom": "01 through 06",
+      "name": "09-测试六页扫描附件.pdf",
+      "from": ".local/notice-trial-20261012/six-scanned-annexes.pdf",
+      "kind": "six-image-only-pages"
+    }
+  ],
+  "visualQa": "Seven original pages and all six scan pages rendered and inspected; PNG is the inspected first original page",
+  "at": "2026-10-12T08:10:29.9571330+08:00",
+  "officialAttachmentsDownloaded": false
+}

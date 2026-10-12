@@ -1,0 +1,72 @@
+{
+  "name": "asp_growth_policy",
+  "domain": "D10",
+  "description": "版本化成长规则；段位不是官方竞技实力评级",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "sport_id",
+      "type": "bigint",
+      "description": "所属运动",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_sport",
+      "check": null
+    },
+    {
+      "name": "code",
+      "type": "varchar(64)",
+      "description": "规则编码",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "revision",
+      "type": "integer",
+      "description": "规则版本",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "revision >= 0"
+    },
+    {
+      "name": "rules",
+      "type": "jsonb",
+      "description": "版本化段位门槛、奖励及称号阈值；兼容历史七、八级及当前九级；新星基础级，王者9600、传奇19200为默认门槛，可另发版本调整；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：draft active superseded",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('draft', 'active', 'superseded')"
+    }
+  ],
+  "tenant": false,
+  "checks": [
+    "revision > 0"
+  ],
+  "unique": [
+    [
+      "sport_id, code, revision",
+      null
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-growth-policy",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

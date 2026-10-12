@@ -1,0 +1,183 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-12T18:40:52.0980408+08:00",
+  "status": "READY_FOR_FIRST_MANUAL_STEP",
+  "scope": "Preparation with synthetic identities and browser sessions on the host; full human and physical-device business acceptance remains NOT_RUN.",
+  "login": "http://192.168.1.236:5193/portal/login",
+  "database": "aisports_verify_phase1_242ded43673246699be6bb0f596aa59b",
+  "jarSha256": "cdf0321b954b7551f9f52a50b256f195678f5f540e028bcde3ed1a010ce8474e",
+  "primaryAccounts": [
+    {
+      "phone": "16694001001",
+      "person": "A",
+      "role": "organizer-applicant"
+    },
+    {
+      "phone": "16694001002",
+      "person": "B",
+      "role": "captain"
+    },
+    {
+      "phone": "16694001003",
+      "person": "C",
+      "role": "member"
+    }
+  ],
+  "accountPreparationChecks": 34,
+  "browserChecks": 27,
+  "frontendUtilityTests": 54,
+  "manualStepCount": 169,
+  "manualStepStatus": "NOT_RUN",
+  "physicalDevices": "NOT_RUN",
+  "primaryCredentialSheet": ".local/three-person-test-20261012/d23b25203cba4df8b509ee77d8be1249/三人主账号.private.txt",
+  "evidence": [
+    {
+      "sha256": "24894408bc11522a604e0663868c2d97599bb49d4e65965e2589976d67a05735",
+      "path": ".local/business-regression-20261011/d32bff962337431daf467558d3bd2a50/preflight-receipt.json",
+      "kind": "backup"
+    },
+    {
+      "sha256": "89df38752d85cdd7de828ac60bbbbf18f9459ba9ab9b4919f2bbbe61f3c132cd",
+      "path": ".local/three-person-test-20261012/d23b25203cba4df8b509ee77d8be1249/receipt-30d1a675-5577-40d1-8a8d-a383fa6bff8a.json",
+      "kind": "accounts"
+    },
+    {
+      "sha256": "4be65bcc4041651225ec089c0cd26710810302834aa636f103bcf32564feeb1c",
+      "path": ".local/three-person-test-20261012/d23b25203cba4df8b509ee77d8be1249/acl-receipt.json",
+      "kind": "acl"
+    },
+    {
+      "sha256": "f63a5d0d111faa83ddfa31519ecdd8690e695e7d988cac5e60fdebd7f76db6d5",
+      "path": ".local/three-person-lan-20261012/01e7d76b-4080-4ee1-93ca-308c9160699d/receipt.json",
+      "kind": "lanFirewall"
+    },
+    {
+      "sha256": "53322ac851f5f1befec33f3876e8c2efff7b656cf19cf04afd5dabdd4b09101f",
+      "path": ".local/three-person-lan-20261012/4e9db7e9-a8fd-4aaa-a788-c69e307bce3a/receipt.json",
+      "kind": "lanFinal"
+    },
+    {
+      "sha256": "dd25a85d9b8f7a096dad894df0678d7ffbdf9a9fc6dac8353bf01a9e2c63ea4d",
+      "path": ".local/product-release-20261011/frontend-refinement-a9d5497db79b4d3d833b096ae291a468/receipt.json",
+      "kind": "frontend"
+    },
+    {
+      "sha256": "6607e66b41507d864259f60c3ae07f7edca52a2983f4c328e61d86de0564123c",
+      "path": ".local/three-person-test-20261012/d23b25203cba4df8b509ee77d8be1249/ui-readonly-515773a3-56f6-41a3-9122-9f0efd4b56c3/receipt.json",
+      "kind": "browser"
+    }
+  ],
+  "preservedIndices": {
+    "docs/04-verification/助手按钮横向交互验证-20261012.json": "6973d323857b5a005774bfdb0071b01f8df3fbbee56568127650a38a9da5181c",
+    "docs/04-verification/队伍邀请场次与体验修复验证-20261012.json": "6b7ec11f4db3c27d9a609bc9fd9fa973953c6d1ad4394029aa1897f4fafbf06d",
+    "docs/04-verification/奖项材料与队伍报名修复验证-20261012.json": "f16dfda1da798b604e0f053acd50f33239645a2d5ec0236d2821770e7e93f3da"
+  },
+  "sources": [
+    {
+      "sha256": "4e1e75767d7a4b7928a9af31d0fd7ea2b3fdbbb15c51f5be82addcf12d1dcbb6",
+      "path": "scripts/Prepare-ThreePersonTest.ps1"
+    },
+    {
+      "sha256": "6fea967c59efa1217321ba647b4f8c88288a17138a08ec2eec92d411afad370f",
+      "path": "scripts/Prepare-ThreePersonTest.mjs"
+    },
+    {
+      "sha256": "0fa70be327edf44ecd3df67cd546dfacadc2bc9a194e084a022e53d2a1ea68d0",
+      "path": "scripts/Start-ThreePersonLanTrial.ps1"
+    },
+    {
+      "sha256": "63afdd41f7a392901fb89991cd21777e50c6dd6688aad062c9827a34e33a462a",
+      "path": "scripts/Test-ThreePersonPreparationUi.ps1"
+    },
+    {
+      "sha256": "0a15a0c2ec99ac21a30aac1ac67038317f903c86f7ac9a5d07091458ce9d2844",
+      "path": "scripts/Test-ThreePersonPreparationUi.mjs"
+    },
+    {
+      "sha256": "c0202a0c628801536de40160e6a6ea8a2dfa44c28488fe007d905456a4e0e22b",
+      "path": "scripts/Seal-ThreePersonPreparation.ps1"
+    },
+    {
+      "sha256": "015b46447a9ea7cf6fd1fd070f45abb750036f74982222c4979515d8e1bcb372",
+      "path": "docs/04-verification/三人联测流程草案-20261012.md"
+    },
+    {
+      "sha256": "7c2ba93bfc70b18bbbc4aa022bf4e020e2b82361b28260852f6e98f99413072b",
+      "path": "docs/04-verification/three-person-fixtures-20261012/批量比分样例.txt"
+    },
+    {
+      "sha256": "19cfe5073b5f001231356ad5a7a1677be541b1e66b10c746fa304a57bd59087f",
+      "path": "docs/04-verification/three-person-fixtures-20261012/通用助手提问.txt"
+    },
+    {
+      "sha256": "ddb0eb0b25cccf47ac1fcd877fa3b9c3414d25a8c86c289348b20cf398545b62",
+      "path": "docs/04-verification/three-person-fixtures-20261012/异常分支资料.txt"
+    },
+    {
+      "sha256": "3b6fe985b3029f2c1ade71d36cc5bd7c96c08937d91a30714149977dd173b83d",
+      "path": "docs/04-verification/three-person-fixtures-20261012/正常赛通知.txt"
+    },
+    {
+      "sha256": "bb1e031ff5a1473a815f050b5da9b453570defc407d876a43da4b133b5d5297e",
+      "path": "docs/04-verification/three-person-fixtures-20261012/README.md"
+    }
+  ],
+  "liveListeners": [
+    {
+      "LocalAddress": "::1",
+      "LocalPort": 29000,
+      "OwningProcess": 63880
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 29001,
+      "OwningProcess": 63880
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 29000,
+      "OwningProcess": 63880
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 26379,
+      "OwningProcess": 58420
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 25432,
+      "OwningProcess": 21372
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 8091,
+      "OwningProcess": 67604
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 8082,
+      "OwningProcess": 72248
+    },
+    {
+      "LocalAddress": "192.168.1.236",
+      "LocalPort": 5193,
+      "OwningProcess": 14900
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 5192,
+      "OwningProcess": 72232
+    }
+  ],
+  "failuresRetained": [
+    "Original startup firewall permission denial and early wrapper check",
+    "Initial account guard and login-contract failures",
+    "Mobile nickname selector failures before current page-aware read-only verification"
+  ],
+  "limitations": [
+    "Six fixtures do not validate real SMS registration",
+    "Browser sessions on one host do not validate three physical devices",
+    "Synthetic funds and scores do not validate real payments or sport adjudication",
+    "Original 21/17/7 acceptance items remain tracked individually"
+  ]
+}

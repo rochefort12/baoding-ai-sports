@@ -1,0 +1,184 @@
+{
+  "name": "asp_person",
+  "domain": "D02",
+  "description": "一名独立参赛者的稳定档案；同名不合并，资料更正不改写报名快照。通用联系和体貌资料在本表，不进赛事属性目录",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "legal_name",
+      "type": "varchar(100)",
+      "description": "真实姓名；必填",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "display_name",
+      "type": "varchar(100)",
+      "description": "活动展示名；空则对外使用真实姓名",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "birth_date",
+      "type": "date",
+      "description": "出生日期；必填。年龄按赛事自己的基准日判断",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "gender",
+      "type": "varchar(32)",
+      "description": "分组用性别；必填：male female other",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "gender IN ('male', 'female', 'other')"
+    },
+    {
+      "name": "mobile",
+      "type": "varchar(20)",
+      "description": "联系手机；必填，公开页不展示。当前因手机号注册尚未回填而手填。后续只回显注册时验证过的手机号，不能改成其他号码",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "id_doc_type",
+      "type": "varchar(32)",
+      "description": "证件类型：id_card passport hmt_pass other；可空",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": "id_doc_type IS NULL OR id_doc_type IN ('id_card', 'passport', 'hmt_pass', 'other')"
+    },
+    {
+      "name": "identity_hash",
+      "type": "varchar(128)",
+      "description": "证件号码带密钥摘要；一个有效证件只对应一份档案。未填证件时为空",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "identity_cipher",
+      "type": "varchar(1000)",
+      "description": "证件号码加密值；不作为公开编号。未填证件时为空",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "city",
+      "type": "varchar(100)",
+      "description": "所在城市；通用资料，可空",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "address_detail",
+      "type": "varchar(200)",
+      "description": "详细地址；通用资料，可空",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "blood_type",
+      "type": "varchar(32)",
+      "description": "血型：A B AB O unknown；通用资料，可空，不公开",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": "blood_type IS NULL OR blood_type IN ('A', 'B', 'AB', 'O', 'unknown')"
+    },
+    {
+      "name": "clothing_size",
+      "type": "varchar(32)",
+      "description": "衣服尺码：XS S M L XL XXL XXXL；通用资料，可空",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": "clothing_size IS NULL OR clothing_size IN ('XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL')"
+    },
+    {
+      "name": "emergency_contact_name",
+      "type": "varchar(100)",
+      "description": "紧急联系人；通用资料，可空",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "emergency_contact_phone",
+      "type": "varchar(20)",
+      "description": "紧急联系号码；通用资料，可空，不公开",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "verification_status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：unverified pending verified disputed",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "verification_status IN ('unverified', 'pending', 'verified', 'disputed')"
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：active restricted merged archived",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('active', 'restricted', 'merged', 'archived')"
+    },
+    {
+      "name": "merged_into_id",
+      "type": "bigint",
+      "description": "经平台核对后的合并目标；参赛者不能自行合并",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_person",
+      "check": null
+    }
+  ],
+  "tenant": false,
+  "checks": [
+    "merged_into_id IS NULL OR merged_into_id <> id",
+    "mobile ~ '^1[3-9][0-9]{9}$'",
+    "(id_doc_type IS NULL) = (identity_hash IS NULL)",
+    "(identity_hash IS NULL) = (identity_cipher IS NULL)",
+    "emergency_contact_phone IS NULL OR emergency_contact_phone ~ '^1[3-9][0-9]{9}$'"
+  ],
+  "unique": [
+    [
+      "identity_hash",
+      "status = 'active' AND identity_hash IS NOT NULL"
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-person",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

@@ -1,0 +1,84 @@
+{
+  "name": "asp_migration_mapping",
+  "domain": "D13",
+  "description": "旧新记录映射、差异及未完责任；不虚构调平",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "batch_id",
+      "type": "bigint",
+      "description": "迁移批次",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_migration_batch",
+      "check": null
+    },
+    {
+      "name": "object_type",
+      "type": "varchar(100)",
+      "description": "业务对象类型",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "source_key",
+      "type": "varchar(200)",
+      "description": "旧系统稳定键",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "target_id",
+      "type": "bigint",
+      "description": "新对象 ID",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：matched missing conflict reconciled",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('matched', 'missing', 'conflict', 'reconciled')"
+    },
+    {
+      "name": "difference",
+      "type": "jsonb",
+      "description": "来源、差异和处理人；必须按版本校验结构",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": true,
+  "checks": [],
+  "unique": [
+    [
+      "batch_id, object_type, source_key",
+      null
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-migration-mapping",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

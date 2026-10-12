@@ -1,0 +1,121 @@
+{
+  "name": "asp_team_invitation",
+  "domain": "D03",
+  "description": "指定本人邀请、队长可转发分享授权及本人接受事实。分享不公开队内名单；离队后不重放旧授权",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "team_id",
+      "type": "bigint",
+      "description": "邀请队伍",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_team",
+      "check": null
+    },
+    {
+      "name": "inviter_account_id",
+      "type": "bigint",
+      "description": "邀请者",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_account",
+      "check": null
+    },
+    {
+      "name": "inviter_person_id",
+      "type": "bigint",
+      "description": "分享授权时的队长稳定档案，转让或账号停止后失效；旧定向邀请为空",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_person",
+      "check": null
+    },
+    {
+      "name": "target_person_id",
+      "type": "bigint",
+      "description": "指定受邀人；share 分享授权为空，接受后另插指定本人事实",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_person",
+      "check": null
+    },
+    {
+      "name": "invitation_kind",
+      "type": "varchar(32)",
+      "description": "direct 定向邀请或分享接受事实；share 可转发队伍授权",
+      "nullable": false,
+      "default": "'direct'",
+      "reference": null,
+      "check": "invitation_kind IN ('direct', 'share')"
+    },
+    {
+      "name": "invite_token",
+      "type": "varchar(64)",
+      "description": "256位随机业务链接凭据，仅当前队长回显；不进日志、通知或匿名预览，不授予成员资料权限",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": "invite_token IS NULL OR invite_token ~ '^[a-f0-9]{64}$'"
+    },
+    {
+      "name": "expires_at",
+      "type": "timestamptz",
+      "description": "分享授权七天到期；旧定向邀请不设到期；有时区业务时间",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "share_invitation_id",
+      "type": "bigint",
+      "description": "本人接受分享的来源；同来源同本人仅一次，结束成员后不复活",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_team_invitation",
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：pending accepted declined revoked invalidated",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('pending', 'accepted', 'declined', 'revoked', 'invalidated')"
+    }
+  ],
+  "tenant": false,
+  "checks": [
+    "(invitation_kind = 'direct' AND target_person_id IS NOT NULL AND invite_token IS NULL AND expires_at IS NULL) OR (invitation_kind = 'share' AND target_person_id IS NULL AND inviter_person_id IS NOT NULL AND invite_token IS NOT NULL AND expires_at IS NOT NULL AND share_invitation_id IS NULL AND status IN ('pending', 'revoked', 'invalidated'))",
+    "share_invitation_id IS NULL OR (invitation_kind = 'direct' AND status = 'accepted' AND share_invitation_id <> id)"
+  ],
+  "unique": [
+    [
+      "team_id, target_person_id",
+      "status = 'pending'"
+    ],
+    [
+      "invite_token",
+      "invite_token IS NOT NULL"
+    ],
+    [
+      "team_id",
+      "invitation_kind = 'share' AND status = 'pending'"
+    ],
+    [
+      "share_invitation_id, target_person_id",
+      "share_invitation_id IS NOT NULL"
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-team-invitation",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

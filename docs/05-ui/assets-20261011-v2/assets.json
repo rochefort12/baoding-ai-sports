@@ -1,0 +1,144 @@
+{
+  "generation": "built-in image_gen",
+  "assets": [
+    {
+      "file": "plus-ui/public/images/sports/ranks/bronze.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 30768,
+      "sha256": "9cbbacb29d0b9ad1d5aaaffc9c5b9ea93f1c5bf26025b2b27e9ede5709790ef8",
+      "prompt": "Use case: stylized-concept. Asset type: a single small growth rank emblem for a mature sports app, bronze tier. Create one centered original elegant three-dimensional enamel-and-metal badge: warm satin bronze, a single upward feather, minimal rounded shield. Sport feather motif, restrained premium industrial design, physical bevels, soft studio highlights, legible at 40px. Front facing, balanced silhouette, 20% transparent breathing room. Warm-white graphite and sport-orange product language. No text, no digits, no stars, no diamonds as sparkle glyphs, no crown at this lower tier, no ribbon, no people, no real brand, no watermark, no background or square plate. Genuine transparent background, square 1024x1024.",
+      "originalSha256": "238c98e02e0cf36a5ade690bfae1956f37d561477012bec2e7a57c774068ce82",
+      "alphaMin": 0,
+      "alphaMax": 255
+    },
+    {
+      "file": "plus-ui/public/images/sports/ranks/silver.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 39046,
+      "sha256": "2168c0c56b704aeb7d71fe19cfde946dbfe4f17232e00ba34cc26d0fd65e7d5a",
+      "prompt": "Use case: stylized-concept. Asset type: a single small growth rank emblem for a mature sports app, silver tier. Create one centered original elegant three-dimensional enamel-and-metal badge: cool brushed silver, two upward feathers in an elegant V, narrow rounded shield. Sport feather motif, restrained premium industrial design, physical bevels, soft studio highlights, legible at 40px. Front facing, balanced silhouette, 20% transparent breathing room. Warm-white graphite and sport-orange product language. No text, no digits, no stars, no diamonds as sparkle glyphs, no crown at this lower tier, no ribbon, no people, no real brand, no watermark, no background or square plate. Genuine transparent background, square 1024x1024.",
+      "originalSha256": "46e63baa144201464c0cb756fd04ae0d752df10f702198dabaf39a2945deab7b",
+      "alphaMin": 0,
+      "alphaMax": 255
+    },
+    {
+      "file": "plus-ui/public/images/sports/ranks/gold.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 37190,
+      "sha256": "4f1ca857da166d03ed8c783eb34985a410023e7fbe97a97389594bfa069a4785",
+      "prompt": "Use case: stylized-concept. Asset type: a single small growth rank emblem for a mature sports app, gold tier. Create one centered original elegant three-dimensional enamel-and-metal badge: rich muted champagne gold, three upward feathers with refined warm enamel accent, rounded shield. Sport feather motif, restrained premium industrial design, physical bevels, soft studio highlights, legible at 40px. Front facing, balanced silhouette, 20% transparent breathing room. Warm-white graphite and sport-orange product language. No text, no digits, no stars, no diamonds as sparkle glyphs, no crown at this lower tier, no ribbon, no people, no real brand, no watermark, no background or square plate. Genuine transparent background, square 1024x1024.",
+      "originalSha256": "8cb431c28195edd6a938a892000247508d39e556ca860e5eeb1f687d49292bff",
+      "alphaMin": 0,
+      "alphaMax": 255
+    },
+    {
+      "file": "plus-ui/public/images/sports/ranks/platinum.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 34802,
+      "sha256": "8a7c418bc251b556bfe52e1eaecec6fd1fa2d56d5c7320c4747663a159452b4a",
+      "prompt": "Use case: stylized-concept. Asset type: single platinum growth rank emblem for an elegant mature sports application. Original three-dimensional enamel-and-metal badge: pale platinum and soft jade enamel, four clean aerodynamic feather blades, light refined shield. Sport feather motif matching a bronze/silver/gold shield family. Restrained premium industrial design, physical bevels, soft studio highlights, readable at 40px, frontal centered balanced silhouette. 20% genuine transparent margin on every side. No text, letters, digits, official seals, real brand, glitter glyphs, ribbon, background or square plate. Genuine transparent background. Square 1024x1024.",
+      "originalSha256": "e37d3405b0adcb636ed984eb286ef25e4f773429f6a15dfbe55a7c22d2f74269",
+      "alphaMin": 0,
+      "alphaMax": 255
+    },
+    {
+      "file": "plus-ui/public/images/sports/ranks/diamond.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 33126,
+      "sha256": "4e09945e1d5613e0efe67e6726a9bb24f320f5343cbc464d82b83790dabe1bae",
+      "prompt": "Use case: stylized-concept. Asset type: single diamond growth rank emblem for an elegant mature sports application. Original three-dimensional enamel-and-metal badge: brushed silver and smoky ice-blue crystal, a faceted central feather, cool compact shield. Sport feather motif matching a bronze/silver/gold shield family. Restrained premium industrial design, physical bevels, soft studio highlights, readable at 40px, frontal centered balanced silhouette. 20% genuine transparent margin on every side. No text, letters, digits, official seals, real brand, glitter glyphs, ribbon, background or square plate. Genuine transparent background. Square 1024x1024.",
+      "originalSha256": "3e8e083ced1e5079d9e307cf92e8c7b6fc240e5b30960e97f5040942edc7d6e7",
+      "alphaMin": 0,
+      "alphaMax": 255
+    },
+    {
+      "file": "plus-ui/public/images/sports/ranks/stellar.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 40154,
+      "sha256": "9afb63832ca78e0d24f5dc232f343b0afbc7e36e7d2cd7668c3adcff06104a18",
+      "prompt": "Use case: stylized-concept. Asset type: single stellar growth rank emblem for an elegant mature sports application. Original three-dimensional enamel-and-metal badge: midnight navy enamel, warm champagne metal and an elegant six-blade radial feather motif, no literal sparkle star. Sport feather motif matching a bronze/silver/gold shield family. Restrained premium industrial design, physical bevels, soft studio highlights, readable at 40px, frontal centered balanced silhouette. 20% genuine transparent margin on every side. No text, letters, digits, official seals, real brand, glitter glyphs, ribbon, background or square plate. Genuine transparent background. Square 1024x1024.",
+      "originalSha256": "5bf483550e0901363a0a0f25acf955ef3339f603d2a00ab5c26c80e597a5d284",
+      "alphaMin": 0,
+      "alphaMax": 255
+    },
+    {
+      "file": "plus-ui/public/images/sports/ranks/king.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 57424,
+      "sha256": "73bff89e3d64f01a0f568fe49742f6675893085a1b05efb3751b32fbf97c9828",
+      "prompt": "Use case: stylized-concept. Asset type: single king growth rank emblem for an elegant mature sports application. Original three-dimensional enamel-and-metal badge: champagne gold, ivory enamel, a compact original crown merging with sweeping feather wings, poised and prestigious. Sport feather motif matching a bronze/silver/gold shield family. Restrained premium industrial design, physical bevels, soft studio highlights, readable at 40px, frontal centered balanced silhouette. 20% genuine transparent margin on every side. No text, letters, digits, official seals, real brand, glitter glyphs, ribbon, background or square plate. Genuine transparent background. Square 1024x1024.",
+      "originalSha256": "29dffa3144697f2fa0a19481ccd1e034ad9e70f92aaba0e016125f27672f1e8b",
+      "alphaMin": 0,
+      "alphaMax": 255
+    },
+    {
+      "file": "plus-ui/public/images/sports/medals/gold.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 51290,
+      "sha256": "ab570590b7b0ae64b5c435632710dd8bb83487663ee2b81393ac84e44919f8a8",
+      "prompt": "Use case: stylized-concept. Asset type: a single elegant gold sport award medal for the official results screen. A physical circular medal of warm champagne gold, original embossed two crossed feather shuttle shapes within an understated laurel ring, suspended from a short folded ivory woven ribbon with one narrow sport-orange edge. Frontal centered view, refined tactile metal, restrained museum product lighting, mature athletic identity. Readable at 48px, no literal rank or number, 18% transparent empty margins. No star, text, letter, number, logo, seal, watermark, background, extra medal. Genuine transparent background, square 1024x1024.",
+      "originalSha256": "28508891e014098f5b25de192679719e43a886682890044a962a411df4dcc763",
+      "alphaMin": 0,
+      "alphaMax": 255
+    },
+    {
+      "file": "plus-ui/public/images/sports/medals/silver.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 38828,
+      "sha256": "718a2db1ea932e7a83c742deba6cc40aace0120a306ca450fd1f6a51836e44d6",
+      "prompt": "Use case: stylized-concept. Asset type: a single elegant silver sport award medal for the official results screen. A physical circular medal of brushed cool silver, original embossed two crossed feather shuttle shapes within an understated laurel ring, suspended from a short folded ivory woven ribbon with one narrow sport-orange edge. Frontal centered view, refined tactile metal, restrained museum product lighting, mature athletic identity. Readable at 48px, no literal rank or number, 18% transparent empty margins. No star, text, letter, number, logo, seal, watermark, background, extra medal. Genuine transparent background, square 1024x1024.",
+      "originalSha256": "cdf190ba6b4c75b89becf772f516a909b83f3675f07f52c2ae832464cb2ea967",
+      "alphaMin": 0,
+      "alphaMax": 255
+    },
+    {
+      "file": "plus-ui/public/images/sports/medals/bronze.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 46042,
+      "sha256": "e25455dcb3d1f0fc5f073d3a6493fd0882ac6ca3ce3bbcff1bafe646a9f5c6f0",
+      "prompt": "Use case: stylized-concept. Asset type: a single elegant bronze sport award medal for the official results screen. A physical circular medal of satin copper bronze, original embossed two crossed feather shuttle shapes within an understated laurel ring, suspended from a short folded ivory woven ribbon with one narrow sport-orange edge. Frontal centered view, refined tactile metal, restrained museum product lighting, mature athletic identity. Readable at 48px, no literal rank or number, 18% transparent empty margins. No star, text, letter, number, logo, seal, watermark, background, extra medal. Genuine transparent background, square 1024x1024.",
+      "originalSha256": "2f4b80162f2e614bc477f0f9a5f948933944ffa8cb57c1a1e1759e5489ea1005",
+      "alphaMin": 0,
+      "alphaMax": 255
+    },
+    {
+      "file": "plus-ui/public/images/sports/art/court-paper.webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 65986,
+      "sha256": "3028779ca8936986776ef65c72d5618c6fd88114a6b8eb64aa2ee2b7dcb9b62b",
+      "prompt": "Use case: stylized-concept. Asset type: quiet decorative backdrop for mature sports app forms and service cards. Wide 1536x1024 artwork: warm ivory fine handmade paper with a very restrained sage badminton-court line geometry and softly lit folded paper feather shapes ONLY in lower-right quarter. 80 percent of canvas is clean nearly white negative space, smooth luminous paper grain, subtle artistic sport feeling, tiny warm-orange line accent. No text, numbers, letters, logo, icons, controls, athletes or real venue. Gentle low contrast suitable under HTML text, no dark patches, no simulated UI.",
+      "originalSha256": "b4dff18be1be83c5365411fd34fa2c605c3909dac69680e7fd012e397d09332c"
+    },
+    {
+      "file": "plus-ui/public/images/sports/art/motion-ribbon.webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 96104,
+      "sha256": "7a6ff18e3f46df721dcca15129b598268f5198d303c10a5ef838403ad6fb450f",
+      "prompt": "Use case: stylized-concept. Asset type: elegant sport motion decorative backdrop for mature app cards. Wide 1536x1024 artwork: one soft ivory textile ribbon with a thin muted sport-orange edge curving as a graceful kinetic loop at RIGHTMOST 25% of canvas, subtle sage paper-cut court arc behind it. Left 75% clean warm-white matte space. Quiet sculptural still life, natural woven texture, soft ambient light and shadow, refined minimal sport art. No typography, logos, stars, sparkle, UI, people or brands. Deliberately low contrast except for small orange edge.",
+      "originalSha256": "e8e3bdcd178eee641b50185642bbab644388bf070c0d7673244718e904eb8a18"
+    },
+    {
+      "file": "plus-ui/public/images/sports/assistant-orb-v2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 7898,
+      "sha256": "5fd1017893610db8509fff2d926ad92135846f9c328058aa914f2cde399e5c5f",
+      "prompt": "Use case: stylized-concept. Asset type: a single compact clickable sports agent icon for an elegant mature sports app. An original small frosted pearl-glass sphere with one thin muted-orange ribbon curving around it like the flight arc of a shuttle, subtle white feather-like fins implied inside glass, beautifully poised material and soft shadow. Restrained minimal luxury object, balanced frontal silhouette, 25% true transparent margin. Readable at 32px. No stars, diamonds, sparkle glyphs, face, eyes, letters, digits, real brand, text, UI, background, square plate or extra object. Genuine transparent background. Square 1024x1024.",
+      "originalSha256": "a1dbd453b1aa97ea0d42eccb8072910bc6779e5ba103b6b4496bb9da02e40a02",
+      "alphaMin": 0,
+      "alphaMax": 255
+    }
+  ]
+}

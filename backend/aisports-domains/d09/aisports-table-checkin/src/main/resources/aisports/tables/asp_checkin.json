@@ -1,0 +1,121 @@
+{
+  "name": "asp_checkin",
+  "domain": "D09",
+  "description": "逐现实选手按项目报到/检录；队长到场不代表全队",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "event_id",
+      "type": "bigint",
+      "description": "赛事",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_event",
+      "check": null
+    },
+    {
+      "name": "unit_id",
+      "type": "bigint",
+      "description": "赛事项目；旧赛事级记录项目未知，保留为空待核对",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_competition_unit",
+      "check": null
+    },
+    {
+      "name": "person_id",
+      "type": "bigint",
+      "description": "实际到场人",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_person",
+      "check": null
+    },
+    {
+      "name": "match_id",
+      "type": "bigint",
+      "description": "单场检录；项目报到为空",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_match",
+      "check": null
+    },
+    {
+      "name": "check_type",
+      "type": "varchar(100)",
+      "description": "unit 项目报到、event 历史赛事级报到、match 单场检录",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：confirmed corrected rejected",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('confirmed', 'corrected', 'rejected')"
+    },
+    {
+      "name": "verification",
+      "type": "jsonb",
+      "description": "授权核查方式及必要证据；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "occurred_at",
+      "type": "timestamptz",
+      "description": "现场发生时间；有时区业务时间",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "request_key",
+      "type": "varchar(128)",
+      "description": "扫码/离线补录幂等键",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": true,
+  "checks": [
+    "check_type <> 'unit' OR (unit_id IS NOT NULL AND match_id IS NULL)"
+  ],
+  "unique": [
+    [
+      "request_key",
+      null
+    ],
+    [
+      "event_id, person_id",
+      "unit_id IS NULL AND match_id IS NULL AND status = 'confirmed'"
+    ],
+    [
+      "event_id, unit_id, person_id",
+      "unit_id IS NOT NULL AND match_id IS NULL AND status = 'confirmed'"
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-checkin",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

@@ -1,0 +1,53 @@
+{
+  "date": "2026-10-11",
+  "generation": "built-in image_gen",
+  "assets": [
+    {
+      "file": "plus-ui\\public\\images\\sports\\badminton-hero-v1.webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 369002,
+      "sha256": "ae26aee356a0343608d55ab9adeabd83a77f5aa1001d2ee6995ca1d2077d6e02"
+    },
+    {
+      "file": "plus-ui\\public\\images\\sports\\sports-login-v1.webp",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 144358,
+      "sha256": "9b498001de79b75e6e32bc8be16392684fea9ce60ee094928090c3b810ffc57e"
+    },
+    {
+      "file": "plus-ui\\public\\images\\sports\\assistant-orb-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 17396,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "sha256": "49349c76050ee264ae3ef4f890a3faaf5e96c6a488629f9a64c190f942745337",
+      "sourceWidth": 1254,
+      "sourceHeight": 1254
+    },
+    {
+      "file": "plus-ui\\public\\images\\sports\\brand-mark-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 17820,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "sha256": "86c899d608dd1d2037e97d836931bbed07b9038625ac2e27198e0a6f474313f3",
+      "sourceWidth": 1254,
+      "sourceHeight": 1254
+    },
+    {
+      "file": "plus-ui\\public\\images\\sports\\bronze-medal-v1.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 53500,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "sha256": "b673be674f9cff5be40c6efa54d9981db1d415581fa54fe9e6945962350ba573",
+      "sourceWidth": 1254,
+      "sourceHeight": 1254
+    }
+  ]
+}

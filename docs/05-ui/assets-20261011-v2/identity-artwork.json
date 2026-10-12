@@ -1,0 +1,109 @@
+{
+  "origin": "Original project-authored SVG; decorative artwork never grants rank/title",
+  "assets": [
+    {
+      "file": "plus-ui/public/images/sports/frames/bronze.svg",
+      "bytes": 937,
+      "sha256": "a06511215e52100fd96bb83c30b7eaec59987fe88b847dc92578d72341910296",
+      "format": "native SVG",
+      "viewBox": "0 0 256 256",
+      "purpose": "Real growth rank avatar frame"
+    },
+    {
+      "file": "plus-ui/public/images/sports/frames/diamond.svg",
+      "bytes": 1821,
+      "sha256": "cca99a24c3ea15d5e55a8d3d0399952aff9277410263006432bf36ae73e5a6f1",
+      "format": "native SVG",
+      "viewBox": "0 0 256 256",
+      "purpose": "Real growth rank avatar frame"
+    },
+    {
+      "file": "plus-ui/public/images/sports/frames/gold.svg",
+      "bytes": 1379,
+      "sha256": "9bba5f026e42bf74c3fc36b0cf2a8ce9adee857190de1e0a267c701c56f7ec9e",
+      "format": "native SVG",
+      "viewBox": "0 0 256 256",
+      "purpose": "Real growth rank avatar frame"
+    },
+    {
+      "file": "plus-ui/public/images/sports/frames/king.svg",
+      "bytes": 1937,
+      "sha256": "7a3b5a53b8a714bc18b04713b5bbd0f61e0c74fed5c78b2f986dc1c51b5f5db5",
+      "format": "native SVG",
+      "viewBox": "0 0 256 256",
+      "purpose": "Real growth rank avatar frame"
+    },
+    {
+      "file": "plus-ui/public/images/sports/frames/platinum.svg",
+      "bytes": 1600,
+      "sha256": "fde688a683373a56da02df6b98a9ba48f9358cb40f99c43f8a58a62063271a54",
+      "format": "native SVG",
+      "viewBox": "0 0 256 256",
+      "purpose": "Real growth rank avatar frame"
+    },
+    {
+      "file": "plus-ui/public/images/sports/frames/silver.svg",
+      "bytes": 1158,
+      "sha256": "c01f8d52902b73f36cbcd513a1ce2128159ea964be9c6598a06e5bae036cf0bf",
+      "format": "native SVG",
+      "viewBox": "0 0 256 256",
+      "purpose": "Real growth rank avatar frame"
+    },
+    {
+      "file": "plus-ui/public/images/sports/frames/stellar.svg",
+      "bytes": 1821,
+      "sha256": "08998cb2012959c2e221a0d566d9cd5cbb5c53a3e5e65ba8aa4cc2b25459b220",
+      "format": "native SVG",
+      "viewBox": "0 0 256 256",
+      "purpose": "Real growth rank avatar frame"
+    },
+    {
+      "file": "plus-ui/public/images/sports/titles/first_checkin.svg",
+      "bytes": 582,
+      "sha256": "7c7634b597f1ad46661b762509421be8f6a57a93b78e4c0d8627fd03a2535ee6",
+      "format": "native SVG",
+      "viewBox": "0 0 256 256",
+      "purpose": "Earned sports title ornament"
+    },
+    {
+      "file": "plus-ui/public/images/sports/titles/first_finish.svg",
+      "bytes": 678,
+      "sha256": "62054f3583d9465de27fab6f07d6216907686e3f81ee5bda7cfc50fa3d4a5143",
+      "format": "native SVG",
+      "viewBox": "0 0 256 256",
+      "purpose": "Earned sports title ornament"
+    },
+    {
+      "file": "plus-ui/public/images/sports/titles/regular.svg",
+      "bytes": 774,
+      "sha256": "635744a726971e8c6d2b6995ac4ad95b1a4ff64840a0bb8b0a321248011d9159",
+      "format": "native SVG",
+      "viewBox": "0 0 256 256",
+      "purpose": "Earned sports title ornament"
+    },
+    {
+      "file": "plus-ui/public/images/sports/titles/team_first.svg",
+      "bytes": 678,
+      "sha256": "62054f3583d9465de27fab6f07d6216907686e3f81ee5bda7cfc50fa3d4a5143",
+      "format": "native SVG",
+      "viewBox": "0 0 256 256",
+      "purpose": "Earned sports title ornament"
+    },
+    {
+      "file": "plus-ui/public/images/sports/titles/team_partners.svg",
+      "bytes": 774,
+      "sha256": "635744a726971e8c6d2b6995ac4ad95b1a4ff64840a0bb8b0a321248011d9159",
+      "format": "native SVG",
+      "viewBox": "0 0 256 256",
+      "purpose": "Earned sports title ornament"
+    },
+    {
+      "file": "plus-ui/public/images/sports/titles/team_veterans.svg",
+      "bytes": 870,
+      "sha256": "9fb2b520d725cf2eca46bc6dfc08548c5980e84143144a84792d3c982a5f8df2",
+      "format": "native SVG",
+      "viewBox": "0 0 256 256",
+      "purpose": "Earned sports title ornament"
+    }
+  ]
+}

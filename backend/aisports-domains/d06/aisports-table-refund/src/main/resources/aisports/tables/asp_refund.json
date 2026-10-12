@@ -1,0 +1,159 @@
+{
+  "name": "asp_refund",
+  "domain": "D06",
+  "description": "已经发生的退款事实。不是平台发起的退款申请",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "payment_id",
+      "type": "bigint",
+      "description": "原实际付款",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_payment",
+      "check": null
+    },
+    {
+      "name": "allocation_id",
+      "type": "bigint",
+      "description": "被退服务分配",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_payment_allocation",
+      "check": null
+    },
+    {
+      "name": "withdrawal_id",
+      "type": "bigint",
+      "description": "相关退赛",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_withdrawal",
+      "check": null
+    },
+    {
+      "name": "applicant_account_id",
+      "type": "bigint",
+      "description": "申请者。一期可空",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_account",
+      "check": null
+    },
+    {
+      "name": "requested_amount",
+      "type": "numeric(18,2)",
+      "description": "申请金额；人民币元，不能用浮点",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "requested_amount >= 0"
+    },
+    {
+      "name": "approved_amount",
+      "type": "numeric(18,2)",
+      "description": "批准金额；人民币元，不能用浮点",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": "approved_amount >= 0"
+    },
+    {
+      "name": "completed_amount",
+      "type": "numeric(18,2)",
+      "description": "已核实退款金额；人民币元，不能用浮点",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": "completed_amount >= 0"
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：requested approved rejected executing completed failed",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('requested', 'approved', 'rejected', 'executing', 'completed', 'failed')"
+    },
+    {
+      "name": "channel_reference",
+      "type": "varchar(200)",
+      "description": "渠道退款唯一号",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "reason",
+      "type": "varchar(1000)",
+      "description": "规则和退款责任依据",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "request_key",
+      "type": "varchar(128)",
+      "description": "幂等键",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "completed_at",
+      "type": "timestamptz",
+      "description": "实际退款发生时间；北京时间输入，存时区时间；有时区业务时间",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "recipient_name",
+      "type": "varchar(200)",
+      "description": "实际退款接收人；旧记录未采集可空",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "recipient_basis",
+      "type": "varchar(1000)",
+      "description": "接收人变更的核验授权依据；用途受控",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": true,
+  "checks": [
+    "approved_amount IS NULL OR approved_amount <= requested_amount",
+    "completed_amount IS NULL OR (approved_amount IS NOT NULL AND completed_amount <= approved_amount)"
+  ],
+  "unique": [
+    [
+      "payment_id, request_key",
+      null
+    ]
+  ],
+  "responsibility": "累计退款在锁定原确认付款后核对可退余额，原付款人不随队长变更；执行失败保留待办。",
+  "moduleId": "aisports-table-refund",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

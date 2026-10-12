@@ -1,0 +1,75 @@
+{
+  "name": "asp_declaration_ack",
+  "domain": "D05",
+  "description": "成员本人对当时参赛声明的点击确认。队长不能代确认，确认不是电子签章",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "registration_member_id",
+      "type": "bigint",
+      "description": "确认的报名成员",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_registration_member",
+      "check": null
+    },
+    {
+      "name": "account_id",
+      "type": "bigint",
+      "description": "点击确认的平台账号，必须是该成员本人",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_account",
+      "check": null
+    },
+    {
+      "name": "event_id",
+      "type": "bigint",
+      "description": "声明所属赛事",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_event",
+      "check": null
+    },
+    {
+      "name": "content_digest",
+      "type": "varchar(64)",
+      "description": "确认时声明文字和文件的摘要。声明变化后需重新确认",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "acknowledged_at",
+      "type": "timestamptz",
+      "description": "本人点击确认的时间；有时区业务时间",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": true,
+  "checks": [],
+  "unique": [
+    [
+      "registration_member_id",
+      null
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-declaration-ack",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

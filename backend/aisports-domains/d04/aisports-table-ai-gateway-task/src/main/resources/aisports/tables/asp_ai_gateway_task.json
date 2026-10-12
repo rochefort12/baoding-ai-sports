@@ -1,0 +1,123 @@
+{
+  "name": "asp_ai_gateway_task",
+  "domain": "D04",
+  "description": "历史AI网关提案账本，来源V023；不等于当前ai_task实现，不保存原文或密钥",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "organization_id",
+      "type": "bigint",
+      "description": "提出提案的组织",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_organization",
+      "check": null
+    },
+    {
+      "name": "domain_code",
+      "type": "varchar(64)",
+      "description": "业务域编码，域内语义由服务定义",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "domain_code ~ '^[a-z][a-z0-9-]{0,63}$'"
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "提案状态：extracted applying confirmed discarded",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('extracted', 'applying', 'confirmed', 'discarded')"
+    },
+    {
+      "name": "source_name",
+      "type": "varchar(200)",
+      "description": "上传文件名，不保存正文",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "source_media_type",
+      "type": "varchar(100)",
+      "description": "上传媒体类型",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "source_sha256",
+      "type": "varchar(64)",
+      "description": "文件内容SHA-256摘要",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "source_sha256 ~ '^[0-9a-f]{64}$'"
+    },
+    {
+      "name": "proposal",
+      "type": "jsonb",
+      "description": "结构化候选、缺失项及短引用，必须校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "apply_request_key",
+      "type": "varchar(128)",
+      "description": "生成草稿的幂等键",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "event_id",
+      "type": "bigint",
+      "description": "生成的赛事草稿，确认前为空",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_event",
+      "check": null
+    },
+    {
+      "name": "confirmed_at",
+      "type": "timestamptz",
+      "description": "办赛人员确认的有时区时间；有时区业务时间",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": true,
+  "checks": [
+    "(status <> 'confirmed') OR (event_id IS NOT NULL AND confirmed_at IS NOT NULL AND apply_request_key IS NOT NULL)",
+    "(status <> 'applying') OR (apply_request_key IS NOT NULL)"
+  ],
+  "unique": [
+    [
+      "event_id",
+      "event_id IS NOT NULL"
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-ai-gateway-task",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

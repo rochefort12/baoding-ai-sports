@@ -1,0 +1,25 @@
+// Candidate release only in the existing isolated rehearsal. Main activation is separate.
+import fs from 'node:fs';import path from 'node:path';import crypto from 'node:crypto';import assert from 'node:assert/strict';import {spawnSync} from 'node:child_process';
+const runtime=JSON.parse(fs.readFileSync('.local/phase1-implementation/verification-runtime.json','utf8')),session=JSON.parse(fs.readFileSync('.local/phase1-implementation/verification-session.json','utf8'));
+assert.equal(runtime.port,8082);assert.match(runtime.database,/^aisports_verify_phase1_[a-f0-9]{32}$/);assert.equal(session.database,runtime.database);
+const evidence='.local/agent-playbook-20261011/read-facts-direct-c51c97c0-6db0-4008-9bca-e5c258edcf86.json',guide='.local/agent-playbook-20261011/real-7a6547ab-8047-4d9f-9a17-e1d9e2d36ede.json',hash=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
+assert.equal(hash(evidence),'a80f90b5be2475ea15c7c4efa5a319696c55d102aff870354e26064fa529cd17');assert.equal(hash(guide),'c12abe0f86d77f6d91acf39ab12d0c683aebe916ed7beacfa84aeb96e9fbc90e');
+const report=JSON.parse(fs.readFileSync(evidence,'utf8'));assert.equal(report.checks.length,9);assert.equal(report.failures,0);
+const codes=['event.mine','growth.card','registration.mine','room.query','type.catalog'],expected=report.checks[0].definitionHashes;
+const out=path.resolve('.local/agent-playbook-20261011','candidate-release-'+crypto.randomUUID());fs.mkdirSync(out,{recursive:true});
+const receipt={startedAt:new Date().toISOString(),scope:'Existing loopback rehearsal only: five read-only Agent candidates and current event.mine UI contract',database:runtime.database,passed:false,evidenceHash:hash(evidence),guidanceHash:hash(guide),jarSha256:hash('backend/ruoyi-admin/target/ruoyi-admin.jar'),attempted:[],released:[],limitations:['Candidate activation follows direct authorization evidence; live model read verification follows separately','No business write capability or main environment activation']};
+const base='http://127.0.0.1:8082',headers={clientid:'e5cd7e4891bf95d1d19206ce24a7b32e',Authorization:'Bearer '+session.admin.token,'Content-Type':'application/json'};
+async function api(route,method='GET',data){const response=await fetch(base+route,{method,headers,...(data?{body:JSON.stringify(data)}:{})});const body=await response.json();assert.equal(body.code,200,'Candidate administrator request rejected');return body.data;}
+function canonical(rows){return JSON.stringify(rows.filter(r=>!(r.channel==='agent'&&codes.includes(r.code))&&!(r.code==='event.mine'&&r.channel==='ui')).sort((a,b)=>(a.code+a.channel).localeCompare(b.code+b.channel)));}
+const targets=codes.map(code=>({code,channel:'agent'})).concat({code:'event.mine',channel:'ui'});
+try{
+ const before=await api('/sports/platform/management');assert.equal(before.activations.filter(a=>a.channel==='agent'&&a.enabled).length,0,'No other Agent candidate expected');
+ for(const code of codes){const found=before.definitions.find(d=>d.definition.code===code);assert.equal(found.definitionHash,expected[code]);assert.ok(!found.definition.mutation&&found.definition.writes.length===0&&found.definition.agent);}
+ fs.writeFileSync(path.join(out,'prior-activation.json'),JSON.stringify(before.activations,null,2),{flag:'wx'});
+ const backup=path.join(out,'before.dump'),dump=spawnSync('C:/ProgramData/AISports/desktop-sports-e3000ec/toolchains/postgresql-17.11/pgsql/bin/pg_dump.exe',['-h','127.0.0.1','-p',process.env.POSTGRES_PORT||'25432','-U',process.env.POSTGRES_USER,'-d',runtime.database,'-Fc','-f',backup],{encoding:'utf8',env:{...process.env,PGPASSWORD:process.env.POSTGRES_PASSWORD}});assert.equal(dump.status,0,'Candidate backup failed');receipt.backup={sha256:hash(backup),bytes:fs.statSync(backup).size};
+ for(const target of targets){receipt.attempted.push(target);await api('/sports/platform/management/release','POST',{...target,enabled:true,definitionHash:expected[target.code],evidenceHash:hash(evidence)});receipt.released.push(target);}
+ const after=await api('/sports/platform/management');assert.equal(canonical(after.activations),canonical(before.activations),'Unrelated channels changed');
+ assert.deepEqual(after.activations.filter(a=>a.channel==='agent'&&a.enabled).map(a=>a.code).sort(),[...codes].sort());
+ receipt.passed=true;receipt.afterActivationHash=crypto.createHash('sha256').update(JSON.stringify(after.activations)).digest('hex');console.log('PASS exactly five read-only Agent trial candidates; main and business write channels unchanged');
+}catch(error){receipt.failure='Candidate release failed; no raw credentials or provider replies recorded';for(const target of receipt.attempted.filter(t=>t.channel==='agent'))try{await api('/sports/platform/management/release','POST',{...target,enabled:false,definitionHash:expected[target.code],evidenceHash:hash(evidence)});}catch{};process.exitCode=1;}
+finally{receipt.finishedAt=new Date().toISOString();fs.writeFileSync(path.join(out,'receipt.json'),JSON.stringify(receipt,null,2),{flag:'wx'});console.log('Evidence '+path.relative(process.cwd(),out));}

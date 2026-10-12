@@ -1,0 +1,70 @@
+{
+  "name": "asp_team_join_request",
+  "domain": "D03",
+  "description": "入队申请。待处理不是成员，失效不能记成申请人撤销或队长拒绝",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "team_id",
+      "type": "bigint",
+      "description": "申请队伍",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_team",
+      "check": null
+    },
+    {
+      "name": "person_id",
+      "type": "bigint",
+      "description": "申请者",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_person",
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：pending approved rejected cancelled invalidated",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('pending', 'approved', 'rejected', 'cancelled', 'invalidated')"
+    },
+    {
+      "name": "reviewer_account_id",
+      "type": "bigint",
+      "description": "处理人。申请人撤销和系统失效时为空",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_account",
+      "check": null
+    },
+    {
+      "name": "reason",
+      "type": "varchar(500)",
+      "description": "处理依据",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": false,
+  "checks": [],
+  "unique": [
+    [
+      "team_id, person_id",
+      "status = 'pending'"
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-team-join-request",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

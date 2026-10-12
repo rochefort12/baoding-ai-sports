@@ -1,0 +1,335 @@
+{
+  "name": "asp_event",
+  "domain": "D04",
+  "description": "赛事容器。M1.3 的发布和举办状态分开，时间阶段按北京时间计算，不改这一列的旧生命周期取值",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "organization_id",
+      "type": "bigint",
+      "description": "主责组织",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_organization",
+      "check": null
+    },
+    {
+      "name": "name",
+      "type": "varchar(200)",
+      "description": "赛事名称。草稿可空，发布时必填",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "series_id",
+      "type": "bigint",
+      "description": "系列/联赛业务关联；后续系列服务核验",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "starts_at",
+      "type": "timestamptz",
+      "description": "开赛时间。发布时必填；有时区业务时间",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "ends_at",
+      "type": "timestamptz",
+      "description": "结束时间。发布时必填；有时区业务时间",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "registration_opens_at",
+      "type": "timestamptz",
+      "description": "报名开始。报名是否接受以报名流程为准，时间记在赛事上；有时区业务时间",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "registration_closes_at",
+      "type": "timestamptz",
+      "description": "报名结束。报名是否接受以报名流程为准，时间记在赛事上；有时区业务时间",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "location",
+      "type": "varchar(200)",
+      "description": "比赛地点。公开文字，不引用场馆",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "project_name",
+      "type": "varchar(200)",
+      "description": "赛事项目。公开文字，不建竞赛单元",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "fee_description",
+      "type": "varchar(1000)",
+      "description": "收费方式或收费说明。公开文字，不产生付款",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "banner_file_id",
+      "type": "bigint",
+      "description": "宣传图文件编号。可空，不建外键",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "rules_text",
+      "type": "varchar(4000)",
+      "description": "竞赛规程文字。可与图片同时存在",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "rules_file_id",
+      "type": "bigint",
+      "description": "竞赛规程图片文件编号。可空，不建外键",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "notice_text",
+      "type": "varchar(4000)",
+      "description": "报名须知文字。可与图片同时存在",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "notice_file_id",
+      "type": "bigint",
+      "description": "报名须知图片文件编号。可空，不建外键",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "declaration_text",
+      "type": "varchar(4000)",
+      "description": "参赛声明文字。可与图片同时存在",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "declaration_file_id",
+      "type": "bigint",
+      "description": "参赛声明图片文件编号。可空，不建外键",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "declaration_ack_required",
+      "type": "boolean",
+      "description": "参赛声明是否必须由成员本人点击确认。不是证件核验，也不是电子签章",
+      "nullable": false,
+      "default": "false",
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "route_text",
+      "type": "varchar(4000)",
+      "description": "比赛地点或路线说明。地图嵌入不在本期",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "route_file_id",
+      "type": "bigint",
+      "description": "比赛地点或路线图片文件编号。可空，不建外键",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "cancel_reason",
+      "type": "varchar(1000)",
+      "description": "取消原因。可空，有内容时出现在公开详情",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "sport_code",
+      "type": "varchar(32)",
+      "description": "运动编码。本期只能是 badminton",
+      "nullable": false,
+      "default": "'badminton'",
+      "reference": null,
+      "check": "sport_code = 'badminton'"
+    },
+    {
+      "name": "publication_status",
+      "type": "varchar(32)",
+      "description": "发布状态：draft published offline。已发布不能直接改公开信息",
+      "nullable": false,
+      "default": "'draft'",
+      "reference": null,
+      "check": "publication_status IN ('draft', 'published', 'offline')"
+    },
+    {
+      "name": "holding_status",
+      "type": "varchar(32)",
+      "description": "举办状态：normal cancelled。取消不等于下架，已结束不能取消",
+      "nullable": false,
+      "default": "'normal'",
+      "reference": null,
+      "check": "holding_status IN ('normal', 'cancelled')"
+    },
+    {
+      "name": "registration_review",
+      "type": "varchar(16)",
+      "description": "报名资格审核：manual 人工审核，none 无需审核。与赛事发布审批无关",
+      "nullable": false,
+      "default": "'manual'",
+      "reference": null,
+      "check": "registration_review IN ('manual', 'none')"
+    },
+    {
+      "name": "registration_review_locked",
+      "type": "boolean",
+      "description": "首笔正式提交后锁定审核方式。全部撤回也不解锁",
+      "nullable": false,
+      "default": "false",
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "后继生命周期。M1.3 不拿它判断公开：draft pending published postponed cancelled completed archived",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('draft', 'pending', 'published', 'postponed', 'cancelled', 'completed', 'archived')"
+    },
+    {
+      "name": "registration_status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：closed scheduled open suspended ended",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "registration_status IN ('closed', 'scheduled', 'open', 'suspended', 'ended')"
+    },
+    {
+      "name": "payment_status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：disabled enabled suspended",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "payment_status IN ('disabled', 'enabled', 'suspended')"
+    },
+    {
+      "name": "visibility",
+      "type": "varchar(32)",
+      "description": "旧可见性列。M1.3 公开与否不看它：private public",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "visibility IN ('private', 'public')"
+    },
+    {
+      "name": "published_revision",
+      "type": "integer",
+      "description": "当前发布版本；0 为未发布",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "published_revision >= 0"
+    },
+    {
+      "name": "contact_snapshot",
+      "type": "jsonb",
+      "description": "履约联系及退改承诺；state=draft为材料候选，明确发布确认后连同组织、联系渠道、退改原文和confirmedAt冻结；历史未标state快照保留原发布含义；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "operations_materials",
+      "type": "jsonb",
+      "description": "主办方私有策划、脚本、公告和宣传草稿。每类独立版本、真实来源及最多10个历史版本；不自动发布",
+      "nullable": false,
+      "default": "'{}'::jsonb",
+      "reference": null,
+      "check": "jsonb_typeof(operations_materials) = 'object'"
+    },
+    {
+      "name": "closure_status",
+      "type": "varchar(32)",
+      "description": "赛后问题与资金收尾状态",
+      "nullable": false,
+      "default": "'open'",
+      "reference": null,
+      "check": "closure_status IN ('open','wrap_up','closed')"
+    }
+  ],
+  "tenant": true,
+  "checks": [
+    "ends_at IS NULL OR starts_at IS NULL OR ends_at > starts_at",
+    "registration_closes_at IS NULL OR registration_opens_at IS NULL OR registration_closes_at > registration_opens_at",
+    "registration_closes_at IS NULL OR starts_at IS NULL OR registration_closes_at <= starts_at"
+  ],
+  "unique": [],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-event",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

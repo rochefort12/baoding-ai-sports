@@ -1,0 +1,90 @@
+{
+  "name": "asp_staff_grant",
+  "domain": "D01",
+  "description": "工作人员组织、赛事、动作及材料范围授权",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "organization_id",
+      "type": "bigint",
+      "description": "授权组织",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_organization",
+      "check": null
+    },
+    {
+      "name": "account_id",
+      "type": "bigint",
+      "description": "工作人员平台账号",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_account",
+      "check": null
+    },
+    {
+      "name": "event_id",
+      "type": "bigint",
+      "description": "限定赛事 ID；为空为组织范围，应用核验",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "permissions",
+      "type": "jsonb",
+      "description": "动作与材料范围；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：invited active revoked expired",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('invited', 'active', 'revoked', 'expired')"
+    },
+    {
+      "name": "valid_from",
+      "type": "timestamptz",
+      "description": "生效；有时区业务时间",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "valid_until",
+      "type": "timestamptz",
+      "description": "到期；有时区业务时间",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": true,
+  "checks": [
+    "valid_until IS NULL OR valid_until > valid_from"
+  ],
+  "unique": [],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-staff-grant",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

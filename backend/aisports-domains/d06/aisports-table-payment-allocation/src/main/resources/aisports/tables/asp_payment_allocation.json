@@ -1,0 +1,86 @@
+{
+  "name": "asp_payment_allocation",
+  "domain": "D06",
+  "description": "付款到义务与分担的映射；支持多笔实收，超额需资金收尾，不新增资格",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "payment_id",
+      "type": "bigint",
+      "description": "实际付款",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_payment",
+      "check": null
+    },
+    {
+      "name": "obligation_id",
+      "type": "bigint",
+      "description": "覆盖义务",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_fee_obligation",
+      "check": null
+    },
+    {
+      "name": "share_id",
+      "type": "bigint",
+      "description": "对应分担",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_fee_share",
+      "check": null
+    },
+    {
+      "name": "amount",
+      "type": "numeric(18,2)",
+      "description": "有效分配金额；人民币元，不能用浮点",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "amount >= 0"
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：effective reversed",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('effective', 'reversed')"
+    },
+    {
+      "name": "request_key",
+      "type": "varchar(128)",
+      "description": "分配幂等键",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": true,
+  "checks": [
+    "amount > 0"
+  ],
+  "unique": [
+    [
+      "payment_id, request_key",
+      null
+    ]
+  ],
+  "responsibility": "事务锁定付款和义务，累计有效分配不能超过确认收款；实际超额保留原款并人工收尾，分担须属于义务。",
+  "moduleId": "aisports-table-payment-allocation",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

@@ -1,0 +1,84 @@
+{
+  "name": "asp_advancement",
+  "domain": "D08",
+  "description": "确认结果驱动晋级；重复确认不重复产生席位",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "result_version_id",
+      "type": "bigint",
+      "description": "上游已确认结果",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_result_version",
+      "check": null
+    },
+    {
+      "name": "registration_id",
+      "type": "bigint",
+      "description": "晋级报名单位",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_registration",
+      "check": null
+    },
+    {
+      "name": "target_stage_id",
+      "type": "bigint",
+      "description": "下一阶段",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_stage",
+      "check": null
+    },
+    {
+      "name": "target_slot",
+      "type": "varchar(100)",
+      "description": "下一阶段稳定席位",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：pending confirmed superseded revoked",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('pending', 'confirmed', 'superseded', 'revoked')"
+    },
+    {
+      "name": "basis",
+      "type": "jsonb",
+      "description": "名次或成绩资格依据；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": true,
+  "checks": [],
+  "unique": [
+    [
+      "target_stage_id, target_slot",
+      "status = 'confirmed'"
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-advancement",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

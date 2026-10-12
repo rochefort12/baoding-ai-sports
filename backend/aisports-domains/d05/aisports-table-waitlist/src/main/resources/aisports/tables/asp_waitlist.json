@@ -1,0 +1,84 @@
+{
+  "name": "asp_waitlist",
+  "domain": "D05",
+  "description": "候补排序、获邀确认及期限",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "registration_id",
+      "type": "bigint",
+      "description": "候补申请",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_registration",
+      "check": null
+    },
+    {
+      "name": "pool_id",
+      "type": "bigint",
+      "description": "容量池",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_capacity_pool",
+      "check": null
+    },
+    {
+      "name": "rank",
+      "type": "integer",
+      "description": "公布规则下候补排序",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "rank >= 0"
+    },
+    {
+      "name": "basis",
+      "type": "varchar(500)",
+      "description": "排序依据",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：waiting invited confirmed expired withdrawn",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('waiting', 'invited', 'confirmed', 'expired', 'withdrawn')"
+    },
+    {
+      "name": "confirm_until",
+      "type": "timestamptz",
+      "description": "递补确认期限；有时区业务时间",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": true,
+  "checks": [],
+  "unique": [
+    [
+      "registration_id, pool_id",
+      "status IN ('waiting','invited')"
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-waitlist",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

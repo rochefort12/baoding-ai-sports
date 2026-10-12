@@ -1,0 +1,100 @@
+{
+  "name": "asp_resource",
+  "domain": "D12",
+  "description": "可分配资源单元及容量；整体和半场不能重复占用",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "venue_id",
+      "type": "bigint",
+      "description": "场馆",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_venue",
+      "check": null
+    },
+    {
+      "name": "parent_id",
+      "type": "bigint",
+      "description": "整体/拆分父资源",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_resource",
+      "check": null
+    },
+    {
+      "name": "name",
+      "type": "varchar(200)",
+      "description": "场地或泳道等名称",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "resource_type",
+      "type": "varchar(100)",
+      "description": "court/table/lane/track/judge_group 等",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "capacity",
+      "type": "integer",
+      "description": "可同时使用容量",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "capacity >= 0"
+    },
+    {
+      "name": "capacity_unit",
+      "type": "varchar(100)",
+      "description": "容量单位",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：available unconfirmed maintenance disabled",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('available', 'unconfirmed', 'maintenance', 'disabled')"
+    },
+    {
+      "name": "sport_scope",
+      "type": "jsonb",
+      "description": "运动适配及必要限制；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": true,
+  "checks": [
+    "capacity > 0",
+    "parent_id IS NULL OR parent_id <> id"
+  ],
+  "unique": [],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-resource",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

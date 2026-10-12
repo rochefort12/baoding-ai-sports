@@ -1,0 +1,310 @@
+{
+  "timestamp": "2026-10-10T18:46:03.285Z",
+  "scope": "Actual primary-source pages in Edge, not project outputs. Skills are reference candidates only.",
+  "records": [
+    {
+      "id": "A02",
+      "status": 200,
+      "title": "Vue Dashboard Template",
+      "url": "https://dashboard-vue-template.nuxt.dev/",
+      "capturedAt": "2026-10-10T18:45:46.020Z",
+      "file": "screenshots/A02.png",
+      "sha256": "9014b89d712fddbf4b20d26734ede4b3233023f03a1fa63afe97a1f13127b6e3",
+      "text": "Vue\nSearch…\nCTRL\nK\nHome\nInbox\n4\nCustomers\nSettings\nGeneral\nMembers\nNotifications\nSecurity\nFeedback\nHelp & Support\nBenjamin Canac\nHome\nSep 27, 2026 - Oct 11, 2026\nDaily\nCUSTOMERS\n955\n-1%\nCONVERSIONS\n1395\n+9%\nREVENUE\n$242,457\n+26%\nORDERS\n199\n+8%\n\nREVENUE\n\n$86,773\n\n29 Sep\n1 Oct\n3 Oct\n5 Oct\n7 Oct\n9 Oct\nID\tDate\tStatus\tEmail\t\nAmount\n\n\n#4599\tOct 11, 02:45\tFailed\twilliam.brown@example.com\t\n€119.00\n\n#4596\tOct 10, 22:45\tPaid\tjames.anderson@example.com\t\n€967.00\n\n#4600\tOct 10, 15:45\tPaid\tmia.white@example.com\t\n€581.00\n\n#4597\tOct 9, 11:45\tFailed\tmia.white@example.com\t\n€700.00\n\n#4598\tOct 9, 05:45\tFailed\temma.davis@example.com\t\n€227.00\nNotification We use first-party cookies to enhance your experience on our website.AcceptOpt out\nWe use first-party cookies to enhance your experience on our website.\nAccept\nOpt out",
+      "links": [
+        {
+          "text": "Home",
+          "url": "https://dashboard-vue-template.nuxt.dev/"
+        },
+        {
+          "text": "Inbox4",
+          "url": "https://dashboard-vue-template.nuxt.dev/inbox"
+        },
+        {
+          "text": "Customers",
+          "url": "https://dashboard-vue-template.nuxt.dev/customers"
+        },
+        {
+          "text": "General",
+          "url": "https://dashboard-vue-template.nuxt.dev/settings"
+        },
+        {
+          "text": "Members",
+          "url": "https://dashboard-vue-template.nuxt.dev/settings/members"
+        },
+        {
+          "text": "Notifications",
+          "url": "https://dashboard-vue-template.nuxt.dev/settings/notifications"
+        },
+        {
+          "text": "Security",
+          "url": "https://dashboard-vue-template.nuxt.dev/settings/security"
+        },
+        {
+          "text": "Feedback",
+          "url": "https://github.com/nuxt-ui-templates/dashboard-vue"
+        },
+        {
+          "text": "Help & Support",
+          "url": "https://github.com/nuxt/ui"
+        },
+        {
+          "text": "",
+          "url": "https://dashboard-vue-template.nuxt.dev/customers"
+        },
+        {
+          "text": "",
+          "url": "https://dashboard-vue-template.nuxt.dev/customers"
+        },
+        {
+          "text": "",
+          "url": "https://dashboard-vue-template.nuxt.dev/customers"
+        },
+        {
+          "text": "",
+          "url": "https://dashboard-vue-template.nuxt.dev/customers"
+        }
+      ],
+      "frames": [],
+      "error": null
+    },
+    {
+      "id": "A05",
+      "status": 200,
+      "title": "Arco Design Pro - 开箱即用的中台前端/设计解决方案",
+      "url": "https://vue-pro.arco.design/dashboard/workplace",
+      "capturedAt": "2026-10-10T18:45:51.516Z",
+      "file": "screenshots/A05.png",
+      "sha256": "80332794587db8cfd203450eabafee85655e35b3054a99b38d61d4caa44b1bba",
+      "text": "Arco Pro\n仪表盘\n工作台\n实时监控\n数据可视化\n列表页\n表单页\n详情页\n结果页\n异常页\n个人中心\nArco Design\n常见问题\n欢迎回来！ admin\n线上总内容\n373.5 W+ 个\n投放中内容\n368个\n日新增评论\n8,874个\n较昨日新增\n2.8 % \n内容数据\n查看更多\n线上热门内容\n查看更多\n文本\n图片\n视频\n排名\n\t\n内容标题\n\t\n点击量\n\t\n日涨幅\n1\n\t\n经济日...\n\t\n346.3w+\n\t\n35%\n\n\n2\n\t\n双12遇...\n\t\n324.2w+\n\t\n22%\n\n\n3\n\t\n致敬坚...\n\t\n318.9w+\n\t\n9%\n\n\n4\n\t\n普高还...\n\t\n257.9w+\n\t\n17%\n\n\n5\n\t\n人民快...\n\t\n124.2w+\n\t\n37%\n内容类型占比\n快捷操作\n管理\n内容管理\n内容分析\n高级管理\n线上推广\n内容投放\n最近访问\n内容管理\n内容分析\n高级管理\n公告\n查看更多\n活动\n内容最新优惠活动\n消息\n新增内容尚未通过审核，详情请点击查看。\n通知\n当前产品试用期即将结束，如需续费请点击查看。\n通知\n1月新系统升级计划通知\n消息\n新增内容已经通过审核，详情请点击查看。\n帮助文档\n查看更多\n产品概要\n使用指南\n接入流程\n接口文档\nArco Pro\n经济日...",
+      "links": [],
+      "frames": [],
+      "error": null
+    },
+    {
+      "id": "A07",
+      "status": 200,
+      "title": "Card component — Vuetify",
+      "url": "https://vuetifyjs.com/en/components/cards/#horizontal-cards",
+      "capturedAt": "2026-10-10T18:45:52.673Z",
+      "file": "screenshots/A07.png",
+      "sha256": "ed108b8e28b860971dd39d5bc6ac6cfc377c6a807cfc70fb6741b573ff2e7db2",
+      "text": "September 2026 Update\nVuetify0 moves into Vuetify, v4.2 patches, VInfiniteCarousel and MD3 tabs\nRead the Update\nDocumentation settings\nTheme\nCustomize your documentation experience with light and dark themes, as well as a combination of both named.\nLight\nDark\nSystem\nDark code blocks\nChange all code blocks to use a dark theme.\nVuetify One Themes\nAvailable offline\nInstall a service worker to cache the entire site locally.\nDownloading: 0 / 0\nDownloading: 0 / 0\nEnable pins\nNEW\nBookmark and access vital documentation pages for a more efficient workflow.\nRail drawer\nShow the navigation drawer as a rail that expands on hover\nEnable Composition API\nDetermines the script shown in code examples for components.\nEnable Inline API\nDisplay API tables inline on documentation pages.\nUse / for Search hotkey\nThis option sets the bound search key to '/' from Cmd/Ctrl+K.\nDeveloper mode\nDeveloper mode enables new features and functionality within the documentation that are still in development.\nLatest release\nv4.2.4\nDocumentation Build\n9f3f165\nLatest commit\n9f3f165\nSearchCtrl+K\nBlog\nLearn\nSupport\nEcosystem\nPlayground\nOne\nLogin\nIntroduction\nGetting started\nFeatures\nStyles and animations\nCommon concepts\n",
+      "links": [
+        {
+          "text": "Vuetify One Themes",
+          "url": "https://vuetifyjs.com/en/components/cards/?one=settings"
+        },
+        {
+          "text": "9f3f165",
+          "url": "https://github.com/vuetifyjs/vuetify/commit/9f3f165ab1ca9e899d8cadbc08fada84ff4a959c"
+        },
+        {
+          "text": "9f3f165",
+          "url": "https://github.com/vuetifyjs/vuetify/commit/9f3f165ab1ca9e899d8cadbc08fada84ff4a959c"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/vuetifyjs/vuetify"
+        },
+        {
+          "text": "Cards",
+          "url": "https://vuetifyjs.com/en/components/cards/"
+        }
+      ],
+      "frames": [],
+      "error": null
+    },
+    {
+      "id": "A06",
+      "status": 200,
+      "title": "TDesign Vue Next Starter",
+      "url": "https://tdesign.tencent.com/starter/vue-next/dashboard/base",
+      "capturedAt": "2026-10-10T18:45:54.734Z",
+      "file": "screenshots/A06.png",
+      "sha256": "94cccd0a862f0316ac8e2eed166631921c014c5a5e19635117d07ff9430ee4e2",
+      "text": "仪表盘\n概览仪表盘\n统计报表\n列表页\n表单页\n详情页\n外部页面\n结果页\n个人中心\n登录页\nTDesign Starter 0.12.0\n4\nTencent\n总收入\n¥ 28,425.00\n自从上周以来\n20.5%\n总退款\n¥ 768.00\n自从上周以来\n20.5%\n活跃用户（个）\n1126\n自从上周以来\n20.5%\n产生订单（个）\n527\n自从上周以来\n20.5%\n统计数据\n2026-10\n-\n销售渠道\n2026-10\n销售订单排名\n本周\n近三月\n排名\n\t\n客户名称\n\t\n较上周\n\t\n订单量\n\t\n操作\n\n1\t\n国家电网有限公司\n\t\n1\n\t7059\t详情\n2\t\n深圳燃气集团股份有限公司\n\t\n1\n\t6437\t详情\n3\t\n国家烟草专卖局\n\t\n4\n\t4221\t详情\n4\t\n中国电信集团有限公司\n\t\n3\n\t3317\t详情\n5\t\n中国移动通信集团有限公司\n\t\n3\n\t3015\t详情\n6\t\n新余市办公用户采购项目\n\t\n3\n\t2015\t详情\n销售订单排名\n本周\n近三月\n排名\n\t\n供应商名称\n\t\n较上周\n\t\n订单量\n\t\n操作\n\n1\t\n腾讯科技（深圳）有限公司\n\t\n1\n\t3015\t详情\n2\t\n大润发有限公司\n\t\n1\n\t2015\t详情\n3\t\n四川海底捞股份有限公司\n\t\n6\n\t1815\t详情\n4\t\n索尼（中国）有限公司\n\t\n3\n\t1015\t详情\n5\t\n松下电器（中国）有限公司\n\t\n4\n\t445\t详情\n6\t\n新余市办公用户采购项目\n\t\n3\n\t2015\t详情\n出入库概览\n(件)\n-\n导出数据\n本月入库总计（件）\n1726\n自从上周以来\n20.3%\n本月出库总计（件）\n226\n自从上周以来\n20.3%\nCopyright © 2021-2026 Tencent. All Rights Reserved",
+      "links": [],
+      "frames": [],
+      "error": null
+    },
+    {
+      "id": "A08",
+      "status": 200,
+      "title": "Card | Quasar Framework",
+      "url": "https://quasar.dev/vue-components/card/",
+      "capturedAt": "2026-10-10T18:45:57.400Z",
+      "file": "screenshots/A08.png",
+      "sha256": "54ece9d0bfefeb6af05d109c9c7c8de2fac6a71492b6fd0a530c2f33f24d26ea",
+      "text": "Skip to page content\nDOCS\nCOMPONENTS\nSPONSORS\nTEAM\nBLOG\nCtrl+K\nWhy Quasar?\nGetting Started\nTools\nAnnouncements\nVideo Tutorials\nRoadmap\nBrand resources\nv2.35.0\nassignment_late\nWhy donate\ntravel_explore\nAPI Explorer\npublic\nBrowser Support\nsmart_toy\nAI Agents\nnew\ncode\nHow to contribute\ntune\nOptions & Helpers\nstyle\nStyle & Identity\nview_quilt\nLayout and Grid\nwidgets\nVue Components\nswap_calls\nVue Directives\nextension\nQuasar Plugins\ndeveloper_mode\nVue Composables\nsecurity\nSecurity\nbuild\nQuasar CLI (with Vite)\nbuild\nQuasar CLI (with Webpack)\nstars\nIcon Genie CLI\nhealing\nQuasar Utils\nnote_add\nApp Extensions\nCard\nVue Components\nSeparator\n\nThe QCard component is a great way to display important pieces of grouped content. This pattern is quickly emerging as a core design pattern for Apps, website previews and email content. It assists the viewer by containing and organizing information, while also setting up predictable expectations.\n\nWith so much content to display at once, and often so little screen real-estate, Cards have fast become the design pattern of choice for many companies, including the likes of Google and Twitter.\n\nThe QCard component is intentionally lightweight and essentially ",
+      "links": [
+        {
+          "text": "Skip to page content",
+          "url": "https://quasar.dev/vue-components/card/#doc-main-content"
+        },
+        {
+          "text": "Announcements",
+          "url": "https://github.com/quasarframework/quasar/discussions/categories/announcements"
+        },
+        {
+          "text": "Brand resources",
+          "url": "https://github.com/quasarframework/quasar-art"
+        },
+        {
+          "text": "",
+          "url": "https://github.quasar.dev/"
+        },
+        {
+          "text": "",
+          "url": "https://quasar.dev/vue-components/card.md"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/quasarframework/quasar/edit/dev/docs/src/pages/vue-components/card.md"
+        },
+        {
+          "text": "QCard API",
+          "url": "https://quasar.dev/vue-components/card/#qcard-api"
+        },
+        {
+          "text": "QCardSection API",
+          "url": "https://quasar.dev/vue-components/card/#qcardsection-api"
+        },
+        {
+          "text": "QCardActions API",
+          "url": "https://quasar.dev/vue-components/card/#qcardactions-api"
+        },
+        {
+          "text": "",
+          "url": "https://quasar.dev/vue-components/card/#usage"
+        },
+        {
+          "text": "",
+          "url": "https://quasar.dev/vue-components/card/#basic"
+        },
+        {
+          "text": "Basic cards",
+          "url": "https://quasar.dev/vue-components/card/#example--basic--basic-cards"
+        },
+        {
+          "text": "",
+          "url": "https://quasar.dev/vue-components/card/#with-actions"
+        },
+        {
+          "text": "Cards with actions",
+          "url": "https://quasar.dev/vue-components/card/#example--actions--cards-with-actions"
+        }
+      ],
+      "frames": [
+        {
+          "src": "https://www.youtube.com/embed/aqz-KE-bpKQ?rel=0",
+          "width": 300,
+          "height": 150
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "S01",
+      "status": 503,
+      "title": "Unicorn! · GitHub",
+      "url": "https://github.com/anthropics/skills/blob/main/skills/frontend-design/SKILL.md",
+      "capturedAt": "2026-10-10T18:45:57.652Z",
+      "file": "screenshots/S01.png",
+      "sha256": "a6c035c6de43489a841e4643a2bd50e6120990fc2d2b7e2a845af6540b64b4f1",
+      "text": "We're having a really bad day.\n\nThe Unicorns have taken over. We're doing our best to get them under control and get GitHub back up and running.\n\nContact Support — GitHub Status — @githubstatus",
+      "links": [
+        {
+          "text": "Contact Support",
+          "url": "https://support.github.com/contact"
+        },
+        {
+          "text": "GitHub Status",
+          "url": "https://githubstatus.com/"
+        },
+        {
+          "text": "@githubstatus",
+          "url": "https://x.com/githubstatus"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/"
+        }
+      ],
+      "frames": [],
+      "error": null
+    },
+    {
+      "id": "S07",
+      "status": 503,
+      "title": "Unicorn! · GitHub",
+      "url": "https://github.com/emilkowalski/skills/blob/main/skills/improve-animations/SKILL.md",
+      "capturedAt": "2026-10-10T18:45:59.738Z",
+      "file": "screenshots/S07.png",
+      "sha256": "a6c035c6de43489a841e4643a2bd50e6120990fc2d2b7e2a845af6540b64b4f1",
+      "text": "We're having a really bad day.\n\nThe Unicorns have taken over. We're doing our best to get them under control and get GitHub back up and running.\n\nContact Support — GitHub Status — @githubstatus",
+      "links": [
+        {
+          "text": "Contact Support",
+          "url": "https://support.github.com/contact"
+        },
+        {
+          "text": "GitHub Status",
+          "url": "https://githubstatus.com/"
+        },
+        {
+          "text": "@githubstatus",
+          "url": "https://x.com/githubstatus"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/"
+        }
+      ],
+      "frames": [],
+      "error": null
+    },
+    {
+      "id": "S08",
+      "status": 503,
+      "title": "Unicorn! · GitHub",
+      "url": "https://github.com/vuejs-ai/skills/blob/main/skills/vue-best-practices/SKILL.md",
+      "capturedAt": "2026-10-10T18:46:03.048Z",
+      "file": "screenshots/S08.png",
+      "sha256": "a6c035c6de43489a841e4643a2bd50e6120990fc2d2b7e2a845af6540b64b4f1",
+      "text": "We're having a really bad day.\n\nThe Unicorns have taken over. We're doing our best to get them under control and get GitHub back up and running.\n\nContact Support — GitHub Status — @githubstatus",
+      "links": [
+        {
+          "text": "Contact Support",
+          "url": "https://support.github.com/contact"
+        },
+        {
+          "text": "GitHub Status",
+          "url": "https://githubstatus.com/"
+        },
+        {
+          "text": "@githubstatus",
+          "url": "https://x.com/githubstatus"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/"
+        }
+      ],
+      "frames": [],
+      "error": null
+    }
+  ]
+}

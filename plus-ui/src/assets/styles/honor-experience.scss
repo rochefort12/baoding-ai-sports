@@ -1,0 +1,21 @@
+.honor-review-summary {padding:20px;background:#f4f7f4;border:1px solid #e0e7df;border-radius:16px;margin-bottom:20px;>span{color:#677969;font-size:14px}h3{margin:8px 0;font-size:22px;overflow-wrap:anywhere}p{margin:6px 0;font-size:14px;line-height:1.7;color:#556559}details{margin-top:10px;color:#718171;font-size:13px;summary{cursor:pointer}}}
+.honor-basis-list {display:grid;gap:12px;margin:14px 0 22px;}
+.honor-review-dialog.el-dialog {width:min(720px,calc(100vw - 32px));max-height:calc(100dvh - 48px);margin:24px auto!important;display:flex;flex-direction:column;padding:24px;font-family:var(--s-font);font-size:14px;.el-dialog__header{flex:none;padding-bottom:18px;margin:0;border-bottom:1px solid #e7eae6}.el-dialog__body{min-height:0;overflow:auto;overscroll-behavior:contain;padding-top:20px}.el-dialog__footer{flex:none;display:flex;flex-wrap:wrap;justify-content:flex-end;gap:10px;padding-top:16px;border-top:1px solid #e7eae6}.el-button{min-height:44px;border-radius:10px;margin:0}.el-form-item__label{font-size:14px!important}.b-muted{font-size:14px;line-height:1.7;margin:8px 0;overflow-wrap:anywhere}.el-form-item{margin-bottom:18px}.el-radio-button__inner{padding:12px 16px;font-size:14px}}
+.honor-original-note {margin:12px 0;color:#718171;font-size:13px;summary{cursor:pointer}}
+.honor-proof-tabs{display:flex;gap:8px;margin:24px 0 18px;button{min-height:42px;padding:10px 20px;border:1px solid #e1e5df;border-radius:24px;background:white;font-size:14px;cursor:pointer;&[aria-selected='true']{background:#253a2c;color:white;border-color:#253a2c}}}
+.honor-proof-status{display:inline-block;padding:5px 12px;border-radius:16px;background:#edf3ed;color:#356441;font-size:13px;margin-bottom:12px}.proof-history-card{background:#f6f6f2!important;border-color:#e1e3db!important}.honor-history-note{font-size:14px;line-height:1.8;color:#687466;overflow-wrap:anywhere}.honor-review-cards{display:grid;gap:12px}.honor-review-cards article{padding:20px;border:1px solid #e2e7e0;border-radius:14px}.honor-review-cards header{display:flex;justify-content:space-between;gap:12px}.honor-review-cards h4{margin:0 0 8px;font-size:18px}.honor-review-cards p{margin:6px 0;font-size:14px;line-height:1.7}.honor-review-cards footer{display:flex;gap:12px;margin-top:14px;flex-wrap:wrap}
+@media(max-width:600px){.honor-review-dialog.el-dialog{width:calc(100vw - 24px);max-height:calc(100dvh - 24px);margin:12px auto!important;padding:18px;.el-dialog__footer .el-button{flex:1;min-width:100px}}.honor-review-cards article{padding:16px}.honor-proof-tabs button{flex:1}}
+.project-checkin-mobile { display: none; }
+@media (max-width: 640px) {
+  .project-checkin-table { display: none; }
+  .project-checkin-mobile { display: grid; gap: 12px; padding-bottom: 76px; }
+  .project-checkin-person {
+    display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px;
+    padding: 16px; border: 1px solid var(--el-border-color-light); border-radius: 16px; background: #fff;
+    strong { font-size: 16px; line-height: 1.5; overflow-wrap: anywhere; }
+    p { margin: 4px 0 0; font-size: 14px; color: var(--el-text-color-secondary); }
+    > span { align-self: center; font-size: 14px; color: var(--el-text-color-secondary); }
+    > span.checked { color: var(--el-color-success); }
+    .el-button { grid-column: 1 / -1; min-height: 44px; margin: 0; }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "generation": "built-in image_gen; model identifier unavailable",
+  "assets": [
+    {
+      "key": "legend",
+      "file": "plus-ui/public/images/sports/frames-v2/legend.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 81670,
+      "sha256": "8b0d11162b265e50d3cf1a8dd6a1f047b89c27a4d1e95149183cb24aab8c4d68",
+      "original": "docs/05-ui/assets-20261011-v3/originals/frame-legend.png",
+      "originalSha256": "0949c59acbefb7fab7e297caf1ea92f7ef623f45ebc2bba41507e6f0b3485cf5",
+      "prompt": "Use case: stylized-concept. Asset type: transparent avatar frame for legend tier above king in a premium sports product. Single front-view centered circular ring of deep black titanium and warm rose-gold, sculpted fluid metal curved arcs around its perimeter, amber and subtle opal crystal inlays, an exquisite athletic victory crest at top, restrained phoenix-like aerodynamic wings on upper outside edges. Majestic exceptional craftsmanship, elegant high-end product render. Completely transparent circle aperture occupies 62% of square width, transparent exterior, ring occupies 85% of square, balanced round shape readable at 64px. Soft studio lighting, tiny glints at outer rim only. No text, logos, portrait, background, checkerboard, stars, trophy, extra objects or interface.",
+      "centerAlpha": 0
+    }
+  ]
+}

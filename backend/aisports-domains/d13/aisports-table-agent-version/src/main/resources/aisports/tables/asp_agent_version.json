@@ -1,0 +1,120 @@
+{
+  "name": "asp_agent_version",
+  "domain": "D13",
+  "description": "智能体提示词与模型的可追溯版本；只记录可见业务指引",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "agent_id",
+      "type": "bigint",
+      "description": "智能体",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_agent",
+      "check": null
+    },
+    {
+      "name": "revision",
+      "type": "integer",
+      "description": "版本",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "revision >= 0"
+    },
+    {
+      "name": "model_name",
+      "type": "varchar(80)",
+      "description": "固定接口模型名",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "instruction",
+      "type": "text",
+      "description": "可信平台提示词，不能由上传材料改写",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "budget",
+      "type": "jsonb",
+      "description": "深度、调用和时间预算；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：draft active retired",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('draft', 'active', 'retired')"
+    },
+    {
+      "name": "tool_catalog",
+      "type": "jsonb",
+      "description": "受控MCP工具名、参数与调用方式；不能注册原始SQL、Shell或任意网络",
+      "nullable": false,
+      "default": "'{}'::jsonb",
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "skill_catalog",
+      "type": "jsonb",
+      "description": "可信平台技能目录与办理指引，版本化且不存模型正文或隐藏思考",
+      "nullable": false,
+      "default": "'{}'::jsonb",
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "business_map",
+      "type": "jsonb",
+      "description": "按角色和依赖组织的业务地图；动作可用性须实时核对注册表",
+      "nullable": false,
+      "default": "'{}'::jsonb",
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "playbook_hash",
+      "type": "varchar(64)",
+      "description": "三个目录的规范JSON摘要；与锁定智能体版本共同溯源",
+      "nullable": false,
+      "default": "''",
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": false,
+  "checks": [
+    "revision > 0",
+    "jsonb_typeof(tool_catalog) = 'object'",
+    "jsonb_typeof(skill_catalog) = 'object'",
+    "jsonb_typeof(business_map) = 'object'"
+  ],
+  "unique": [
+    [
+      "agent_id, revision",
+      null
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-agent-version",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

@@ -1,0 +1,57 @@
+{
+  "name": "asp_event_poster_stat",
+  "domain": "D04",
+  "description": "宣传材料按上海日期汇总打开次数；来源V021；不记录账号、地址或浏览器标识",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "poster_id",
+      "type": "bigint",
+      "description": "所属宣传材料",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_event_poster",
+      "check": null
+    },
+    {
+      "name": "stat_date",
+      "type": "date",
+      "description": "上海时区统计日",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "hit_count",
+      "type": "integer",
+      "description": "当日打开次数",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "hit_count >= 0"
+    }
+  ],
+  "tenant": true,
+  "checks": [],
+  "unique": [
+    [
+      "poster_id, stat_date",
+      null
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-event-poster-stat",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

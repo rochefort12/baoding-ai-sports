@@ -1,0 +1,84 @@
+{
+  "name": "asp_ranking_run",
+  "domain": "D08",
+  "description": "排名计算输入与同分规则版本；可独立复算",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "unit_id",
+      "type": "bigint",
+      "description": "统计单元",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_competition_unit",
+      "check": null
+    },
+    {
+      "name": "rule_version_id",
+      "type": "bigint",
+      "description": "排名规则",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_rule_version",
+      "check": null
+    },
+    {
+      "name": "revision",
+      "type": "integer",
+      "description": "排名版本",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "revision >= 0"
+    },
+    {
+      "name": "input_results",
+      "type": "jsonb",
+      "description": "有效原始结果引用与处罚；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "comparison_rules",
+      "type": "jsonb",
+      "description": "比较顺序、范围和并列；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：draft confirmed published superseded",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('draft', 'confirmed', 'published', 'superseded')"
+    }
+  ],
+  "tenant": true,
+  "checks": [],
+  "unique": [
+    [
+      "unit_id, revision",
+      null
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-ranking-run",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

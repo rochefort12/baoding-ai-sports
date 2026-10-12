@@ -1,0 +1,131 @@
+{
+  "name": "asp_growth_record",
+  "domain": "D10",
+  "description": "非竞技成长事实；规则有来源，防止刷空赛事",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "person_id",
+      "type": "bigint",
+      "description": "个人",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_person",
+      "check": null
+    },
+    {
+      "name": "team_id",
+      "type": "bigint",
+      "description": "队伍",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_team",
+      "check": null
+    },
+    {
+      "name": "policy_version",
+      "type": "varchar(100)",
+      "description": "成长规则版本",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "achievement",
+      "type": "varchar(100)",
+      "description": "参与/完赛/志愿等经确认行为",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "source",
+      "type": "jsonb",
+      "description": "原业务事实及范围；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：effective disputed revoked",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('effective', 'disputed', 'revoked')"
+    },
+    {
+      "name": "sport_id",
+      "type": "bigint",
+      "description": "成长所属运动",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_sport",
+      "check": null
+    },
+    {
+      "name": "event_id",
+      "type": "bigint",
+      "description": "来源赛事",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_event",
+      "check": null
+    },
+    {
+      "name": "milestone",
+      "type": "varchar(64)",
+      "description": "checkin finish team_finish 或 correction；由业务事实确定",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "points_delta",
+      "type": "integer",
+      "description": "追加的成长分变化；负值为事实纠正补偿",
+      "nullable": false,
+      "default": "0",
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "source_key",
+      "type": "varchar(160)",
+      "description": "事实唯一来源，包含被纠正原记录编号",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": true,
+  "checks": [
+    "(person_id IS NOT NULL) <> (team_id IS NOT NULL)"
+  ],
+  "unique": [
+    [
+      "source_key",
+      "source_key IS NOT NULL"
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-growth-record",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

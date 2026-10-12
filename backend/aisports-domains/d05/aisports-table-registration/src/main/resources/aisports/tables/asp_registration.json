@@ -1,0 +1,160 @@
+{
+  "name": "asp_registration",
+  "domain": "D05",
+  "description": "竞赛单元报名。草稿不占名额；已提交和已通过占名额；撤回回到草稿",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "unit_id",
+      "type": "bigint",
+      "description": "报名单元",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_competition_unit",
+      "check": null
+    },
+    {
+      "name": "rule_version_id",
+      "type": "bigint",
+      "description": "提交时规则。本期可空，不临时造规则版本",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_rule_version",
+      "check": null
+    },
+    {
+      "name": "fee_policy_id",
+      "type": "bigint",
+      "description": "费用依据",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_fee_policy",
+      "check": null
+    },
+    {
+      "name": "batch_id",
+      "type": "bigint",
+      "description": "操作批次",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_registration_batch",
+      "check": null
+    },
+    {
+      "name": "team_id",
+      "type": "bigint",
+      "description": "可选长期代表队。空表示个人或临时双打",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_team",
+      "check": null
+    },
+    {
+      "name": "submitter_account_id",
+      "type": "bigint",
+      "description": "原提交人",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_account",
+      "check": null
+    },
+    {
+      "name": "operator_account_id",
+      "type": "bigint",
+      "description": "当前办理人",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_account",
+      "check": null
+    },
+    {
+      "name": "request_key",
+      "type": "varchar(128)",
+      "description": "当前办理请求键。尚未完成提交时沿用创建键；完成后的重放不再占用，主动重提更换新键",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：draft submitted approved rejected",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('draft', 'submitted', 'approved', 'rejected')"
+    },
+    {
+      "name": "hold_expires_at",
+      "type": "timestamptz",
+      "description": "旧的临时占位期限。本期不使用；有时区业务时间",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "roster_revision",
+      "type": "integer",
+      "description": "当前名单版本。草稿为 0",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "roster_revision >= 0"
+    },
+    {
+      "name": "team_name_snapshot",
+      "type": "varchar(200)",
+      "description": "提交成功时的队名。之后队伍改名不回写",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "submitted_at",
+      "type": "timestamptz",
+      "description": "实际提交时间。草稿可空；有时区业务时间",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "manager_account_id",
+      "type": "bigint",
+      "description": "稳定报名管理人，独立于当前队长与组织审核经办人",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_account",
+      "check": null
+    }
+  ],
+  "tenant": true,
+  "checks": [],
+  "unique": [
+    [
+      "submitter_account_id, request_key",
+      null
+    ],
+    [
+      "unit_id, submitter_account_id",
+      null
+    ]
+  ],
+  "responsibility": "同一提交人在同一单元只有一条报名。代表队伍的报名按 team_id 识别当前可办理的那一条，不另加一队一单元的唯一约束。已经完成提交的请求键只重放该次事实，不第二次占名额，撤回后也不复活报名。名额排队使用通用锁，used_count 只做上限。",
+  "moduleId": "aisports-table-registration",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

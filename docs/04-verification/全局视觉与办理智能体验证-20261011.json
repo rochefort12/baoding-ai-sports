@@ -1,0 +1,678 @@
+{
+  "timestamp": "2026-10-11T02:55:04.123Z",
+  "scope": "Current local product UI and registered-agent trial; synthetic rehearsal facts; not full live tournament acceptance",
+  "passed": true,
+  "jarSha256": "7cdb504791077a2948b896751abe463d9f8ca504697ce55c1d9362c043ec15f8",
+  "sourceFiles": [
+    {
+      "path": "ai-gateway/agent.mjs",
+      "sha256": "1975e6e0e42d9e43128cc6508f62086c45d829ee8091f84b1be933b5cc0b7509"
+    },
+    {
+      "path": "ai-gateway/agent.test.mjs",
+      "sha256": "dddbb01071f187665118262142c1284199364394a48dde96bd8f72f1f5bee05a"
+    },
+    {
+      "path": "backend/aisports-domains/d02/aisports-table-profile-display/src/main/java/org/dromara/sports/tables/d02/profile_display/ProfileAvatarService.java",
+      "sha256": "e9b8a8bbd33c2315d033b79870faa275aae76fea9f8dde9afa8c7ea0f6e3fd29"
+    },
+    {
+      "path": "backend/aisports-domains/d04/aisports-table-event/src/main/java/org/dromara/sports/event/service/EventMaterialActionProvider.java",
+      "sha256": "8a0080df7a456a2f83b9cd50ae35b14c9328b3c7295c1234d14d82aea946f3f3"
+    },
+    {
+      "path": "backend/aisports-domains/d04/aisports-table-event/src/main/java/org/dromara/sports/event/service/EventMaterialService.java",
+      "sha256": "045d79b5a0af911475ad2b4b3d6c71cd120b7637b55ac6d3cbf7abcc42b83c57"
+    },
+    {
+      "path": "backend/aisports-domains/d13/aisports-table-agent-run/src/main/java/org/dromara/sports/tables/d13/agent_run/AgentPlaybookRules.java",
+      "sha256": "c4251657159fc7a274fac23f00e55c5fc8cca84cb10cca74cadd1b4c0456b23b"
+    },
+    {
+      "path": "backend/aisports-domains/d13/aisports-table-agent-run/src/main/java/org/dromara/sports/tables/d13/agent_run/AgentRunController.java",
+      "sha256": "8797aa93d20989986c5052b9918042fcbcf42f04a60d3914f16bb78e2f9e1836"
+    },
+    {
+      "path": "backend/aisports-domains/d13/aisports-table-agent-run/src/main/java/org/dromara/sports/tables/d13/agent_run/AgentRuns.java",
+      "sha256": "0961e1861dcb1ce6c6e261baaa68ea137cecd726d66dc74268696848050a54a4"
+    },
+    {
+      "path": "backend/aisports-domains/d13/aisports-table-agent-run/src/main/java/org/dromara/sports/tables/d13/agent_run/generated/OwnedTableModule.java",
+      "sha256": "15b8a92f39f17dc5f39566387421c657503b5f4a87f36f4a738c4a2c08fcc50c"
+    },
+    {
+      "path": "backend/aisports-platform/authz/src/main/java/org/dromara/sports/platform/authz/ActionAuthorization.java",
+      "sha256": "4d59a887a897d8f7285f1a59e5173cad10beb5c6589929ca352b75f52a2a7de8"
+    },
+    {
+      "path": "backend/aisports-platform/executor/src/main/java/org/dromara/sports/platform/executor/BusinessExecutor.java",
+      "sha256": "e23f692b516fb8966a9a7c395a5a11de12bf5ffcd741e50c607f937b96e537b9"
+    },
+    {
+      "path": "backend/aisports-platform/executor/src/main/java/org/dromara/sports/platform/executor/DeclaredSqlInterceptor.java",
+      "sha256": "9b6b4b8387f38fd86537fa26a524d0f3e1bbe276f4b33348343f5334f01974ce"
+    },
+    {
+      "path": "backend/aisports-platform/executor/src/main/java/org/dromara/sports/platform/executor/LegacyActionAspect.java",
+      "sha256": "1130a0283d210417b2d03dcac34973beb95070f9456b0ae71dc3488ff52f5790"
+    },
+    {
+      "path": "backend/aisports-platform/executor/src/main/java/org/dromara/sports/platform/executor/PlatformActionController.java",
+      "sha256": "010ae4eb662664d63a2540b9a451fc1017a7ef697fb9c118b38c263dc0c997af"
+    },
+    {
+      "path": "database/migrations/V035__sports_growth_rank_identity.sql",
+      "sha256": "f1f2f67398d68f4be11a934b32d96438687c569861c4aa698340c264929c6017"
+    },
+    {
+      "path": "database/migrations/V036__agent_playbook_catalog.sql",
+      "sha256": "02e53b1c1360cf2d1beb45d3a2426152995df9f12476c6aa88f64ac60caae2e6"
+    },
+    {
+      "path": "database/model/phase1.py",
+      "sha256": "79a73ea0dd765a191c5af40e5151bd4db0cb0635c8e614296483c3ce5adfedb1"
+    },
+    {
+      "path": "database/seeds/agent-playbook-v2.json",
+      "sha256": "4b7ca0cbb674cc68a804fbe3326eedce0ed25323f9d510fceb684145af56e60d"
+    },
+    {
+      "path": "docs/05-ui/assets-20261011-v2/assets.json",
+      "sha256": "84c3472fd98a6839baa2dbf80baa96c309c4e113e90cd4ec30b8aef3d8f83de4"
+    },
+    {
+      "path": "docs/05-ui/assets-20261011-v2/identity-artwork.json",
+      "sha256": "6bf540b1a8591fb331c4ed70bbf20354765c98637c2a9dcf6f6c1818edf92603"
+    },
+    {
+      "path": "plus-ui/src/assets/styles/assistant-markdown.scss",
+      "sha256": "067afc1fd6ef59e1a6b50858893f8b5c91da56bf8e8416529976ffdd414f1a49"
+    },
+    {
+      "path": "plus-ui/src/assets/styles/btn.scss",
+      "sha256": "8ee83b0300e734b129c04123204d307310a02e3e5c303cc08a2a1e0ef221b6a5"
+    },
+    {
+      "path": "plus-ui/src/assets/styles/business-ai.scss",
+      "sha256": "4f20cff250f76d655d8ecd905177ff66d0025f58a5d8175c4557aec8b4cf907c"
+    },
+    {
+      "path": "plus-ui/src/assets/styles/business-payments.scss",
+      "sha256": "062bf3d817303694e38922980cf8509945db0a486fb1e1e7d84f501153bff84b"
+    },
+    {
+      "path": "plus-ui/src/assets/styles/business.scss",
+      "sha256": "91cd9f90401b640884d6b32c3a009d5e92a6b434de42a7c94390866aa335031c"
+    },
+    {
+      "path": "plus-ui/src/assets/styles/consumer-ai.scss",
+      "sha256": "df878ffd2ea6462cf4100ba90aa3f11078b4bb1460b7f9a45b3e58c7af5997f6"
+    },
+    {
+      "path": "plus-ui/src/assets/styles/consumer.scss",
+      "sha256": "f17310e500e0a073f18347b4b71f16a19ab5f1d59739925584abd3cb34ed772f"
+    },
+    {
+      "path": "plus-ui/src/assets/styles/design-system.scss",
+      "sha256": "1163d7c37d70744f04983a60e27ea40c4ab89a6ab2710ec5dfd6ee0e197fd67c"
+    },
+    {
+      "path": "plus-ui/src/assets/styles/element-ui.scss",
+      "sha256": "c6ef261f97186b35fbcd8b7e50ce4ecf90d054bff7326981a627c123ca289e30"
+    },
+    {
+      "path": "plus-ui/src/assets/styles/generated-crud.scss",
+      "sha256": "5c4e811668e0e00668e2f172d0022c470be3352c0c27268b060f75a344e5a1da"
+    },
+    {
+      "path": "plus-ui/src/assets/styles/index.scss",
+      "sha256": "75840ffe8a682a343e59299bb3f3df283dbb42a9c314fec5eeffd6dc04bd3b1d"
+    },
+    {
+      "path": "plus-ui/src/assets/styles/mixin.scss",
+      "sha256": "715cba8c39c6ac243ad45bb12e6f10feaf03105847b3e68a721bdbb974768839"
+    },
+    {
+      "path": "plus-ui/src/assets/styles/product.scss",
+      "sha256": "13e512d7faea7ee2f79f1b32182a746dda79e56074a051fc9948a57ca6b24cd8"
+    },
+    {
+      "path": "plus-ui/src/assets/styles/ruoyi.scss",
+      "sha256": "6e91434aeed6dd472a07a7daf10bf128210bc997aa552bfb3e3265923ab5a07e"
+    },
+    {
+      "path": "plus-ui/src/assets/styles/sidebar.scss",
+      "sha256": "1c6e3468648f570b97ecb2f1a95c9f512b81ffa1822c5fd77917338adb113085"
+    },
+    {
+      "path": "plus-ui/src/assets/styles/sports-agent.scss",
+      "sha256": "f0701d6869e0442633e9a0b1eb1834d5ac574a595466731e4ad044a0b3d8f488"
+    },
+    {
+      "path": "plus-ui/src/assets/styles/sports-assistant.scss",
+      "sha256": "bdb823dea0eae1f24aee3ddcf865c8b157f3d28f0a2c551348ca6b88593e01d9"
+    },
+    {
+      "path": "plus-ui/src/assets/styles/transition.scss",
+      "sha256": "51528b7296815e1cb8ada1ff520b83aaeac4d34d9e67e84b817d0a121a4a6d7e"
+    },
+    {
+      "path": "plus-ui/src/assets/styles/variables.module.scss",
+      "sha256": "54d9a1e47326691926aeb275980014f07a15c3d9a0984fce7e59e9e405f0e46e"
+    },
+    {
+      "path": "plus-ui/src/components/business/BusinessAssistant.vue",
+      "sha256": "7c687de739ce172bbfca3513b810d1ab5d214efccffd6445b56a8138aa70f84a"
+    },
+    {
+      "path": "plus-ui/src/components/business/EventCoverEditor.vue",
+      "sha256": "5a0993fef1fd0f7bb83c3f25f7c0e301cfe2bef2209ef4a5faebea901958b1c8"
+    },
+    {
+      "path": "plus-ui/src/components/business/EventCoverSettings.vue",
+      "sha256": "5016890ae81cadc3511e0d0921844fa591785b0edf228bd2802bd863a9dda3f2"
+    },
+    {
+      "path": "plus-ui/src/components/business/EventMaterialStudio.vue",
+      "sha256": "d5be048820b4b35f8bb982e48fce86e5d689baa8bcbf017f48f22efeafa66964"
+    },
+    {
+      "path": "plus-ui/src/components/business/EventPaymentSettings.vue",
+      "sha256": "612b40b0be46b7ab963ade90e88eb6054cf6ff09eb970899b9c90b02182812ee"
+    },
+    {
+      "path": "plus-ui/src/components/business/FeeChoice.vue",
+      "sha256": "0d689fc27fd116c0eb9a79067c0fd7a98c5dd30c464eb8688b49f89077db8c44"
+    },
+    {
+      "path": "plus-ui/src/components/business/InlineFeeEditor.vue",
+      "sha256": "eea76c4a2dd16c362ea5ce5a28f9ef0c50ed576cb0cbc85a48b5bc6563f187f2"
+    },
+    {
+      "path": "plus-ui/src/components/business/OrganizerEventCover.vue",
+      "sha256": "37bd1dde912cf9ad35146feb3271fbef068b36cd3139b6a583debf911c54166d"
+    },
+    {
+      "path": "plus-ui/src/components/business/PaymentChannels.vue",
+      "sha256": "d6277fe49b59bcdf4a94d02c688a95e1ae1193f01dd682f4aa99cde9e233dde2"
+    },
+    {
+      "path": "plus-ui/src/components/business/PaymentProofPanel.vue",
+      "sha256": "9615d0f8f00361ba28486c42d6b73f7141271555a03b87f91714e563a0f4d39a"
+    },
+    {
+      "path": "plus-ui/src/components/business/PromotionBoard.vue",
+      "sha256": "412c1d29f76580d8e1695923481673aa3631c3f7a593bd2b667facb7e7213c90"
+    },
+    {
+      "path": "plus-ui/src/components/consumer/AgentPanel.vue",
+      "sha256": "6a13fc0f9f3ce93ea7cc32fc99cd436399396e086fc8b81ae67f6f63a685eaf9"
+    },
+    {
+      "path": "plus-ui/src/components/consumer/AvatarFrame.vue",
+      "sha256": "a4163e7eeb9dfd96af1e1660da470d46cf3d22bf1bfc5481298396cceaaed51b"
+    },
+    {
+      "path": "plus-ui/src/components/consumer/BattleCardButton.vue",
+      "sha256": "6e199afeee2c764aad2249bdedb4f37be664dbd60939531ed7b1a11d82ad28bc"
+    },
+    {
+      "path": "plus-ui/src/components/consumer/ConfirmationSummary.vue",
+      "sha256": "adcb217a42b17b5c2a4a75c816926c23d0b1142f6fa6c0dcfa52af75a7de5d49"
+    },
+    {
+      "path": "plus-ui/src/components/consumer/ConsumerAssistant.vue",
+      "sha256": "13176dd3d69875bbf1f25f25c5e0e90377ab8e9dd2d2255f424936e0f3413d5f"
+    },
+    {
+      "path": "plus-ui/src/components/consumer/ConsumerAuthLayout.vue",
+      "sha256": "8bb345aa62acff4d4fc767e75aaddf4d19f4381df2a72b395339beb5ea135928"
+    },
+    {
+      "path": "plus-ui/src/components/consumer/ConsumerIcon.vue",
+      "sha256": "7db4f4edbab4686a7598cdc048be439b72f3f93e55b38666dc3614a5f9903abe"
+    },
+    {
+      "path": "plus-ui/src/components/consumer/ConsumerNextStep.vue",
+      "sha256": "d977d48169f3621e4c9d370f24ad7cbde1db367826ddb009cdae3b37aeed210d"
+    },
+    {
+      "path": "plus-ui/src/components/consumer/ConsumerPageHeader.vue",
+      "sha256": "252a12240206dd4af0190618883bbec2757f5cc2964a923d4e1315ff0255e7d2"
+    },
+    {
+      "path": "plus-ui/src/components/consumer/ConsumerState.vue",
+      "sha256": "1b1588bf2548173de30ed7cdb420758b88166913e92553d8d6dab12e48a7e1b3"
+    },
+    {
+      "path": "plus-ui/src/components/consumer/CourtArt.vue",
+      "sha256": "dcaadc75193f7f642a14bf9644740293fc388ca1af114400a72d9a370a69856c"
+    },
+    {
+      "path": "plus-ui/src/components/consumer/EntryHandover.vue",
+      "sha256": "06469cd20b91a4349ec2e1ff2a44df7a9c8b86bfadc10a91b6614641fd0d73aa"
+    },
+    {
+      "path": "plus-ui/src/components/consumer/EventCover.vue",
+      "sha256": "cff07b7d3868a16cc615c017ce72caf2e8596903854eba184796d85f088c94d9"
+    },
+    {
+      "path": "plus-ui/src/components/consumer/EventDetailContent.vue",
+      "sha256": "6beca561a94e8d4f15579d07e237bb0a7acaa76ef0b455dfc9a85ab87b919641"
+    },
+    {
+      "path": "plus-ui/src/components/consumer/OfficialAwardMedal.vue",
+      "sha256": "89a6f529ee31d4274b8bd3b9a3e129471815c2123821dd72eb7ba7b13d54b7a0"
+    },
+    {
+      "path": "plus-ui/src/components/consumer/PlatformScene.vue",
+      "sha256": "02889ad84ba4c02f9a590cfa1f76d4ebc4e1d7e0f351c55f5048e7c65ba0eda5"
+    },
+    {
+      "path": "plus-ui/src/components/consumer/ProofCardButton.vue",
+      "sha256": "1e4a7b9ca838da3ebcac438bba5efbb54fc398d1bbe9bf8cdb77172546760871"
+    },
+    {
+      "path": "plus-ui/src/components/consumer/PublicEventCard.vue",
+      "sha256": "730b9d67925e620059ad572e67d451121e43743fe3bb8b1d9487639d2a700a41"
+    },
+    {
+      "path": "plus-ui/src/components/consumer/SportsAvatar.vue",
+      "sha256": "a392922fcca528c0da63f8cad3ed06c0b74564578efbcbe1b55cc9181c95c707"
+    },
+    {
+      "path": "plus-ui/src/components/consumer/SportsAvatarEditor.vue",
+      "sha256": "ed48a4639bd0f4d81db9c9bd51323bbf477e91feeb2a1585fea4413368583965"
+    },
+    {
+      "path": "plus-ui/src/components/consumer/SportsRankBadge.vue",
+      "sha256": "9566b74935bad65361d5985308cb37f619560181ab53984aa697903895509b49"
+    },
+    {
+      "path": "plus-ui/src/components/consumer/SportsTitleBadge.vue",
+      "sha256": "8afcc36cd238e2b93d37e52e005c2d96891ba8b32867d8dc5046a0a19970998f"
+    },
+    {
+      "path": "plus-ui/src/components/consumer/TeamGrowthPanel.vue",
+      "sha256": "32b4ac7ca9db99766d275c8e4e1b989b6241e9dff59f5adc69b06504edbe2005"
+    },
+    {
+      "path": "plus-ui/src/components/sport-ui/CourtScene.vue",
+      "sha256": "079b12746d3985b3c8c56bbaa0f471f9c0677e06d28754aefc5df8d8658837c5"
+    },
+    {
+      "path": "plus-ui/src/components/sport-ui/SportBrandMark.vue",
+      "sha256": "b5cac3a02075333c6eab1abe7b9028c87e51af5a720574cf2007732965fa3fd8"
+    },
+    {
+      "path": "plus-ui/src/components/sport-ui/SportButton.vue",
+      "sha256": "41c1b6874407e914c6e3dceef959795e66310908cc4f50395c07cff8e8d792df"
+    },
+    {
+      "path": "plus-ui/src/components/sport-ui/SportCard.vue",
+      "sha256": "5d81f3855fd417f369aa89e761f18a62af8f4f1a4085650ef2921a9eebc8154b"
+    },
+    {
+      "path": "plus-ui/src/components/sport-ui/SportEmpty.vue",
+      "sha256": "4a546553d2c40242f2fc999636aa2ed4a6f48b415e4897dfe7a7f73c0c43fa6a"
+    },
+    {
+      "path": "plus-ui/src/components/sport-ui/SportField.vue",
+      "sha256": "298523fca644a8886a98c2df34578da4505ee2cf1ea40e71f88ed62c42481c8e"
+    },
+    {
+      "path": "plus-ui/src/components/sport-ui/SportHeader.vue",
+      "sha256": "cd6ae119a935a0e0f0bbb0cfc492cb522326e7231643bec4682a7906095947df"
+    },
+    {
+      "path": "plus-ui/src/components/sport-ui/SportMetric.vue",
+      "sha256": "8ca4250b64ae8127cfd18473dc4a335dafb4b7e0b56b936e88126cf1991772ff"
+    },
+    {
+      "path": "plus-ui/src/components/sport-ui/SportPill.vue",
+      "sha256": "5de84f5fae2de429e09596921d789ac4a6f139b6380b56bdc8d587db2c25ac67"
+    },
+    {
+      "path": "plus-ui/src/components/sport-ui/SportTabs.vue",
+      "sha256": "4a680a7ff2602a8bbd116c178e99543f82f83d21299a38f1bb8c229254295729"
+    },
+    {
+      "path": "plus-ui/src/components/sport-ui/useAuthFields.spec.ts",
+      "sha256": "47cd85785ec59d946c37b5d99bd5fee26ba99b796ddd92eb17f5c4e2b37581ee"
+    },
+    {
+      "path": "plus-ui/src/components/sport-ui/useAuthFields.ts",
+      "sha256": "1f69c410e0e0aea0d46c9feee7ea076b399d31924830b43acb6c7d9d804c53d8"
+    },
+    {
+      "path": "plus-ui/src/views/portal/athlete.vue",
+      "sha256": "4a5e022279ba1349d5a1c182b6df68a3a40e2c507a1507bfc64b0231a6f05486"
+    },
+    {
+      "path": "plus-ui/src/views/portal/feedback.vue",
+      "sha256": "992c4c39337827baa5bbf7a3cd5ed0c7f010519cdcf08483c35428ff32c9c078"
+    },
+    {
+      "path": "plus-ui/src/views/portal/forgot.vue",
+      "sha256": "343e2697ed19e32bbcee816e149f4a2aa171b0ee4fbd24ffb21eb50cbfaea7d8"
+    },
+    {
+      "path": "plus-ui/src/views/portal/future.vue",
+      "sha256": "87b114335acb2d1a97baf2a51a785d6ab9e3401370b02f2f92cda4bdf4fcc01d"
+    },
+    {
+      "path": "plus-ui/src/views/portal/growth.vue",
+      "sha256": "18966925b04e64fe276afe41aef238f40baee808b55bb3dc40dbafe5ba297941"
+    },
+    {
+      "path": "plus-ui/src/views/portal/home.vue",
+      "sha256": "eba476c50d8ce913100fc44ee22f4b5fe77f1757ee4e7ade91381101aa5037b4"
+    },
+    {
+      "path": "plus-ui/src/views/portal/identity.vue",
+      "sha256": "08a9f767ff25758e07f6860fddb7e1758d239f5977338ea901f169233eaace58"
+    },
+    {
+      "path": "plus-ui/src/views/portal/issues.vue",
+      "sha256": "738c508a7d7d7906b0e91391c2cc00086df9d109693c732f5e74afc0e473560a"
+    },
+    {
+      "path": "plus-ui/src/views/portal/login.vue",
+      "sha256": "546abef39027f26c79988585647d90169618e09a6987249472961f2c61a7b7f6"
+    },
+    {
+      "path": "plus-ui/src/views/portal/notices.vue",
+      "sha256": "e9212305097bc609c4dddcb4e5b77d0f851c12f883d346a73868ef9db8d59c64"
+    },
+    {
+      "path": "plus-ui/src/views/portal/organization.vue",
+      "sha256": "e9e8b654df9a2ed9c6c44f93dcd771c59469a384ff11ddb074a68e0d8c8f4708"
+    },
+    {
+      "path": "plus-ui/src/views/portal/proof.vue",
+      "sha256": "0b0b7a2d17dff5e17970e1cafd83217b1493c1090e3433c9e5c27ac9126cb01e"
+    },
+    {
+      "path": "plus-ui/src/views/portal/register.vue",
+      "sha256": "ad9c3bee502f9fbfc8f13a0f7241d1530e62d2ceaf7d52bb9262f19910b5e572"
+    },
+    {
+      "path": "plus-ui/src/views/portal/results.vue",
+      "sha256": "5307bfb5648d5f4e89e933e52945864e9b76fdec16b5b6a663eec32d50c72478"
+    },
+    {
+      "path": "plus-ui/src/views/portal/rooms.vue",
+      "sha256": "8e1f9ac5a29bf6f4bfcd03b607e2e8fff1b028b4e15717f5a8f97c80490f16fe"
+    },
+    {
+      "path": "plus-ui/src/views/portal/team-invitation.vue",
+      "sha256": "46efa0c1018048743c29218883902eab46995c2dbaf89fc9a58073d73e6fa994"
+    },
+    {
+      "path": "plus-ui/src/views/portal/team.vue",
+      "sha256": "b5cd339feb8c23ecbf31e6f3b9d4b2fd2f4d99ea50ee79c219971c78aeb7a1b5"
+    },
+    {
+      "path": "plus-ui/src/views/public/events/detail.vue",
+      "sha256": "da2e40d2a12798eb1464d58c3bfc883c66b89dcba18dc5fcaba47184046990a8"
+    },
+    {
+      "path": "plus-ui/src/views/public/events/index.vue",
+      "sha256": "4d56e7ee82c301a7a7657a34717b333833ff0bb286cdbdc416244a4e85110f80"
+    },
+    {
+      "path": "plus-ui/src/views/sports/competition/index.vue",
+      "sha256": "50997fbc6157440fa8a599b0f85d97a3d0ee2d4cb650a9dea120e53f74348e83"
+    },
+    {
+      "path": "plus-ui/src/views/sports/event/from-document.vue",
+      "sha256": "f79871a4a3aa1fef0a0bbcfc0e28520a234de6bc7fa1fad95aff0d53747be88d"
+    },
+    {
+      "path": "plus-ui/src/views/sports/event/index.vue",
+      "sha256": "4e6ab3c35c5a496ed2960796d7ef2312c23217aae87411999abe8bebbc0b0912"
+    },
+    {
+      "path": "plus-ui/src/views/sports/field/index.vue",
+      "sha256": "185b66b001398e51870abc8b6d7e4a4b6f9870eb63b73d23554ddcd37d233158"
+    },
+    {
+      "path": "plus-ui/src/views/sports/finance/index.vue",
+      "sha256": "0827843d83c89fcdb03009c1659f5be151350c88fc63fa09d4c31ae043445ed2"
+    },
+    {
+      "path": "plus-ui/src/views/sports/government/index.vue",
+      "sha256": "cd4dd9d1e3665b85425e3b75971d7410b71a8ede157b3778b106f580ee4961fd"
+    },
+    {
+      "path": "plus-ui/src/views/sports/organization/desk.vue",
+      "sha256": "9b7a864a0d42512be75f61ec10b2ea3024b2e19d92e7ddf0897530f7b5ac37e7"
+    },
+    {
+      "path": "plus-ui/src/views/sports/organization/review.vue",
+      "sha256": "01434e6ddf577f0bd9c7c58abdbbf8342ec96b58381b7dd573f681cefa9e2ceb"
+    },
+    {
+      "path": "plus-ui/src/views/sports/platform/GovernmentAssignments.vue",
+      "sha256": "35f99f13615f90ef567efa63657ddde41f023657391505910e4955ea65124940"
+    },
+    {
+      "path": "plus-ui/src/views/sports/platform/GrowthRules.vue",
+      "sha256": "eaaeba4a073c1c626824910cd9a28c072ade61c87945b47e193771fe7e1fb684"
+    },
+    {
+      "path": "plus-ui/src/views/sports/platform/index.vue",
+      "sha256": "9c0c50a9a76e6283b1967afdd72cf0428795d9c3e9f7f8df3499ad15a9947f91"
+    },
+    {
+      "path": "plus-ui/src/views/sports/registration/enter.vue",
+      "sha256": "0ec26fde20817c85d53b8ceb5287585a884a7a8c888fde1aa4d98eaee6c950aa"
+    },
+    {
+      "path": "plus-ui/src/views/sports/registration/invite.vue",
+      "sha256": "39b6cd1c04a0cc4ac6642c1613a00fc0047aff9b69cd42994dedf6f7b5efd37c"
+    },
+    {
+      "path": "plus-ui/src/views/sports/registration/review.vue",
+      "sha256": "a9ac55940f506579d165067ab8b7cec17dd7ad2ac0e1dd8555e0d92120922dfc"
+    },
+    {
+      "path": "plus-ui/src/views/sports/workspace/ClosureAndFixtures.vue",
+      "sha256": "b82d163d7a5c524b771bea2f6224a4a3ae2b9f827796420043685ca215a93486"
+    },
+    {
+      "path": "plus-ui/src/views/sports/workspace/index.vue",
+      "sha256": "63c8cc6264662ece996725cbb197fb4ecdb632a66444b37fa6272397fd52ad6b"
+    }
+  ],
+  "definitionHashes": {
+    "event.mine": "019d18a1dfffd955ccad324b60c499be125393f3b287291700b57744590fc1cf",
+    "growth.card": "ed2090456464468e22d66e96ec95c542563ed614d19d9de50ec6b67e39777521",
+    "registration.mine": "cee3e6cd87701937e3913165c34f5670e019b8b935b812c44c10d0cdfd3bd5c8",
+    "room.query": "6ea57d7f1ee17eaba634628956587c8724aa5ad5a5cfc67fde33ea0946abe859",
+    "type.catalog": "7a8bff98c15995d849b29a74f07562a6ab062ad965cb546c0485c4802cf7d9f5",
+    "event.material.save": "a1d2e950df66da64da2c5fda5e67fafd9adf0d13d5e997840c2e5b505f84b879",
+    "event.material.generate": "b28e60ce4709afa1a4622c104284400cd286442004738c0e6baa9ea8742833c6",
+    "event.cover.save": "b2bc2b659413ba33cc3ab4e8603f658af74dafafd537776e3a15a0d5ed897924"
+  },
+  "checks": {
+    "frontend": {
+      "passed": true,
+      "evidencePath": ".local/product-release-20261011/frontend-global-accepted-receipt.json",
+      "sha256": "151a92981fcdfdf0e83591d0c475a7237e80d5929aa7213fde399cb1bf6dc5c0"
+    },
+    "pages": {
+      "passed": true,
+      "evidencePath": ".local/phase1-implementation/global-art-ui-20261011/final/product-screens-receipt.json",
+      "sha256": "dafe4b2f26f410219c3c6d7383a1b897f4e06bc9caa01a9fe7e0c1e3bf4c981c"
+    },
+    "growth": {
+      "passed": true,
+      "evidencePath": ".local/product-release-20261011/growth-ui-1791686245987/receipt.json",
+      "sha256": "48f1cd7e545cbf90f1d3106ef45ec7215f2441cdc65f229571fcad9fde7c646d"
+    },
+    "taskArt": {
+      "passed": true,
+      "evidencePath": ".local/product-release-20261011/task-art-ui-1791686374946/receipt.json",
+      "sha256": "e12f2b2924bf917a83e48c12bd106fb78da1de2e49e1be6b13bfc067f8a75c94"
+    },
+    "main": {
+      "passed": true,
+      "evidencePath": ".local/product-release-20261011/main-1791686154294/receipt.json",
+      "sha256": "daa4db9384f4f02040d55d7a234ece9335f20612c618fb05fdaac70ae5113529"
+    },
+    "agentWindow": {
+      "passed": true,
+      "evidencePath": ".local/product-release-20261011/agent-window-1791686555034/receipt.json",
+      "sha256": "791f23cb4625b00047a387d1b08307fad9f90d23adffbae55ad6047aab5898bf"
+    },
+    "agentFactWindow": {
+      "passed": true,
+      "evidencePath": ".local/product-release-20261011/agent-window-1791687192165/receipt.json",
+      "sha256": "ba69805f3b2467f27bb7890f96925c1d174d6c71d1eddaee304fe8c54d63b14b"
+    },
+    "direct": {
+      "passed": true,
+      "evidencePath": ".local/agent-playbook-20261011/read-facts-direct-c51c97c0-6db0-4008-9bca-e5c258edcf86.json",
+      "sha256": "a80f90b5be2475ea15c7c4efa5a319696c55d102aff870354e26064fa529cd17"
+    },
+    "guidance": {
+      "passed": true,
+      "evidencePath": ".local/agent-playbook-20261011/real-7a6547ab-8047-4d9f-9a17-e1d9e2d36ede.json",
+      "sha256": "c12abe0f86d77f6d91acf39ab12d0c683aebe916ed7beacfa84aeb96e9fbc90e"
+    },
+    "model": {
+      "passed": true,
+      "evidencePath": ".local/agent-playbook-20261011/read-facts-model-final-5942e09d-06e5-4080-9709-8a703eb3b82c.json",
+      "sha256": "39f8225f3f4846467c4205592789a30b746afb3fc7a042bfdf6652ba1b743a9c"
+    },
+    "migration": {
+      "passed": true,
+      "evidencePath": ".local/product-release-20261011/global-migration-8c8125b65e3543ef83fa882584718673/receipt.json",
+      "sha256": "fcdd20fdfd3dcc3866533375a4a9310580eac387e45ed483162fa1d748498997"
+    },
+    "runtime": {
+      "passed": true,
+      "evidencePath": ".local/product-release-20261011/runtime-refresh-de3b3c5e4d9a49079878cc954826c492/receipt.json",
+      "sha256": "6980e0ed638a0e8009d52353d6a7add845642a82382fe4b1877d5b59753e9a34"
+    },
+    "gateway": {
+      "passed": true,
+      "evidencePath": ".local/product-release-20261011/gateway-fact-refresh-ad39bcb8093c474fb2288850bdf74ded/receipt.json",
+      "sha256": "1a8e21874097033d5ab8edbbe89c401da0d02ef0ff5c1e8441e4898ce242026a"
+    },
+    "candidate": {
+      "passed": true,
+      "evidencePath": ".local/agent-playbook-20261011/candidate-release-3a086633-2d83-4608-846b-a6b76c1ea477/receipt.json",
+      "sha256": "1630a311a49ef7501dc4234dd073f93538a6b7e24129afa809e342fea3047a95"
+    }
+  },
+  "counts": {
+    "pages": 50,
+    "desktopMobilePageChecks": 100,
+    "growthUi": 61,
+    "taskCopyArtUi": 96,
+    "mainAnonymousUi": 44,
+    "agentGuidanceUi": 24,
+    "agentFactUi": 26,
+    "javaSelected": 35,
+    "gatewayUnitTests": 43,
+    "agentDirectAuthorization": 9,
+    "agentRealGuidance": 12,
+    "agentRealFactRead": 17,
+    "tableModules": 121,
+    "newRasterAssets": 13,
+    "newNativeSvgAssets": 13
+  },
+  "observed": {
+    "ranks": [
+      "新星",
+      "青铜",
+      "白银",
+      "黄金",
+      "铂金",
+      "钻石",
+      "星耀",
+      "王者"
+    ],
+    "thresholds": [
+      0,
+      40,
+      120,
+      400,
+      1000,
+      2400,
+      4800,
+      9600
+    ],
+    "agentVersion": 2,
+    "persistentMcpEntries": 11,
+    "controlledAgentTools": 6,
+    "skills": 6,
+    "businessFlows": 5,
+    "readOnlyAgentCandidates": [
+      "event.mine",
+      "growth.card",
+      "registration.mine",
+      "room.query",
+      "type.catalog"
+    ]
+  },
+  "inheritedEvidence": {
+    "report": "docs/04-verification/正式产品界面与创作功能验证-20261011.json",
+    "sha256": "b9ae393cfd2e3bec596d5bfb0783489f91039d0b5d43cdadc4e7126a390991d5",
+    "unchangedBackendSources": [
+      "backend/aisports-domains/d04/aisports-table-event/src/main/java/org/dromara/sports/event/service/EventMaterialActionProvider.java",
+      "backend/aisports-domains/d04/aisports-table-event/src/main/java/org/dromara/sports/event/service/EventMaterialService.java",
+      "backend/aisports-domains/d02/aisports-table-profile-display/src/main/java/org/dromara/sports/tables/d02/profile_display/ProfileAvatarService.java"
+    ],
+    "actualAvatarHttpChecks": 24,
+    "actualMaterialHttpChecks": 28,
+    "realProviderTextTypes": [
+      "plan",
+      "script",
+      "announcement",
+      "promotion"
+    ],
+    "boundary": "Prior real HTTP/model evidence is inherited only for unchanged service sources; current UI copy/layout is separately verified"
+  },
+  "release": {
+    "main": "Prepared for exact current UI3 + event.mine UI contract + five read-only Agent channels; actual release receipt is separate",
+    "rehearsal": "Five read-only Agent candidates actually opened and real-model verified; no new write Agent channels"
+  },
+  "migrations": {
+    "versions": [
+      "V035",
+      "V036"
+    ],
+    "actualMainAndRehearsal": true,
+    "backupRestoreReplay": true,
+    "protectedBusinessFactsUnchanged": true
+  },
+  "limitations": [
+    "Rehearsal people/event/money/results are synthetic, not official real-event acceptance",
+    "High-tier preview and frame assets verified; actual high-tier reward/upgrade was not fabricated",
+    "Existing proof is an unspecified award: neutral medal correct; official gold/silver/bronze issuance was not fabricated",
+    "Runtime external image provider still absent; installed image_gen artwork is separate",
+    "Remaining generic Agent write/delegation/material-conflict channels await specific real-model scenarios",
+    "No real bank/SMS/field tournament or broad mobile soft-keyboard/performance certification",
+    "Government/platform framework navigation tabs retain existing blue; product cards use the new shared style",
+    "Existing large frontend chunk warning remains"
+  ],
+  "failureHistory": [
+    "Original malformed model reply retained and same task resumed",
+    "Original facts task stopped at a checklist; general tool-first orchestration repaired and same task continued once",
+    "Missing second-organization event fixture replaced with existing second organization session boundary; no new event fabricated",
+    "401 sessions reauthenticated without re-running facts",
+    "POST preview was initially classified as write; verified exact scoped read preview allowed and separately recorded",
+    "Growth text background and narrow identity/editor layout corrected after visual inspection",
+    "Old heading and task-slot selectors failed; corrected tests; first evidence retained",
+    "Initial gateway shell wildcard did not expand; full explicit-path suite rerun; prior log retained",
+    "DPAPI reader trims trailing newline; original credential matched existing main account and no reset occurred"
+  ],
+  "predecessorHashes": {
+    "product": "b9ae393cfd2e3bec596d5bfb0783489f91039d0b5d43cdadc4e7126a390991d5",
+    "phase1": "6d18927802b75867876af4753f6cdc2b7151689b92af35eca8dc744ba687a0ee",
+    "native": "855006d8e09bb1d2839c0bda1152dffa17a28be59a3d3fb6449cf659a7972bf5"
+  }
+}

@@ -1,0 +1,19 @@
+package org.dromara.sports.tables.d02.profile_display;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.RequiredArgsConstructor;
+import org.dromara.sports.platform.core.*;
+import org.springframework.stereotype.Service;
+import java.time.OffsetDateTime;
+import java.util.*;
+import static org.dromara.sports.platform.core.BusinessSupport.*;
+
+@Service @RequiredArgsConstructor
+public class ProfileDisplayService implements CapabilityProvider {
+    private final ScopedJdbc db;private final ObjectMapper json;private final org.dromara.sports.api.GrowthPolicyApi policies;
+    public List<CapabilityDefinition> capabilities(){return List.of(capability(json,"profile.display","保存我的运动名片","asp_profile_display",false,false,Set.of("platform"),"",Set.of("asp_profile_display","asp_account"),Set.of("asp_profile_display"),"nickname","avatarStyle","tagline?","publicVisible","expectedVersion?"));}
+    public JsonNode preview(String code,JsonNode input){return mine();}
+    public JsonNode execute(String code,JsonNode in){long a=account();String nick=text(in,"nickname",40),style=text(in,"avatarStyle",32),tag=in.path("tagline").asText("").strip();if(!Set.of("mint","violet","sun","sky","coral","ink").contains(style)||tag.length()>160||nick.chars().anyMatch(Character::isISOControl))throw fail("请使用可选头像，并检查昵称和签名长度",400);db.lock("display:"+a);var current=db.one("SELECT version FROM asp_profile_display WHERE account_id=?",a);if(current!=null&&in.has("expectedVersion")&&number(current.get("version"))!=in.get("expectedVersion").asLong())throw fail("名片已变化，请重新读取后保存",409);db.update("INSERT INTO asp_profile_display(id,account_id,nickname,avatar_style,tagline,public_visible,sport_preferences) VALUES (?,?,?,?,?,?,'[]'::jsonb) ON CONFLICT(account_id) DO UPDATE SET nickname=excluded.nickname,avatar_style=excluded.avatar_style,tagline=excluded.tagline,public_visible=excluded.public_visible,version=asp_profile_display.version+1,update_time=CURRENT_TIMESTAMP",nextId(),a,nick,style,tag,in.path("publicVisible").asBoolean(false));return reference(json,"accountId",a,"saved");}
+    public JsonNode mine(){long a=account();var result=json.createObjectNode();result.put("accountId",Long.toString(a));var row=db.one("SELECT nickname,avatar_style,avatar_file_id,tagline,public_visible,version FROM asp_profile_display WHERE account_id=?",a);if(row==null){var n=json.createObjectNode();n.put("nickname","新来的球友");n.put("avatar_style","mint");n.put("tagline","下一次上场，从这里开始");n.put("public_visible",false);n.put("version",0);result.set("display",n);}else result.set("display",safeJson(json,row));return result;}
+    public JsonNode publicCard(long a){var row=db.one("SELECT d.nickname,d.avatar_style,d.avatar_file_id,d.tagline FROM asp_profile_display d JOIN asp_account a ON a.id=d.account_id WHERE d.account_id=? AND d.public_visible AND a.status='active'",a);if(row==null)throw fail("这张运动名片暂未公开",404);var result=json.createObjectNode();result.set("display",safeJson(json,row));result.put("generatedAt",OffsetDateTime.now().toString());result.set("sports",safeJson(json,db.list("SELECT s.id AS sport_id,s.name AS sport_name,g.points,g.finish_count,x.title_code,h.title FROM asp_account a JOIN asp_growth_profile g ON g.owner_type='person' AND g.owner_id=a.person_id JOIN asp_sport s ON s.id=g.sport_id LEFT JOIN asp_title_equipment x ON x.owner_type='person' AND x.owner_id=a.person_id AND x.sport_id=g.sport_id LEFT JOIN asp_honor h ON h.id=x.honor_id AND h.status='verified' WHERE a.id=?",a)));for(var sport:result.path("sports")){var node=(com.fasterxml.jackson.databind.node.ObjectNode)sport;var rule=policies.current(sport.path("sport_id").asLong());int rank=rule.rank(sport.path("points").asLong());node.put("rank_index",rank);node.put("rank_name",rule.rankNames().get(rank));}return result;}
+}

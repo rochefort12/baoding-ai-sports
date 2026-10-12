@@ -1,0 +1,117 @@
+{
+  "name": "asp_organization_application_version",
+  "domain": "D01",
+  "description": "办赛申请每次提交时冻结的内容和附件。拒绝后的旧版不改",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "application_id",
+      "type": "bigint",
+      "description": "申请",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_organization_application",
+      "check": null
+    },
+    {
+      "name": "revision",
+      "type": "integer",
+      "description": "从 1 开始的提交版本",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "revision >= 0"
+    },
+    {
+      "name": "name",
+      "type": "varchar(200)",
+      "description": "该版组织名称",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "contact_name",
+      "type": "varchar(100)",
+      "description": "该版联系人",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "contact_cipher",
+      "type": "varchar(1000)",
+      "description": "该版联系方式加密值",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "statement",
+      "type": "varchar(1000)",
+      "description": "该版申请说明",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "file_ids",
+      "type": "jsonb",
+      "description": "该版附件编号。结构为 fileIds 数组；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：pending approved rejected",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('pending', 'approved', 'rejected')"
+    },
+    {
+      "name": "reviewer_id",
+      "type": "bigint",
+      "description": "审核人后台用户编号。只有超级管理员",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "review_reason",
+      "type": "varchar(1000)",
+      "description": "拒绝理由。通过时可空",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": false,
+  "checks": [
+    "revision > 0"
+  ],
+  "unique": [
+    [
+      "application_id, revision",
+      null
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-organization-application-version",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

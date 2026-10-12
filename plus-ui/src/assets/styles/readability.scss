@@ -1,0 +1,231 @@
+/* Product typography sits after legacy page styles. Keep headings, scores and
+   monospace source separate; a larger root alone cannot fix explicit 9–12px labels. */
+:root {
+  --s-type-body: 16px;
+  --s-type-secondary: 14px;
+  --s-type-caption: 13px;
+  --s-type-control: 15px;
+  --s-type-section: 22px;
+  --s-type-title: 30px;
+  --s-primary-action: #c84426;
+  --s-muted: #606b63;
+  --el-font-family: var(--s-font);
+  --el-font-size-extra-small: var(--s-type-caption);
+  --el-font-size-small: var(--s-type-secondary);
+  --el-font-size-base: var(--s-type-body);
+  --el-font-size-medium: 17px;
+  --el-font-size-large: 20px;
+  --el-font-size-extra-large: 24px;
+  --el-text-color-primary: var(--s-ink);
+  --el-text-color-regular: #46534b;
+  --el-text-color-secondary: var(--s-muted);
+}
+html.dark {
+  --s-muted: #b4c0b7;
+  --el-text-color-regular: #d0d9d2;
+  --el-text-color-secondary: var(--s-muted);
+}
+body,
+:is(.consumer-app, .business-app, .product-admin, .app-container, .el-dialog, .el-drawer, .el-message-box) {
+  font-family: var(--s-font);
+  font-size: var(--s-type-body);
+  line-height: 1.7;
+}
+
+/* Real prose uses the body scale. Explicit secondary classes below retain a
+   quieter hierarchy. Do not reset every span, icon, metric or Markdown code. */
+:is(.consumer-app .consumer-main, .business-app .b-content, .product-admin, .el-dialog__body, .el-drawer__body)
+  :is(p, li, dd) {
+  font-size: var(--s-type-body) !important;
+  line-height: 1.75;
+}
+:is(.consumer-app, .business-app, .product-admin, .el-dialog, .el-drawer, .el-message-box)
+  :is(small, .small, .consumer-muted, .consumer-note, .field-hint, .b-muted, .b-eyebrow, .b-menu-caption, .b-identity,
+      .b-record p, .b-heading p, .b-stat span, .b-task small, .b-status-line small, .b-progress > span,
+      .sport-field-help, .sport-required, .sport-eyebrow, .sport-page-header p, .sport-metric-top, .sport-metric p,
+      .consumer-page-head p, .consumer-links, .consumer-footer, .auth-description, .auth-context,
+      .product-object-code, .product-count, .product-location, .product-metrics span, .product-shortcuts small,
+      .event-meta, .event-kicker, .event-project, .event-place, .event-extra, .event-bottom .small,
+      .detail-footnote, .detail-muted, .detail-key-facts span, .detail-section-head > span, .detail-eyebrow,
+      .detail-status-note, .detail-read-error, .detail-heading > p, .detail-project p, .detail-plan > p, .detail-ai p,
+      .detail-contact p, .detail-share, .detail-plan-line, .detail-material > p,
+      .registration-next, .registration-self, .registration-flow, .status-cells span, .participant-main p,
+      .registration-facts dt, .review-member-heading p, .team-booking-summary span, .team-booking-heading span,
+      .team-booking-options span, .team-booking-members p, .team-roster-adjustment summary,
+      .confirmation-details, .entry-personal-fields .consumer-note,
+      .notice-content time, .notice-content .between > span, .issue-number, .issue-list p, .issue-timeline p:first-child,
+      .room-note, .room-topline, .room-feed p, .room-checklist, .room-announcement, .room-refresh-warning,
+      .room-matching-status p, .room-context a, .room-context span:not(.room-badge), .gathering-card p,
+      .gathering-footer, .recruit-row p, .recruit-privacy-hint, .room-discover > div p, .match-offers article p,
+      .team-card p, .history-block > summary, .premium-teams .participant-main p,
+      .profile-person > p, .profile-avatar-field p, .profile-avatar-link, .avatar-edit-hint, .avatar-upload-error,
+      .private-note, .growth-passport > p, .passport-eyebrow, .passport-metrics span, .progress-next,
+      .growth-sport-choice, .rank-preview > p, .rank-preview-state, .growth-facts p, .rank-celebration p,
+      .first-milestone p, .goal-heading p, .goal-list p, .goal-list span, .athlete-card > p, .athlete-card > div > p,
+      .organizer-kicker, .organizer-stat > span, .organizer-note, .organizer-event-progress,
+      .organizer-event-actions, .organizer-section-heading > span, .organizer-stat p, .organizer-event-info p,
+      .organizer-trend-bars strong, .managed-event-content > span, .managed-event-content p,
+      .managed-event-content > footer, .managed-event-primary, .managed-event-empty, .document-files > p,
+      .admission-count, .admission-label, .admission-section p, .government-filter > span,
+      .closure-grid article > span, .closure-grid p, .payment-proof-panel p, .payment-proof-images figcaption,
+      .honor-review-summary p, .honor-original-note, .honor-history-note, .honor-review-cards p,
+      .score-help, .score-winner span, .match-fact-row > span, .match-result-caption, .match-time-note,
+      .studio-document-bar, .studio-view-switch > span, .studio-hint, .studio-tools-toggle > span,
+      .studio-editor-footer > div:first-child, .studio-facts summary, .studio-history summary) {
+  font-size: var(--s-type-secondary) !important;
+  line-height: 1.7;
+}
+
+/* Navigation and choice labels need the same readable scale as form actions. */
+:is(.consumer-app, .business-app, .product-admin)
+  :is(.consumer-nav a, .personal-nav a, .consumer-tools .el-button.is-link, .header-login, .header-register,
+      .account-name, .b-sidebar nav a, .b-top-left strong, .b-top-actions .el-button, .b-breadcrumb,
+      .b-page-tabs > a, .b-task-tabs a, .sport-tabs button, .detail-tabs button, .organizer-filters button,
+      .organizer-text-button, .organizer-primary, .organizer-secondary, .organizer-todo strong,
+      .organizer-assistant button, .organizer-assistant a, .score-counter label, .product-shortcuts strong,
+      .profile-menu > a, .avatar-edit-trigger, .wechat-login-button, .room-profile-link,
+      .room-bottom-grid summary, .room-bottom-grid details button, .rank-catalog > button > span,
+      .certified-honor-copy strong, .sports-rank-badge strong, .sports-title-badge strong) {
+  font-size: var(--s-type-control) !important;
+  line-height: 1.5;
+}
+:is(.consumer-app, .business-app, .product-admin)
+  :is(.badge, .sport-pill, .room-badge, .b-phase, .b-event-phase, .organizer-status, .issue-status,
+      .event-cover-tag, .organizer-cover > span, .title-unworn, .captain-mark, .avatar-ready, .avatar-title, .rank-preview-state,
+      .consumer-city strong, .b-brand small, .b-sidebar-foot, .sport-auth-wordmark,
+      .consumer-brand > div > span, .consumer-mobile-nav a, .consumer-mobile-ai, .studio-badge) {
+  font-size: var(--s-type-caption) !important;
+  line-height: 1.5;
+}
+.consumer-app .consumer-brand strong,
+.business-app .b-brand > div { font-size: 22px; }
+.consumer-app .consumer-brand > div > span { letter-spacing: .6px; }
+.consumer-app .notice-count { min-width: 21px; height: 21px; font-size: var(--s-type-caption) !important; line-height: 21px; }
+.consumer-app .sport-auth-wordmark { letter-spacing: 1.4px; }
+.business-app .b-sidebar nav a { min-height: 48px; }
+.business-app .b-breadcrumb { display: flex; flex-wrap: wrap; gap: 9px; }
+/* Enlarged text must be allowed to fit its grid track, especially long event
+   names in the existing compact pending-work rail. */
+.business-app :is(.organizer-main > *, .organizer-aside > *, .organizer-todo, .organizer-todo > div) { min-width: 0; }
+.business-app .organizer-todo small { max-width: 100%; }
+.business-app :is(.organizer-heading p, .organizer-section-heading p) { font-size: var(--s-type-secondary) !important; }
+:is(.consumer-app, .business-app, .product-admin, .el-dialog, .el-drawer)
+  :is(.consumer-muted, .consumer-note, .field-hint, .b-muted, .b-heading p, .b-record p,
+      .b-menu-caption, .b-sidebar-foot, .b-identity, .product-object-code, .event-meta, .event-kicker,
+      .detail-muted, .detail-footnote, .detail-heading > p, .detail-key-facts span, .status-cells span,
+      .registration-self, .sport-field-help, .sport-required, .sport-eyebrow, .avatar-edit-hint,
+      .profile-person > p, .team-card p, .notice-content time, .managed-event-content p,
+      .managed-event-content > span, .managed-event-empty, .organizer-kicker, .organizer-note) {
+  color: var(--s-muted) !important;
+}
+
+/* Element overlays are teleported outside page shells: their own selectors and
+   variables keep dialogs, dropdowns and dates consistent with the visible form. */
+.el-button,
+.sport-button,
+.sport-tabs button,
+.consumer-app .btn {
+  font-family: var(--s-font);
+  font-size: var(--s-type-control) !important;
+  line-height: 1.5;
+}
+:is(.el-button--small, .sport-button--sm) { font-size: var(--s-type-secondary) !important; min-height: 36px; }
+.el-button:not(.is-link):not(.is-text):not(.el-button--small) { min-height: 42px; }
+/* Normal-size white action text needs more contrast than the decorative orange
+   accent. Keep the accent token for imagery and use this deeper fill on actions. */
+:is(.consumer-app, .business-app, .product-admin, .el-dialog, .el-drawer, .el-message-box)
+  :is(.el-button--primary:not(.is-link):not(.is-text):not(.is-plain), .b-ai-button, .organizer-primary, .studio-primary) {
+  background: var(--s-primary-action) !important;
+  border-color: var(--s-primary-action) !important;
+  color: #fff !important;
+}
+:is(.consumer-app, .business-app, .product-admin, .el-dialog, .el-drawer, .el-message-box)
+  :is(.el-button--primary.is-link, .el-button--primary.is-text) { color: var(--s-primary-action) !important; }
+:is(.el-input, .el-textarea, .el-select, .el-date-editor) {
+  --el-input-font-size: var(--s-type-body);
+  --el-select-font-size: var(--s-type-body);
+  font-size: var(--s-type-body);
+}
+:is(.el-input__inner, .el-textarea__inner, .el-select__selected-item, .el-range-input, .sport-field-control input) {
+  font-family: var(--s-font);
+  font-size: var(--s-type-body) !important;
+}
+:is(.el-input__wrapper, .el-select__wrapper) { min-height: 42px; }
+:is(.el-form-item__label, .el-checkbox__label, .el-radio__label, .el-radio-button__inner,
+    .sport-field > label, .el-tabs__item, .el-menu-item, .el-sub-menu__title, .el-dropdown-menu__item,
+    .el-select-dropdown__item, .sport-select__trigger, .sport-select__option) {
+  font-size: var(--s-type-control) !important;
+  line-height: 1.6;
+}
+.el-form-item__label { min-height: 28px; height: auto; padding-bottom: 7px; }
+:is(.el-checkbox, .el-radio) { min-height: 36px; height: auto; }
+:is(.el-select-dropdown__item, .el-dropdown-menu__item, .sport-select__option) { min-height: 40px; height: auto; padding-block: 8px; }
+:is(.el-table, .el-table__body, .el-table__header) { font-size: var(--s-type-control) !important; }
+:is(.consumer-app, .business-app, .product-admin) .el-table th.el-table__cell { font-size: var(--s-type-secondary) !important; }
+.el-table .cell { line-height: 1.65; }
+:is(.el-tag, .el-badge__content, .el-form-item__error, .el-upload__tip, .el-pagination,
+    .el-pagination button, .el-pagination .el-pager li, .el-alert__title, .el-alert__description,
+    .el-empty__description p, .el-message__content, .el-notification__content, .sport-select__empty,
+    .el-date-table, .el-date-table th, .el-time-panel__content, .el-time-spinner__item) {
+  font-size: var(--s-type-secondary) !important;
+  line-height: 1.6;
+}
+.el-tag { height: auto; min-height: 26px; padding-block: 2px; }
+.el-form-item__error { position: relative; padding-top: 6px; }
+:is(.el-dialog__title, .el-drawer__title, .el-message-box__title) { font-size: 20px; line-height: 1.4; font-weight: 650; }
+.el-message-box__message { font-size: var(--s-type-body); line-height: 1.75; }
+
+/* Headings remain distinct from metrics and the larger promotional artwork. */
+:is(.consumer-app, .business-app, .product-admin)
+  :is(.consumer-page-head h1, .sport-page-header h1, .b-heading h1) {
+  font-size: var(--s-type-title) !important;
+  line-height: 1.35;
+}
+:is(.consumer-app, .business-app, .product-admin)
+  :is(.consumer-card h2, .section-head h2, .sport-card-head h2, .product-workbench h2, .b-panel h2) {
+  font-size: var(--s-type-section) !important;
+  line-height: 1.45;
+}
+:is(.consumer-app, .business-app, .product-admin)
+  :is(.consumer-card h3, .b-panel h3, .event-body h3, .notice-content h3, .athlete-card h3, .rank-preview h3) {
+  font-size: 18px !important;
+  line-height: 1.5;
+}
+/* Shared helper classes occur in older platform/generated pages too. */
+:is(.text-xs, .text-12px, .text-11px, .text-10px) { font-size: var(--s-type-secondary) !important; }
+@media (max-width: 800px) {
+  :root { --s-type-body: 16px; --s-type-control: 15px; --s-type-title: 26px; --s-type-section: 20px; }
+  .consumer-app .consumer-header-inner { gap: 12px; }
+  .consumer-app .consumer-brand strong { font-size: 20px; }
+  .consumer-app .consumer-city strong { font-size: 13px !important; }
+  .consumer-app .consumer-mobile-nav a { min-width: 0; }
+  .business-app .b-top-left strong { max-width: 180px; }
+}
+/* Management entry remains reachable when mobile navigation hides the footer. */
+.consumer-app .consumer-entry-trigger,
+.consumer-app .consumer-work-login {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-height: 40px;
+  padding: 8px 10px;
+  border: 1px solid var(--s-border, #dce3dd);
+  border-radius: 12px;
+  background: #fff;
+  color: #283d34;
+  font: 600 14px/1.4 var(--s-font);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.consumer-app .consumer-work-footer { border: 0; background: transparent; color: inherit; font: inherit; cursor: pointer; }
+.consumer-app .consumer-entry-trigger .consumer-icon { width: 14px; height: 14px; }
+@media (max-width: 640px) {
+  .consumer-app .consumer-tools { gap: 9px; }
+  .consumer-app .consumer-tools .consumer-entry-menu { display: inline-flex; }
+  .consumer-app .consumer-tools .consumer-entry-trigger { display: inline-flex; }
+}
+@media (max-width: 480px) {
+  .consumer-app .consumer-city,
+  .consumer-app .consumer-tools .header-login { display: none; }
+}

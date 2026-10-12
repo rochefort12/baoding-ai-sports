@@ -1,0 +1,118 @@
+{
+  "name": "asp_organization_application",
+  "domain": "D01",
+  "description": "办赛申请。平台级数据，没有业务租户。审核只决定是否开放办赛，不表示主体已验真",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "applicant_account_id",
+      "type": "bigint",
+      "description": "申请人。本期一人一份",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_account",
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：draft pending approved rejected",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('draft', 'pending', 'approved', 'rejected')"
+    },
+    {
+      "name": "name",
+      "type": "varchar(200)",
+      "description": "组织名称。草稿可空，提交必填",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "contact_name",
+      "type": "varchar(100)",
+      "description": "联系人。可以和登录用户不同。草稿可空，提交必填",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "contact_cipher",
+      "type": "varchar(1000)",
+      "description": "联系方式加密值。不要求是手机号，不发送短信",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "statement",
+      "type": "varchar(1000)",
+      "description": "申请说明",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "file_ids",
+      "type": "jsonb",
+      "description": "当前稿附件编号。结构为 fileIds 数组。更换附件不删除旧文件；必须按版本校验结构",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "organization_id",
+      "type": "bigint",
+      "description": "通过后写入的组织编号。组织属于租户，这里不建外键",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "organization_tenant_id",
+      "type": "varchar(20)",
+      "description": "通过后的组织租户编号",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "assigned_reviewer_id",
+      "type": "bigint",
+      "description": "指定政府审核经办人；普通岗位只能处理明确分配给本人的申请",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": false,
+  "checks": [
+    "organization_tenant_id IS NULL OR length(organization_tenant_id) > 0",
+    "status <> 'approved' OR (organization_id IS NOT NULL AND organization_tenant_id IS NOT NULL)"
+  ],
+  "unique": [
+    [
+      "applicant_account_id",
+      null
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-organization-application",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

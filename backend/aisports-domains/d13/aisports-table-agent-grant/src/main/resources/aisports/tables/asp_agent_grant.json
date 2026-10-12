@@ -1,0 +1,61 @@
+{
+  "name": "asp_agent_grant",
+  "domain": "D13",
+  "description": "智能体能力及委派上限；与委托人实时权限取交集",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "agent_id",
+      "type": "bigint",
+      "description": "智能体",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_agent",
+      "check": null
+    },
+    {
+      "name": "capability_code",
+      "type": "varchar(160)",
+      "description": "允许能力或delegate目标",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "scope",
+      "type": "jsonb",
+      "description": "能力、组织和对象上限；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：active revoked",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('active', 'revoked')"
+    }
+  ],
+  "tenant": false,
+  "checks": [],
+  "unique": [
+    [
+      "agent_id, capability_code",
+      "status='active'"
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-agent-grant",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

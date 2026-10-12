@@ -1,0 +1,70 @@
+{
+  "name": "asp_room_interaction",
+  "domain": "D03",
+  "description": "房间内可见欢迎与鼓励；不是社区或私聊平台",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "room_id",
+      "type": "bigint",
+      "description": "房间",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_team_room",
+      "check": null
+    },
+    {
+      "name": "account_id",
+      "type": "bigint",
+      "description": "发送人",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_account",
+      "check": null
+    },
+    {
+      "name": "kind",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：welcome encourage ready announcement",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "kind IN ('welcome', 'encourage', 'ready', 'announcement')"
+    },
+    {
+      "name": "text",
+      "type": "varchar(500)",
+      "description": "可见消息",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "request_key",
+      "type": "varchar(128)",
+      "description": "防重键",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": false,
+  "checks": [],
+  "unique": [
+    [
+      "account_id, request_key",
+      null
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-room-interaction",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

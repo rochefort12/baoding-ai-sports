@@ -1,0 +1,90 @@
+{
+  "name": "asp_login_identity",
+  "domain": "D02",
+  "description": "账号渠道绑定和解绑历史；手机号回收不直接转移历史档案",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "account_id",
+      "type": "bigint",
+      "description": "绑定平台账号",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_account",
+      "check": null
+    },
+    {
+      "name": "channel",
+      "type": "varchar(100)",
+      "description": "phone/wechat/其他登录渠道",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "subject_hash",
+      "type": "varchar(128)",
+      "description": "渠道标识带密钥摘要；不得明文公开",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "subject_cipher",
+      "type": "varchar(1000)",
+      "description": "需要恢复时的加密标识",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "valid_from",
+      "type": "timestamptz",
+      "description": "绑定生效；有时区业务时间",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "valid_until",
+      "type": "timestamptz",
+      "description": "绑定结束；有时区业务时间",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "verification_source",
+      "type": "varchar(100)",
+      "description": "核验依据及方式",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": false,
+  "checks": [
+    "valid_until IS NULL OR valid_until > valid_from"
+  ],
+  "unique": [
+    [
+      "channel, subject_hash",
+      "valid_until IS NULL"
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-login-identity",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

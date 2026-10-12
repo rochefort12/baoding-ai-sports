@@ -1,0 +1,86 @@
+{
+  "name": "asp_roster_version",
+  "domain": "D05",
+  "description": "赛事报名名单版本；替补和冻结依据",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "registration_id",
+      "type": "bigint",
+      "description": "报名",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_registration",
+      "check": null
+    },
+    {
+      "name": "revision",
+      "type": "integer",
+      "description": "名单版本",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "revision >= 0"
+    },
+    {
+      "name": "rule_version_id",
+      "type": "bigint",
+      "description": "核验规则。本期报名可空",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_rule_version",
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：draft effective frozen superseded",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('draft', 'effective', 'frozen', 'superseded')"
+    },
+    {
+      "name": "effective_at",
+      "type": "timestamptz",
+      "description": "名单生效；有时区业务时间",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "change_reason",
+      "type": "varchar(1000)",
+      "description": "换人/补员/冻结依据",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": true,
+  "checks": [
+    "revision > 0"
+  ],
+  "unique": [
+    [
+      "registration_id, revision",
+      null
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-roster-version",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

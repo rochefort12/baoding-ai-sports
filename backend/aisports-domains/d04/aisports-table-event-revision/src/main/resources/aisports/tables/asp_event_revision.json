@@ -1,0 +1,77 @@
+{
+  "name": "asp_event_revision",
+  "domain": "D04",
+  "description": "赛事对外承诺版本和重大变更说明",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "event_id",
+      "type": "bigint",
+      "description": "赛事",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_event",
+      "check": null
+    },
+    {
+      "name": "revision",
+      "type": "integer",
+      "description": "发布版本",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "revision >= 0"
+    },
+    {
+      "name": "snapshot",
+      "type": "jsonb",
+      "description": "结构、规程、责任、资源与费用公开快照；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "reason",
+      "type": "varchar(1000)",
+      "description": "变更依据",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "published_at",
+      "type": "timestamptz",
+      "description": "发布生效；有时区业务时间",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": true,
+  "checks": [
+    "revision > 0"
+  ],
+  "unique": [
+    [
+      "event_id, revision",
+      null
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-event-revision",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

@@ -1,0 +1,106 @@
+{
+  "name": "asp_attribute_definition",
+  "domain": "D02",
+  "description": "跨项目参赛属性目录；新项目增加目录项，不改参赛人表结构",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "code",
+      "type": "varchar(100)",
+      "description": "稳定编码；一经参赛使用不改含义",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "name",
+      "type": "varchar(100)",
+      "description": "展示名称",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "value_type",
+      "type": "varchar(32)",
+      "description": "取值类型：text number date enum",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "value_type IN ('text', 'number', 'date', 'enum')"
+    },
+    {
+      "name": "unit",
+      "type": "varchar(32)",
+      "description": "数值单位；文本和日期可空",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "sensitivity",
+      "type": "varchar(32)",
+      "description": "可见范围：ordinary identity health",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "sensitivity IN ('ordinary', 'identity', 'health')"
+    },
+    {
+      "name": "storage_scope",
+      "type": "varchar(32)",
+      "description": "profile 可复用到个人档案；entry 只在当次报名采集：profile entry",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "storage_scope IN ('profile', 'entry')"
+    },
+    {
+      "name": "sport_id",
+      "type": "bigint",
+      "description": "建议适用的运动；空表示任何运动都可选用",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_sport",
+      "check": null
+    },
+    {
+      "name": "enum_options",
+      "type": "jsonb",
+      "description": "枚举可选项及版本；非枚举为空；必须按版本校验结构",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：active disabled",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('active', 'disabled')"
+    }
+  ],
+  "tenant": false,
+  "checks": [],
+  "unique": [
+    [
+      "code",
+      null
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-attribute-definition",
+  "lifecycle": "planned",
+  "genericWrites": false,
+  "queryOpen": false
+}

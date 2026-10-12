@@ -1,0 +1,84 @@
+{
+  "name": "asp_match_entry",
+  "domain": "D09",
+  "description": "对阵或计时评分参赛集合；未来晋级席位可待定",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "match_id",
+      "type": "bigint",
+      "description": "场次",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_match",
+      "check": null
+    },
+    {
+      "name": "registration_id",
+      "type": "bigint",
+      "description": "参赛报名；尚未晋级可为空",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_registration",
+      "check": null
+    },
+    {
+      "name": "roster_version_id",
+      "type": "bigint",
+      "description": "本场名单依据",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_roster_version",
+      "check": null
+    },
+    {
+      "name": "slot",
+      "type": "varchar(100)",
+      "description": "对阵位置/道次/试次等",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "qualification_source",
+      "type": "jsonb",
+      "description": "已确认报名或条件晋级路径；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：pending confirmed withdrawn disqualified",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('pending', 'confirmed', 'withdrawn', 'disqualified')"
+    }
+  ],
+  "tenant": true,
+  "checks": [],
+  "unique": [
+    [
+      "match_id, slot",
+      null
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-match-entry",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

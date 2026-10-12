@@ -1,0 +1,106 @@
+{
+  "name": "asp_fee_item",
+  "domain": "D06",
+  "description": "应收服务、选手及项目明细",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "obligation_id",
+      "type": "bigint",
+      "description": "义务",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_fee_obligation",
+      "check": null
+    },
+    {
+      "name": "person_id",
+      "type": "bigint",
+      "description": "按人计价对应选手",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_person",
+      "check": null
+    },
+    {
+      "name": "service_code",
+      "type": "varchar(100)",
+      "description": "收费项目",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "quantity",
+      "type": "numeric(12,4)",
+      "description": "数量与计价单位",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "quantity > 0"
+    },
+    {
+      "name": "unit",
+      "type": "varchar(100)",
+      "description": "计价单位",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "unit_price",
+      "type": "numeric(18,2)",
+      "description": "单价；人民币元，不能用浮点",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "unit_price >= 0"
+    },
+    {
+      "name": "discount_amount",
+      "type": "numeric(18,2)",
+      "description": "优惠；人民币元，不能用浮点",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "discount_amount >= 0"
+    },
+    {
+      "name": "amount",
+      "type": "numeric(18,2)",
+      "description": "最终明细金额；人民币元，不能用浮点",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "amount >= 0"
+    },
+    {
+      "name": "basis",
+      "type": "jsonb",
+      "description": "计价顺序与优惠依据；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": true,
+  "checks": [],
+  "unique": [],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-fee-item",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

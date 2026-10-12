@@ -1,0 +1,142 @@
+{
+  "timestamp": "2026-10-11T04:14:13.535Z",
+  "host": "DESKTOP-GCQ0C08",
+  "frontend": "http://127.0.0.1:5192",
+  "backendPort": 8082,
+  "currentProtectedRuntimeJarSHA256": "ffe94e14798cbee4627193e6456d17c766aba852ef1ddac46118c8644e0ee464",
+  "scope": "Actual GET/unsaved form and separate synthetic positive display; no actual certified award granted",
+  "checks": {
+    "actualBrowser": 22,
+    "syntheticAppearance": 13,
+    "global": 2,
+    "syntheticComponent": 28
+  },
+  "files": [
+    {
+      "file": "desktop-actual-unsaved-honor-form.png",
+      "source": ".local/product-release-20261011/world-honor-ui-1791691931574/desktop-actual-unsaved-honor-form.png",
+      "sha256": "5080435e4d6959c117271e566cf709e773250e5a5c25eb0fee2ad874237d4fdf",
+      "kind": "actual isolated ordinary-account UI"
+    },
+    {
+      "file": "desktop-actual-profile.png",
+      "source": ".local/product-release-20261011/world-honor-ui-1791691931574/desktop-actual-profile.png",
+      "sha256": "9ef0d2bfaa914da9ad79d4e9e220db719e20491c396434c9050a2a6ff5d254ad",
+      "kind": "actual isolated ordinary-account UI"
+    },
+    {
+      "file": "mobile-actual-unsaved-honor-form.png",
+      "source": ".local/product-release-20261011/world-honor-ui-1791691931574/mobile-actual-unsaved-honor-form.png",
+      "sha256": "3744fab424b04acb39f207bb223b60b6e3a5e9475a1b77273442fe9faa8cc6f2",
+      "kind": "actual isolated ordinary-account UI"
+    },
+    {
+      "file": "mobile-actual-profile.png",
+      "source": ".local/product-release-20261011/world-honor-ui-1791691931574/mobile-actual-profile.png",
+      "sha256": "e1282e34b49bc9c8350b0b89443548b4242d07ad54ac8de616892b214af9e0c7",
+      "kind": "actual isolated ordinary-account UI"
+    },
+    {
+      "file": "desktop-synthetic-podium-appearance.png",
+      "source": ".local/product-release-20261011/world-honor-ui-1791691931574/desktop-synthetic-podium-appearance.png",
+      "sha256": "a9dbfe1d675f41c30b6f37a24473cafeceea8138b966d9694b773496f0f9bf84",
+      "kind": "synthetic component display, not actual certification"
+    },
+    {
+      "file": "mobile-synthetic-podium-appearance.png",
+      "source": ".local/product-release-20261011/world-honor-ui-1791691931574/mobile-synthetic-podium-appearance.png",
+      "sha256": "385df57d1f182faa9f7b040b7dec7e08082ad26bd97cfb45208b7c291f3d2017",
+      "kind": "synthetic component display, not actual certification"
+    },
+    {
+      "file": "browser-receipt.json",
+      "source": ".local/product-release-20261011/world-honor-ui-1791691931574/receipt.json",
+      "sha256": "f833de3cefe270c782098908cffd21f5b91ec0dbe989bedbcfc25aa3460abd4a"
+    },
+    {
+      "file": "component-receipt.json",
+      "source": ".local/product-release-20261011/world-honor-components-1791691725319/vitest.json",
+      "sha256": "7988eae55d41b34d70048502b96f79779a37a14056e8203374aebad7f0b55a17"
+    }
+  ],
+  "source": [
+    {
+      "file": "plus-ui/src/components/consumer/AvatarFrame.vue",
+      "sha256": "8d7f4d8057e098fdd0004f4153294fd5654d5dd11f60deebff0c5119409a7754"
+    },
+    {
+      "file": "plus-ui/src/components/consumer/SportsProfileCard.vue",
+      "sha256": "2a0b2a8aa5cb39fb2f8a126aeb2ac9d9d2559ffa055b3b3a75356f368a17476d"
+    },
+    {
+      "file": "plus-ui/src/components/consumer/CertifiedHonorBadge.vue",
+      "sha256": "86c21b453fad1265d5b1dc5427a345a0fb4c6689568434a9452423d4efe6c53f"
+    },
+    {
+      "file": "plus-ui/src/utils/honorPresentation.ts",
+      "sha256": "504b65884049a802fb53c3245631a4c90e519522edde55d4e7ead156856192e4"
+    },
+    {
+      "file": "plus-ui/src/components/consumer/HonorCertification.vue",
+      "sha256": "8e3b885a5e792b02e9130f416de5d5a0082952f53b8c187351549a0af40fbec4"
+    },
+    {
+      "file": "plus-ui/src/components/sport-ui/SportSelect.vue",
+      "sha256": "b9442a82de5f629adf7361215165a8c5f8c0192ae9bc8a5877a69f91af872a4b"
+    },
+    {
+      "file": "plus-ui/src/views/portal/growth.vue",
+      "sha256": "da22fa275f27a76f67db0580e39b2983564fb2f961220975fc3d1f70f245f19b"
+    },
+    {
+      "file": "plus-ui/tests/honor-display.contract.ts",
+      "sha256": "a0c0bd3280ae841d4588e62a6431f41ba53bee56271adb7790ae14f65afc344a"
+    },
+    {
+      "file": "plus-ui/vitest.honor.config.ts",
+      "sha256": "186d1dda255ddd101d7ea4e5ef40dda52f24182b68c22abf65bd49da0390c4fe"
+    },
+    {
+      "file": "scripts/Test-WorldHonorPresentationUI.mjs",
+      "sha256": "9ec000e68effe8e8ee3952eeef2672145451b87033e18592dd982aa7e92fe452"
+    }
+  ],
+  "resources": [
+    {
+      "file": "plus-ui/public/images/sports/honors/world-champion-badge.webp",
+      "bytes": 110448,
+      "sha256": "a2a4efb712e234983ccc539b25d82947b70242d282cdc76949f92e833b691db4"
+    },
+    {
+      "file": "plus-ui/public/images/sports/honors/world-champion-frame.webp",
+      "bytes": 74326,
+      "sha256": "321147f255e92148181d8cba8bcafd1d053506ddeb143452e6a231bd846b581a"
+    },
+    {
+      "file": "plus-ui/public/images/sports/honors/world-runner-up-badge.webp",
+      "bytes": 108344,
+      "sha256": "4e1376ff09d8dc28e9d2fd4df873d49bce1b571415499d9671e8ad127c1ebe3f"
+    },
+    {
+      "file": "plus-ui/public/images/sports/honors/world-runner-up-frame.webp",
+      "bytes": 71358,
+      "sha256": "be559d5c34c61f9227d0f54caa560124d4ea9e9f92762e5aed6739f70227d8a5"
+    },
+    {
+      "file": "plus-ui/public/images/sports/honors/world-third-place-badge.webp",
+      "bytes": 88866,
+      "sha256": "ec6bcd6d36b58521134c3d31b34d160197e6bbdc4ce98f308102310bb10d59f9"
+    },
+    {
+      "file": "plus-ui/public/images/sports/honors/world-third-place-frame.webp",
+      "bytes": 74982,
+      "sha256": "f94a2c738c0c415a2d2129333c868efe9d7bfcfc50c4e2d2540df4f9fb935f0f"
+    }
+  ],
+  "limits": [
+    "No actual valid worn world honor in ordinary account; positive samples are synthetic",
+    "No source claim of real world award, user style approval, or whole phase1 acceptance",
+    "Previous initial export failure and earlier browser evidence preserved",
+    "Reduced-motion checked; ordinary animation performance not measured"
+  ]
+}

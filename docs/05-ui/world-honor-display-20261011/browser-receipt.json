@@ -1,0 +1,73 @@
+{
+  "timestamp": "2026-10-11T04:12:11.575Z",
+  "scope": "Actual ordinary profile GET and unsaved SportSelect interaction; separate synthetic SSR world podium display. No upload, save, submit, wear, award, model, or business write.",
+  "checks": [
+    "Actual desktop: certification GET succeeded",
+    "Actual desktop: world frame follows approved worn current-sport facts; empty projection cannot counterfeit a badge",
+    "Actual desktop: independent badges follow approved facts",
+    "Actual desktop: sport options are available from the real catalogue",
+    "Actual desktop: normal pointer selection keeps the sport value",
+    "Actual desktop: only three claim places are selectable",
+    "Actual desktop: keyboard selection changes champion to runner-up and closes the menu",
+    "Actual desktop: Escape closes options while preserving the form",
+    "Actual desktop: selecting claim fields does not grant a world badge or unlock proof upload",
+    "Actual desktop: actual form fits the viewport",
+    "Actual desktop: unsaved form can be discarded without creating an application",
+    "Actual mobile: certification GET succeeded",
+    "Actual mobile: world frame follows approved worn current-sport facts; empty projection cannot counterfeit a badge",
+    "Actual mobile: independent badges follow approved facts",
+    "Actual mobile: sport options are available from the real catalogue",
+    "Actual mobile: normal pointer selection keeps the sport value",
+    "Actual mobile: only three claim places are selectable",
+    "Actual mobile: keyboard selection changes champion to runner-up and closes the menu",
+    "Actual mobile: Escape closes options while preserving the form",
+    "Actual mobile: selecting claim fields does not grant a world badge or unlock proof upload",
+    "Actual mobile: actual form fits the viewport",
+    "Actual mobile: unsaved form can be discarded without creating an application",
+    "Synthetic: fixture explicitly says its samples are not real certifications",
+    "Synthetic desktop: three distinct podium frames are scoped to their exact cards",
+    "Synthetic desktop: all six real raster files load and stay bounded",
+    "Synthetic desktop: artwork cannot drag or capture interactions",
+    "Synthetic desktop: growth and participation title remain independent",
+    "Synthetic desktop: artwork fits viewport without horizontal overflow",
+    "Synthetic desktop: reduced motion disables all decoration animation",
+    "Synthetic mobile: three distinct podium frames are scoped to their exact cards",
+    "Synthetic mobile: all six real raster files load and stay bounded",
+    "Synthetic mobile: artwork cannot drag or capture interactions",
+    "Synthetic mobile: growth and participation title remain independent",
+    "Synthetic mobile: artwork fits viewport without horizontal overflow",
+    "Synthetic mobile: reduced motion disables all decoration animation",
+    "Global: no business or login write requests were produced",
+    "Global: no page script errors"
+  ],
+  "failures": [],
+  "pageErrors": [],
+  "writes": [],
+  "passed": true,
+  "artifacts": [
+    {
+      "file": "desktop-actual-unsaved-honor-form.png",
+      "sha256": "5080435e4d6959c117271e566cf709e773250e5a5c25eb0fee2ad874237d4fdf"
+    },
+    {
+      "file": "desktop-actual-profile.png",
+      "sha256": "9ef0d2bfaa914da9ad79d4e9e220db719e20491c396434c9050a2a6ff5d254ad"
+    },
+    {
+      "file": "mobile-actual-unsaved-honor-form.png",
+      "sha256": "3744fab424b04acb39f207bb223b60b6e3a5e9475a1b77273442fe9faa8cc6f2"
+    },
+    {
+      "file": "mobile-actual-profile.png",
+      "sha256": "e1282e34b49bc9c8350b0b89443548b4242d07ad54ac8de616892b214af9e0c7"
+    },
+    {
+      "file": "desktop-synthetic-podium-appearance.png",
+      "sha256": "a9dbfe1d675f41c30b6f37a24473cafeceea8138b966d9694b773496f0f9bf84"
+    },
+    {
+      "file": "mobile-synthetic-podium-appearance.png",
+      "sha256": "385df57d1f182faa9f7b040b7dec7e08082ad26bd97cfb45208b7c291f3d2017"
+    }
+  ]
+}

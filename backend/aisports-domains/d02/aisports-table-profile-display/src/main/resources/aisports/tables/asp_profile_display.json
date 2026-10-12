@@ -1,0 +1,88 @@
+{
+  "name": "asp_profile_display",
+  "domain": "D02",
+  "description": "公开运动名片与真实参赛档案分开；未选择公开时只向本人及必要队友展示",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "account_id",
+      "type": "bigint",
+      "description": "本人账号",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_account",
+      "check": null
+    },
+    {
+      "name": "nickname",
+      "type": "varchar(40)",
+      "description": "展示昵称，不回退真实姓名",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "avatar_file_id",
+      "type": "bigint",
+      "description": "头像文件编号；用途受控",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "avatar_style",
+      "type": "varchar(32)",
+      "description": "内置头像样式",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "tagline",
+      "type": "varchar(160)",
+      "description": "运动签名",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "public_visible",
+      "type": "boolean",
+      "description": "本人选择对外公开",
+      "nullable": false,
+      "default": "false",
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "sport_preferences",
+      "type": "jsonb",
+      "description": "偏好运动编号；不代表资格或实力；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": false,
+  "checks": [],
+  "unique": [
+    [
+      "account_id",
+      null
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-profile-display",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

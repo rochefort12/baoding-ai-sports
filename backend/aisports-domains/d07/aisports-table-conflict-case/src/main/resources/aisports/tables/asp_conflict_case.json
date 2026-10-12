@@ -1,0 +1,79 @@
+{
+  "name": "asp_conflict_case",
+  "domain": "D07",
+  "description": "冲突发现与协调证据；通知已读不等于解决",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "trigger_type",
+      "type": "varchar(100)",
+      "description": "提交/换人/改期/编排等",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "trigger_id",
+      "type": "bigint",
+      "description": "触发业务 ID",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "affected_refs",
+      "type": "jsonb",
+      "description": "受影响来源及授权摘要；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "severity",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：soft hard",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "severity IN ('soft', 'hard')"
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：open coordinating resolved rejected",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('open', 'coordinating', 'resolved', 'rejected')"
+    },
+    {
+      "name": "resolution",
+      "type": "jsonb",
+      "description": "选择方案与授权依据；必须按版本校验结构",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": true,
+  "checks": [],
+  "unique": [],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-conflict-case",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

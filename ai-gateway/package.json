@@ -1,0 +1,6 @@
+{
+  "name": "aisports-ai-gateway",
+  "private": true,
+  "type": "module",
+  "description": "通用 AI 内核。模型、工具循环和领域场景都在这里，不进入 Java。"
+}

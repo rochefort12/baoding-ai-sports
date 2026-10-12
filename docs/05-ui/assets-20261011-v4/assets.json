@@ -1,0 +1,123 @@
+{
+  "generation": "built-in image_gen; model identifier not exposed",
+  "scope": "Static visuals only; no actual certification or growth award is issued by these resources.",
+  "assets": [
+    {
+      "key": "world-champion-badge",
+      "kind": "badge",
+      "file": "plus-ui/public/images/sports/honors/world-champion-badge.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 110448,
+      "centerAlpha": 252,
+      "sha256": "a2a4efb712e234983ccc539b25d82947b70242d282cdc76949f92e833b691db4",
+      "original": "docs/05-ui/assets-20261011-v4/originals/world-champion-badge.png",
+      "originalSha256": "2d8d41aa6aa419158b280c80ac6ae3179e71d4f9720fe2938cc2add645cf4a98",
+      "prompt": "Use case: stylized-concept. Asset type: independent transparent verified world champion sports honor emblem for a premium minimalist Chinese sports app. One centered sculptural crest made of luminous champagne gold and clear opal crystal, exceptional highest prestige, delicate victory crest, a beautiful miniature translucent globe encircled by two swept streamlined laurel wings, compact balanced symmetrical silhouette with restrained global meridian detail. Sophisticated luxury product render, studio lighting, rich immaculate materials, 78% of square canvas filled, clear readable at 48px. No lettering, numerals, logos, Olympic rings, stars, portrait, background, shadow plane, UI or checkerboard. Genuine transparent exterior."
+    },
+    {
+      "key": "world-champion-frame",
+      "kind": "frame",
+      "file": "plus-ui/public/images/sports/honors/world-champion-frame.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 74326,
+      "centerAlpha": 0,
+      "sha256": "321147f255e92148181d8cba8bcafd1d053506ddeb143452e6a231bd846b581a",
+      "original": "docs/05-ui/assets-20261011-v4/originals/world-champion-frame.png",
+      "originalSha256": "083fcb02a8abd562c05b98b7b4c112fbb0d127af91f24d51a228ed9b646ae7d2",
+      "prompt": "Use case: stylized-concept. Asset type: independent transparent circular avatar frame for certified world champion sports honor, more prestigious than legendary growth tier. One exquisite front-view symmetric circular ring of luminous champagne gold and clear opal crystal, exceptional highest prestige, delicate victory crest, continuous aerodynamic fluid-metal rim with finely sculpted laurel accents along outer sides and a small meridian globe crest at the top. Refined modern sports achievement, immaculate gemstone and metal detailing, restrained glints only outside photo aperture. The empty circular photo aperture must be genuinely transparent and occupy 62% of the square width. Transparent exterior, ring with tiny crest occupies 88% width, perfectly balanced round geometry. Soft studio lighting. No portrait, letters, numbers, logos, Olympic rings, stars, trophy, background, shadows across the aperture or checkerboard."
+    },
+    {
+      "key": "world-runner-up-badge",
+      "kind": "badge",
+      "file": "plus-ui/public/images/sports/honors/world-runner-up-badge.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 108344,
+      "centerAlpha": 252,
+      "sha256": "4e1376ff09d8dc28e9d2fd4df873d49bce1b571415499d9671e8ad127c1ebe3f",
+      "original": "docs/05-ui/assets-20261011-v4/originals/world-runner-up-badge.png",
+      "originalSha256": "ebcdd11cd9e92409083f263c4ab21769763543f8d11d07bd4e237df5f3629d2f",
+      "prompt": "Use case: stylized-concept. Asset type: independent transparent verified world runner-up sports honor emblem for a premium minimalist Chinese sports app. One centered sculptural crest made of polished platinum silver and ice-blue crystal, elegant upward athletic crest, a beautiful miniature translucent globe encircled by two swept streamlined laurel wings, compact balanced symmetrical silhouette with restrained global meridian detail. Sophisticated luxury product render, studio lighting, rich immaculate materials, 78% of square canvas filled, clear readable at 48px. No lettering, numerals, logos, Olympic rings, stars, portrait, background, shadow plane, UI or checkerboard. Genuine transparent exterior."
+    },
+    {
+      "key": "world-runner-up-frame",
+      "kind": "frame",
+      "file": "plus-ui/public/images/sports/honors/world-runner-up-frame.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 71358,
+      "centerAlpha": 0,
+      "sha256": "be559d5c34c61f9227d0f54caa560124d4ea9e9f92762e5aed6739f70227d8a5",
+      "original": "docs/05-ui/assets-20261011-v4/originals/world-runner-up-frame.png",
+      "originalSha256": "d2c97ab02116f475882653547aa14108c101229da5174aa925e7b0417fd88ab4",
+      "prompt": "Use case: stylized-concept. Asset type: independent transparent circular avatar frame for certified world runner-up sports honor, more prestigious than legendary growth tier. One exquisite front-view symmetric circular ring of polished platinum silver and ice-blue crystal, elegant upward athletic crest, continuous aerodynamic fluid-metal rim with finely sculpted laurel accents along outer sides and a small meridian globe crest at the top. Refined modern sports achievement, immaculate gemstone and metal detailing, restrained glints only outside photo aperture. The empty circular photo aperture must be genuinely transparent and occupy 62% of the square width. Transparent exterior, ring with tiny crest occupies 88% width, perfectly balanced round geometry. Soft studio lighting. No portrait, letters, numbers, logos, Olympic rings, stars, trophy, background, shadows across the aperture or checkerboard."
+    },
+    {
+      "key": "world-third-place-badge",
+      "kind": "badge",
+      "file": "plus-ui/public/images/sports/honors/world-third-place-badge.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 88866,
+      "centerAlpha": 253,
+      "sha256": "ec6bcd6d36b58521134c3d31b34d160197e6bbdc4ce98f308102310bb10d59f9",
+      "original": "docs/05-ui/assets-20261011-v4/originals/world-third-place-badge.png",
+      "originalSha256": "a798786c789f1b0fe69536b91e1dd8091be54c04823c7967ea71379ffe81f36a",
+      "prompt": "Use case: stylized-concept. Asset type: independent transparent verified world third-place sports honor emblem for a premium minimalist Chinese sports app. One centered sculptural crest made of refined rose-bronze titanium and peach opal crystal, graceful victory crest, a beautiful miniature translucent globe encircled by two swept streamlined laurel wings, compact balanced symmetrical silhouette with restrained global meridian detail. Sophisticated luxury product render, studio lighting, rich immaculate materials, 78% of square canvas filled, clear readable at 48px. No lettering, numerals, logos, Olympic rings, stars, portrait, background, shadow plane, UI or checkerboard. Genuine transparent exterior."
+    },
+    {
+      "key": "world-third-place-frame",
+      "kind": "frame",
+      "file": "plus-ui/public/images/sports/honors/world-third-place-frame.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 74982,
+      "centerAlpha": 0,
+      "sha256": "f94a2c738c0c415a2d2129333c868efe9d7bfcfc50c4e2d2540df4f9fb935f0f",
+      "original": "docs/05-ui/assets-20261011-v4/originals/world-third-place-frame.png",
+      "originalSha256": "e32fd0172d2f6491c63b857d10c8d7b9dc73c9542064168e984027191f7ef57a",
+      "prompt": "Use case: stylized-concept. Asset type: independent transparent circular avatar frame for certified world third-place sports honor, more prestigious than legendary growth tier. One exquisite front-view symmetric circular ring of refined rose-bronze titanium and peach opal crystal, graceful victory crest, continuous aerodynamic fluid-metal rim with finely sculpted laurel accents along outer sides and a small meridian globe crest at the top. Refined modern sports achievement, immaculate gemstone and metal detailing, restrained glints only outside photo aperture. The empty circular photo aperture must be genuinely transparent and occupy 62% of the square width. Transparent exterior, ring with tiny crest occupies 88% width, perfectly balanced round geometry. Soft studio lighting. No portrait, letters, numbers, logos, Olympic rings, stars, trophy, background, shadows across the aperture or checkerboard."
+    },
+    {
+      "key": "assistant-events",
+      "kind": "assistant",
+      "file": "plus-ui/public/images/sports/assistant/assistant-events.webp",
+      "width": 192,
+      "height": 192,
+      "bytes": 15070,
+      "centerAlpha": 253,
+      "sha256": "7ae7a70c4875150aed79b76d4d7a1a0fc0b5c15aa3aa613586999ec010724586",
+      "original": "docs/05-ui/assets-20261011-v4/originals/assistant-events.png",
+      "originalSha256": "28c8d94891bdedd2af2d47fb980033b29576b8298d5837218a02ad9b5aa8b5f9",
+      "prompt": "Use case: stylized-concept. Asset type: transparent static feature artwork inside a refined sports assistant chat card. Theme discovering sport events. Render a translucent opal badminton shuttlecock, a small polished compass ring and a curved sport ticket with no text as one compact sculptural composition in luminous pearl ceramic, clear opal glass, champagne gold and a small muted sage accent. Tasteful high-end physical materials, warm studio light, balanced front three-quarter view, soft luxurious tactile aesthetic, detail readable at 40px. Fill 78% of square with transparent margins. No text, letters, logos, stars, AI diamond glyph, interface, people portraits, background or checkerboard. Genuine transparent exterior."
+    },
+    {
+      "key": "assistant-rules",
+      "kind": "assistant",
+      "file": "plus-ui/public/images/sports/assistant/assistant-rules.webp",
+      "width": 192,
+      "height": 192,
+      "bytes": 12598,
+      "centerAlpha": 253,
+      "sha256": "c1fd8cf0516afa108b2dd81356f1625fc1bd1cece950279999fd30f471f0fa4a",
+      "original": "docs/05-ui/assets-20261011-v4/originals/assistant-rules.png",
+      "originalSha256": "e368e2f63edac7a77a9342423d3f01ea6e990f73c0430958c129aebe0db29b7d",
+      "prompt": "Use case: stylized-concept. Asset type: transparent static feature artwork inside a refined sports assistant chat card. Theme understanding event rules. Render a pearl-white folded rulebook with two clean blank sheets and an amber glass check medallion as one compact sculptural composition in luminous pearl ceramic, clear opal glass, champagne gold and a small muted sage accent. Tasteful high-end physical materials, warm studio light, balanced front three-quarter view, soft luxurious tactile aesthetic, detail readable at 40px. Fill 78% of square with transparent margins. No text, letters, logos, stars, AI diamond glyph, interface, people portraits, background or checkerboard. Genuine transparent exterior."
+    },
+    {
+      "key": "assistant-team",
+      "kind": "assistant",
+      "file": "plus-ui/public/images/sports/assistant/assistant-team.webp",
+      "width": 192,
+      "height": 192,
+      "bytes": 17054,
+      "centerAlpha": 0,
+      "sha256": "3bccec990195d1504c8535e40354693ab3d452eda6b929628f05ec6957bc712a",
+      "original": "docs/05-ui/assets-20261011-v4/originals/assistant-team.png",
+      "originalSha256": "d6314fc42be67ef92b56bef2f0071e446466112a6068d70c9204a3c15153f4d2",
+      "prompt": "Use case: stylized-concept. Asset type: transparent static feature artwork inside a refined sports assistant chat card. Theme meeting teammates and preparing to participate. Render two elegant miniature rounded pearl athletic figures alongside an amber circular connection loop as one compact sculptural composition in luminous pearl ceramic, clear opal glass, champagne gold and a small muted sage accent. Tasteful high-end physical materials, warm studio light, balanced front three-quarter view, soft luxurious tactile aesthetic, detail readable at 40px. Fill 78% of square with transparent margins. No text, letters, logos, stars, AI diamond glyph, interface, people portraits, background or checkerboard. Genuine transparent exterior."
+    }
+  ]
+}

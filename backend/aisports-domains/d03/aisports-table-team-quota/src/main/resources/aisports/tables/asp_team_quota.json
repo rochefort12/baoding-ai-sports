@@ -1,0 +1,79 @@
+{
+  "name": "asp_team_quota",
+  "domain": "D03",
+  "description": "账户建队与入队配额。一期没有已批准数值，服务不读不写",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "account_id",
+      "type": "bigint",
+      "description": "受配额账号",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_account",
+      "check": null
+    },
+    {
+      "name": "create_limit",
+      "type": "integer",
+      "description": "有效自建队上限；非固定 3",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "create_limit >= 0"
+    },
+    {
+      "name": "join_limit",
+      "type": "integer",
+      "description": "有效加入队上限；非固定 10",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "join_limit >= 0"
+    },
+    {
+      "name": "policy_version",
+      "type": "varchar(100)",
+      "description": "平台公开配额版本",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "exception_basis",
+      "type": "varchar(500)",
+      "description": "扩额批准依据",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "valid_until",
+      "type": "timestamptz",
+      "description": "豁免或规则到期；有时区业务时间",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": false,
+  "checks": [],
+  "unique": [
+    [
+      "account_id",
+      null
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-team-quota",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

@@ -1,0 +1,79 @@
+{
+  "name": "asp_agent_step",
+  "domain": "D13",
+  "description": "可见模型、工具和委派步骤摘要，不包含材料正文和隐藏思考",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "run_id",
+      "type": "bigint",
+      "description": "运行",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_agent_run",
+      "check": null
+    },
+    {
+      "name": "sequence",
+      "type": "integer",
+      "description": "顺序",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "sequence >= 0"
+    },
+    {
+      "name": "kind",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：model tool delegate confirmation control",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "kind IN ('model', 'tool', 'delegate', 'confirmation', 'control')"
+    },
+    {
+      "name": "name",
+      "type": "varchar(160)",
+      "description": "模型或能力名称",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：started succeeded failed denied",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('started', 'succeeded', 'failed', 'denied')"
+    },
+    {
+      "name": "summary",
+      "type": "jsonb",
+      "description": "可见状态、来源引用与用量；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": false,
+  "checks": [],
+  "unique": [
+    [
+      "run_id, sequence",
+      null
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-agent-step",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

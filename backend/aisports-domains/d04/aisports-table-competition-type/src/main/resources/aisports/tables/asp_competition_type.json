@@ -1,0 +1,100 @@
+{
+  "name": "asp_competition_type",
+  "domain": "D04",
+  "description": "运动下的比赛类型；人数和报名形式用于办赛、房间和报名的共同约束",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "sport_id",
+      "type": "bigint",
+      "description": "所属运动",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_sport",
+      "check": null
+    },
+    {
+      "name": "code",
+      "type": "varchar(64)",
+      "description": "稳定类型编码",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "name",
+      "type": "varchar(100)",
+      "description": "比赛类型名称",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "entry_type",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：individual pair team",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "entry_type IN ('individual', 'pair', 'team')"
+    },
+    {
+      "name": "min_members",
+      "type": "integer",
+      "description": "最低参赛人数",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "min_members >= 0"
+    },
+    {
+      "name": "max_members",
+      "type": "integer",
+      "description": "最高参赛人数",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "max_members >= 0"
+    },
+    {
+      "name": "capability_status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：catalog registration manual automatic verified",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "capability_status IN ('catalog', 'registration', 'manual', 'automatic', 'verified')"
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：active disabled",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('active', 'disabled')"
+    }
+  ],
+  "tenant": false,
+  "checks": [
+    "min_members > 0",
+    "max_members >= min_members"
+  ],
+  "unique": [
+    [
+      "sport_id, code",
+      null
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-competition-type",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

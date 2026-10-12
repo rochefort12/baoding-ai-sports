@@ -1,0 +1,92 @@
+{
+  "name": "asp_consent",
+  "domain": "D02",
+  "description": "本人对具体用途的告知确认；保存档案和以后的报名材料分别记录",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "person_id",
+      "type": "bigint",
+      "description": "本人参赛人",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_person",
+      "check": null
+    },
+    {
+      "name": "actor_account_id",
+      "type": "bigint",
+      "description": "作出确认的本人账号",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_account",
+      "check": null
+    },
+    {
+      "name": "purpose",
+      "type": "varchar(100)",
+      "description": "明确处理用途",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "document_version",
+      "type": "varchar(100)",
+      "description": "告知材料版本",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "scope",
+      "type": "jsonb",
+      "description": "行为和资料范围；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "accepted_at",
+      "type": "timestamptz",
+      "description": "确认时间；有时区业务时间",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "revoked_at",
+      "type": "timestamptz",
+      "description": "撤回时间；有时区业务时间",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "evidence_hash",
+      "type": "varchar(128)",
+      "description": "确认内容摘要",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": false,
+  "checks": [],
+  "unique": [],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-consent",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

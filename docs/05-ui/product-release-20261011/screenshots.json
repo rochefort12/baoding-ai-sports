@@ -1,0 +1,72 @@
+[
+  {
+    "bytes": 54295,
+    "sha256": "c52ab3df1e7a50e671942582f3a39c5ea2b1e2024d88e391a81273bb7a719250",
+    "file": "desktop-government-home.png"
+  },
+  {
+    "bytes": 255855,
+    "sha256": "1b5fa66830ed5448741d7c228a619ac271db3c9e68fcd8efed738a3f32b25d8c",
+    "file": "desktop-growth.png"
+  },
+  {
+    "bytes": 442938,
+    "sha256": "80c0a9ca44af0286fc59f6018d812dee109038023eb8e1651fe9a4ba68dd82f6",
+    "file": "desktop-login.png"
+  },
+  {
+    "bytes": 169226,
+    "sha256": "be44f9976815863a4d7b5034a923cae712672d0ae9105465eb0eb47990385a3e",
+    "file": "desktop-materials.png"
+  },
+  {
+    "bytes": 551821,
+    "sha256": "4bdcea8f28b15528dad3ec59729dd158c0408834872ff9a47f23d3767336ad39",
+    "file": "desktop-organizer-home.png"
+  },
+  {
+    "bytes": 114528,
+    "sha256": "5f4c0bed86c3f22630960cac7b13d0de1a30a6f035c2969bb55ec1d89d26efaa",
+    "file": "desktop-platform-objects.png"
+  },
+  {
+    "bytes": 1171824,
+    "sha256": "f981c5f7a11feffa23c3d5edd5db5c921bf004f691ca392a300323c54adb3864",
+    "file": "desktop-public-home.png"
+  },
+  {
+    "bytes": 117534,
+    "sha256": "d01f13df0bda4dc87df568ca26c8829c03f990b64cb7c0cb1e8bad82dd66adb4",
+    "file": "desktop-room-detail.png"
+  },
+  {
+    "bytes": 41536,
+    "sha256": "99af0216357b03c555d2b02d23356fb94fea5e74814203396da152236f92c61f",
+    "file": "mobile-government-organizers.png"
+  },
+  {
+    "bytes": 200631,
+    "sha256": "d3628bf5cb96a5b65644e3ed4d286651665a574c4b8885d93df3a925a5e30588",
+    "file": "mobile-growth.png"
+  },
+  {
+    "bytes": 96518,
+    "sha256": "ce7c8eefb4c2042e6845111182f987d3344f802ee59697fcf19e8ad52f08b529",
+    "file": "mobile-login.png"
+  },
+  {
+    "bytes": 820912,
+    "sha256": "3c3e5486014110dd733902a6ce8156ffd87c5d37de346ac6453963f4d1c24541",
+    "file": "mobile-organizer-home.png"
+  },
+  {
+    "bytes": 91574,
+    "sha256": "cb88b60c93f95e47b108bb335202b6dae3b825f892b6c42f0a39e4b39a48bbf5",
+    "file": "mobile-room-detail.png"
+  },
+  {
+    "bytes": 79290,
+    "sha256": "9e1cd01c44182f7fcc7f690e65809f2f7b378e25702d5ae3dc8fb95c7d30387d",
+    "file": "mobile-two-ready.png"
+  }
+]

@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-07T07:08:07.986Z",
+  "scope": "Local mock UI only",
+  "laptopTodo": [
+    {
+      "text": "核对 1 单收款核对实际到账后登记；声明不代表到账。去办理",
+      "bottom": 625.859375
+    },
+    {
+      "text": "审核 1 单报名按本次提交资料核对资格；收费须足额到账。去审核",
+      "bottom": 697.046875
+    }
+  ],
+  "screenshots": [
+    "review-after/b-laptop.png",
+    "review-after/b-desktop.png",
+    "review-after/b-filtered-funds.png",
+    "review-after/b-funds-focus.png",
+    "review-after/b-review-focus.png",
+    "review-after/c-mobile.png",
+    "review-after/c-mobile-375.png",
+    "review-after/c-mobile-320.png",
+    "review-after/c-desktop.png"
+  ]
+}

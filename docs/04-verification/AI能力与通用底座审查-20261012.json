@@ -1,0 +1,238 @@
+{
+  "schemaVersion": 1,
+  "auditDate": "2026-10-12",
+  "observedAtUtc": "2026-10-11 22:26:35 UTC",
+  "status": "AUDIT_COMPLETED_WITH_AGENT_WRITE_GAPS",
+  "conclusion": "现有通用底座足以继续一期开发；专项AI和只读助手已有证据，通用Agent写入、委派及任务接续尚未闭环。",
+  "boundary": {
+    "businessCodeModified": false,
+    "businessOperationsExecuted": false,
+    "servicesStarted": false,
+    "channelsChanged": false,
+    "liveModelCalled": false,
+    "liveDatabaseQueried": false,
+    "currentRuntime": "STOPPED_FOR_USER_PACKAGING",
+    "portsChecked": [
+      5190,
+      5192,
+      5193,
+      8080,
+      8082,
+      8091,
+      25432,
+      26379,
+      29000,
+      29001
+    ],
+    "projectListenersObserved": 0
+  },
+  "baseline": {
+    "branch": "ai-feature",
+    "sourceCommit": "e3000ec0cdb3b8e78659894dfdb47601103fca84",
+    "workingTreeChangesAtStart": 633,
+    "latestHistoricalPackageSha256": "6320dee809a26392b6065fdbcd3d5fdf7f14c551b1ba4c92745aaef22134598b",
+    "historicalChannelSnapshot": {
+      "observedDate": "2026-10-11",
+      "uiEnabled": 56,
+      "agentReadEnabled": 5,
+      "agentWriteEnabled": 0,
+      "currentDatabaseVerification": "not_executed_while_stopped"
+    }
+  },
+  "checks": [
+    {
+      "name": "offline-ai-gateway",
+      "result": "PASS",
+      "command": ". ./scripts/Common.ps1; node --test --test-reporter=spec ./ai-gateway/agent.test.mjs ./ai-gateway/kernel.test.mjs ./ai-gateway/materials.test.mjs ./ai-gateway/visual.test.mjs",
+      "tests": 53,
+      "passed": 53,
+      "failed": 0,
+      "skipped": 0,
+      "boundary": "Mocked network/model tests; not a fresh real model or client acceptance"
+    },
+    {
+      "name": "table-architecture",
+      "result": "PASS",
+      "command": "PowerShell 7: load scripts/Common.ps1; python scripts/Test-TableArchitecture.py",
+      "tableModules": 121,
+      "dependencyViolations": 0,
+      "boundary": "Source ownership and dependency check; not database/table functionality"
+    },
+    {
+      "name": "historical-public-evidence-hashes",
+      "result": "PASS",
+      "files": 3,
+      "boundary": "Two historical acceptance indexes and packaging shutdown receipt"
+    },
+    {
+      "name": "historical-ai-gate-receipt-hashes",
+      "result": "PASS",
+      "files": 3,
+      "boundary": "Materials/human publication; final read-only Agent; creative materials"
+    },
+    {
+      "name": "critical-source-bindings",
+      "result": "PASS",
+      "files": 6,
+      "boundary": "Three backend files match latest login release binding; three gateway files match final business regression binding"
+    }
+  ],
+  "aiInventory": [
+    {
+      "capability": "DOCX/文本PDF/扫描PDF/图片材料识别与人工确认建赛",
+      "state": "historical_real_model_and_ordinary_role_evidence",
+      "boundary": "Synthetic materials; specialized workflow; not generic Agent write acceptance"
+    },
+    {
+      "capability": "赛事文稿、宣传文案及渐进修改",
+      "state": "historical_real_model_evidence",
+      "boundary": "Planning/script/announcement/promotion drafts; actual image provider chain remains unverified"
+    },
+    {
+      "capability": "公开参赛咨询与本人事实查询",
+      "state": "implemented_with_historical_evidence",
+      "boundary": "Five generic read capabilities: type.catalog, room.query, registration.mine, growth.card, event.mine"
+    },
+    {
+      "capability": "通用运行目录、技能、业务地图和历史",
+      "state": "implemented_with_partial_acceptance",
+      "agents": 8,
+      "registeredMcpContracts": 11,
+      "controlledRuntimeTools": 6,
+      "skills": 6,
+      "flows": 5,
+      "boundary": "Definitions and tools are not equivalent to enabled business actions"
+    },
+    {
+      "capability": "通用Agent写动作与跨职能委派",
+      "state": "not_accepted",
+      "boundary": "Write channels closed; confirmation/delegation/revocation require targeted acceptance"
+    }
+  ],
+  "findings": [
+    {
+      "id": "AI-G01",
+      "priority": "P1-before-write-enablement",
+      "status": "static_code_finding_not_runtime_reproduced",
+      "title": "确认执行未重新约束原Agent运行授权",
+      "file": "backend/aisports-domains/d13/aisports-table-agent-run/src/main/java/org/dromara/sports/tables/d13/agent_run/AgentRuns.java",
+      "line": 67,
+      "observation": "confirm只检查本人/确认状态/预览，未核对当前Agent grant、active版本及原运行scope。未绑定TrustedRunContext调用actions，BusinessExecutor按ui渠道执行并将run_id写为null。",
+      "impact": "待确认后关闭Agent渠道或撤销委托，而本人仍保留UI权限时，原卡片可能继续走人工UI执行；不能作为Agent撤权和运行范围验收通过。",
+      "next": "确认前重核原运行的身份、范围、版本、当前grant及渠道，保留人工确认机制与Agent回执关联；对撤权、关闭渠道及对象变化做真实拒绝测试。"
+    },
+    {
+      "id": "AI-G02",
+      "priority": "P2",
+      "status": "static_code_finding_not_runtime_reproduced",
+      "title": "子任务停止条件使用错误的根编号",
+      "file": "backend/aisports-domains/d13/aisports-table-agent-run/src/main/java/org/dromara/sports/tables/d13/agent_run/AgentRuns.java",
+      "line": 64,
+      "observation": "停止SQL使用root_run_id=传入id；子运行root_run_id为父树根编号。UI允许选择子运行并调用该子运行stop。",
+      "impact": "点击子任务停止可能更新零行而正常返回，子任务继续运行。",
+      "next": "明确停止当前子树或整个根任务的契约，使用正确根/子树集合并核验实际更新与令牌撤销。"
+    },
+    {
+      "id": "AI-G03",
+      "priority": "P2",
+      "status": "static_capability_gap",
+      "title": "跨职能委派缺少父任务接收结果的链路",
+      "file": "backend/aisports-domains/d13/aisports-table-agent-run/src/main/java/org/dromara/sports/tables/d13/agent_run/AgentRuns.java",
+      "line": 82,
+      "observation": "delegate返回childRunId/running；受控工具没有读取/等待子运行结果工具，run输入也未汇入子任务结果。界面可以分别打开子任务。",
+      "impact": "可以建立子任务，不能据此认定父助手已完成分工、等待、汇总和继续办理。",
+      "next": "在继承权限范围内补上结果回传/汇总、失败及确认转交、停止联动的最小链路并实测。"
+    },
+    {
+      "id": "AI-G04",
+      "priority": "P2-before-write-enablement",
+      "status": "static_capability_gap",
+      "title": "下一轮模型上下文没有结构化办理回执",
+      "file": "backend/aisports-domains/d13/aisports-table-agent-run/src/main/java/org/dromara/sports/tables/d13/agent_run/AgentRuns.java",
+      "line": 70,
+      "observation": "确认回执存入messages.blocks，但run只向模型读取最近30条role/content；工具step.summary默认空对象，read/execute工具结果在网关内仅当轮可见。",
+      "impact": "界面历史恢复不等于模型恢复办理事实、真实对象编号和请求键；跨轮写动作存在重复执行或丢失进度的风险。",
+      "next": "以服务端授权筛选后的回执、对象版本和原请求键恢复可见事实，补确认后断线/重启/重复请求用例，不使用隐藏思考。"
+    },
+    {
+      "id": "AI-G05",
+      "priority": "P2",
+      "status": "known_gap_reconfirmed",
+      "title": "兼容和异步写入口未全部纳入统一声明与开关",
+      "file": "backend/aisports-platform/executor/src/main/java/org/dromara/sports/platform/executor/DeclaredSqlInterceptor.java",
+      "line": 14,
+      "observation": "require-action-context默认false；legacy执行路径不调用registry.open，旧写声明较宽；仍依赖各原业务服务的权限和状态校验。",
+      "impact": "已有统一执行底座，不能声称所有API/后台任务已被能力开放与数据范围控制覆盖。",
+      "next": "按既有未完成条目逐入口收紧并做未登记写入、关闭渠道、跨组织和后台回归；不能直接全局开启而省略影响检查。"
+    },
+    {
+      "id": "AI-G06",
+      "priority": "P2",
+      "status": "static_capability_gap",
+      "title": "持久化预算未作为运行时配置执行",
+      "file": "backend/aisports-domains/d13/aisports-table-agent-run/src/main/java/org/dromara/sports/tables/d13/agent_run/AgentRuns.java",
+      "line": 70,
+      "observation": "asp_agent_version.budget有maxDepth/maxToolsPerTurn/activeSeconds，但AgentRuns及gateway使用硬编码3/30/300或285秒，没有读取版本budget；tokens_used仅累计。",
+      "impact": "修改平台显示的预算不会约束对应运行；现有硬上限可用，但不能认定具备可配置预算或累计成本控制。",
+      "next": "在现有限额机制内读取和校验锁定版本预算，明确累计用量限制，按真实并发容量验证。"
+    }
+  ],
+  "additionalVerificationGap": {
+    "title": "多材料序列化体积边界",
+    "observation": "通用上传允许20MB、6张处理后图片；gateway/server.mjs的JSON请求体限制2MB。缩图并不保证总base64始终低于此限。",
+    "state": "capacity_boundary_not_runtime_reproduced",
+    "next": "验收高复杂度6图/扫描页的编码后大小，统一压缩/分批与网关限制，保留准确失败原因。"
+  },
+  "evidence": [
+    {
+      "path": "docs/04-verification/工作账号自动组织与登录布局验证-20261011.json",
+      "sha256": "6b4ac7a3dc129a575d82edea51912e379506b6e091a5bd28a568ca71e2a58aa5"
+    },
+    {
+      "path": "docs/04-verification/羽毛球一期多账号全流程测试-20261011.json",
+      "sha256": "ba6ea409563f6fbd4ac095ab63bb950989aaa15ef2ad074b58f5da742ca39aba"
+    },
+    {
+      "path": ".local/shutdown-20261011-2c8106dc14ee4a689824a3433d7efa4d.json",
+      "sha256": "7f0112053aa91dacb148e1ec53047679ffd234162150d5bf1a3c57ba2f4815b7"
+    },
+    {
+      "path": ".local/business-regression-20261011/626cd3f32f36461984a58973a8bab828/agent-business-1791703854580-cf4ffcef/receipt.json",
+      "sha256": "e0fcc0576a43619a114b14912d1f55a8f1c202917d20bdd0f83a6535a0c2129e"
+    },
+    {
+      "path": ".local/business-regression-20261011/626cd3f32f36461984a58973a8bab828/ai-materials-handoff-9ad3d620-1fa9-4e51-a0b8-2efda9d15348/receipt.json",
+      "sha256": "428647f138f887cc9de0d7c85ace64a0b0c39e30b38a6949e32a65897192ba31"
+    },
+    {
+      "path": ".local/business-regression-20261011/626cd3f32f36461984a58973a8bab828/badminton-creative-1791701269629-96bd18f9/receipt.json",
+      "sha256": "c9a788765ac9ddcf23f13d96fa7e2976a047948b21ddc745a975fd109e7ef16c"
+    }
+  ],
+  "sourceFiles": [
+    {
+      "path": "backend/aisports-domains/d13/aisports-table-agent-run/src/main/java/org/dromara/sports/tables/d13/agent_run/AgentRuns.java",
+      "sha256": "0961e1861dcb1ce6c6e261baaa68ea137cecd726d66dc74268696848050a54a4"
+    },
+    {
+      "path": "backend/aisports-platform/executor/src/main/java/org/dromara/sports/platform/executor/BusinessExecutor.java",
+      "sha256": "e23f692b516fb8966a9a7c395a5a11de12bf5ffcd741e50c607f937b96e537b9"
+    },
+    {
+      "path": "backend/aisports-platform/executor/src/main/java/org/dromara/sports/platform/executor/DeclaredSqlInterceptor.java",
+      "sha256": "9b6b4b8387f38fd86537fa26a524d0f3e1bbe276f4b33348343f5334f01974ce"
+    },
+    {
+      "path": "ai-gateway/agent.mjs",
+      "sha256": "1975e6e0e42d9e43128cc6508f62086c45d829ee8091f84b1be933b5cc0b7509"
+    },
+    {
+      "path": "ai-gateway/server.mjs",
+      "sha256": "e63b9e179fe728a4eb660c45451a1163168de09f15d9c7a8ac62d3c96f6722ad"
+    },
+    {
+      "path": "ai-gateway/kernel.mjs",
+      "sha256": "8724cc3e3955597a544c4a25e6d95c3f79260437087143895c363ec6259b0d35"
+    }
+  ]
+}

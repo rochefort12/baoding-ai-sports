@@ -1,0 +1,225 @@
+{
+  "backendJarSha256": "e8a4d34311f4cfd09cd7b604cdaa24d94415f30eec514ebf613b39779e1cf079",
+  "scope": "Generic Agent implementation, actual isolated acceptance, stopped main startup package and V039 installation; not full phase-one or real-world sports/finance acceptance",
+  "checks": {
+    "frontend": {
+      "typecheck": true,
+      "build": true,
+      "currentSourcesMatch": true,
+      "oldJarBindingNotUsedForNewBackend": true
+    },
+    "ui": {
+      "desktopAndMobile": true,
+      "visuallyInspected": true,
+      "checks": 24
+    },
+    "main": {
+      "state": "INSTALLED_MAIN_STOPPED",
+      "agentWrites": 0,
+      "ui": 56,
+      "backupRestoredTables": 156,
+      "unchangedTables": 153,
+      "agentReads": 5
+    },
+    "architecture": {
+      "tableModules": 121,
+      "tableDependencyViolations": 0,
+      "catalogOwnership": "PASS"
+    },
+    "realAgent": {
+      "parentConsumesFinalChildVersion": true,
+      "write": "one confirmed unit.create in isolated synthetic event",
+      "checks": 17
+    },
+    "shutdown": {
+      "ports": [
+        5190,
+        5192,
+        5193,
+        8080,
+        8082,
+        8091,
+        25432,
+        26379,
+        29000,
+        29001
+      ],
+      "listeners": 0
+    },
+    "restart": {
+      "checks": 5,
+      "operatingSystemReboot": false
+    },
+    "gateway": {
+      "boundary": "mock provider/MCP",
+      "failures": 0,
+      "tests": 59
+    },
+    "java": {
+      "classes": 88,
+      "failures": 0,
+      "tests": 429,
+      "skipped": 0
+    }
+  },
+  "limits": {
+    "agentBodyBytes": 8388608,
+    "activeSeconds": 300,
+    "maxTokensPerTurn": 30000,
+    "imageJpegBytes": 524288,
+    "maxToolsPerTurn": 30,
+    "maxTokensTotal": 120000,
+    "maxChildren": 4,
+    "maxDepth": 3
+  },
+  "passed": true,
+  "remaining": [
+    "Other legacy/async write declarations and universal context enforcement",
+    "Real grant/role/version revocation permutations and other confirmed Agent writes",
+    "Deep multi-child concurrency and confirmation handoffs",
+    "Real image provider, SMS/WeChat/bank/on-site acceptance, device/load/24-hour/retention gates",
+    "Main application runtime after future startup remains unobserved; stopped installation is verified"
+  ],
+  "catalog": {
+    "model": "deepseek-flash",
+    "agentDefinitions": 8,
+    "workflows": 5,
+    "runtimeTools": 8,
+    "mcpContracts": 13,
+    "revision": 3,
+    "skills": 6
+  },
+  "evidence": [
+    {
+      "path": ".local/agent-runtime-20261012/build-31e84ba85eeb4506838cdc0415d91218/receipt.json",
+      "gate": "java",
+      "sha256": "e4042fec83932b2b8a23f6f6b6aaaebbbbebe553c1bb1e6e8b1b5f02c8c32200"
+    },
+    {
+      "path": ".local/agent-runtime-20261012/build-b98e54b720144bf09da3f03518053358/receipt.json",
+      "gate": "gateway",
+      "sha256": "ba06f4e1d5c3cd1482b2809f46564b3e40880afac2c3810eafb1d538d6bf5e05"
+    },
+    {
+      "path": ".local/business-regression-20261011/9321d7aca83b4875932843608d068281/preflight-receipt.json",
+      "gate": "isolated-backup",
+      "sha256": "6c959a94f184060c538dbbc9eb870abd944b0697f5153ff895a156cc17e1a1e1"
+    },
+    {
+      "path": ".local/business-regression-20261011/9321d7aca83b4875932843608d068281/agent-runtime-1791761372316-7ddae8f5/receipt.json",
+      "gate": "real-agent",
+      "sha256": "97b23296f55e282a1fcd4c64a60440fb3cc76885e5d77b21e2853c35cf982a58"
+    },
+    {
+      "path": ".local/business-regression-20261011/9321d7aca83b4875932843608d068281/agent-restart-recovery-1791761475405-0676e627/receipt.json",
+      "gate": "restart-recovery",
+      "sha256": "395bc717a3abedc882c6da35d7d8dfa9bb48879689fd16f697c3b035b91c2b72"
+    },
+    {
+      "path": ".local/product-release-20261011/frontend-refinement-ca9fbe0613c8447a8c4865be5507a68a/receipt.json",
+      "gate": "frontend",
+      "sha256": "4a7500537f1e8e01025a2701e3b99894dcce431e961b38094872a9d571633c82"
+    },
+    {
+      "path": ".local/product-release-20261011/agent-window-1791761519085/receipt.json",
+      "gate": "actual-agent-ui",
+      "sha256": "8a906a57d13734b89efbd2bdc0560b8472988dede4fec525d9512ead0dea2ede"
+    },
+    {
+      "path": ".local/agent-runtime-20261012/main-stage-fb40737494334a04bf58b8b7ab352446/receipt.json",
+      "gate": "main-install",
+      "sha256": "86233eca1637d4c5fbccce4fe0bc153fddb9ddde1bff0c55de733bdb123b17d3"
+    },
+    {
+      "path": ".local/shutdown-20261011-6bd14124f0b547d8ac42a5815bcb2270.json",
+      "gate": "shutdown",
+      "sha256": "40d91dacee616ff72aeb5f2cc64a4aca102bb2a19a920b5a277988ec752df085"
+    }
+  ],
+  "schemaVersion": 1,
+  "backendJarPath": "backend/ruoyi-admin/target/ruoyi-admin-agent-runtime-31e84ba85eeb4506838cdc0415d91218.jar",
+  "project": "AISports",
+  "sourceFiles": [
+    {
+      "sha256": "83a13c45b8d789439800a7abc5800dd76d3113dc67e859817a96131b82767fb4",
+      "path": "ai-gateway/agent.mjs"
+    },
+    {
+      "sha256": "de7b2eea1eea2f9ef5fc4829757ab182aea55df81181b7384ae624e119ed2074",
+      "path": "ai-gateway/server.mjs"
+    },
+    {
+      "sha256": "e240106bfa6afac9ab3dcbd92fdb46f208e55758ddee15ad290c50d59f953538",
+      "path": "ai-gateway/runtime.test.mjs"
+    },
+    {
+      "sha256": "384a002549423f5dd8a1b2fc1a72fc773c8053b239c40c2833e146ae6ca4b857",
+      "path": "ai-gateway/presentation.test.mjs"
+    },
+    {
+      "sha256": "0f40681bb2d8bb546a0692d45d46c7e1a9b5216b7d462bbba1e43fa4a70a9f86",
+      "path": "backend/aisports-platform/core/src/main/java/org/dromara/sports/platform/core/AgentBudget.java"
+    },
+    {
+      "sha256": "ad6fa8b255ac3fe6026357f9cc6382bfcd968734677975d62b9655df1a6a4cbc",
+      "path": "backend/aisports-platform/core/src/main/java/org/dromara/sports/platform/core/AgentRunAccess.java"
+    },
+    {
+      "sha256": "11c8aa1882e57f2a345265278a5f75038f4307cb533c2ac359ae515a4caf7d90",
+      "path": "backend/aisports-platform/core/src/main/java/org/dromara/sports/platform/core/ActionDispatcher.java"
+    },
+    {
+      "sha256": "00d793439f6de655677a856415062480a052fdb4a25c10356ce98c5cafc03654",
+      "path": "backend/aisports-platform/core/src/main/java/org/dromara/sports/platform/core/SportsAction.java"
+    },
+    {
+      "sha256": "c3e0b58efd5a35b17c09656dd226bd86bc483c33a9adb40cec4401f9c451284c",
+      "path": "backend/aisports-platform/executor/src/main/java/org/dromara/sports/platform/executor/BusinessExecutor.java"
+    },
+    {
+      "sha256": "e5f2e9fd09d392d6304afeb9eb80d47ee8df05cadd18989adf38ed70b09cca41",
+      "path": "backend/aisports-mcp/src/main/java/org/dromara/sports/mcp/RegisteredAgentTools.java"
+    },
+    {
+      "sha256": "81208380e758bc66254407d4a61ce096b9ec53ddb6441fccee69f9f0f33c42a9",
+      "path": "backend/aisports-domains/d13/aisports-table-agent-run/src/main/java/org/dromara/sports/tables/d13/agent_run/AgentRuns.java"
+    },
+    {
+      "sha256": "26e2562f78ec5b5bc7d23019c9b6f17ffe4b1f0aa9afed5dbf0eede7048a492c",
+      "path": "backend/aisports-domains/d13/aisports-table-agent-run/src/main/java/org/dromara/sports/tables/d13/agent_run/AgentPlaybookRules.java"
+    },
+    {
+      "sha256": "3aac6c4b58b91a79dcc8843da1b60ec05ed4473b3860cc06634471cfbe597e51",
+      "path": "backend/aisports-domains/d04/aisports-table-event/src/main/java/org/dromara/sports/event/service/EventPublicationService.java"
+    },
+    {
+      "sha256": "297e06038b75c38fce7d9148a26c6cb6f59034502b23ccf0e86f509891d19c5e",
+      "path": "backend/aisports-domains/d05/aisports-table-registration/src/main/java/org/dromara/sports/registration/service/RegistrationService.java"
+    },
+    {
+      "sha256": "4980b0c892836f782019a760b2bb4ad262d9c186725915249753d1b3e250840f",
+      "path": "backend/aisports-domains/d04/aisports-table-event/src/main/java/org/dromara/sports/event/ai/AgentMaterials.java"
+    },
+    {
+      "sha256": "1e6b18067a17226296802d9c7438e7563376da496254e8723e3e33b5500a6a98",
+      "path": "plus-ui/src/components/consumer/AgentPanel.vue"
+    },
+    {
+      "sha256": "e39dda82b57aafd652ee7dc8ff1033610490d6b3092455aae5822412c84e3113",
+      "path": "database/model/phase1.py"
+    },
+    {
+      "sha256": "c3292f429128bd817f5ef539fbb070c2bcd5bf8c20fb379d7885de960e6c87bd",
+      "path": "database/schema/current.sql"
+    },
+    {
+      "sha256": "14d9830f124c8f7e9721a60a047887da11de42601fc19be377dce3dc5c4eb7dd",
+      "path": "database/migrations/V039__agent_runtime_recovery.sql"
+    },
+    {
+      "sha256": "5de05cb78149aec4ed38cfd69058d46455c4396c66ebef5412e0584d6a9fac4f",
+      "path": "database/seeds/agent-playbook-v3.json"
+    }
+  ],
+  "at": "2026-10-12T07:35:45.2902329+08:00"
+}

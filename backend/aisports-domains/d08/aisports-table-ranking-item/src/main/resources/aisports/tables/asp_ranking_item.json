@@ -1,0 +1,77 @@
+{
+  "name": "asp_ranking_item",
+  "domain": "D08",
+  "description": "有范围的个人或参赛单位名次",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "ranking_run_id",
+      "type": "bigint",
+      "description": "排名运行",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_ranking_run",
+      "check": null
+    },
+    {
+      "name": "registration_id",
+      "type": "bigint",
+      "description": "参赛单位",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_registration",
+      "check": null
+    },
+    {
+      "name": "rank",
+      "type": "integer",
+      "description": "允许并列的名次",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "rank >= 0"
+    },
+    {
+      "name": "comparison_values",
+      "type": "jsonb",
+      "description": "独立复算需要的原值和单位；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "explanation",
+      "type": "varchar(1000)",
+      "description": "并列/取消/规则说明",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": true,
+  "checks": [
+    "rank > 0"
+  ],
+  "unique": [
+    [
+      "ranking_run_id, registration_id",
+      null
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-ranking-item",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

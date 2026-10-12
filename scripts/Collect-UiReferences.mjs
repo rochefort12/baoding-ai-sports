@@ -1,0 +1,32 @@
+// Read-only primary-source research. No remote scripts or skills are executed or installed.
+import fs from 'node:fs';import path from 'node:path';import crypto from 'node:crypto';
+const root=path.resolve('docs/05-ui/style-selection-20261011');fs.mkdirSync(root,{recursive:true});
+const libraries=[
+ ['A01','shadcn-vue','unovue/shadcn-vue','https://shadcn-vue.com/blocks','克制、清楚的层级','参赛端与主办方通用底座','源码型组件；需要把运动品牌和席位设计做成自己的组件。'],
+ ['A02','Nuxt UI','nuxt/ui','https://dashboard-vue-template.nuxt.dev','干净、轻盈的应用界面','主办方工作台、个人中心','有 Vue 模板；采用前先核对与本项目现有样式、路由的适配。'],
+ ['A03','PrimeVue / Sakai','primefaces/primevue','https://sakai.primevue.org','清晰、完整的业务后台','主办方、政府和平台','截图为开源 Sakai 模板；商业模板不在本轮范围。'],
+ ['A04','Naive UI','tusen-ai/naive-ui','https://www.naiveui.com/zh-CN/os-theme/components/card','精细、轻量的业务控件','表单、报名详情、后台','截图为真实组件实例；完整产品需要自行组织布局。'],
+ ['A05','Arco Design Vue','arco-design/arco-design-vue','https://vue-pro.arco.design','中文业务后台、紧凑高效','政府审核与赛事管理','Vue Pro 示例用于比较信息密度，不直接套用全部菜单。'],
+ ['A06','TDesign Vue Next','Tencent/tdesign-vue-next','https://tdesign.tencent.com/starter/vue-next','稳重、规整的中文工作台','政府和平台','截图采用官方开源 starter；实际依赖版本待选型后核对。'],
+ ['A07','Vuetify','vuetifyjs/vuetify','https://vuetifyjs.com/en/components/cards/','Material 层次与明确反馈','移动应用感、个人卡片','体系较完整；整体替换的成本高于局部组件引入。'],
+ ['A08','Quasar','quasarframework/quasar','https://quasar.dev/vue-components/card/','应用式布局与触摸反馈','移动服务和连续流程','也是应用框架；风格可参考，是否整体采用需评估。'],
+ ['A09','Vant','youzan/vant','https://vant-ui.github.io/vant/#/zh-CN/form','手机优先、操作直接','手机报名、表单和弹层','移动组件库，不能独自承担政府桌面工作台。'],
+ ['A10','Inspira UI','unovue/inspira-ui','https://inspira-ui.com','有层次的卡片与动效','荣誉、头像、匹配成功和成长反馈','只在关键节点使用动效；报名与资金操作保持清晰。']
+].map(([id,name,repo,preview,feel,use,caution])=>({id,category:'library',name,repo,source:'https://github.com/'+repo,preview,feel,use,caution,shotKind:'官方界面 / 组件实例'}));
+const skills=[
+ ['S01','frontend-design','anthropics/skills','skills/frontend-design/SKILL.md','https://github.com/anthropics/skills/blob/main/skills/frontend-design/SKILL.md','视觉方向与非模板化界面','给参赛端建立独立视觉语言','没有固定皮肤；截图是技能说明原文。','技能说明，无固定外观'],
+ ['S02','UI UX Pro Max','nextlevelbuilder/ui-ux-pro-max-skill','.claude/skills/ui-ux-pro-max/SKILL.md','https://www.uupm.cc','风格、色彩、排版和交互方案','先比较方案，再冻结设计规范','作者展示站用于参考；不能把营销效果当本项目验收。','作者展示站，非效果保证'],
+ ['S03','Impeccable','pbakaus/impeccable','skill/SKILL.src.md','https://impeccable.style','审美评审、精简、文案与动效','清理演示式表达，统一页面细节','它是设计方法和检查工具；本轮不运行安装或改造命令。','作者展示站，非固定皮肤'],
+ ['S04','interface-design','Dammyjay93/interface-design','skills/interface-design/SKILL.md','https://interface-design.dev/showcases/wellness-dashboard.html','应用、后台和长期设计一致性','主办方、政府、平台的信息层级','官方实例用于比较工作台风格；仍需结合真实职责。','作者界面实例'],
+ ['S05','web-design-guidelines','vercel-labs/agent-skills','skills/web-design-guidelines/SKILL.md','https://vercel.com/design/guidelines','键盘、表单、焦点、加载和错误反馈','让报名流程容易操作、易于恢复','这是交互标准，不是主题皮肤。','官方交互规范页面'],
+ ['S06','emil-design-eng','emilkowalski/skills','skills/emil-design-eng/SKILL.md','https://sonner.emilkowal.ski','组件细节与动效设计工程','头像、席位、加入和准备反馈','截图为作者的 React 提示组件；只参考动效，不直接搬进 Vue。','作者组件实例，非技能生成结果'],
+ ['S07','improve-animations','emilkowalski/skills','skills/improve-animations/SKILL.md','https://github.com/emilkowalski/skills/blob/main/skills/improve-animations/SKILL.md','动画审查与优化方案','避免跳动、等待无反馈和过度庆祝','只负责审查与计划；截图为技能说明。','技能说明，无固定外观'],
+ ['S08','vue-best-practices','vuejs-ai/skills','skills/vue-best-practices/SKILL.md','https://github.com/vuejs-ai/skills/blob/main/skills/vue-best-practices/SKILL.md','Vue 3 / TS 组件与状态规范','实现自己的可复用产品组件','开发规范没有独立视觉外观；不将其包装成皮肤。','技能说明，无固定外观'],
+ ['S09','vue-testing-best-practices','vuejs-ai/skills','skills/vue-testing-best-practices/SKILL.md','https://github.com/vuejs-ai/skills/blob/main/skills/vue-testing-best-practices/SKILL.md','组件、浏览器与交互测试','普通角色和手机流程验收','没有固定皮肤；用于验证所选设计。','技能说明，无固定外观'],
+ ['S10','vue-router-best-practices','vuejs-ai/skills','skills/vue-router-best-practices/SKILL.md','https://github.com/vuejs-ai/skills/blob/main/skills/vue-router-best-practices/SKILL.md','导航、页面状态与任务回跳','登录后回原任务、退出与切换角色','没有固定皮肤；与视觉技能配合。','技能说明，无固定外观']
+].map(([id,name,repo,skillPath,preview,feel,use,caution,shotKind])=>({id,category:'skill',name,repo,source:`https://github.com/${repo}/blob/main/${skillPath}`,skillPath,preview,feel,use,caution,shotKind}));
+const items=[...libraries,...skills];const unique=[...new Set(items.map(x=>x.repo))];const meta={};
+await Promise.allSettled(unique.map(async repo=>{try{const r=await fetch('https://api.github.com/repos/'+repo,{headers:{'User-Agent':'AISports-ReadOnly-UI-Research'},signal:AbortSignal.timeout(20000)});if(!r.ok)throw Error('HTTP '+r.status);const d=await r.json();meta[repo]={canonicalRepo:d.full_name,defaultBranch:d.default_branch,homepage:d.homepage,license:d.license?.spdx_id||'unverified',repoCheckedAt:new Date().toISOString(),archived:d.archived};const rr=await fetch(`https://raw.githubusercontent.com/${d.full_name}/${d.default_branch}/README.md`,{signal:AbortSignal.timeout(20000)});if(rr.ok){const body=await rr.text();meta[repo].readmeLinks=[...body.matchAll(/https?:\/\/[^\s)"<>]+/g)].map(m=>m[0]).filter(s=>!s.includes('badge')&&!s.includes('img.shields')).slice(0,55);}}catch(e){meta[repo]={status:'unverified',reason:String(e.message)}}}));
+for(const item of items){Object.assign(item,meta[item.repo]);if(item.category==='skill'){const paths=[item.skillPath,...(item.id==='S04'?['.claude/skills/interface-design/SKILL.md','SKILL.md']:[])];for(const p of paths){const r=await fetch(`https://raw.githubusercontent.com/${item.canonicalRepo||item.repo}/${item.defaultBranch||'main'}/${p}`,{signal:AbortSignal.timeout(18000)}).catch(()=>null);if(r?.ok){const body=await r.text();item.source=`https://github.com/${item.canonicalRepo||item.repo}/blob/${item.defaultBranch||'main'}/${p}`;item.skillVerified=true;item.skillSha256=crypto.createHash('sha256').update(body).digest('hex');item.skillBytes=Buffer.byteLength(body);if(item.shotKind.startsWith('技能说明'))item.preview=item.source;break;}}}}
+fs.writeFileSync(path.join(root,'catalog.json'),JSON.stringify({checkedAt:new Date().toISOString(),scope:'Read-only source inspection and official browser screenshots. No skills installed. Not project adoption or style acceptance.',items},null,2));
+for(const i of items)console.log(JSON.stringify({id:i.id,repo:i.canonicalRepo||i.repo,license:i.license,homepage:i.homepage,skillVerified:i.skillVerified,preview:i.preview,links:i.readmeLinks?.filter(s=>/demo|preview|template|inspira|arco|tdesign|nuxt|uupm|gallery|example|interface-design|emil/.test(s)).slice(0,9)}));

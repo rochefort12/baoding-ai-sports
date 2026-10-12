@@ -1,0 +1,16 @@
+/* 项目价格就地编辑；渠道以赛事为单位维护，窄屏同样保持清晰的选中状态。 */
+.b-fee-choice {position: relative; display: inline-flex; flex: 0 0 auto; background: #edf2f7; border: 1px solid #d9e3ec; border-radius: 999px; padding: 3px; isolation: isolate;
+  button {position: relative; z-index: 1; width: 64px; padding: 7px 8px; border: 0; border-radius: 999px; background: transparent; color: #53667a; cursor: pointer; font: inherit; font-weight: 600;}
+  button[aria-checked="true"] {color: #087e93;} button:disabled {cursor: default; opacity: .65;} button:focus-visible {outline: 2px solid #1596ac; outline-offset: 2px;}
+  .b-fee-thumb {position: absolute; inset: 3px auto 3px 3px; width: 64px; border-radius: 999px; background: white; box-shadow: 0 1px 5px #1e405021; transition: transform .2s ease, opacity .2s ease;}
+  &.charged .b-fee-thumb {transform: translateX(64px);} &.unset .b-fee-thumb {opacity: 0;}
+}
+.b-inline-fee {display: flex; align-items: center; flex-wrap: wrap; gap: 8px; padding: 5px 0;}
+.b-fee-amount {display: inline-flex; align-items: center; gap: 5px; .el-input-number {width: 115px;} small {white-space: nowrap;}}
+.b-payment-channel-list {display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; margin: 16px 0;}
+.b-payment-channel {border: 1px solid #dde5ec; border-radius: 14px; padding: 14px; display: flex; flex-direction: column; align-items: start; gap: 12px; min-width: 0; &.selected {border-color: #64bcc6; background: #f4fbfc;} .el-input {width: 100%;}}
+.b-payment-qr {display: block; width: min(220px, 100%); max-height: 260px; object-fit: contain; background: white; border-radius: 8px;}
+.b-payment-upload {color: #097f93; font-size: 13px; input {display: block; width: 100%; margin-top: 8px;}}
+.b-payment-channel-tabs {display: flex; flex-wrap: wrap; gap: 8px; .el-button + .el-button {margin-left: 0;}}
+.b-payment-channel-detail {margin: 14px 0; overflow-wrap: anywhere;}
+@media (prefers-reduced-motion: reduce) {.b-fee-thumb {transition: none !important;}}

@@ -1,0 +1,99 @@
+{
+  "name": "asp_collaboration",
+  "domain": "D01",
+  "description": "多方办赛展示与业务授权分离",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "event_id",
+      "type": "bigint",
+      "description": "主责组织赛事",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_event",
+      "check": null
+    },
+    {
+      "name": "organization_id",
+      "type": "bigint",
+      "description": "授权发出组织；同租户",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_organization",
+      "check": null
+    },
+    {
+      "name": "partner_tenant_id",
+      "type": "varchar(20)",
+      "description": "合作组织所在租户；跨租户访问需独立授权",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "partner_organization_id",
+      "type": "bigint",
+      "description": "合作主体 ID；跨租户 API 核验",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "display_role",
+      "type": "varchar(100)",
+      "description": "主办/承办/协办展示身份",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "authorized_scope",
+      "type": "jsonb",
+      "description": "明确可见赛事、动作、材料；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "valid_from",
+      "type": "timestamptz",
+      "description": "合作生效；有时区业务时间",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "valid_until",
+      "type": "timestamptz",
+      "description": "合作终止；有时区业务时间",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": true,
+  "checks": [
+    "valid_until IS NULL OR valid_until > valid_from"
+  ],
+  "unique": [],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-collaboration",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

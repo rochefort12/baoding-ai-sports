@@ -1,0 +1,26 @@
+---
+description: Session start/finish handoff, work-log style, window slicing and switching
+alwaysApply: true
+---
+# Handoff
+This repo uses its own docs. Do not create `.必要流程说明/`, `当前状态.md`, `协作记忆.md`, `工作内容/`, or `窗口协同.md`.
+
+Start: read `docs/README.md` and `docs/01-development/交接记录.md` (when 「下一步」 is active, take one step only); the latest two 「本轮」 sections (decided — follow them); the ADR for the current task. The user's current decision takes priority. Leave raw materials unchanged. Historical procedures, suggested parameters, and simulated data are not formal approval.
+
+Finish (after demoable progress — code, config, release, root cause; not pure Q&A), all three:
+1. Append a 「本轮」 section to `docs/01-development/交接记录.md`. Cover 实际完成, 命令, 结果, 未完成, and 下一步. Next steps count only when written there.
+2. Append a new requirement decision to the relevant ADR under `docs/03-architecture/`. Append only. When overturning, write 「被取代：见 xxx」.
+3. Append phase work that was committed but not finished this round to `docs/01-development/一期未完成事项.md`. Later-phase capabilities stay in the existing 「本期不做」 or follow-up sections. Remove or mark an item complete after it is done.
+
+Work log is the 「本轮」 section. Free form, cut to the content:
+- Title `## 本轮：<one sentence on what was done>`.
+- Ordinary change: cause → what changed → verification → 未完成.
+- Release: scope → version and rollback → database change (if any) → runtime verification → 尚未验证.
+- Investigation: reproduce → root-cause chain → proposal.
+- Real numbers only (no 大概/应该/预计). Leftovers under 未完成, 仍未解决, or 尚未验证.
+- Do not use the fill-in template of 「作者 / 时间 / 主题」 plus numbered sections 「一、二、三」.
+
+Window slicing (曲箭龙 2026-10-05, paths bound to this repo 2026-10-08):
+- One window = one slice: one plan step, or a small cluster of acceptances that still ends handed off.
+- At slice end, remind 曲箭龙 to switch windows, and start no new large slice, if this window has already read or written a large set of files, early details need re-reading, or the history is being compressed.
+- Before switching, write a 「窗口交接」 section in `docs/01-development/交接记录.md`: done; current slice and the first next action; pending decisions; clusters still running (branch, worktree, log). Completion notices return only to the dispatching window. Sync 「下一步」.

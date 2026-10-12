@@ -1,0 +1,46 @@
+/* Compact choices preserve native touch scrolling and full labels at every width. */
+.assistant-action-rail {
+  position: relative;
+  min-width: 0;
+  .assistant-action-rail-track {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    touch-action: auto;
+    scrollbar-width: none;
+    padding: 3px 2px;
+    &::-webkit-scrollbar { display: none; }
+    &:focus-visible { outline: 2px solid #819677; outline-offset: 1px; border-radius: 8px; }
+    > button {
+      flex: 0 0 auto;
+      min-height: 36px;
+      box-sizing: border-box;
+      white-space: nowrap;
+      padding: 6px 10px;
+      user-select: none;
+      &:focus-visible { outline: 2px solid #819677; outline-offset: 1px; }
+    }
+  }
+  &.has-before .assistant-action-rail-track,
+  &.has-after .assistant-action-rail-track { cursor: grab; }
+  &.dragging .assistant-action-rail-track,
+  &.dragging .assistant-action-rail-track > button { cursor: grabbing; user-select: none; }
+  .assistant-action-rail-edge {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: grid;
+    place-items: center;
+    width: 18px;
+    height: 32px;
+    color: #53746a;
+    font-size: 20px;
+    pointer-events: none;
+    &.before { left: 0; background: linear-gradient(90deg, #f4f8fc 50%, #f4f8fc00); }
+    &.after { right: 0; background: linear-gradient(270deg, #f4f8fc 50%, #f4f8fc00); }
+  }
+}

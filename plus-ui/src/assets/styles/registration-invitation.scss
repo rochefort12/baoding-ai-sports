@@ -1,0 +1,5 @@
+/* Minimal identity for a private invitation; personal answers stay in the member's own form. */
+.registration-invite-person {display:flex;align-items:center;gap:14px;padding:18px;margin:20px 0;border:1px solid var(--s-line);border-radius:14px;background:#f5f8f5;min-width:0;strong{font-size:17px;line-height:1.5;}p{font-size:14px;line-height:1.6;color:var(--s-muted);margin:4px 0;overflow-wrap:anywhere;}}
+.registration-invite-actions {display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;.el-button{white-space:normal;text-align:left;min-height:44px;height:auto;line-height:1.6;margin:0;}.el-button>span{white-space:normal;overflow-wrap:anywhere;}}
+.premium-registration .registration-invite-identity {font-size:13px;line-height:1.6;overflow-wrap:anywhere;}
+@media(max-width:760px){.registration-invite-person{padding:14px;align-items:flex-start;}.registration-invite-actions{display:grid;gap:4px;}.registration-invite-person strong{font-size:16px;}}

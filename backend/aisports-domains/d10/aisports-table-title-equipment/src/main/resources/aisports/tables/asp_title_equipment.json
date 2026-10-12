@@ -1,0 +1,79 @@
+{
+  "name": "asp_title_equipment",
+  "domain": "D10",
+  "description": "本人或队长选择当前佩戴的成长称号；授予来源由荣誉事实保留",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "owner_type",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：person team",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "owner_type IN ('person', 'team')"
+    },
+    {
+      "name": "owner_id",
+      "type": "bigint",
+      "description": "本人或队伍编号",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "sport_id",
+      "type": "bigint",
+      "description": "运动",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_sport",
+      "check": null
+    },
+    {
+      "name": "title_code",
+      "type": "varchar(64)",
+      "description": "规则目录中的称号编码",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "honor_id",
+      "type": "bigint",
+      "description": "获授荣誉事实；欢迎样式可空",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_honor",
+      "check": null
+    },
+    {
+      "name": "frame_style",
+      "type": "varchar(32)",
+      "description": "允许的头像边框样式",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": false,
+  "checks": [],
+  "unique": [
+    [
+      "owner_type, owner_id, sport_id",
+      null
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-title-equipment",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

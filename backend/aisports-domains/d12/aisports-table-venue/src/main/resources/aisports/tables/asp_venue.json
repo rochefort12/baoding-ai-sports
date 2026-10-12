@@ -1,0 +1,70 @@
+{
+  "name": "asp_venue",
+  "domain": "D12",
+  "description": "场馆及实际管理责任",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "name",
+      "type": "varchar(200)",
+      "description": "场馆名",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "address",
+      "type": "varchar(500)",
+      "description": "地址",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "operator",
+      "type": "varchar(200)",
+      "description": "实际责任主体",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "contact_cipher",
+      "type": "varchar(1000)",
+      "description": "受控联络",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：active maintenance disabled",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('active', 'maintenance', 'disabled')"
+    }
+  ],
+  "tenant": true,
+  "checks": [],
+  "unique": [],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-venue",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

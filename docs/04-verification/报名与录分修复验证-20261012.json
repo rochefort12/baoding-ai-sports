@@ -1,0 +1,190 @@
+{
+  "frontendSources": 398,
+  "jarSha256": "a836dd88bb850bdc77186f051609698a9e1b17a282984acee33a04db7a7b39c5",
+  "scope": "Actual existing isolated database; synthetic event and accounts; no real funds, no user-event edits, no date/clock bypass",
+  "checks": [
+    {
+      "name": "Public contract preserves free zero and paid 100 in event collection mode",
+      "passed": true
+    },
+    {
+      "name": "Organizer receives submitted birth date, gender, contact and frozen custom answer",
+      "passed": true
+    },
+    {
+      "name": "Participant cannot read organizer-only submitted personal data",
+      "passed": true
+    },
+    {
+      "name": "Submitted field answers cannot be overwritten",
+      "passed": true
+    },
+    {
+      "name": "Rejected edit leaves the submitted snapshot unchanged",
+      "passed": true
+    },
+    {
+      "name": "Exact 01–06 single-side input produces six complementary drafts",
+      "passed": true
+    },
+    {
+      "name": "Same import request is idempotent",
+      "passed": true
+    },
+    {
+      "name": "Changed input under the same request key is rejected",
+      "passed": true
+    },
+    {
+      "name": "Contradictory batch is rejected with no partial updates",
+      "passed": true
+    },
+    {
+      "name": "Unknown later match rolls back an earlier valid row",
+      "passed": true
+    },
+    {
+      "name": "Import stays inside the selected unit",
+      "passed": true
+    },
+    {
+      "name": "Participant cannot import organizer results",
+      "passed": true
+    },
+    {
+      "name": "Future match cannot become an official result",
+      "passed": true
+    },
+    {
+      "name": "Drafts remain absent from participant official results",
+      "passed": true
+    },
+    {
+      "name": "desktop participant sees paid amount and selectable project",
+      "passed": true
+    },
+    {
+      "name": "desktop registration has aligned 40px avatar, readable text and no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "mobile participant sees paid amount and selectable project",
+      "passed": true
+    },
+    {
+      "name": "mobile registration has aligned 40px avatar, readable text and no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "Ordinary organizer UI displays submitted qualification and field answers",
+      "passed": true
+    },
+    {
+      "name": "Reaching a target point prompts manual action without auto-ending the game",
+      "passed": true
+    },
+    {
+      "name": "Unfinished live scoring cannot be silently saved",
+      "passed": true
+    },
+    {
+      "name": "Manual finish derives winner and keeps the result in the editor",
+      "passed": true
+    },
+    {
+      "name": "Score dialog and its save button fit the desktop viewport",
+      "passed": true
+    },
+    {
+      "name": "Click scoring saves a draft through the real service",
+      "passed": true
+    },
+    {
+      "name": "Mobile winner selection is clickable and the complete dialog fits the viewport",
+      "passed": true
+    }
+  ],
+  "ordinaryRoleChecks": 25,
+  "artifacts": [
+    {
+      "path": ".local/agent-runtime-20261012/build-e29afada509d45e4a8036821c40c736f/receipt.json",
+      "sha256": "185280d5ee404b8e7893b86fcbe3a92265f407c97ee5e1f303fda868eefb9ccd"
+    },
+    {
+      "path": ".local/product-release-20261011/frontend-refinement-69cf4200f7f64f89a3d0872a50a60097/receipt.json",
+      "sha256": "fb3c562a8f4d8a9ba3ce84db962c10651154c75b2b55e9848c4fb317915cb8ba"
+    },
+    {
+      "path": ".local/registration-scoring-20261012/6987b5905a304224a5d3d3200555256b/receipt.json",
+      "sha256": "1477dd235276b78ac55791f779fd072bfeec8176129564beb2bbdb56e948f0c0"
+    },
+    {
+      "path": ".local/agent-runtime-20261012/build-e29afada509d45e4a8036821c40c736f/maven-package.log",
+      "sha256": "46da77bbbbcbcbf1bbac85054bb8ac760139eb10be0413390a042fe8b856734c"
+    },
+    {
+      "path": ".local/agent-runtime-20261012/build-e29afada509d45e4a8036821c40c736f/gateway-tests.log",
+      "sha256": "953f44d4b500c294836caf060f005db9a45c8175063b9cc447ca2e2bcb4c4e1b"
+    },
+    {
+      "path": "scripts/Test-RegistrationScoringRepair.mjs",
+      "sha256": "0bb7866030776eb08d2331f1c71183e2286eac5201963c60fc2675a993fba472"
+    },
+    {
+      "path": ".local/registration-scoring-20261012/6987b5905a304224a5d3d3200555256b/registration-desktop.png",
+      "sha256": "1619ae653b7a0877dcdebd1b8da157c762378d3817fece69b206d554c0f4df64"
+    },
+    {
+      "path": ".local/registration-scoring-20261012/6987b5905a304224a5d3d3200555256b/registration-mobile.png",
+      "sha256": "74188add1939baf2952f789d5d8c35ada704d99a788e2739304178f57ebf5965"
+    },
+    {
+      "path": ".local/registration-scoring-20261012/6987b5905a304224a5d3d3200555256b/review-desktop.png",
+      "sha256": "a2893d4550d92bde3a292174d9984b3063142d84ea7f1413a34da493a6a4afbe"
+    },
+    {
+      "path": ".local/registration-scoring-20261012/6987b5905a304224a5d3d3200555256b/scoring-desktop.png",
+      "sha256": "ca72d2049ad65b00024c09fe84741b8983d7f0637ff92cfb0d93e9bbf953047a"
+    },
+    {
+      "path": ".local/registration-scoring-20261012/6987b5905a304224a5d3d3200555256b/scoring-mobile.png",
+      "sha256": "6e8d7172982de4917d25b4361bfb5ed079a076da99cc24811d42faa66b0aeca5"
+    }
+  ],
+  "objects": {
+    "eventId": "2109519713624154114",
+    "freeUnit": "2109519713947115522",
+    "paidUnit": "2109519714010030081",
+    "registration": "2109519715427704833"
+  },
+  "javaTests": 437,
+  "limitations": [
+    "Synthetic local accounts/events, not user acceptance or live tournament results",
+    "No real funds or transfers",
+    "No sport-specific rule engine or automatic match-point decision",
+    "Legacy registrations without field snapshots remain explicitly marked",
+    "Original user event was not changed; actual mode coverage used a newly published synthetic event"
+  ],
+  "database": "aisports_verify_phase1_242ded43673246699be6bb0f596aa59b",
+  "gatewayTests": 76,
+  "backendSources": 1585,
+  "passed": true,
+  "at": "2026-10-12T13:43:16.8025280+08:00",
+  "services": [
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 8091,
+      "OwningProcess": 67052
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 8082,
+      "OwningProcess": 36900
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 5192,
+      "OwningProcess": 12316
+    }
+  ]
+}

@@ -1,0 +1,801 @@
+{
+  "timestamp": "2026-10-10T18:43:16.951Z",
+  "scope": "Actual primary-source pages in Edge, not project outputs. Skills are reference candidates only.",
+  "records": [
+    {
+      "id": "A02",
+      "status": 403,
+      "title": "CNAME Cross-User Banned | Cloudflare",
+      "url": "https://dashboard-vue.nuxt.dev/",
+      "capturedAt": "2026-10-10T18:42:34.758Z",
+      "file": "screenshots/A02.png",
+      "sha256": "319a37f1cc6fc7a6a5446d8657a225d5f37ed2bcadf8477c84588fee4f51f463",
+      "text": "Error 1014 Ray ID: a487c3ead82d999a • 2026-10-10 18:42:30 UTC\nCNAME Cross-User Banned\nWhat happened?\n\nYou've requested a page on a website that is part of the Cloudflare network. The host is configured as a CNAME across accounts on Cloudflare, which is not allowed by Cloudflare's security policy.\n\nPlease see https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-1xxx-errors/error-1014/ for more details.\n\nWhat can I do?\n\nIf this is an R2 custom domain, it may still be initializing. If you have attempted to manually point a CNAME DNS record to your R2 bucket, you must do it using a custom domain. Refer to R2's documentation for details.\n\n\n\n\nVisit our website to learn more about Cloudflare.\n\nWas this page helpful? Yes No\n\nCloudflare Ray ID: a487c3ead82d999a • Your IP: Click to reveal • Performance & security by Cloudflare",
+      "links": [],
+      "frames": [],
+      "error": null
+    },
+    {
+      "id": "A03",
+      "status": 200,
+      "title": "Sakai Vue",
+      "url": "https://sakai.primevue.org/",
+      "capturedAt": "2026-10-10T18:42:35.313Z",
+      "file": "screenshots/A03.png",
+      "sha256": "074cf20f026d643ac126a47d94bae4004ffeb61527121c9eb185599984b5aaea",
+      "text": "SAKAI\nHOME\nDashboard\nUI COMPONENTS\nForm Layout\nInput\nButton\nTable\nList\nTree\nPanel\nOverlay\nMedia\nMenu\nMessage\nFile\nChart\nTimeline\nMisc\nPRIME BLOCKS\nFree Blocks\nAll Blocks\nPAGES\nLanding\nAuth\nCrud\nNot Found\nEmpty\nHIERARCHY\nSubmenu 1\nSubmenu 2\nGET STARTED\nDocumentation\nView Source\nOrders\n152\n24 new since last visit\nRevenue\n$2.100\n%52+ since last week\nCustomers\n28441\n520 newly registered\nComments\n152 Unread\n85 responded\nRecent Sales\nImage\n\t\nName\n\t\nPrice\n\t\nView\n\n\n\tBamboo Watch\t$65.00\t\n\n\n\tBlack Watch\t$72.00\t\n\n\n\tBlue Band\t$79.00\t\n\n\n\tBlue T-Shirt\t$29.00\t\n\n\n\tBracelet\t$15.00\t\n1\n2\nBest Selling Products\nSpace T-Shirt\nClothing\n%50\nPortal Sticker\nAccessories\n%16\nSupernova Sticker\nAccessories\n%67\nWonders Notebook\nOffice\n%35\nMat Black Case\nAccessories\n%75\nRobots T-Shirt\nClothing\n%40\nRevenue Stream\nNotifications\nTODAY\nRichard Jones has purchased a blue t-shirt for $79.00\nYour request for withdrawal of $2500.00 has been initiated.\nYESTERDAY\nKeyser Wick has purchased a black jacket for $59.00\nJane Davis has posted a new questions about your product.\nLAST WEEK\nYour revenue has increased by %25.\n12 users have added your products to their wishlist.\nSAKAI by\nPrimeVue",
+      "links": [
+        {
+          "text": "Dashboard",
+          "url": "https://sakai.primevue.org/"
+        },
+        {
+          "text": "View Source",
+          "url": "https://github.com/primefaces/sakai-vue"
+        }
+      ],
+      "frames": [],
+      "error": null
+    },
+    {
+      "id": "A01",
+      "status": 200,
+      "title": "",
+      "url": "https://shadcn-vue.com/view/dashboard-01",
+      "capturedAt": "2026-10-10T18:42:38.704Z",
+      "file": "screenshots/A01.png",
+      "sha256": "5f493c65338d4b72c9db9a191a0c2d23a0ab7a751c23f14ed175a34a60d04b74",
+      "text": "Acme Inc.\nQuick Create\nInbox\nDashboard\nLifecycle\nAnalytics\nProjects\nTeam\nDocuments\nData Library\nMore\nReports\nMore\nWord Assistant\nMore\nMore\nSettings\nGet Help\nSearch\nshadcn\nm@example.com\nToggle Sidebar\nDocuments\nGitHub\n\nTotal Revenue\n\n$1,250.00\n+12.5%\nTrending up this month\nVisitors for the last 6 months\n\nNew Customers\n\n1,234\n-20%\nDown 20% this period\nAcquisition needs attention\n\nActive Accounts\n\n45,678\n+12.5%\nStrong user retention\nEngagement exceed targets\n\nGrowth Rate\n\n4.5%\n+4.5%\nSteady performance increase\nMeets growth projections\nArea Chart - Interactive\n\nShowing total visitors for the last 3 months\n\nLast 3 months\nApr 2\nApr 13\nApr 25\nMay 6\nMay 18\nMay 30\nJun 10\nJun 22\n0\n500\n1000\nMobile\nDesktop\nView\nOutline\nPast Performance\n3\nKey Personnel\n2\nFocus Documents\nCustomize Columns\nAdd Section\n\t\tHeader\tSection Type\tStatus\t\nTarget\n\t\nLimit\n\tReviewer\t\n\nDrag to reorder\n\t\t\nCover page\n\tCover page\t\nIn Process\n\t\n18\n\t\n5\n\tEddie Lake\t\nOpen menu\n\n\nDrag to reorder\n\t\t\nTable of contents\n\tTable of contents\t\nDone\n\t\n29\n\t\n24\n\tEddie Lake\t\nOpen menu\n\n\nDrag to reorder\n\t\t\nExecutive summary\n\tNarrative\t\nDone\n\t\n10\n\t\n13\n\tEddie Lake\t\nOpen menu\n\n\nDrag to reorder\n\t\t\nTechnical approach\n\tNarrative\t\nDone\n\t\n27\n\t\n23\n\tJamik",
+      "links": [
+        {
+          "text": "Acme Inc.",
+          "url": "https://shadcn-vue.com/view/dashboard-01#"
+        },
+        {
+          "text": "Data Library",
+          "url": "https://shadcn-vue.com/view/dashboard-01#"
+        },
+        {
+          "text": "Reports",
+          "url": "https://shadcn-vue.com/view/dashboard-01#"
+        },
+        {
+          "text": "Word Assistant",
+          "url": "https://shadcn-vue.com/view/dashboard-01#"
+        },
+        {
+          "text": "Settings",
+          "url": "https://shadcn-vue.com/view/dashboard-01#"
+        },
+        {
+          "text": "Get Help",
+          "url": "https://shadcn-vue.com/view/dashboard-01#"
+        },
+        {
+          "text": "Search",
+          "url": "https://shadcn-vue.com/view/dashboard-01#"
+        },
+        {
+          "text": "GitHub",
+          "url": "https://github.com/shadcn-ui/ui/tree/main/apps/v4/app/(examples)/dashboard"
+        }
+      ],
+      "frames": [],
+      "error": null
+    },
+    {
+      "id": "A04",
+      "status": 404,
+      "title": "卡片 Card - Naive UI",
+      "url": "https://www.naiveui.com/zh-CN/os-theme/components/card",
+      "capturedAt": "2026-10-10T18:42:41.430Z",
+      "file": "screenshots/A04.png",
+      "sha256": "a875284aaa4aaac33b041955df295973bc423961def4219a61e7a44704227520",
+      "text": "Naive UI\n首页\n文档\n组件\n搜索\nEnglish\n深色\nGitHub\n2.45.3\n通用组件 (15)\n头像 Avatar\n按钮 Button\n卡片 Card\n轮播图 Carousel\n折叠面板 Collapse\n分割线 Divider\n下拉菜单 Dropdown\n文本省略 Ellipsis\n渐变文字 Gradient Text\n图标 Icon\n页头 Page Header\n标签 Tag\n排印 Typography\n水印 Watermark\n浮动按钮 Float Button\n新\n数据录入组件 (21)\n自动填充 Auto Complete\n级联选择 Cascader\n颜色选择器 Color Picker\n复选框 Checkbox\n日期选择器 Date Picker\n动态录入 Dynamic Input\n动态标签 Dynamic Tags\n表单 Form\n文本输入 Input\n数字输入 Input Number\n验证码 Input OTP\n新\n提及 Mention\n单选 Radio\n评分 Rate\n选择器 Select\n滑动选择 Slider\n开关 Switch\n时间选择器 Time Picker\n穿梭框 Transfer\n树型选择 Tree Select\n上传 Upload\n数据展示组件 (21)\n日历 Calendar\n倒计时 Countdown\n代码 Code\n数据表格 Data Table\n描述 Descriptions\n无内容 Empty\n公式 Equation\n图像 Image\n列表 List\n日志 Log\n数值动画 Number Animation\n二维码 QR Code\n新\n统计数据 Statistic\n表格 Table\n东西 Thing\n时间 Time\n时间线 Timeline\n树 Tree\n无限滚动 Infinite Scroll\n新\n高亮文本 Highlight\n新\n热力图 Heatmap\n新\n导航组件 (9)\n固钉 Affix\n侧边导航 Anchor\n回到顶部 Back Top\n面包屑 Breadcrumb\n加载条 Loading Bar\n菜单 Menu\n分页 Pagination\n步骤 Steps\n标签页 Tabs\n反馈组件 (16)\n警告信息 Alert\n标记 Badge\n对话框 Dialog\n抽屉 Drawer\n跑马灯 Marquee\n新\n信息 Message\n模态框 Modal\n通知 Notification\n弹出确认 Popconfirm\n弹出信息 Popover\n弹出选择 Popselect\n进度 Progress\n结果页 Result\n骨架屏 Skeleton\n加载 Spin\n弹出提示 Tooltip\n布局组件 (6)\n弹性布局 Flex\n新\n布局 Layout\n旧版栅格 Legacy Grid\n栅格 Grid\n",
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/tusen-ai/naive-ui"
+        },
+        {
+          "text": "卡片",
+          "url": "https://www.naiveui.com/zh-CN/os-theme/components/card"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/tusen-ai/naive-ui/blob/main/src/card/demos/zhCN/index.demo-entry.md"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/tusen-ai/naive-ui/blob/main/src/card/demos/zhCN/basic.demo.vue"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/tusen-ai/naive-ui/blob/main/src/card/demos/zhCN/cover.demo.vue"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/tusen-ai/naive-ui/blob/main/src/card/demos/zhCN/slots.demo.vue"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/tusen-ai/naive-ui/blob/main/src/card/demos/zhCN/segment.demo.vue"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/tusen-ai/naive-ui/blob/main/src/card/demos/zhCN/no-title.demo.vue"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/tusen-ai/naive-ui/blob/main/src/card/demos/zhCN/loading.demo.vue"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/tusen-ai/naive-ui/blob/main/src/card/demos/zhCN/embedded.demo.vue"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/tusen-ai/naive-ui/blob/main/src/card/demos/zhCN/size.demo.vue"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/tusen-ai/naive-ui/blob/main/src/card/demos/zhCN/hoverable.demo.vue"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/tusen-ai/naive-ui/blob/main/src/card/demos/zhCN/border.demo.vue"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/tusen-ai/naive-ui/blob/main/src/card/demos/zhCN/closable.demo.vue"
+        }
+      ],
+      "frames": [
+        {
+          "src": "",
+          "width": 1,
+          "height": 1
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "A05",
+      "status": 200,
+      "title": "Arco Design Pro - 开箱即用的中台前端/设计解决方案",
+      "url": "https://vue-pro.arco.design/login",
+      "capturedAt": "2026-10-10T18:42:43.614Z",
+      "file": "screenshots/A05.png",
+      "sha256": "25304623758f1f80fb1dfc79e7aa3d39e47a6371cf7b3a1d9f093afae7463a72",
+      "text": "Arco Design Pro\n开箱即用的高质量模板\n丰富的的页面模板，覆盖大多数典型业务场景\n内置了常见问题的解决方案\n国际化，路由配置，状态管理应有尽有\n接入可视化增强工具AUX\n实现灵活的区块式开发\n登录 Arco Design Pro\n登录 Arco Design Pro\n记住密码\n忘记密码\n登录\n注册账号\nArco Pro",
+      "links": [],
+      "frames": [],
+      "error": null
+    },
+    {
+      "id": "A06",
+      "status": 200,
+      "title": "TDesign Vue Next Starter",
+      "url": "https://tdesign.tencent.com/starter/vue-next/",
+      "capturedAt": "2026-10-10T18:42:45.772Z",
+      "file": "screenshots/A06.png",
+      "sha256": "213ffdbd85d12eee072d6fef419d070cdfdc8e0763aba057d0578f0215826625",
+      "text": "",
+      "links": [],
+      "frames": [],
+      "error": null
+    },
+    {
+      "id": "A07",
+      "status": 200,
+      "title": "Card component — Vuetify",
+      "url": "https://vuetifyjs.com/en/components/cards/#usage",
+      "capturedAt": "2026-10-10T18:42:47.916Z",
+      "file": "screenshots/A07.png",
+      "sha256": "484c2517dd67ff10fdcdc26815276fd699e92d209c348f33a0a9e7c5d772afbf",
+      "text": "September 2026 Update\nVuetify0 moves into Vuetify, v4.2 patches, VInfiniteCarousel and MD3 tabs\nRead the Update\nDocumentation settings\nTheme\nCustomize your documentation experience with light and dark themes, as well as a combination of both named.\nLight\nDark\nSystem\nDark code blocks\nChange all code blocks to use a dark theme.\nVuetify One Themes\nAvailable offline\nInstall a service worker to cache the entire site locally.\nDownloading: 0 / 0\nDownloading: 0 / 0\nEnable pins\nNEW\nBookmark and access vital documentation pages for a more efficient workflow.\nRail drawer\nShow the navigation drawer as a rail that expands on hover\nEnable Composition API\nDetermines the script shown in code examples for components.\nEnable Inline API\nDisplay API tables inline on documentation pages.\nUse / for Search hotkey\nThis option sets the bound search key to '/' from Cmd/Ctrl+K.\nDeveloper mode\nDeveloper mode enables new features and functionality within the documentation that are still in development.\nLatest release\nv4.2.4\nDocumentation Build\n9f3f165\nLatest commit\n9f3f165\nSearchCtrl+K\nBlog\nLearn\nSupport\nEcosystem\nPlayground\nOne\nLogin\nIntroduction\nGetting started\nFeatures\nStyles and animations\nCommon concepts\n",
+      "links": [
+        {
+          "text": "Vuetify One Themes",
+          "url": "https://vuetifyjs.com/en/components/cards/?one=settings"
+        },
+        {
+          "text": "9f3f165",
+          "url": "https://github.com/vuetifyjs/vuetify/commit/9f3f165ab1ca9e899d8cadbc08fada84ff4a959c"
+        },
+        {
+          "text": "9f3f165",
+          "url": "https://github.com/vuetifyjs/vuetify/commit/9f3f165ab1ca9e899d8cadbc08fada84ff4a959c"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/vuetifyjs/vuetify"
+        },
+        {
+          "text": "Cards",
+          "url": "https://vuetifyjs.com/en/components/cards/"
+        }
+      ],
+      "frames": [],
+      "error": null
+    },
+    {
+      "id": "A08",
+      "status": 200,
+      "title": "Card | Quasar Framework",
+      "url": "https://quasar.dev/vue-components/card/",
+      "capturedAt": "2026-10-10T18:42:49.623Z",
+      "file": "screenshots/A08.png",
+      "sha256": "907a16fbeab33905b9665e5850c10c0dcdb2381bf5a990e43fa81fe7c03d1878",
+      "text": "Skip to page content\nDOCS\nCOMPONENTS\nSPONSORS\nTEAM\nBLOG\nCtrl+K\nWhy Quasar?\nGetting Started\nTools\nAnnouncements\nVideo Tutorials\nRoadmap\nBrand resources\nv2.35.0\nassignment_late\nWhy donate\ntravel_explore\nAPI Explorer\npublic\nBrowser Support\nsmart_toy\nAI Agents\nnew\ncode\nHow to contribute\ntune\nOptions & Helpers\nstyle\nStyle & Identity\nview_quilt\nLayout and Grid\nwidgets\nVue Components\nswap_calls\nVue Directives\nextension\nQuasar Plugins\ndeveloper_mode\nVue Composables\nsecurity\nSecurity\nbuild\nQuasar CLI (with Vite)\nbuild\nQuasar CLI (with Webpack)\nstars\nIcon Genie CLI\nhealing\nQuasar Utils\nnote_add\nApp Extensions\nCard\nVue Components\nSeparator\n\nThe QCard component is a great way to display important pieces of grouped content. This pattern is quickly emerging as a core design pattern for Apps, website previews and email content. It assists the viewer by containing and organizing information, while also setting up predictable expectations.\n\nWith so much content to display at once, and often so little screen real-estate, Cards have fast become the design pattern of choice for many companies, including the likes of Google and Twitter.\n\nThe QCard component is intentionally lightweight and essentially ",
+      "links": [
+        {
+          "text": "Skip to page content",
+          "url": "https://quasar.dev/vue-components/card/#doc-main-content"
+        },
+        {
+          "text": "Announcements",
+          "url": "https://github.com/quasarframework/quasar/discussions/categories/announcements"
+        },
+        {
+          "text": "Brand resources",
+          "url": "https://github.com/quasarframework/quasar-art"
+        },
+        {
+          "text": "",
+          "url": "https://github.quasar.dev/"
+        },
+        {
+          "text": "",
+          "url": "https://quasar.dev/vue-components/card.md"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/quasarframework/quasar/edit/dev/docs/src/pages/vue-components/card.md"
+        },
+        {
+          "text": "QCard API",
+          "url": "https://quasar.dev/vue-components/card/#qcard-api"
+        },
+        {
+          "text": "QCardSection API",
+          "url": "https://quasar.dev/vue-components/card/#qcardsection-api"
+        },
+        {
+          "text": "QCardActions API",
+          "url": "https://quasar.dev/vue-components/card/#qcardactions-api"
+        },
+        {
+          "text": "",
+          "url": "https://quasar.dev/vue-components/card/#usage"
+        },
+        {
+          "text": "",
+          "url": "https://quasar.dev/vue-components/card/#basic"
+        },
+        {
+          "text": "Basic cards",
+          "url": "https://quasar.dev/vue-components/card/#example--basic--basic-cards"
+        },
+        {
+          "text": "",
+          "url": "https://quasar.dev/vue-components/card/#with-actions"
+        },
+        {
+          "text": "Cards with actions",
+          "url": "https://quasar.dev/vue-components/card/#example--actions--cards-with-actions"
+        }
+      ],
+      "frames": [
+        {
+          "src": "https://www.youtube.com/embed/aqz-KE-bpKQ?rel=0",
+          "width": 300,
+          "height": 150
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "A09",
+      "status": 200,
+      "title": "介绍 - Vant 4",
+      "url": "https://vant-ui.github.io/vant/#/zh-CN/home",
+      "capturedAt": "2026-10-10T18:42:51.231Z",
+      "file": "screenshots/A09.png",
+      "sha256": "5138440838e2acd39c385b274609b2bd318a3f0b46231ca91db0012543997a3d",
+      "text": "Vant 4（适用于 Vue 3）\n4.9.22\nEN\n开发指南\n介绍\n快速上手\n进阶用法\n常见问题\n更新日志\n4.0 更新介绍\n从 v2 升级到 v3\n从 v3 升级到 v4\n贡献指南\n设计资源\n国际化\n基础组件\nButton 按钮\nCell 单元格\nConfigProvider 全局配置\nIcon 图标\nImage 图片\nLayout 布局\nPopup 弹出层\nSpace 间距\nStyle 内置样式\nToast 轻提示\n表单组件\nCalendar 日历\nCascader 级联选择\nCheckbox 复选框\nDatePicker 日期选择\nField 输入框\nForm 表单\nNumberKeyboard 数字键盘\nPasswordInput 密码输入框\nPicker 选择器\nPickerGroup 选择器组\nRadio 单选框\nRate 评分\nSearch 搜索\nSlider 滑块\nSignature 签名\nStepper 步进器\nSwitch 开关\nTimePicker 时间选择\nUploader 文件上传\n反馈组件\nActionSheet 动作面板\nBarrage 弹幕\nDialog 弹出框\nDropdownMenu 下拉菜单\nFloatingPanel 浮动面板\nFloatingBubble 浮动气泡\nLoading 加载\nNotify 消息通知\nOverlay 遮罩层\nPullRefresh 下拉刷新\nShareSheet 分享面板\nSwipeCell 滑动单元格\n展示组件\nBadge 徽标\nCircle 环形进度条\nCollapse 折叠面板\nCountDown 倒计时\nDivider 分割线\nEmpty 空状态\nHighlight 高亮文本\nImagePreview 图片预览\nLazyload 懒加载\nList 列表\nNoticeBar 通知栏\nPopover 气泡弹出框\nProgress 进度条\nRollingText 翻滚文本\nSkeleton 骨架屏\nSteps 步骤条\nSticky 粘性布局\nSwipe 轮播\nTag 标签\nTextEllipsis 文本省略\nWatermark 水印\n导航组件\nActionBar 动作栏\nBackTop 回到顶部\nGrid 宫格\nIndexBar 索引栏\nNavBar 导航栏\nPagination 分页\nSidebar 侧边导航\nTab 标签页\nTabbar 标签栏\nTreeSelect 分类选择\n业务组件\nAddressEdit 地址编辑\nAddressList 地址列表\nArea 省市区选择\nCard 商品卡片\nContactCard 联系人卡片\nContactEdit 联系人编辑\nContactList 联系人列表\nCoupon 优惠券\nSubmitBar 提交订单栏\n组合式 API\n介绍\nuse",
+      "links": [
+        {
+          "text": "",
+          "url": "https://vant-ui.github.io/vant-weapp/"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/vant-ui/vant"
+        },
+        {
+          "text": "EN",
+          "url": "https://vant-ui.github.io/vant/#/en-US/home"
+        },
+        {
+          "text": "介绍",
+          "url": "https://vant-ui.github.io/vant/#/zh-CN/home"
+        },
+        {
+          "text": "快速上手",
+          "url": "https://vant-ui.github.io/vant/#/zh-CN/quickstart"
+        },
+        {
+          "text": "进阶用法",
+          "url": "https://vant-ui.github.io/vant/#/zh-CN/advanced-usage"
+        },
+        {
+          "text": "常见问题",
+          "url": "https://vant-ui.github.io/vant/#/zh-CN/faq"
+        },
+        {
+          "text": "更新日志",
+          "url": "https://vant-ui.github.io/vant/#/zh-CN/changelog"
+        },
+        {
+          "text": "4.0 更新介绍",
+          "url": "https://vant-ui.github.io/vant/#/zh-CN/release-note-v4"
+        },
+        {
+          "text": "从 v2 升级到 v3",
+          "url": "https://vant-ui.github.io/vant/#/zh-CN/migrate-from-v2"
+        },
+        {
+          "text": "从 v3 升级到 v4",
+          "url": "https://vant-ui.github.io/vant/#/zh-CN/migrate-from-v3"
+        },
+        {
+          "text": "贡献指南",
+          "url": "https://vant-ui.github.io/vant/#/zh-CN/contribution"
+        },
+        {
+          "text": "设计资源",
+          "url": "https://vant-ui.github.io/vant/#/zh-CN/design"
+        },
+        {
+          "text": "国际化",
+          "url": "https://vant-ui.github.io/vant/#/zh-CN/locale"
+        }
+      ],
+      "frames": [
+        {
+          "src": "https://vant-ui.github.io/vant/mobile.html#/zh-CN/home",
+          "width": 360,
+          "height": 640
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "S01",
+      "status": 503,
+      "title": "Unicorn! · GitHub",
+      "url": "https://github.com/anthropics/skills/blob/main/skills/frontend-design/SKILL.md",
+      "capturedAt": "2026-10-10T18:42:55.607Z",
+      "file": "screenshots/S01.png",
+      "sha256": "a6c035c6de43489a841e4643a2bd50e6120990fc2d2b7e2a845af6540b64b4f1",
+      "text": "We're having a really bad day.\n\nThe Unicorns have taken over. We're doing our best to get them under control and get GitHub back up and running.\n\nContact Support — GitHub Status — @githubstatus",
+      "links": [
+        {
+          "text": "Contact Support",
+          "url": "https://support.github.com/contact"
+        },
+        {
+          "text": "GitHub Status",
+          "url": "https://githubstatus.com/"
+        },
+        {
+          "text": "@githubstatus",
+          "url": "https://x.com/githubstatus"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/"
+        }
+      ],
+      "frames": [],
+      "error": null
+    },
+    {
+      "id": "A10",
+      "status": 200,
+      "title": "Inspira UI: Build beautiful websites using Vue & Nuxt",
+      "url": "https://inspira-ui.com/",
+      "capturedAt": "2026-10-10T18:42:56.773Z",
+      "file": "screenshots/A10.png",
+      "sha256": "097c5e69666c78daf9b0216c89b29492377a41b0f450390e85c2530ca6d8ed75",
+      "text": "Inspira UI\n🚀 Added HTML In Canvas components.\nWhere beautiful modern Vue interfaces begin\n\nInspira UI is a growing library of beautifully crafted components built specifically for Vue & Nuxt to help developers create modern, polished web interfaces faster.\n\nVisit Docs\nGet Inspira UI Pro - Save 50%\nHire the Creator\nServerless or containers? Get the best of both with Cloud Run.\nads via Carbon\nSponsored by\nCLOUDFLARE\nDeveloper experience as a first-class feature\n\nComponents are built to be flexible and extensible, allowing developers to compose, override, and adapt them without fighting rigid abstractions.\n\nVue & Nuxt Native\n\nDesigned to feel native inside the Vue and Nuxt ecosystem.\n\nComposable\n\nComponents adapt naturally to different layouts and design systems.\n\nTailwind Ready\n\nUtility-first styling works seamlessly, without extra setup.\n\nDark Mode\n\nInterfaces respond intelligently to user theme preferences.\n\nPerformance\n\nOptimized for speed and smooth interactions at scale.\n\nMotion Ready\n\nSubtle animations included by default to enhance interaction.\n\nBuilt on proven foundations\n\nBuilt on technologies that value performance, clarity, and reliability.\n\nInspira UI in numbers\n\nInspira",
+      "links": [
+        {
+          "text": "",
+          "url": "https://github.com/unovue/inspira-ui"
+        },
+        {
+          "text": "Become a Sponsor 💖",
+          "url": "https://github.com/sponsors/rahul-vashishtha"
+        }
+      ],
+      "frames": [],
+      "error": null
+    },
+    {
+      "id": "S02",
+      "status": 200,
+      "title": "UI/UX Pro Max - AI-Powered Design Intelligence",
+      "url": "https://www.uupm.cc/",
+      "capturedAt": "2026-10-10T18:42:57.349Z",
+      "file": "screenshots/S02.png",
+      "sha256": "d65c8fa0eae716b10e30d66a91b88cf7f71e142ee462899c102086b44097b9bd",
+      "text": "UI UX Pro Max\nFeatures\nStacks\nStyles\nPremium\nToggle theme\n134.5k\nPremium\nClaude Code\nCursor\nWindsurf\nAntigravity\nGitHub Copilot\nKiro\nCodex\nQoder\nUI UX Pro Max\nDesign Intelligence\n\nSearchable database of UI styles, color palettes, font pairings, chart types, and UX guidelines. Build beautiful interfaces with AI-powered design recommendations.\n\n$ uipro init --ai claude▋\nHow it Works\nView Demos\n57\nUI Styles\n95\nColor Palettes\n56\nFont Pairings\n8\nTech Stacks\n24\nChart Types\n29\nLanding Patterns\nEverything You Need for Beautiful UI\n\nComprehensive design intelligence at your fingertips. Search, discover, and implement stunning interfaces with AI-powered recommendations.\n\nDesign Styles\n\nGlassmorphism, Neumorphism, Minimalism, Brutalism, Aurora UI, and 45+ more styles with colors, effects, and framework compatibility.\n\nGlassmorphism\nDark Mode\nMotion-Driven\nColor Palettes\n\nProduct-specific color systems for SaaS, E-commerce, Healthcare, Fintech, and more. Includes Primary, Secondary, CTA, Background, Text, and Border.\n\nSaaS\nHealthcare\nE-commerce\nTypography\n\n50+ font pairings with Google Fonts integration, Tailwind configs, and mood-based recommendations.\n\nSpace Grotesk\nInter\nPlayfair\nChart Type",
+      "links": [
+        {
+          "text": "134.5k",
+          "url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill"
+        },
+        {
+          "text": "View Demos",
+          "url": "https://www.uupm.cc/#styles"
+        },
+        {
+          "text": "View Live Demo",
+          "url": "https://www.uupm.cc/demo/pet-grooming"
+        },
+        {
+          "text": "View Demo",
+          "url": "https://www.uupm.cc/demo/saas-analytics-dashboard"
+        },
+        {
+          "text": "View Demo",
+          "url": "https://www.uupm.cc/demo/educational-platform"
+        },
+        {
+          "text": "View Demo",
+          "url": "https://www.uupm.cc/demo/pet-grooming"
+        },
+        {
+          "text": "View Demo",
+          "url": "https://www.uupm.cc/demo/ai-chatbot-platform"
+        },
+        {
+          "text": "View Demo",
+          "url": "https://www.uupm.cc/demo/luxury-ecommerce"
+        },
+        {
+          "text": "View Demo",
+          "url": "https://www.uupm.cc/demo/fintech-crypto"
+        },
+        {
+          "text": "Get on GitHub",
+          "url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill"
+        },
+        {
+          "text": "GitHub",
+          "url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill"
+        }
+      ],
+      "frames": [],
+      "error": null
+    },
+    {
+      "id": "S03",
+      "status": 200,
+      "title": "Impeccable: The missing design vocabulary for agents",
+      "url": "https://impeccable.style/",
+      "capturedAt": "2026-10-10T18:43:02.323Z",
+      "file": "screenshots/S03.png",
+      "sha256": "7c9423e84109e46ef61c6b2e1be9053fe6903dafdf06db49aad41a1bdcbe24ff",
+      "text": "Skip to content\nIMPECCABLE\nHome\nDesigning\nGallery\nDocs\nSlop\nLive\n79k\nThe missing design vocabulary for agents.\n\nTurn AI slop into interfaces you’re proud to ship. Impeccable gives your agent the design expertise to build from scratch, improve what you have, and stay true to your design system.\n\nInstall Impeccable\nHow it works\nBEFORE\nSide-tab border\nLAUNCH / 14\nOn track\nRELEASE PLANNING\nAI kicker\n\nShip the launch plan by Friday.\n\nItalic serif\n\nOwners, dependencies, and decisions in one view.\n\n8 of 11 decisions closed\nReview plan →\nAI beige\nAFTER\nLAUNCH / 14\nOn track\n\nShip the launch plan by Friday.\n\nOwners, dependencies, and decisions in one view.\n\n8 of 11 decisions closed\nReview plan →\n/polish\n/distill\n/clarify\nIt fucking works beautifully. It's so cool.\nD\nBen Davis\n@davis7\nImpeccable > Claude design\nMertcan Yüzer\n@MertcanDYuzer\nUninstall whatever frontend skill you're using. Replace it with Impeccable.\nAdrien Ninet\n@adrien_ninet\nImpeccable is the most slept on tool for incorporating design thinking into coding workflows.\nAnish Acharya\n@illscience\nWhen anyone asks me about design for frontend I always recommend @impeccable_ai plugin. I'm very picky with design and it's become part ",
+      "links": [
+        {
+          "text": "79k",
+          "url": "https://github.com/pbakaus/impeccable"
+        },
+        {
+          "text": "WorkspaceOverviewCard inside card inside card.",
+          "url": "https://impeccable.style/slop#rule-nested-cards"
+        },
+        {
+          "text": "Star on GitHub",
+          "url": "https://github.com/pbakaus/impeccable"
+        },
+        {
+          "text": "GitHub",
+          "url": "https://github.com/pbakaus/impeccable"
+        }
+      ],
+      "frames": [],
+      "error": null
+    },
+    {
+      "id": "S04",
+      "status": 200,
+      "title": "Examples · interface-design",
+      "url": "https://interface-design.dev/examples.html",
+      "capturedAt": "2026-10-10T18:43:02.460Z",
+      "file": "screenshots/S04.png",
+      "sha256": "49d749ce3a851319e5dcdf36522490b08790dcdff9db3d0bc1bc846f3acdc28f",
+      "text": "light\nBack\nINTERFACE-DESIGN\nExamples\n\nSame prompt. Different output. See how the plugin transforms Claude's design decisions.\n\nOne-Shotted\nBefore & After\n\nBuilt in a single prompt with the skill enabled\n\n01\nSupport Desk\nCustomer support with AI-drafted responses, ticket management, and inline documentation lookup.\n02\nCrew Detail\nFilm production crew profile with activity timeline, equipment tracking, and contract management.\n03\nConnect Wallet\nWeb3 wallet connection with QR code scanning, multi-chain support, and encrypted session protocol.\n04\nContent Editor\nRich text editor with AI originality scoring, review attribution, and inline content analysis.\n05\nHaven\nCase management for domestic violence advocates with client timelines, safety plans, and secure messaging.\n06\nSynchro\nProject management with sprint timeline, kanban boards, and task tracking across client projects.\n07\nProduct Analytics\nUser metrics, conversion funnels, AI-powered insights, and real-time event monitoring.\n08\nEmployee Onboarding\nFirst-day onboarding with orientation kit, checklist progress, and equipment provisioning.\n09\nFinance Dashboard\nPortfolio dashboard with holdings table, P&L tracking, and recent activit",
+      "links": [
+        {
+          "text": "09\n            \n              \n              \n                \n       ",
+          "url": "https://interface-design.dev/showcases/finance-dashboard.html"
+        },
+        {
+          "text": "10\n            \n              \n              \n                \n       ",
+          "url": "https://interface-design.dev/showcases/wellness-dashboard.html"
+        },
+        {
+          "text": "12\n            \n              \n              \n                \n       ",
+          "url": "https://interface-design.dev/showcases/edtech-dashboard.html"
+        },
+        {
+          "text": "GitHub",
+          "url": "https://github.com/Dammyjay93/claude-interface-design"
+        }
+      ],
+      "frames": [],
+      "error": null
+    },
+    {
+      "id": "S05",
+      "status": 200,
+      "title": "Web Interface Guidelines",
+      "url": "https://vercel.com/design/guidelines",
+      "capturedAt": "2026-10-10T18:43:03.156Z",
+      "file": "screenshots/S05.png",
+      "sha256": "6392d0364ef6d373b2c9760c5f2be0fefb509fd39f8b6ba992fec5ac04bbc152",
+      "text": "Web Interface Guidelines\n\nInterfaces succeed because of hundreds of choices. This is a living, non-exhaustive list of those decisions. Most guidelines are framework-agnostic, some specific to React/Next.js. Feedback is welcome.\n\nInteractions\nKeyboard works everywhere.\n All flows are keyboard-operable & follow the WAI-ARIA Authoring Patterns.\nClear focus.\n Every focusable element shows a visible, unobscured focus ring. Prefer :focus-visible over :focus to avoid distracting pointer users. Set :focus-within for grouped controls. Sticky headers, footers, banners, & overlays never cover the focused element.\nManage focus.\n Use focus traps, move & return focus according to the WAI-ARIA Patterns.\nMatch visual & hit targets.\n Exception: if the visual target is < 24px, expand its hit target to ≥ 24px. On mobile, the minimum size is 44px.\nMobile input size.\n <input> font size is ≥ 16px on mobile to prevent iOS Safari auto-zoom/pan on focus. Or set <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1\" />.\nRespect zoom.\n Never disable browser zoom.\nHydration-safe inputs.\n Inputs must not lose focus or value after hydration.\nDon’t block paste.\n Never disable paste ",
+      "links": [
+        {
+          "text": "Feedback is welcome",
+          "url": "https://github.com/vercel-labs/web-interface-guidelines/tree/main"
+        },
+        {
+          "text": "virtua",
+          "url": "https://github.com/inokawa/virtua"
+        },
+        {
+          "text": "Download AGENTS.md",
+          "url": "https://raw.githubusercontent.com/vercel-labs/web-interface-guidelines/main/AGENTS.md"
+        }
+      ],
+      "frames": [],
+      "error": null
+    },
+    {
+      "id": "S07",
+      "status": 503,
+      "title": "Unicorn! · GitHub",
+      "url": "https://github.com/emilkowalski/skills/blob/main/skills/improve-animations/SKILL.md",
+      "capturedAt": "2026-10-10T18:43:07.589Z",
+      "file": "screenshots/S07.png",
+      "sha256": "a6c035c6de43489a841e4643a2bd50e6120990fc2d2b7e2a845af6540b64b4f1",
+      "text": "We're having a really bad day.\n\nThe Unicorns have taken over. We're doing our best to get them under control and get GitHub back up and running.\n\nContact Support — GitHub Status — @githubstatus",
+      "links": [
+        {
+          "text": "Contact Support",
+          "url": "https://support.github.com/contact"
+        },
+        {
+          "text": "GitHub Status",
+          "url": "https://githubstatus.com/"
+        },
+        {
+          "text": "@githubstatus",
+          "url": "https://x.com/githubstatus"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/"
+        }
+      ],
+      "frames": [],
+      "error": null
+    },
+    {
+      "id": "S08",
+      "status": 503,
+      "title": "Unicorn! · GitHub",
+      "url": "https://github.com/vuejs-ai/skills/blob/main/skills/vue-best-practices/SKILL.md",
+      "capturedAt": "2026-10-10T18:43:08.193Z",
+      "file": "screenshots/S08.png",
+      "sha256": "a6c035c6de43489a841e4643a2bd50e6120990fc2d2b7e2a845af6540b64b4f1",
+      "text": "We're having a really bad day.\n\nThe Unicorns have taken over. We're doing our best to get them under control and get GitHub back up and running.\n\nContact Support — GitHub Status — @githubstatus",
+      "links": [
+        {
+          "text": "Contact Support",
+          "url": "https://support.github.com/contact"
+        },
+        {
+          "text": "GitHub Status",
+          "url": "https://githubstatus.com/"
+        },
+        {
+          "text": "@githubstatus",
+          "url": "https://x.com/githubstatus"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/"
+        }
+      ],
+      "frames": [],
+      "error": null
+    },
+    {
+      "id": "S06",
+      "status": 200,
+      "title": "Emil Kowalski",
+      "url": "https://emilkowal.ski/",
+      "capturedAt": "2026-10-10T18:43:08.328Z",
+      "file": "screenshots/S06.png",
+      "sha256": "a73af7d6912247f6cd334e1e4f9938d95bb21a0828837e8b89542b6d23c6f0bc",
+      "text": "My new course called aiforui.dev is in early access! Early access has closed.\n\nEmil Kowalski\nDesign Engineer\nToday\n\nI work on the Web team at Linear. I like to build things for designers and developers, think deeply about the user interface, how it looks, feels, behaves.\n\nPreviously, I worked on the design team at Vercel.\n\nProjects\naiforui.dev\nAI for Designers and Engineers.\nSonner\nAn opinionated toast component for React.\nanimations.dev\nA course on web animations.\nVaul\nA drawer component for React.\nWriting\nFriction as a Feature\nA natural filter for bad ideas.\nYou Don’t Need Animations\nWhy you are animating more often than you should.\nAgents with Taste\nHow to transfer taste into an AI.\nBuilding a Toast Component\nMy experience building Sonner, a toast library.\nDeveloping Taste\nWhy taste matters and how to develop it.\nThe Magic of Clip Path\nOne of the most underrated CSS properties.\n7 Practical Animation Tips\nSimple ideas you can use to improve your animations.\nTrain Your Judgement\nSettling for good enough is not good enough.\nBuilding an animation course\nBehind the scenes of my animation course.\nBuilding a Drawer Component\nMy experience building a drawer component for React.\nNewslett",
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/emilkowalski"
+        }
+      ],
+      "frames": [],
+      "error": null
+    },
+    {
+      "id": "S09",
+      "status": 200,
+      "title": "skills/skills/vue-testing-best-practices/SKILL.md at main · vuejs-ai/skills · GitHub",
+      "url": "https://github.com/vuejs-ai/skills/blob/main/skills/vue-testing-best-practices/SKILL.md",
+      "capturedAt": "2026-10-10T18:43:15.920Z",
+      "file": "screenshots/S09.png",
+      "sha256": "97567954a6b51e54984a697d11244cb72c9e54ed03e6e40187587d17aba2ab4a",
+      "text": "Skip to content\nNavigation Menu\nPlatform\nSolutions\nResources\nOpen Source\nEnterprise\nPricing\nSearch\n/\nSign in\nSign up\nvuejs-ai\nskills\nRepository navigation\nCode\nIssues\n9\n (9)\nPull requests\n2\n (2)\nActions\nProjects\nSecurity and quality\nInsights\nFiles\nmain\n.claude-plugin\n.github\nskills\ncreate-adaptable-composable\nvue-best-practices\nvue-debug-guides\nvue-jsx-best-practices\nvue-options-api-best-practices\nvue-pinia-best-practices\nvue-router-best-practices\nvue-testing-best-practices\nreference\nSKILL.md\nAGENTS.md\nCLAUDE.md\nLICENSE\nREADME.md\nBreadcrumbs\nskills/skills/vue-testing-best-practices\n/SKILL.md\nLatest commit\nhyfdev\nfeat: improve vue-best-practices skills and update README.md (#15)\nbc922e4\n · \nHistory\nHistory\nFile metadata and controls\nPreview\nCode\nBlame\n29 lines (25 loc) · 2.08 KB\nRaw\nname\tvue-testing-best-practices\nversion\t1.0.0\nlicense\tMIT\nauthor\tgithub.com/vuejs-ai\ndescription\tUse for Vue.js testing. Covers Vitest, Vue Test Utils, component testing, mocking, testing patterns, and Playwright for E2E testing.\n\nVue.js testing best practices, patterns, and common gotchas.\n\nTesting\nSetting up test infrastructure for Vue 3 projects → See testing-vitest-recommended-for-vue\nTests keep brea",
+      "links": [
+        {
+          "text": "Skip to content",
+          "url": "https://github.com/vuejs-ai/skills/blob/main/skills/vue-testing-best-practices/SKILL.md#start-of-content"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/"
+        },
+        {
+          "text": "Sign in",
+          "url": "https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fvuejs-ai%2Fskills%2Fblob%2Fmain%2Fskills%2Fvue-testing-best-practices%2FSKILL.md"
+        },
+        {
+          "text": "GitHub CopilotWrite better code with AI",
+          "url": "https://github.com/features/copilot"
+        },
+        {
+          "text": "GitHub Copilot appDirect agents from issue to merge",
+          "url": "https://github.com/features/ai/github-app"
+        },
+        {
+          "text": "MCP RegistryIntegrate external tools",
+          "url": "https://github.com/mcp"
+        },
+        {
+          "text": "ActionsAutomate any workflow",
+          "url": "https://github.com/features/actions"
+        },
+        {
+          "text": "CodespacesInstant dev environments",
+          "url": "https://github.com/features/codespaces"
+        },
+        {
+          "text": "IssuesPlan and track work",
+          "url": "https://github.com/features/issues"
+        },
+        {
+          "text": "Code ReviewManage code changes",
+          "url": "https://github.com/features/code-review"
+        },
+        {
+          "text": "Code QualityEnforce quality at merge",
+          "url": "https://github.com/features/code-quality"
+        },
+        {
+          "text": "GitHub Advanced SecurityFind and fix vulnerabilities",
+          "url": "https://github.com/security/advanced-security"
+        },
+        {
+          "text": "Code securitySecure your code as you build",
+          "url": "https://github.com/security/advanced-security/code-security"
+        },
+        {
+          "text": "Secret protectionStop leaks before they start",
+          "url": "https://github.com/security/advanced-security/secret-protection"
+        }
+      ],
+      "frames": [],
+      "error": null
+    },
+    {
+      "id": "S10",
+      "status": 200,
+      "title": "skills/skills/vue-router-best-practices/SKILL.md at main · vuejs-ai/skills · GitHub",
+      "url": "https://github.com/vuejs-ai/skills/blob/main/skills/vue-router-best-practices/SKILL.md",
+      "capturedAt": "2026-10-10T18:43:16.710Z",
+      "file": "screenshots/S10.png",
+      "sha256": "be2a9854bea27350439aae05f846a26364c9240b0cfe24797ac8897842ca79cb",
+      "text": "Skip to content\nNavigation Menu\nPlatform\nSolutions\nResources\nOpen Source\nEnterprise\nPricing\nSearch\n/\nSign in\nSign up\nvuejs-ai\nskills\nRepository navigation\nCode\nIssues\n9\n (9)\nPull requests\n2\n (2)\nActions\nProjects\nSecurity and quality\nInsights\nFiles\nmain\n.claude-plugin\n.github\nskills\ncreate-adaptable-composable\nvue-best-practices\nvue-debug-guides\nvue-jsx-best-practices\nvue-options-api-best-practices\nvue-pinia-best-practices\nvue-router-best-practices\nreference\nSKILL.md\nvue-testing-best-practices\nAGENTS.md\nCLAUDE.md\nLICENSE\nREADME.md\nBreadcrumbs\nskills/skills/vue-router-best-practices\n/SKILL.md\nLatest commit\nhyfdev\nfeat: improve vue-best-practices skills and update README.md (#15)\nbc922e4\n · \nHistory\nHistory\nFile metadata and controls\nPreview\nCode\nBlame\n23 lines (19 loc) · 1.46 KB\nRaw\nname\tvue-router-best-practices\ndescription\tVue Router 4 patterns, navigation guards, route params, and route-component lifecycle interactions.\nversion\t1.0.0\nlicense\tMIT\nauthor\tgithub.com/vuejs-ai\n\nVue Router best practices, common gotchas, and navigation patterns.\n\nNavigation Guards\nNavigating between same route with different params → See router-beforeenter-no-param-trigger\nAccessing component instance i",
+      "links": [
+        {
+          "text": "Skip to content",
+          "url": "https://github.com/vuejs-ai/skills/blob/main/skills/vue-router-best-practices/SKILL.md#start-of-content"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/"
+        },
+        {
+          "text": "Sign in",
+          "url": "https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fvuejs-ai%2Fskills%2Fblob%2Fmain%2Fskills%2Fvue-router-best-practices%2FSKILL.md"
+        },
+        {
+          "text": "GitHub CopilotWrite better code with AI",
+          "url": "https://github.com/features/copilot"
+        },
+        {
+          "text": "GitHub Copilot appDirect agents from issue to merge",
+          "url": "https://github.com/features/ai/github-app"
+        },
+        {
+          "text": "MCP RegistryIntegrate external tools",
+          "url": "https://github.com/mcp"
+        },
+        {
+          "text": "ActionsAutomate any workflow",
+          "url": "https://github.com/features/actions"
+        },
+        {
+          "text": "CodespacesInstant dev environments",
+          "url": "https://github.com/features/codespaces"
+        },
+        {
+          "text": "IssuesPlan and track work",
+          "url": "https://github.com/features/issues"
+        },
+        {
+          "text": "Code ReviewManage code changes",
+          "url": "https://github.com/features/code-review"
+        },
+        {
+          "text": "Code QualityEnforce quality at merge",
+          "url": "https://github.com/features/code-quality"
+        },
+        {
+          "text": "GitHub Advanced SecurityFind and fix vulnerabilities",
+          "url": "https://github.com/security/advanced-security"
+        },
+        {
+          "text": "Code securitySecure your code as you build",
+          "url": "https://github.com/security/advanced-security/code-security"
+        },
+        {
+          "text": "Secret protectionStop leaks before they start",
+          "url": "https://github.com/security/advanced-security/secret-protection"
+        }
+      ],
+      "frames": [],
+      "error": null
+    }
+  ]
+}

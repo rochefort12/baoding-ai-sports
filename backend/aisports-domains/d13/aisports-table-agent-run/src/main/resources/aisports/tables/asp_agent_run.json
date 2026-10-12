@@ -1,0 +1,182 @@
+{
+  "name": "asp_agent_run",
+  "domain": "D13",
+  "description": "服务端签发的运行身份与进度；不保存密钥或隐藏思考",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "agent_version_id",
+      "type": "bigint",
+      "description": "锁定版本",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_agent_version",
+      "check": null
+    },
+    {
+      "name": "actor_type",
+      "type": "varchar(32)",
+      "description": "委托人主体类型",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "actor_id",
+      "type": "bigint",
+      "description": "委托人编号",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "parent_run_id",
+      "type": "bigint",
+      "description": "父运行",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "root_run_id",
+      "type": "bigint",
+      "description": "根运行",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "scope",
+      "type": "jsonb",
+      "description": "服务器确定的对象和权限范围；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "goal",
+      "type": "varchar(2000)",
+      "description": "用户可见目标",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：running waiting_children waiting_input waiting_confirmation completed failed stopped",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('running', 'waiting_children', 'waiting_input', 'waiting_confirmation', 'completed', 'failed', 'stopped')"
+    },
+    {
+      "name": "depth",
+      "type": "integer",
+      "description": "绝对委派深度",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "depth >= 0"
+    },
+    {
+      "name": "tool_count",
+      "type": "integer",
+      "description": "本轮已调用工具数",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "tool_count >= 0"
+    },
+    {
+      "name": "tokens_used",
+      "type": "integer",
+      "description": "供应商报告的累计用量",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "tokens_used >= 0"
+    },
+    {
+      "name": "tokens_reserved",
+      "type": "integer",
+      "description": "正在执行轮次预留用量；根任务统一核对，已观察结算释放，未知超时保守计费",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "tokens_reserved >= 0"
+    },
+    {
+      "name": "round_key",
+      "type": "varchar(64)",
+      "description": "当前预算结算轮次的单向摘要；不是身份凭据，防止旧线程释放新轮次预算",
+      "nullable": false,
+      "default": "''",
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "token_hash",
+      "type": "varchar(64)",
+      "description": "运行令牌摘要，原令牌不入库",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "expires_at",
+      "type": "timestamptz",
+      "description": "运行令牌截止；有时区业务时间",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "started_at",
+      "type": "timestamptz",
+      "description": "开始；有时区业务时间",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "ended_at",
+      "type": "timestamptz",
+      "description": "结束；有时区业务时间",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "stop_reason",
+      "type": "varchar(64)",
+      "description": "停止原因",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": false,
+  "checks": [],
+  "unique": [],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-agent-run",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

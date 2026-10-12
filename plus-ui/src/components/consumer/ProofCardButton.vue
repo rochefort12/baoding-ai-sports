@@ -1,0 +1,18 @@
+<template>
+  <SportButton variant="secondary" :busy="busy" @click="save">保存证明图片</SportButton>
+</template>
+<script setup lang="ts">
+import { ref } from 'vue';
+import { ElMessage } from 'element-plus';
+import SportButton from '@/components/sport-ui/SportButton.vue';
+import type { ProofCard } from '@/api/sports/competition';
+import { businessTime } from '@/utils/business';
+import { officialMedalPath } from '@/utils/sportsRank';
+const props=defineProps<{proof:ProofCard}>();
+const busy=ref(false);
+const escape=(value:string)=>value.replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&apos;'})[char]!);
+const short=(value:string,size:number)=>Array.from(value||'').slice(0,size).join('');
+// A missing decorative asset must not prevent saving the participant's actual proof text.
+const drawMedal=async(context:CanvasRenderingContext2D,title:string)=>{const source=officialMedalPath(title);if(!source)return;const image=new Image();image.src=source;try{await image.decode();context.drawImage(image,928,94,112,112);}catch{/* Keep the saved proof text when the static picture is unavailable. */}};
+const save=async()=>{if(busy.value)return;busy.value=true;let source='';let exported='';try{const p=props.proof;const time=new Date().toLocaleString('zh-CN',{timeZone:'Asia/Shanghai',hour12:false});const svg='<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="790" viewBox="0 0 1120 790"><defs><linearGradient id="paper" x2="1" y2="1"><stop stop-color="#fffefa"/><stop offset="1" stop-color="#f0e8d7"/></linearGradient></defs><rect width="1120" height="790" rx="26" fill="url(#paper)"/><rect x="35" y="35" width="1050" height="720" rx="18" fill="none" stroke="#d6c7a6"/><g font-family="Microsoft YaHei, sans-serif" fill="#5d4e35"><text x="75" y="92" font-size="16" letter-spacing="3">AI体育 · 赛事记录</text><text x="560" y="218" text-anchor="middle" font-size="45" font-weight="600">赛事成绩证明</text><path d="M490 258h140" stroke="#b1996c" stroke-width="2"/><text x="560" y="354" text-anchor="middle" font-size="37" font-weight="600">'+escape(short(p.title,24))+'</text><text x="560" y="420" text-anchor="middle" font-size="28">'+escape(short(p.names,28))+'</text><text x="560" y="486" text-anchor="middle" font-size="21" fill="#9a8a6b">'+escape(short(p.eventName,42))+'</text><text x="560" y="528" text-anchor="middle" font-size="18" fill="#9a8a6b">'+escape(short(p.unitName,50))+'</text><text x="75" y="631" font-size="15" fill="#a09176">记录编号 '+escape(p.honorId)+'</text><text x="75" y="665" font-size="15" fill="#a09176">确认时间 '+escape(businessTime(p.awardedAt))+' · 保存于 '+escape(time)+'（北京时间）</text><text x="75" y="702" font-size="13" fill="#aa9c83">本图片为本人获奖记录的保存副本。记录更正后，以本人证明页的最新状态为准。</text></g></svg>';source=URL.createObjectURL(new Blob([svg],{type:'image/svg+xml'}));const picture=new Image();picture.src=source;await picture.decode();const canvas=document.createElement('canvas');canvas.width=1120;canvas.height=790;const ctx=canvas.getContext('2d');if(!ctx)throw new Error('当前浏览器无法生成图片');ctx.drawImage(picture,0,0);await drawMedal(ctx,p.title);const body=await new Promise<Blob>((resolve,reject)=>canvas.toBlob(blob=>blob?resolve(blob):reject(new Error('证明图片未能保存')),'image/png'));exported=URL.createObjectURL(body);const link=document.createElement('a');link.href=exported;link.download='赛事成绩证明-'+p.honorId+'.png';link.click();ElMessage.success('证明图片已生成，请查看下载记录');}catch(cause){ElMessage.error(cause instanceof Error?cause.message:'证明图片暂时无法保存');}finally{if(source)URL.revokeObjectURL(source);if(exported)setTimeout(()=>URL.revokeObjectURL(exported),1500);busy.value=false;}};
+</script>

@@ -1,0 +1,56 @@
+{
+  "name": "asp_matching_offer",
+  "domain": "D03",
+  "description": "匹配确认邀请；每名成员本人接受，120秒确认席位与正式报名名额分开",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "unit_id",
+      "type": "bigint",
+      "description": "报名项目",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_competition_unit",
+      "check": null
+    },
+    {
+      "name": "room_id",
+      "type": "bigint",
+      "description": "现有或接受后创建的房间",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_team_room",
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：pending accepted declined expired",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('pending', 'accepted', 'declined', 'expired')"
+    },
+    {
+      "name": "expires_at",
+      "type": "timestamptz",
+      "description": "确认期限；有时区业务时间",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": false,
+  "checks": [],
+  "unique": [],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-matching-offer",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

@@ -1,0 +1,145 @@
+{
+  "name": "asp_fee_policy",
+  "domain": "D06",
+  "description": "竞赛单元的收费版本。已生效的不改价，改价另起一版",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "unit_id",
+      "type": "bigint",
+      "description": "适用单元",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_competition_unit",
+      "check": null
+    },
+    {
+      "name": "revision",
+      "type": "integer",
+      "description": "费用版本",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "revision >= 0"
+    },
+    {
+      "name": "pricing_unit",
+      "type": "varchar(32)",
+      "description": "一期生效版本使用 entry，表示整单固定价：free person pair team project combination entry",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "pricing_unit IN ('free', 'person', 'pair', 'team', 'project', 'combination', 'entry')"
+    },
+    {
+      "name": "amount",
+      "type": "numeric(18,2)",
+      "description": "整单固定金额。免费为 0。草稿可空",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": "amount IS NULL OR amount >= 0"
+    },
+    {
+      "name": "payment_mode",
+      "type": "varchar(32)",
+      "description": "free免费；event赛事统一渠道；offline/organizer_qr保留旧收费及历史付款依据。草稿可空",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": "payment_mode IS NULL OR payment_mode IN ('free', 'offline', 'organizer_qr', 'event')"
+    },
+    {
+      "name": "pay_instruction",
+      "type": "varchar(1000)",
+      "description": "线下说明或收款二维码说明",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "qr_file_id",
+      "type": "bigint",
+      "description": "承办方收款二维码文件编号。可空，不建外键",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "pricing_rules",
+      "type": "jsonb",
+      "description": "旧的计价结构。一期金额以 amount 为准；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "payer_modes",
+      "type": "jsonb",
+      "description": "旧的承担方式。一期不使用；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "collection_paths",
+      "type": "jsonb",
+      "description": "旧的收款路径。一期收款主体固定为承办方；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "refund_terms",
+      "type": "jsonb",
+      "description": "旧的退款条款。一期不自动退款；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：draft active retired",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('draft', 'active', 'retired')"
+    }
+  ],
+  "tenant": true,
+  "checks": [
+    "revision > 0",
+    "status <> 'active' OR (amount IS NOT NULL AND payment_mode IS NOT NULL AND ((payment_mode = 'free' AND amount = 0) OR (payment_mode <> 'free' AND amount > 0)))"
+  ],
+  "unique": [
+    [
+      "unit_id, revision",
+      null
+    ],
+    [
+      "unit_id",
+      "status = 'active'"
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-fee-policy",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

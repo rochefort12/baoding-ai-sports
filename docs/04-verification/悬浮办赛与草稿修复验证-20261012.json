@@ -1,0 +1,341 @@
+{
+  "at": "2026-10-12T22:48:24.0685824+08:00",
+  "passed": true,
+  "scope": "Current local assistant repair; fictional ordinary-role browser and actual-model observation. Not full phase-one or real-money acceptance.",
+  "backendJarSha256": "5fcdfad3e391a9fb4290191ebaf5657110b05f07941ad1644fecd79fab5f9531",
+  "sourceInputsMatched": 1613,
+  "frontendInputsMatched": 545,
+  "java": {
+    "errors": 0,
+    "tests": 581,
+    "skipped": 0,
+    "failures": 0
+  },
+  "gatewayTests": 92,
+  "frontendChecks": [
+    "typecheck",
+    "frontend utility tests",
+    "build:dev",
+    "source unchanged during checks"
+  ],
+  "liveChecks": [
+    {
+      "name": "Final ordinary-role state keeps same actual published event and project IDs",
+      "passed": true
+    },
+    {
+      "name": "Reopening restored chat automatically shows current result instead of old prices",
+      "passed": true
+    },
+    {
+      "name": "Current result and composer fit 390px phone width",
+      "passed": true
+    },
+    {
+      "name": "Current result and composer fit 320px phone width",
+      "passed": true
+    },
+    {
+      "name": "Manual reading of older chat stays in place",
+      "passed": true
+    },
+    {
+      "name": "Final read-only UI made no sports business write request",
+      "passed": true
+    },
+    {
+      "name": "Final read-only UI has no script error",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "name": "Final original material and payment fingerprints are unchanged",
+      "passed": true
+    }
+  ],
+  "priorChecksReferenced": [
+    {
+      "name": "Dropping actual document bytes adds a visible attachment without sending it",
+      "passed": true
+    },
+    {
+      "name": "Invalid dropped file preserves the already selected document",
+      "passed": true
+    },
+    {
+      "name": "Actual floating upload extracts two projects and source-backed sport description",
+      "passed": true
+    },
+    {
+      "name": "Mobile inline fields fit chat and actual form is one flow column",
+      "passed": true
+    },
+    {
+      "name": "Current inline inputs create an actual same-task draft",
+      "passed": true
+    },
+    {
+      "name": "Created draft reload restores the same editable task and event",
+      "passed": true
+    },
+    {
+      "name": "Created draft conversation retains actual event ID while accumulating edits",
+      "passed": true
+    },
+    {
+      "name": "Conversation keeps editing the created draft and saves prices to the same project IDs",
+      "passed": true
+    },
+    {
+      "name": "Chat preserves unsubmitted inline edits before continuing another field",
+      "passed": true
+    },
+    {
+      "name": "External workspace version rejects overwrite and keeps local form input",
+      "passed": true
+    },
+    {
+      "name": "Explicit reread recovers external workspace edits while preserving previous local input",
+      "passed": true
+    },
+    {
+      "name": "A repeated reread keeps the earlier unsaved form backup",
+      "passed": true
+    },
+    {
+      "name": "Charged publication setup is saved inside the same chat without publishing",
+      "passed": true
+    },
+    {
+      "name": "Chat publish request shows actual public event and current whole-order prices",
+      "passed": true
+    },
+    {
+      "name": "Mobile publication card fits the conversation width",
+      "passed": true
+    },
+    {
+      "name": "Typed confirmation actually publishes the original event once",
+      "passed": true
+    },
+    {
+      "name": "Published task reports actual state and no longer offers draft editing",
+      "passed": true
+    },
+    {
+      "name": "Reload restores the same published event and hides editable draft form",
+      "passed": true
+    },
+    {
+      "name": "Published draft cannot be changed through the draft chat endpoint",
+      "passed": true
+    },
+    {
+      "name": "Independent ordinary participant reads the actually published edited event",
+      "passed": true
+    },
+    {
+      "name": "Independent participant browser displays the published edited event",
+      "passed": true
+    },
+    {
+      "name": "Ordinary participant cannot read the private organizer draft task",
+      "passed": true
+    },
+    {
+      "name": "UI fixture: multiple selected options accumulate with typed text",
+      "passed": true
+    },
+    {
+      "name": "UI fixture: cancelling one option preserves the other option and typed text",
+      "passed": true
+    },
+    {
+      "name": "Backend rejects publication against a preview whose project price changed",
+      "passed": true
+    },
+    {
+      "name": "Backend rejects old review when ready payment instructions change",
+      "passed": true
+    },
+    {
+      "name": "Final runtime deletes a newly priced unused draft and all unused price versions",
+      "passed": true
+    },
+    {
+      "name": "Final review selector keeps latest creation first",
+      "passed": true
+    },
+    {
+      "name": "Original user material task is unchanged",
+      "passed": true
+    },
+    {
+      "name": "No payment facts were changed by chat editing or publication",
+      "passed": true
+    },
+    {
+      "name": "Actual organizer conversation has no page script error",
+      "passed": true,
+      "errors": []
+    }
+  ],
+  "objects": {
+    "originalName": "模拟持续聊天-8059ce44",
+    "taskId": "2109651065698820097",
+    "eventId": "2109651105024614402",
+    "unitIds": [
+      "2109651105154637826",
+      "2109651105284661249"
+    ],
+    "discardId": "2109653504921477122",
+    "discardUnitId": "2109653505181523969"
+  },
+  "listeners": [
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 8091,
+      "OwningProcess": 68012
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 8082,
+      "OwningProcess": 63788
+    },
+    {
+      "LocalAddress": "192.168.1.236",
+      "LocalPort": 5193,
+      "OwningProcess": 76252
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 5192,
+      "OwningProcess": 65876
+    }
+  ],
+  "livePredecessorHashesMatched": true,
+  "artifacts": [
+    {
+      "path": ".local/assistant-event-repair-20261012/dbcc92a3d63d4d338bf5e08484dc95a3/receipt.json",
+      "sha256": "a6079e37b837bc469ae4895c808049c166eb34df4ee52e176b2dcaf793b06e05"
+    },
+    {
+      "path": ".local/product-release-20261011/frontend-refinement-8eb3e761f147468f9f1330fd00012e00/receipt.json",
+      "sha256": "4f11e938a34d68a1c48a7f5ba50534f0684740d60873bb1b03441562db76120f"
+    },
+    {
+      "path": ".local/assistant-event-repair-20261012/79e7a0862a6844e6a351f62e88d5a643/live-receipt.json",
+      "sha256": "9a0e9c5a9bf89574b852c4e78d9bd5a9c2f39cec53eb29242ca0d6da10f12e17"
+    },
+    {
+      "path": ".local/agent-material-progress-20261012/activation-94c0d6203c9a456a9e1ac8aec022dca0/receipt.json",
+      "sha256": "baff82adedad6bd6c21f9638696adb831b1ddd7fec77b616fc6416fab0c3ea2f"
+    },
+    {
+      "path": ".local/assistant-event-repair-20261012/frontend-reload-f3ef83ba93584596ad6327aa5655ce61/receipt.json",
+      "sha256": "0b9bd3adeca55335fb48c90caf452278fe4c47442f7c4584cd520308a6f816e8"
+    },
+    {
+      "path": "scripts/Restart-AssistantTrialFrontends.ps1",
+      "sha256": "45a647bb59e2cfde65a53facae0e51d1380ff3dcaa02f239c05a71f4f40aa392"
+    },
+    {
+      "path": ".local/assistant-event-repair-20261012/dbca1324e8c249c7811a966c3111bdb2/live-receipt.json",
+      "sha256": "e8a3ca70b8d3d087e4021b0458eb9c2f5a5ff8edf717e50d8d74d38f71c38552"
+    },
+    {
+      "path": ".local/assistant-event-repair-20261012/e0a4da03194744aeb144d42e74076376/live-receipt.json",
+      "sha256": "7c53b2d461b3e1aa86f0ac3e29bf09ed1a856ef28d47a1a6960122b1f101539a"
+    },
+    {
+      "path": ".local/assistant-event-repair-20261012/752795c559024facb75a98397e66f39c/live-receipt.json",
+      "sha256": "f768d81cd7d4f3b4fc524e80c0d5d7d7882e2641bb2a240a7e9d4a68e52d3561"
+    },
+    {
+      "path": ".local/assistant-event-repair-20261012/dbca1324e8c249c7811a966c3111bdb2/desktop-publish-review.png",
+      "sha256": "e6eef4ae9d72ddfe6967798d3a2579b6806a1b81f7a4a1c0354335eeef0ef170"
+    },
+    {
+      "path": ".local/assistant-event-repair-20261012/dbca1324e8c249c7811a966c3111bdb2/desktop-published.png",
+      "sha256": "d98f71bd2beb9fc42a2ae370f2926c431bc2927731250c2d0090db99141de186"
+    },
+    {
+      "path": ".local/assistant-event-repair-20261012/dbca1324e8c249c7811a966c3111bdb2/mobile-multiple-options-ui-fixture.png",
+      "sha256": "23ea0c52480d41403d6d3f3d0e0e23eb97b14faacad97fa8ae611b90218fa58b"
+    },
+    {
+      "path": ".local/assistant-event-repair-20261012/dbca1324e8c249c7811a966c3111bdb2/mobile-participant-public-event.png",
+      "sha256": "2ef2914fd63761631d718371c836e645391806be0051844530879c1c5e7e1f08"
+    },
+    {
+      "path": ".local/assistant-event-repair-20261012/dbca1324e8c249c7811a966c3111bdb2/mobile-publish-review.png",
+      "sha256": "63cba29bd36899db51b0e09a3cc042a5b1a006114a517184e9c4fff7e5865090"
+    },
+    {
+      "path": ".local/assistant-event-repair-20261012/e0a4da03194744aeb144d42e74076376/failure-current-page.png",
+      "sha256": "c1ea9887cff7d89fa5c606c9b29011942fa7fd96b847a76b4e86eb8cff8c8489"
+    },
+    {
+      "path": ".local/assistant-event-repair-20261012/752795c559024facb75a98397e66f39c/mobile-inline-form.png",
+      "sha256": "1ec3b10532e594cd47c63b9139b788800044fa9e6dbd4167e46628f05c8627f4"
+    },
+    {
+      "path": ".local/assistant-event-repair-20261012/dbcc92a3d63d4d338bf5e08484dc95a3/gateway-tests.log",
+      "sha256": "21d33d6f0ba05174dab2269e57d2f75df8bf44eeab09b042e19c2a58e5280e0d"
+    },
+    {
+      "path": ".local/assistant-event-repair-20261012/dbcc92a3d63d4d338bf5e08484dc95a3/maven-package.log",
+      "sha256": "ff24290ca689c380e1f1b946e28217324207c5491c271e011ef72d34fd1c6290"
+    },
+    {
+      "path": ".local/product-release-20261011/frontend-refinement-8eb3e761f147468f9f1330fd00012e00/typecheck.log",
+      "sha256": "241be48e89412fbf6fed0e7e10a0217d6a564c74e44cc6906baaac9d4715a40a"
+    },
+    {
+      "path": ".local/product-release-20261011/frontend-refinement-8eb3e761f147468f9f1330fd00012e00/tests.log",
+      "sha256": "751ddb348c9697c6a1724bde32a913f7916f001874a6f72a3251d36d2c725db9"
+    },
+    {
+      "path": ".local/product-release-20261011/frontend-refinement-8eb3e761f147468f9f1330fd00012e00/build.log",
+      "sha256": "f91e1c1247d94bbedab37c3e4633d329b9a026b669890ba3b17fb54d640a0ce2"
+    },
+    {
+      "path": ".local/assistant-event-repair-20261012/79e7a0862a6844e6a351f62e88d5a643/desktop-current-published.png",
+      "sha256": "99c572dae03fd4bd048f2d57b8099f603e705858f523929d9c06585da61bf54c"
+    },
+    {
+      "path": ".local/assistant-event-repair-20261012/79e7a0862a6844e6a351f62e88d5a643/mobile-320-current-published.png",
+      "sha256": "01042a5ea34bdfd0336a3dc79ec134f7c128bd9f04e980b4b2dee0444cae63c8"
+    },
+    {
+      "path": ".local/assistant-event-repair-20261012/79e7a0862a6844e6a351f62e88d5a643/mobile-390-current-published.png",
+      "sha256": "bee9bcb4b48191f4495bffdfd39281f85c7d8fd980cc3fcf7efc08e3682a11a5"
+    },
+    {
+      "path": "docs/04-verification/悬浮办赛与草稿修复验证-20261012.md",
+      "sha256": "ef516cef5915b28d02f2e9868c6b77be52d0e4b9cc7a64f51229de6a9c05dcc4"
+    },
+    {
+      "path": "scripts/Test-AssistantEventRepair.ps1",
+      "sha256": "4b2c9072d970400a09bcfb8c179a5aed52bb44e89dff62702734cbb3f7929313"
+    },
+    {
+      "path": "scripts/Test-AssistantChatPublish.mjs",
+      "sha256": "9ddc55b7d22618fec8dfb24b3e4213d4aa8000a5ceb26bcde617d2c3a0760684"
+    },
+    {
+      "path": "scripts/Test-AssistantChatState.mjs",
+      "sha256": "36a3e5b650053bfab5244806d229aa9b61129459182ab0b22a3875ea807d0ed2"
+    },
+    {
+      "path": "scripts/Freeze-AssistantEventRepairEvidence.ps1",
+      "sha256": "ffabc3f69ee2b04c93640faa9e57033a8f743813ba925c86b0d2ced20946ca9d"
+    }
+  ],
+  "unverified": [
+    "Physical document dragging, real phone keyboards and WeChat",
+    "Additional complex/low-quality documents",
+    "Actual registrations, bank receipts, refunds and SMS",
+    "Original user event publication and full phase-one acceptance"
+  ]
+}

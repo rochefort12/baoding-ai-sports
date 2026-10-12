@@ -1,0 +1,66 @@
+{
+  "name": "asp_occupation_reference",
+  "domain": "D05",
+  "description": "报名到容量占用的引用；取消最后引用才释放去重人数",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "occupation_id",
+      "type": "bigint",
+      "description": "共享占用",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_capacity_occupation",
+      "check": null
+    },
+    {
+      "name": "registration_id",
+      "type": "bigint",
+      "description": "使用占用的报名",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_registration",
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：active released",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('active', 'released')"
+    },
+    {
+      "name": "released_at",
+      "type": "timestamptz",
+      "description": "解除引用；有时区业务时间",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": true,
+  "checks": [],
+  "unique": [
+    [
+      "occupation_id, registration_id",
+      "status = 'active'"
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-occupation-reference",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

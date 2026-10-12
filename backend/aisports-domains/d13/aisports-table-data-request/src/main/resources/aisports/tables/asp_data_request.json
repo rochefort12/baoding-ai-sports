@@ -1,0 +1,74 @@
+{
+  "name": "asp_data_request",
+  "domain": "D13",
+  "description": "个人资料查询、更正、撤回、注销及删除请求",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "account_id",
+      "type": "bigint",
+      "description": "请求人",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_account",
+      "check": null
+    },
+    {
+      "name": "person_id",
+      "type": "bigint",
+      "description": "资料对象",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_person",
+      "check": null
+    },
+    {
+      "name": "request_type",
+      "type": "varchar(100)",
+      "description": "明确权利请求类型",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "scope",
+      "type": "jsonb",
+      "description": "范围和授权；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：submitted verifying approved rejected processing completed",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('submitted', 'verifying', 'approved', 'rejected', 'processing', 'completed')"
+    },
+    {
+      "name": "resolution",
+      "type": "jsonb",
+      "description": "公开下架、必要留存及未完义务接续；必须按版本校验结构",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": false,
+  "checks": [],
+  "unique": [],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-data-request",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

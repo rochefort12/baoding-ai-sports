@@ -1,0 +1,84 @@
+{
+  "name": "asp_entry_field_value",
+  "domain": "D05",
+  "description": "报名成员对赛事字段的填写。提交时保留当时的名称、类型和选项",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "registration_member_id",
+      "type": "bigint",
+      "description": "填写人",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_registration_member",
+      "check": null
+    },
+    {
+      "name": "event_field_id",
+      "type": "bigint",
+      "description": "当时选用的字段",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_event_field",
+      "check": null
+    },
+    {
+      "name": "value_text",
+      "type": "varchar(1000)",
+      "description": "填写值",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "label_snapshot",
+      "type": "varchar(100)",
+      "description": "提交时的字段名称",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "type_snapshot",
+      "type": "varchar(16)",
+      "description": "提交时的类型",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "options_snapshot",
+      "type": "jsonb",
+      "description": "提交时的枚举选项；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": true,
+  "checks": [],
+  "unique": [
+    [
+      "registration_member_id, event_field_id",
+      null
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-entry-field-value",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

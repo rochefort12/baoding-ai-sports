@@ -1,0 +1,84 @@
+{
+  "name": "asp_stage",
+  "domain": "D08",
+  "description": "竞赛阶段及已确认赛制关系",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "unit_id",
+      "type": "bigint",
+      "description": "竞赛单元",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_competition_unit",
+      "check": null
+    },
+    {
+      "name": "rule_version_id",
+      "type": "bigint",
+      "description": "适用规则。手工场次的内部阶段可空，不制造虚假规则",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_rule_version",
+      "check": null
+    },
+    {
+      "name": "name",
+      "type": "varchar(100)",
+      "description": "阶段名称",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "format",
+      "type": "varchar(100)",
+      "description": "淘汰/循环/分组/计时/评分等确认格式",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "sequence",
+      "type": "integer",
+      "description": "阶段顺序",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "sequence >= 0"
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：draft ready published running completed cancelled",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('draft', 'ready', 'published', 'running', 'completed', 'cancelled')"
+    }
+  ],
+  "tenant": true,
+  "checks": [],
+  "unique": [
+    [
+      "unit_id, sequence",
+      null
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-stage",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

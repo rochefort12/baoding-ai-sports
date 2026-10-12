@@ -1,0 +1,120 @@
+{
+  "name": "asp_notification",
+  "domain": "D11",
+  "description": "业务通知内容版本及对象；不可夹带未授权营销",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "recipient_account_id",
+      "type": "bigint",
+      "description": "目标账号",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_account",
+      "check": null
+    },
+    {
+      "name": "business_type",
+      "type": "varchar(100)",
+      "description": "来源业务类型",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "business_id",
+      "type": "bigint",
+      "description": "来源业务对象",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "business_revision",
+      "type": "integer",
+      "description": "来源版本",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "business_revision >= 0"
+    },
+    {
+      "name": "purpose",
+      "type": "varchar(100)",
+      "description": "必要服务或经同意营销",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "content",
+      "type": "jsonb",
+      "description": "允许告知范围；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "dedupe_key",
+      "type": "varchar(200)",
+      "description": "重复处理防重键",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "read_at",
+      "type": "timestamptz",
+      "description": "已读；有时区业务时间",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "confirmed_at",
+      "type": "timestamptz",
+      "description": "用户作出决定；有时区业务时间",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "response",
+      "type": "jsonb",
+      "description": "接受/协调/退赛等业务决定；必须按版本校验结构",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": true,
+  "checks": [],
+  "unique": [
+    [
+      "recipient_account_id, dedupe_key",
+      null
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-notification",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

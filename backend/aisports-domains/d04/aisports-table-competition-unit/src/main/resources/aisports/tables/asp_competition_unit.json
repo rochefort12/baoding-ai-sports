@@ -1,0 +1,151 @@
+{
+  "name": "asp_competition_unit",
+  "domain": "D04",
+  "description": "报名坐标。M1.4 按整单占用名额，报名窗口仍在赛事上",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "event_id",
+      "type": "bigint",
+      "description": "赛事",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_event",
+      "check": null
+    },
+    {
+      "name": "sport_id",
+      "type": "bigint",
+      "description": "运动及变体",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_sport",
+      "check": null
+    },
+    {
+      "name": "name",
+      "type": "varchar(200)",
+      "description": "项目组别名称",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "entry_type",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：individual pair team",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "entry_type IN ('individual', 'pair', 'team')"
+    },
+    {
+      "name": "min_members",
+      "type": "integer",
+      "description": "最低成员人数",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "min_members >= 0"
+    },
+    {
+      "name": "max_members",
+      "type": "integer",
+      "description": "最高名单人数",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "max_members >= 0"
+    },
+    {
+      "name": "birth_from",
+      "type": "date",
+      "description": "允许出生日期下界，含边界",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "birth_until",
+      "type": "date",
+      "description": "允许出生日期上界，含边界",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "age_reference_date",
+      "type": "date",
+      "description": "年龄规程基准日",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：draft open suspended closed cancelled",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('draft', 'open', 'suspended', 'closed', 'cancelled')"
+    },
+    {
+      "name": "current_rule_id",
+      "type": "bigint",
+      "description": "当前确认规则版本；应用核对单元归属",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "current_fee_policy_id",
+      "type": "bigint",
+      "description": "当前费用版本；应用核对归属",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "competition_type_id",
+      "type": "bigint",
+      "description": "统一比赛类型；旧数据按明确人数匹配，不能猜测未支持类型",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_competition_type",
+      "check": null
+    }
+  ],
+  "tenant": true,
+  "checks": [
+    "min_members > 0",
+    "max_members >= min_members",
+    "birth_until IS NULL OR birth_from IS NULL OR birth_until >= birth_from"
+  ],
+  "unique": [
+    [
+      "event_id, lower(btrim(name))",
+      "status = 'open'"
+    ]
+  ],
+  "responsibility": "同赛事有效项目名称去首尾空白并忽略大小写唯一；无正式提交可关闭删除，有历史只做名称一般更正。",
+  "moduleId": "aisports-table-competition-unit",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

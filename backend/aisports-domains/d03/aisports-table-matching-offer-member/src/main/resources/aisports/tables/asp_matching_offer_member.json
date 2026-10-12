@@ -1,0 +1,70 @@
+{
+  "name": "asp_matching_offer_member",
+  "domain": "D03",
+  "description": "匹配邀请的一名接收者；全部接受后才加入房间",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "offer_id",
+      "type": "bigint",
+      "description": "邀请",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_matching_offer",
+      "check": null
+    },
+    {
+      "name": "account_id",
+      "type": "bigint",
+      "description": "接收人",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_account",
+      "check": null
+    },
+    {
+      "name": "request_id",
+      "type": "bigint",
+      "description": "来源排队",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_matching_request",
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：pending accepted declined",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('pending', 'accepted', 'declined')"
+    },
+    {
+      "name": "answered_at",
+      "type": "timestamptz",
+      "description": "本人回答时间；有时区业务时间",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": false,
+  "checks": [],
+  "unique": [
+    [
+      "offer_id, account_id",
+      null
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-matching-offer-member",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

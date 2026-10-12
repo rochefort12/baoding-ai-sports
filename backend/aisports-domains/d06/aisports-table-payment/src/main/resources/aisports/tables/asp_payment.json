@@ -1,0 +1,160 @@
+{
+  "name": "asp_payment",
+  "domain": "D06",
+  "description": "已经确认的到账事实。未付款时不插入。冲正不是退款",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "payer_account_id",
+      "type": "bigint",
+      "description": "付款人平台账号。不是平台账号时为空",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_account",
+      "check": null
+    },
+    {
+      "name": "payer_name",
+      "type": "varchar(200)",
+      "description": "实际付款人名称。外部付款人用它",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "payer_presence",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：known external unavailable",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "payer_presence IN ('known', 'external', 'unavailable')"
+    },
+    {
+      "name": "payment_mode",
+      "type": "varchar(32)",
+      "description": "付款义务的收费路径，不表示实际渠道到账：free offline organizer_qr event",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "payment_mode IN ('free', 'offline', 'organizer_qr', 'event')"
+    },
+    {
+      "name": "confirmation_source",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：manual callback",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "confirmation_source IN ('manual', 'callback')"
+    },
+    {
+      "name": "payee_subject",
+      "type": "varchar(200)",
+      "description": "一期固定 organizer",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "transaction_id",
+      "type": "varchar(200)",
+      "description": "外部付款单号。人工确认可空",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "amount",
+      "type": "numeric(18,2)",
+      "description": "实际金额；人民币元，不能用浮点",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "amount >= 0"
+    },
+    {
+      "name": "currency",
+      "type": "varchar(3)",
+      "description": "币种。一期固定 CNY",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：confirmed reversed",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('confirmed', 'reversed')"
+    },
+    {
+      "name": "evidence",
+      "type": "jsonb",
+      "description": "确认依据。不保存支付密钥；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "occurred_at",
+      "type": "timestamptz",
+      "description": "实际发生；有时区业务时间",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "confirmed_at",
+      "type": "timestamptz",
+      "description": "确认时间；有时区业务时间",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "request_key",
+      "type": "varchar(128)",
+      "description": "确认幂等键",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": true,
+  "checks": [],
+  "unique": [
+    [
+      "request_key",
+      null
+    ],
+    [
+      "payee_subject, transaction_id",
+      "transaction_id IS NOT NULL"
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-payment",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

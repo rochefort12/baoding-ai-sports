@@ -1,0 +1,77 @@
+{
+  "name": "asp_registration_batch",
+  "domain": "D05",
+  "description": "一次提交的报名批次；不等于一笔订单，也不能借此创建他人账号",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "submitter_account_id",
+      "type": "bigint",
+      "description": "提交人",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_account",
+      "check": null
+    },
+    {
+      "name": "request_key",
+      "type": "varchar(128)",
+      "description": "请求幂等键",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：processing completed partial failed",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('processing', 'completed', 'partial', 'failed')"
+    },
+    {
+      "name": "total_count",
+      "type": "integer",
+      "description": "提交条目数",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "total_count >= 0"
+    },
+    {
+      "name": "success_count",
+      "type": "integer",
+      "description": "成功条目数",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "success_count >= 0"
+    }
+  ],
+  "tenant": true,
+  "checks": [
+    "success_count <= total_count"
+  ],
+  "unique": [
+    [
+      "submitter_account_id, request_key",
+      null
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-registration-batch",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

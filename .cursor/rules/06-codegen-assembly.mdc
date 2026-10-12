@@ -1,0 +1,17 @@
+---
+description: Code generation stays inside this repo's generator boundary; handwritten business is not overwritten
+alwaysApply: true
+---
+# Codegen and assembly
+Basis: `AGENTS.md`, ADR-001. One business domain is one existing Maven module. Not one table one project. The Java package stays `org.dromara`. Do not create `com.jiechu.retailos`, a second generator, or `plus-ui/src/retailos/`.
+
+- Start from `database/model/catalog.py`. DDL and the data dictionary come from `scripts/generate-model.py`. Applied migrations are not rewritten; add a new version.
+- The generator is for suitable basic maintenance pages. Registration, quota, funds, competition, and cross-organization validation are handwritten to the business meaning.
+- Generator output is a downloaded ZIP. Review the diff. Keep the upstream fix that disables local arbitrary-path generation. Never overwrite handwritten business.
+- Projects, modules, packages, and paths already exist. Dev AI does not create, name, or move Maven projects.
+- Frontend lives in `plus-ui`. Shared styles live in `plus-ui/src/assets/styles/`. Generated pages use those shared classes instead of pasting the same CSS into each page.
+- System-determined fields (create time and operator, tenant, status set by an action, relation ids, version, values from upstream) are not free manual input. The backend enforces the write boundary.
+- Relation fields are chosen, and the display must let a person tell records apart. Cascading updates are business actions (rule 07).
+- Dictionary, rule, and config tables may get controlled maintenance. Business facts do not get a generic write page.
+- MCP stays an adapter and defaults to off. Do not generate write, export, or sensitive-material tools unless the task explicitly selects them. Keep identity, clientid, tenant, and permission checks.
+- Measure compile and startup on the real modules that changed. Do not add empty shell projects.

@@ -1,0 +1,50 @@
+{
+  "name": "asp_event_payment_config",
+  "domain": "D06",
+  "description": "赛事统一收款指引，承办方资金授权维护；首次正式提交后锁定。金额仍按项目，指引不是到账",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "event_id",
+      "type": "bigint",
+      "description": "所属赛事；同租户唯一，应用校验组织归属",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_event",
+      "check": null
+    },
+    {
+      "name": "settings",
+      "type": "jsonb",
+      "description": "v1含channels及instruction；wechat/alipay/custom_qr引用payment-qr文件，bank含受保护账户，offline含办理指引。不得公开或发送模型；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": true,
+  "checks": [
+    "jsonb_typeof(settings) = 'object' AND settings ? 'schemaVersion' AND settings->>'schemaVersion' = '1' AND settings ? 'channels' AND jsonb_typeof(settings->'channels') = 'array'"
+  ],
+  "unique": [
+    [
+      "event_id",
+      null
+    ]
+  ],
+  "responsibility": "资金授权、文件用途及租户校验、渠道结构及必填、与首笔正式提交串行；提交时指引及二维码文件编号复制到义务快照，旧版收费仍按原版本读取。",
+  "moduleId": "aisports-table-event-payment-config",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

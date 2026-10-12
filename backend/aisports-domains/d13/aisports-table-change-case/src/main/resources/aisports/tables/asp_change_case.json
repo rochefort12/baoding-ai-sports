@@ -1,0 +1,88 @@
+{
+  "name": "asp_change_case",
+  "domain": "D13",
+  "description": "重大变更旧新版本、影响及责任接续",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "object_type",
+      "type": "varchar(100)",
+      "description": "赛事/名单/收费/结果等",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "object_id",
+      "type": "bigint",
+      "description": "业务对象",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "before_snapshot",
+      "type": "jsonb",
+      "description": "原事实；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "after_snapshot",
+      "type": "jsonb",
+      "description": "草案或已确认事实；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "impact",
+      "type": "jsonb",
+      "description": "受影响人员、资源、金额、晋级、证书及通知；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：draft reviewing approved published coordinating completed rejected",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('draft', 'reviewing', 'approved', 'published', 'coordinating', 'completed', 'rejected')"
+    },
+    {
+      "name": "reason",
+      "type": "varchar(2000)",
+      "description": "变更依据",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": true,
+  "checks": [],
+  "unique": [],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-change-case",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

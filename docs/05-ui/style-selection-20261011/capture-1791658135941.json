@@ -1,0 +1,85 @@
+{
+  "timestamp": "2026-10-10T18:48:55.941Z",
+  "scope": "Actual primary-source pages in Edge, not project outputs. Skills are reference candidates only.",
+  "records": [
+    {
+      "id": "S04",
+      "status": 200,
+      "title": "Wellness Coach Dashboard · interface-design",
+      "url": "https://interface-design.dev/showcases/wellness-dashboard.html",
+      "capturedAt": "2026-10-10T18:48:50.000Z",
+      "file": "screenshots/S04.png",
+      "sha256": "d69432236d1e93a78dac92b488c923855f75b9c6c3758924eb9e7e0b28208dcd",
+      "text": "light\nBack\nONE-SHOTTED\nWellness Coach Dashboard\n\nWellness coach practice management with today's sessions, client progress tracking, and recent activity feed.\n\nPROMPT USED\nCreate a wellness coach dashboard. Light theme, warm and organic. Show today's sessions, client progress, and activity feed.\nDesign notes\nWarm cream and terracotta accent palette\nInstrument Serif headlines for elegant contrast\nSession list with status badges and time indicators\nActivity feed with semantic colored icons\nProgress bars with rounded fills\nProfessional yet approachable coach aesthetic\nGitHub\nExamples\nPlugin\nMIT · Oyindamola Akinleye",
+      "links": [
+        {
+          "text": "Back",
+          "url": "https://interface-design.dev/examples.html"
+        },
+        {
+          "text": "GitHub",
+          "url": "https://github.com/Dammyjay93/claude-interface-design"
+        },
+        {
+          "text": "Examples",
+          "url": "https://interface-design.dev/examples.html"
+        }
+      ],
+      "frames": [],
+      "error": null
+    },
+    {
+      "id": "A10",
+      "status": 200,
+      "title": "Inspira UI: Build beautiful websites using Vue & Nuxt",
+      "url": "https://inspira-ui.com/",
+      "capturedAt": "2026-10-10T18:48:50.575Z",
+      "file": "screenshots/A10.png",
+      "sha256": "505ee16d431afbd9c763470a7a789bf79557db94cb6d444597c5b2d17fbc3668",
+      "text": "Inspira UI\n🚀 Added HTML In Canvas components.\nBeautiful Vue components for modern web apps\n\nInspira UI provides beautifully designed and customizable Vue components that make it easier to build modern interfaces without starting from scratch.\n\nVisit Docs\nGet Inspira UI Pro - Save 50%\nHire the Creator\nVMs on Google Infrastructure\nTake a tutorial on how to deploy VMs, load balancers, Java apps, websites or LAMP stacks.\nStart Free\nShare Carbon Ad Icon\nCopy Link\nSend via email\nRefresh Carbon Ad\nads via Carbon\nSponsored by\nCLOUDFLARE\nDeveloper experience as a first-class feature\n\nComponents are built to be flexible and extensible, allowing developers to compose, override, and adapt them without fighting rigid abstractions.\n\nVue & Nuxt Native\n\nDesigned to feel native inside the Vue and Nuxt ecosystem.\n\nComposable\n\nComponents adapt naturally to different layouts and design systems.\n\nTailwind Ready\n\nUtility-first styling works seamlessly, without extra setup.\n\nDark Mode\n\nInterfaces respond intelligently to user theme preferences.\n\nPerformance\n\nOptimized for speed and smooth interactions at scale.\n\nMotion Ready\n\nSubtle animations included by default to enhance interaction.\n\nBuilt on proven",
+      "links": [
+        {
+          "text": "",
+          "url": "https://github.com/unovue/inspira-ui"
+        },
+        {
+          "text": "Become a Sponsor 💖",
+          "url": "https://github.com/sponsors/rahul-vashishtha"
+        }
+      ],
+      "frames": [],
+      "error": null
+    },
+    {
+      "id": "A09",
+      "status": 200,
+      "title": "Vant 4 - A lightweight, customizable Vue UI library for mobile web apps.",
+      "url": "https://vant-ui.github.io/vant/mobile.html#/zh-CN/form",
+      "capturedAt": "2026-10-10T18:48:51.692Z",
+      "file": "screenshots/A09.png",
+      "sha256": "f4a858a5a317e397d195fa03bd5c4489600f733fc125b5dd5d547b99fcb8679e",
+      "text": "Form\n基础用法\n用户名\n密码\n提交\n校验规则\n文本\n文本\n文本\n文本\n提交\n表单项类型\n开关\n复选框\n复选框组\n复选框 1\n复选框 2\n单选框\n单选框 1\n单选框 2\n步进器\n评分\n滑块\n文件上传\n选择器\n时间选择\n地区选择\n日历\n提交",
+      "links": [],
+      "frames": [],
+      "error": null
+    },
+    {
+      "id": "S06",
+      "status": 200,
+      "title": "Sonner",
+      "url": "https://sonner.emilkowal.ski/",
+      "capturedAt": "2026-10-10T18:48:55.679Z",
+      "file": "screenshots/S06.png",
+      "sha256": "604fc81df89284e0d6882ddf570eb73497f2e3d20a7036e365c5502725fd2b87",
+      "text": "My new course called aiforui.dev is in early access! Early access has closed.\n\nSonner\n\nAn opinionated toast component for React.\n\nRender a toast\nGitHub\nDocumentation\nInstallation\nnpm install sonner\nUsage\n\nRender the toaster in the root of your app.\n\nimport { Toaster, toast } from 'sonner'\n\n\n// ...\n\n\nfunction App() {\n  return (\n    <div>\n      <Toaster />\n      <button onClick={() => toast('My first toast')}>\n        Give me a toast\n      </button>\n    </div>\n  )\n}\nTypes\n\nYou can customize the type of toast you want to render, and pass an options object as the second argument.\n\nDefault\nDescription\nSuccess\nInfo\nWarning\nError\nAction\nPromise\nCustom\ntoast('Event has been created')\nPosition\n\nSwipe direction changes depending on the position.\n\ntop-left\ntop-center\ntop-right\nbottom-left\nbottom-center\nbottom-right\n<Toaster position=\"bottom-right\" />\nExpand\n\nYou can change the amount of toasts visible through the visibleToasts prop.\n\nExpand\nDefault\n<Toaster expand={false} />\nOther\nRich Colors Success\nRich Colors Error\nRich Colors Info\nRich Colors Warning\nClose Button\nHeadless\ntoast.success('Event has been created')\n\n\n// ...\n\n\n<Toaster richColors  />\nWant to learn how to make components like t",
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/emilkowalski/sonner"
+        }
+      ],
+      "frames": [],
+      "error": null
+    }
+  ]
+}

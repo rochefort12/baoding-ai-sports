@@ -1,0 +1,133 @@
+{
+  "name": "asp_action_execution",
+  "domain": "D13",
+  "description": "统一动作终态回执；成功与业务同事务，失败独立留痕，不存私有完整响应",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "action_code",
+      "type": "varchar(160)",
+      "description": "动作编码",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "actor_type",
+      "type": "varchar(32)",
+      "description": "真实主体类型",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "actor_id",
+      "type": "bigint",
+      "description": "主体编号",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "tenant_scope",
+      "type": "varchar(20)",
+      "description": "服务器确定的组织范围",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "channel",
+      "type": "varchar(16)",
+      "description": "调用渠道",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "request_key",
+      "type": "varchar(128)",
+      "description": "防重请求键",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "payload_hash",
+      "type": "varchar(64)",
+      "description": "输入摘要",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：succeeded failed denied",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('succeeded', 'failed', 'denied')"
+    },
+    {
+      "name": "result_reference",
+      "type": "jsonb",
+      "description": "结果对象和允许的状态摘要；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "error_code",
+      "type": "varchar(64)",
+      "description": "失败代码",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "run_id",
+      "type": "bigint",
+      "description": "关联智能体运行",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "occurred_at",
+      "type": "timestamptz",
+      "description": "执行结束；有时区业务时间",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": false,
+  "checks": [],
+  "unique": [
+    [
+      "actor_type, actor_id, action_code, request_key",
+      "status='succeeded'"
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-action-execution",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

@@ -1,0 +1,132 @@
+{
+  "name": "asp_match",
+  "domain": "D09",
+  "description": "稳定比赛身份；时间变更不改场次身份",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "stage_id",
+      "type": "bigint",
+      "description": "阶段",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_stage",
+      "check": null
+    },
+    {
+      "name": "schedule_run_id",
+      "type": "bigint",
+      "description": "当前排程版本",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_schedule_run",
+      "check": null
+    },
+    {
+      "name": "code",
+      "type": "varchar(100)",
+      "description": "阶段内稳定比赛编号",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "round_number",
+      "type": "integer",
+      "description": "轮次",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "round_number >= 0"
+    },
+    {
+      "name": "resource_id",
+      "type": "bigint",
+      "description": "安排资源",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_resource",
+      "check": null
+    },
+    {
+      "name": "scheduled_start",
+      "type": "timestamptz",
+      "description": "预计开始；有时区业务时间",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "scheduled_end",
+      "type": "timestamptz",
+      "description": "预计结束；有时区业务时间",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "actual_start",
+      "type": "timestamptz",
+      "description": "实际开始；有时区业务时间",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "actual_end",
+      "type": "timestamptz",
+      "description": "实际结束；有时区业务时间",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：draft published checkin running completed abandoned cancelled",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('draft', 'published', 'checkin', 'running', 'completed', 'abandoned', 'cancelled')"
+    },
+    {
+      "name": "court_name",
+      "type": "varchar(80)",
+      "description": "本场比赛球场名称，不表示资源预订交易",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": true,
+  "checks": [
+    "scheduled_end IS NULL OR scheduled_start IS NULL OR scheduled_end > scheduled_start",
+    "actual_end IS NULL OR actual_start IS NULL OR actual_end >= actual_start"
+  ],
+  "unique": [
+    [
+      "stage_id, code",
+      null
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-match",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

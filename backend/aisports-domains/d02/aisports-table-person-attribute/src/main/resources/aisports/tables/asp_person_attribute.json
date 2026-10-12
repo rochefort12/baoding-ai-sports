@@ -1,0 +1,61 @@
+{
+  "name": "asp_person_attribute",
+  "domain": "D02",
+  "description": "参赛者已保存的可复用属性；只接受目录中 storage_scope 为 profile 的项",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "person_id",
+      "type": "bigint",
+      "description": "本人档案",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_person",
+      "check": null
+    },
+    {
+      "name": "attribute_id",
+      "type": "bigint",
+      "description": "属性目录项",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_attribute_definition",
+      "check": null
+    },
+    {
+      "name": "value",
+      "type": "jsonb",
+      "description": "按值类型校验后的取值；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "measured_at",
+      "type": "timestamptz",
+      "description": "测量或声明时间；体重等会变化的属性使用；有时区业务时间",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": false,
+  "checks": [],
+  "unique": [
+    [
+      "person_id, attribute_id",
+      null
+    ]
+  ],
+  "responsibility": "应用拒绝把 storage_scope=entry 的属性写入个人档案；报名使用名单快照，不回写本表。",
+  "moduleId": "aisports-table-person-attribute",
+  "lifecycle": "planned",
+  "genericWrites": false,
+  "queryOpen": false
+}

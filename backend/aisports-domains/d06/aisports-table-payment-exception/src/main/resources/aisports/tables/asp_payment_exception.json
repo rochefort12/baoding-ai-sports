@@ -1,0 +1,99 @@
+{
+  "name": "asp_payment_exception",
+  "domain": "D06",
+  "description": "金额不符或第二笔真实付款。不自动结清义务",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "payment_id",
+      "type": "bigint",
+      "description": "已有付款。金额不符时为空",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_payment",
+      "check": null
+    },
+    {
+      "name": "obligation_id",
+      "type": "bigint",
+      "description": "相关义务",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_fee_obligation",
+      "check": null
+    },
+    {
+      "name": "exception_type",
+      "type": "varchar(100)",
+      "description": "amount_mismatch 或 duplicate_payment",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "external_reference",
+      "type": "varchar(200)",
+      "description": "外部单号",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "reported_amount",
+      "type": "numeric(18,2)",
+      "description": "申报金额",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": "reported_amount IS NULL OR reported_amount >= 0"
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：open investigating resolved disputed",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('open', 'investigating', 'resolved', 'disputed')"
+    },
+    {
+      "name": "owner_id",
+      "type": "bigint",
+      "description": "实际处理责任人",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "resolution",
+      "type": "jsonb",
+      "description": "核对和处置证据；必须按版本校验结构",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": true,
+  "checks": [
+    "payment_id IS NOT NULL OR obligation_id IS NOT NULL"
+  ],
+  "unique": [],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-payment-exception",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

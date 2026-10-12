@@ -1,0 +1,95 @@
+{
+  "name": "asp_capacity_pool",
+  "domain": "D05",
+  "description": "总人数或项目容量；单位和去重范围显式",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "tenant_id",
+      "type": "varchar(20)",
+      "description": "组织管理范围"
+    },
+    {
+      "name": "event_id",
+      "type": "bigint",
+      "description": "赛事",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_event",
+      "check": null
+    },
+    {
+      "name": "unit_id",
+      "type": "bigint",
+      "description": "项目容量；总量可为空",
+      "nullable": true,
+      "default": null,
+      "reference": "asp_competition_unit",
+      "check": null
+    },
+    {
+      "name": "capacity_unit",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：person pair team seat lane entry",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "capacity_unit IN ('person', 'pair', 'team', 'seat', 'lane', 'entry')"
+    },
+    {
+      "name": "dedupe_scope",
+      "type": "varchar(100)",
+      "description": "计数去重范围。M1.4 按 entry 整单计数",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "limit_count",
+      "type": "integer",
+      "description": "上限",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "limit_count >= 0"
+    },
+    {
+      "name": "used_count",
+      "type": "integer",
+      "description": "当前有效及临时占用数；同事务维护",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "used_count >= 0"
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：active suspended closed",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('active', 'suspended', 'closed')"
+    }
+  ],
+  "tenant": true,
+  "checks": [
+    "used_count <= limit_count"
+  ],
+  "unique": [
+    [
+      "unit_id",
+      "unit_id IS NOT NULL AND capacity_unit = 'entry'"
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-capacity-pool",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

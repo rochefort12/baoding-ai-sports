@@ -1,0 +1,23 @@
+# ${functionName}生成清单
+
+- 生成日期：${datetime}；作者：${author}；框架：RuoYi-Vue-Plus 5.6.2。
+- 数据表：`${tableName}`；包：`${packageName}`；分类：`${tplCategory}`。
+- REST 基础路径：`/${moduleName}/${businessName}`。
+- 权限：`${permissionPrefix}:list/query/add/edit/remove/export`。
+- MCP 显式选项：`${mcpEnabled}`。CRUD 生成详情和分页工具；树表仅详情。
+- MCP 请求必须携带 Authorization 与对应 clientid，拥有 `sports:mcp:invoke` 和具体查询权限。
+- MCP 方法所在业务模块需要依赖 `org.dromara:aisports-mcp:5.6.2`。
+
+| 列 | Java 字段 | 类型 | 数据库说明 |
+| --- | --- | --- | --- |
+#foreach($column in $columns)
+| ${column.columnName} | ${column.javaField} | ${column.javaType} | ${column.columnComment} |
+#end
+
+#[[## 集成与审查]]#
+
+1. ZIP 的 `vue/` 内容合入 `plus-ui/src/`；公共 `assets/styles/generated-crud.scss` 全项目只保留一份，`index.scss` 全局 `@use './generated-crud.scss';` 一次。
+2. 数据迁移以 `database/model/catalog.py` 和版本迁移为准，生成器 Menu.sql 只新增菜单权限。
+3. 核验租户字段、共享事实行级授权、状态转换、外键、金额精度及敏感字段脱敏。不得将复杂事务做成任意 CRUD。
+4. 本表业务规则、事务边界、隐私用途、验收编号、实际测试结果必须由开发者补充。当前生成物未验证业务行为。
+5. 不覆盖手写代码；审查差异后集成，更新数据字典、验收映射与交接记录。

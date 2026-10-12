@@ -1,0 +1,72 @@
+{
+  "name": "asp_capability_version",
+  "domain": "D13",
+  "description": "经过实现与测试的能力版本；描述不是授权",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "code",
+      "type": "varchar(160)",
+      "description": "能力编码",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "revision",
+      "type": "integer",
+      "description": "版本",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "revision >= 0"
+    },
+    {
+      "name": "definition",
+      "type": "jsonb",
+      "description": "参数、结果、读写范围、确认和权限；必须按版本校验结构",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "source_hash",
+      "type": "varchar(64)",
+      "description": "定义SHA256",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：draft tested published retired",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('draft', 'tested', 'published', 'retired')"
+    }
+  ],
+  "tenant": false,
+  "checks": [
+    "revision > 0"
+  ],
+  "unique": [
+    [
+      "code, revision",
+      null
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-capability-version",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

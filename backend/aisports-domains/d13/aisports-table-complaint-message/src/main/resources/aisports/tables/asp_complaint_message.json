@@ -1,0 +1,74 @@
+{
+  "name": "asp_complaint_message",
+  "domain": "D13",
+  "description": "投诉回复、处理与重新打开的追加记录；只向获授权当事方展示",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "complaint_id",
+      "type": "bigint",
+      "description": "投诉",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_complaint",
+      "check": null
+    },
+    {
+      "name": "actor_type",
+      "type": "varchar(32)",
+      "description": "本人、主办方或政府角色",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "actor_id",
+      "type": "bigint",
+      "description": "处理主体",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "action",
+      "type": "varchar(32)",
+      "description": "回复、转交、关闭或重开",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "message",
+      "type": "varchar(2000)",
+      "description": "可见回复与处理依据",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "occurred_at",
+      "type": "timestamptz",
+      "description": "发生时间；有时区业务时间",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": false,
+  "checks": [],
+  "unique": [],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-complaint-message",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AI运动 · 协作工作台原型</title><link rel="stylesheet" href="ai-workbench.css"></head>
+<body>
+<div class="shell"><aside><div class="brand"><b class="mark">AI</b><div><strong>AI运动</strong><small>让办赛，更轻松</small></div></div><nav aria-label="主导航"><button data-page="home">⌂ <span>工作台</span></button><button data-page="events">◇ <span>赛事管理</span></button><button data-page="registrations">▤ <span>报名管理</span></button><button data-page="onsite">⚑ <span>现场执行</span></button><button data-page="organization">⚙ <span>组织设置</span></button></nav><p class="side-note">Fluent 层次 · AI 光感 · 运动<br>独立原型，不连接真实业务</p></aside>
+<div class="body"><header><div class="row"><strong>▥ 演示组织</strong><span class="badge neutral">交互原型 · 示例数据</span></div><div class="row"><button class="btn ai ai-primary" data-action="ai">✦ AI办赛</button><button class="btn outline manual-primary" data-action="manual">手动创建赛事</button><button class="btn text" data-action="reset">重置演示</button></div></header><main id="app"></main></div></div>
+<button id="chat-launcher" aria-label="打开 AI 运营助手" aria-expanded="false">✦ <span>AI 运营助手</span><i></i></button>
+<section id="chat-panel" role="dialog" aria-label="AI 运营助手" hidden><div class="chat-heading"><div><b>✦ AI 运营助手</b><small>与当前工作空间协作</small></div><div><button id="chat-expand" aria-label="放大聊天窗口">⤢</button><button id="chat-close" aria-label="关闭聊天窗口">×</button></div></div><div id="chat-context"></div><div id="chat-messages" aria-live="polite"></div><div class="chat-shortcuts"><button data-chat-command="分析当前运营">运营分析</button><button class="chat-ai-shortcut" data-chat-command="AI办赛">✦ AI办赛</button><button data-chat-command="修改当前赛事设置">修改设置</button><button data-chat-command="展示报名趋势">数据组件</button></div><form id="chat-input-form"><textarea id="chat-input" aria-label="发送给 AI 的消息" placeholder="问运营情况，或让我帮你创建、修改…" required></textarea><button class="btn ai" type="submit">发送 ↑</button></form><small class="chat-footnote">本地交互演示 · 保存只影响原型数据</small></section>
+<dialog id="dialog"><div class="dialog-head"><h2 id="dialog-title"></h2><button class="close" aria-label="关闭弹窗">×</button></div><div id="dialog-content"></div></dialog><div id="toast" role="status" aria-live="polite"></div><script src="ai-workbench.js"></script>
+</body></html>
+
+

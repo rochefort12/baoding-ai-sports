@@ -1,0 +1,101 @@
+{
+  "name": "asp_team_room_member",
+  "domain": "D03",
+  "description": "参赛房间成员；加入不等于本人报名声明确认",
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "description": "稳定编号"
+    },
+    {
+      "name": "room_id",
+      "type": "bigint",
+      "description": "房间",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_team_room",
+      "check": null
+    },
+    {
+      "name": "unit_id",
+      "type": "bigint",
+      "description": "同项目防重复参赛房间占位",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_competition_unit",
+      "check": null
+    },
+    {
+      "name": "account_id",
+      "type": "bigint",
+      "description": "成员",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_account",
+      "check": null
+    },
+    {
+      "name": "person_id",
+      "type": "bigint",
+      "description": "本人档案",
+      "nullable": false,
+      "default": null,
+      "reference": "asp_person",
+      "check": null
+    },
+    {
+      "name": "status",
+      "type": "varchar(32)",
+      "description": "独立业务状态；合法值不等于业务已获批准：active left",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": "status IN ('active', 'left')"
+    },
+    {
+      "name": "ready",
+      "type": "boolean",
+      "description": "本人备赛确认，不能替代参赛声明",
+      "nullable": false,
+      "default": "false",
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "joined_at",
+      "type": "timestamptz",
+      "description": "加入时间；有时区业务时间",
+      "nullable": false,
+      "default": null,
+      "reference": null,
+      "check": null
+    },
+    {
+      "name": "left_at",
+      "type": "timestamptz",
+      "description": "离开时间；有时区业务时间",
+      "nullable": true,
+      "default": null,
+      "reference": null,
+      "check": null
+    }
+  ],
+  "tenant": false,
+  "checks": [],
+  "unique": [
+    [
+      "room_id, account_id",
+      "status='active'"
+    ],
+    [
+      "unit_id, account_id",
+      "status='active'"
+    ]
+  ],
+  "responsibility": "应用服务执行状态转换、授权和跨记录一致性，数据库约束只是结构防线。",
+  "moduleId": "aisports-table-team-room-member",
+  "lifecycle": "schema",
+  "genericWrites": false,
+  "queryOpen": false
+}

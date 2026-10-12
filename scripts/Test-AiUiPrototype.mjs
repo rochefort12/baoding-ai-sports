@@ -1,0 +1,62 @@
+import {createRequire} from 'node:module';
+import {mkdir,writeFile} from 'node:fs/promises';
+import path from 'node:path';
+const require=createRequire(path.join(process.argv[2],'_resolve.cjs'));
+const {chromium}=require('playwright');
+const out=path.resolve('.local/ai-workbench-restored-20261008');await mkdir(out,{recursive:true});
+const browser=await chromium.launch({executablePath:'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',headless:true});
+const context=await browser.newContext({viewport:{width:1440,height:1000}});
+const page=await context.newPage(),errors=[],writes=[],checks=[];
+page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{if(r.method()!=='GET')writes.push(r.url())});
+const check=(name,ok)=>{if(!ok)throw Error(name);checks.push(name)};
+const action=a=>page.locator(`[data-action="${a}"]`).first().click();
+try{
+ await page.goto(process.argv[3]||'http://127.0.0.1:5192/ai-workbench.html');
+ await page.locator('.hero').waitFor();await page.screenshot({path:path.join(out,'home.png'),fullPage:true});
+ check('一级页面不显示面包屑',await page.locator('.business-breadcrumb').count()===0);
+ check('顶栏突出AI办赛',await page.locator('header .ai-primary').innerText()==='✦ AI办赛');
+ check('手动入口可用',await page.locator('[data-action="manual"]').count()>0);
+ await action('manual');const f=page.locator('#manual-form');
+ for(const [k,v] of Object.entries({name:'恢复验证赛事',date:'2026-11-08',deadline:'2026-11-09',location:'演示场地'}))await f.locator(`[name="${k}"]`).fill(v);
+ await f.locator('[type="submit"]').click();check('阻止截止晚于比赛',await page.locator('#manual-error').innerText()==='报名截止日期不能晚于比赛日期。');
+ await f.locator('[name="deadline"]').fill('2026-11-01');await f.locator('[type="submit"]').click();
+ check('九项任务入口',await page.locator('[data-task]').count()===9);
+ check('赛事下级页面显示业务面包屑',(await page.locator('.business-breadcrumb').innerText()).includes('恢复验证赛事'));
+ await page.locator('.business-breadcrumb [data-action="events"]').click();check('面包屑返回赛事列表',await page.locator('[data-task]').count()===0&&(await page.locator('#app').innerText()).includes('恢复验证赛事'));await page.locator('[data-action="open-projects"]').first().click();
+ await page.locator('[data-task="publication"]').click();await action('publish');check('空项目不能发布',(await page.locator('#toast').innerText()).includes('至少一个项目'));
+ await page.locator('[data-task="projects"]').click();await action('add-unit');await page.locator('#unit-form [name="name"]').fill('男子单打');await page.locator('#unit-form [type="submit"]').click();
+ check('手动项目保存',(await page.locator('#app').innerText()).includes('男子单打'));
+ await action('add-unit');await page.locator('#unit-form [name="name"]').fill('男子单打');await page.locator('#unit-form [type="submit"]').click();check('拒绝重复项目',(await page.locator('#unit-error').innerText()).includes('不能重复'));await page.locator('#dialog .close').click();
+ await page.locator('[data-task="registrations"]').click();await action('entry');check('付款声明不等于到账',(await page.locator('#dialog').innerText()).includes('不等于到账'));await page.locator('#dialog .close').click();
+ await page.locator('[data-task="publication"]').click();await action('publish');await action('confirm-publish');check('模拟发布状态',(await page.locator('#app').innerText()).includes('模拟已发布'));
+ await page.locator('[data-task="projects"]').click();check('发布后项目不可编辑',await page.locator('[data-action="add-unit"]').isDisabled());
+ await page.locator('[data-page="home"]').click();await action('ai');await action('sample');await page.locator('#ai-form').waitFor();
+ check('日期冲突需选择',await page.locator('#ai-form [name="date"]').inputValue()==='');check('缺失地点需补充',await page.locator('#ai-form [name="location"]').inputValue()==='');
+ await page.screenshot({path:path.join(out,'review.png'),fullPage:true});
+ await page.locator('#ai-form [name="date"]').selectOption('2026-11-08');await page.locator('#ai-form [name="location"]').fill('人工核对场地');await page.locator('#ai-form [type="submit"]').click();
+ check('保存前明确确认',await page.locator('[data-action="confirm-ai"]').isVisible());await action('confirm-ai');check('AI草稿采用人工字段',(await page.locator('#app').innerText()).includes('人工核对场地'));
+ await page.screenshot({path:path.join(out,'workspace.png'),fullPage:true});await action('marketing');await action('generate');check('文案依据已确认资料',(await page.locator('#promotion-copy').inputValue()).includes('人工核对场地'));
+ await page.locator('#promotion-copy').fill('人工编辑的文案');await action('save-copy');await action('saved-copy');check('编辑文案保存',(await page.locator('#dialog').innerText()).includes('人工编辑的文案'));await page.locator('#dialog .close').click();await page.screenshot({path:path.join(out,'promotion.png'),fullPage:true});
+ await page.reload();check('草稿刷新后保留',(await page.locator('#app').innerText()).includes('秋日羽毛球交流赛'));
+ for(const width of [390,320]){await page.setViewportSize({width,height:844});await page.locator('[data-page="home"]').click();check(`首页${width}px无横向溢出`,await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await page.screenshot({path:path.join(out,`mobile-${width}.png`),fullPage:true})}
+ await page.setViewportSize({width:1440,height:1000});const initialUrl=page.url();
+ await page.locator('#chat-launcher').click();check('全局左侧聊天可打开',await page.locator('#chat-panel').isVisible());check('读取当前页面上下文',(await page.locator('#chat-context').innerText()).includes('赛事运营总览'));
+ check('AI办赛指令常驻',await page.locator('.chat-shortcuts [data-chat-command="AI办赛"]').isVisible());
+ await page.locator('[data-chat-command="AI办赛"]').click();let cf=page.locator('.chat-component').last();await cf.locator('[data-chat-sample]').click();check('聊天示例识别保留人工核对',await cf.locator('[name="date"]').inputValue()===''&&await cf.locator('[name="location"]').inputValue()==='');
+ for(const [k,v] of Object.entries({name:'聊天内创建验证赛',date:'2026-11-08',deadline:'2026-11-01',location:'聊天核对场地'}))await cf.locator(`[name="${k}"]`).fill(v);
+ await cf.locator('[type="submit"]').click();check('聊天保存不跳转页面',page.url()===initialUrl&&await page.locator('.ops-hero').isVisible());check('聊天创建同步当前页面',(await page.locator('#app').innerText()).includes('聊天内创建验证赛'));
+ await page.locator('#chat-close').click();await page.locator('[data-action="open-projects"]').first().click();await page.locator('#chat-launcher').click();check('赛事上下文跟随更新',(await page.locator('#chat-context').innerText()).includes('聊天内创建验证赛'));
+ await page.locator('[data-chat-command="修改当前赛事设置"]').click();cf=page.locator('.chat-component').last();await cf.locator('[name="location"]').fill('聊天修改后的场地');await cf.locator('[name="review"]').selectOption('无需人工审核');await cf.locator('[type="submit"]').click();check('聊天修改同步赛事设置',(await page.locator('#app').innerText()).includes('聊天修改后的场地')&&(await page.locator('#app').innerText()).includes('无需人工审核'));
+ await page.locator('[data-chat-command="展示报名趋势"]').click();check('图表组件采用隔离沙盒',await page.locator('iframe.sandbox-chart').getAttribute('sandbox')==='');
+ await page.locator('#chat-expand').click();check('聊天支持放大',await page.locator('#chat-panel').evaluate(e=>e.classList.contains('expanded')));await page.screenshot({path:path.join(out,'chat-expanded.png'),fullPage:true});await page.locator('#chat-expand').click();
+ await page.locator('[data-chat-command="修改当前赛事设置"]').click();cf=page.locator('.chat-component').last();await page.locator('#chat-close').click();await page.locator('[data-page="home"]').click();await page.locator('#chat-launcher').click();await cf.locator('[type="submit"]').click();check('上下文变化阻止旧卡片写入',(await cf.locator('.chat-error').innerText()).includes('上下文已改变'));
+ await page.screenshot({path:path.join(out,'chat-drawer.png'),fullPage:true});await page.locator('#chat-close').click();await page.reload();check('聊天保存刷新后仍保留',(await page.locator('#app').innerText()).includes('聊天内创建验证赛'));
+ for(const width of [390,320]){await page.setViewportSize({width,height:844});await page.locator('#chat-launcher').click();check(`聊天${width}px无横向溢出`,await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await page.locator('#chat-close').click()}
+ await page.setViewportSize({width:1440,height:1000});const bubble=page.locator('#chat-launcher');const br=await bubble.boundingBox();await page.mouse.move(br.x+35,br.y+20);await page.mouse.down();await page.mouse.move(br.x+335,br.y-80,{steps:12});await page.mouse.up();const movedBubble=await bubble.boundingBox();check('聊天气泡支持拖动',movedBubble.x>br.x+200);check('拖动气泡不误开窗口',!await page.locator('#chat-panel').isVisible());await bubble.click();
+ const before=await page.locator('#chat-panel').boundingBox();await page.mouse.move(before.x+70,before.y+30);await page.mouse.down();await page.mouse.move(before.x+670,before.y+30,{steps:15});await page.mouse.up();const moved=await page.locator('#chat-panel').boundingBox();check('标题栏拖动聊天浮窗',moved.x>before.x+500);
+ await page.locator('#chat-expand').click();await page.locator('#chat-expand').click();const restored=await page.locator('#chat-panel').boundingBox();check('放大后恢复拖动位置',Math.abs(restored.x-moved.x)<2);await page.screenshot({path:path.join(out,'chat-glass-moved.png'),fullPage:false});
+ await page.mouse.move(restored.x+70,restored.y+30);await page.mouse.down();await page.mouse.move(-300,-300,{steps:10});await page.mouse.up();const clamped=await page.locator('#chat-panel').boundingBox();check('拖动浮窗保持视口内',clamped.x>=0&&clamped.y>=0);check('拖动不切页面路由',page.url()===initialUrl);await page.locator('#chat-close').click();
+ check('无页面运行错误',errors.length===0);check('无业务写请求',writes.length===0);
+ await writeFile(path.join(out,'verification.json'),JSON.stringify({kind:'独立原型本地模拟交互，不是正式业务验收',url:page.url(),checks,errors,writes},null,2));console.log(`${checks.length} PASS; evidence: ${out}`);
+}finally{await browser.close()}
+

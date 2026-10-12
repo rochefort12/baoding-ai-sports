@@ -1,0 +1,31 @@
+// Refresh catalog metadata and one already-open test action; never initialize roles or business data.
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import {context as c,api,createEvidence} from './lib/BusinessRegression.mjs';
+const test=createEvidence('candidate-metadata-refresh');
+const code=process.argv[2]||'registration.submit';
+if(!['registration.submit','registration.create'].includes(code))throw new Error('Only the affected tested registration definitions may be selected.');
+const catalog=await api(c.admin,'/sports/platform/management');
+const current=catalog.definitions.find(r=>r.definition.code===code);
+if(!current)throw new Error('The tested registration action is missing.');
+const old=c.definitions.find(r=>r.definition.code===code);
+const logPath=path.join(c.out,'backend-package-11e86ec33a1d43c1992707e0f96bbecb','maven-package.log');
+const log=fs.readFileSync(logPath,'utf8');
+const selected=['RegistrationActionWriteScopeTest','RegistrationDeclarationImageTest'];
+for(const name of selected)test.check(name+' passed in the preserved targeted build',new RegExp('Tests run: \\d+, Failures: 0, Errors: 0, Skipped: 0[^\\r\\n]*'+name).test(log));
+const basis={scope:'PROVISIONAL_UI_ONLY_FOR_ISOLATED_BUSINESS_REGRESSION',database:c.database,code,definitionHash:current.definitionHash,targetedLogSha256:crypto.createHash('sha256').update(fs.readFileSync(logPath)).digest('hex'),sourceSha256:crypto.createHash('sha256').update(fs.readFileSync('backend/aisports-domains/d05/aisports-table-registration/src/main/java/org/dromara/sports/registration/service/RegistrationActionProvider.java')).digest('hex')};
+const basisBytes=JSON.stringify(basis,null,2);
+fs.writeFileSync(path.join(test.directory,'release-basis.json'),basisBytes);
+const evidenceHash=crypto.createHash('sha256').update(basisBytes).digest('hex');
+if(old?.definitionHash!==current.definitionHash||code==='registration.create'){
+  await api(c.admin,'/sports/platform/management/release','POST',{code:current.definition.code,channel:'ui',enabled:true,definitionHash:current.definitionHash,evidenceHash});
+  test.check('only the selected '+code+' UI definition is provisionally reopened',true,{oldDefinitionHash:old?.definitionHash,definitionHash:current.definitionHash,evidenceHash});
+}else test.check('the exact registration definition was already current; no release replay',true);
+const file=process.env.AISPORTS_REGRESSION_CONTEXT;
+const updated={...JSON.parse(fs.readFileSync(file,'utf8').replace(/^\uFEFF/,'')),definitions:catalog.definitions};
+const temporary=file+'.'+crypto.randomUUID()+'.tmp';
+fs.writeFileSync(temporary,JSON.stringify(updated,null,2));
+fs.renameSync(temporary,file);
+test.check('catalog refreshed without recreating accounts or organization sessions',true);
+test.finish();
