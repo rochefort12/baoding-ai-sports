@@ -38,6 +38,8 @@ Variables可选：`ECS_HOST` 默认 `47.92.212.93`、`ECS_USER` 默认 `root`、
 
 ## ECS 一次准备
 
+首次尚无域名、需要先验证公网IP时，按[首次IP发布步骤](首次IP发布与域名绑定-20261014.md)显式设置WEB_BIND_IP=0.0.0.0、WEB_PORT=80及临时PUBLIC_BASE_URL，再选择包含该配置的新成功构建手动发布。默认仍是回环8088；HTTPS/正式使用阶段恢复回环并使用正式https域名。
+
 2026-10-14按用户授权已完成目标ECS三依赖、框架/版本0、受限角色及私有存储准备并实际验证，见[ECS依赖运行说明](ECS依赖环境运行-20261014.md)及ADR-054。新仓库两项Secrets名称已核对；server.env/gateway.env就绪，backend.env.pending仍需网站域名/供应商参数，文件HTTPS入口也待配置。下面的环境要求有相应已完成项，不表示三个应用已部署。
 
 现有Docker Engine之外需要Docker CLI的Compose插件、SSH服务，以及Linux常规Bash/coreutils/flock工具。发布入口为 `scripts/deploy-ecs.sh`，不要求安装额外脚本运行时。Python3只在GitHub托管runner上处理清单和SSH传输；服务器和应用镜像不需要CI端Python。

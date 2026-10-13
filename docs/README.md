@@ -1,5 +1,7 @@
 # AISports 文档入口
 
+2026-10-14 首次IP发布：[操作步骤](01-development/首次IP发布与域名绑定-20261014.md)／[ADR-055](03-architecture/ADR-055-首次IP访问与域名HTTPS切换.md)。前端默认回环，可显式配置公网HTTP80用于绑定域名前的访问验证；应用仍手动发布，服务器配置/安全组由操作步骤完成，HTTPS后正式使用。
+
 2026-10-14 ECS依赖：[运行说明](01-development/ECS依赖环境运行-20261014.md)／[ADR-054](03-architecture/ADR-054-ECS依赖服务与首次框架库准备.md)。已真实SSH连接，三依赖healthy、框架/版本0/受限账号与私有存储就绪，重启后复验通过；新仓库两项Secrets名称已核对。网站应用、域名/HTTPS和生产备份恢复仍待。
 
 2026-10-13 ECS认证：[ADR-052](03-architecture/ADR-052-ECS密码认证与凭据传递.md)。按用户决定使用密码登录，默认root@47.92.212.93:22；[发布配置说明](01-development/GitHub-Actions与ECS发布配置-20261013.md)包含可信主机公钥记录及两项必需Secrets，旧仓库已添加，新仓库需重新配置，实际SSH和部署仍待验证。
