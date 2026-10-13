@@ -1,6 +1,6 @@
 # GitHub Actions 与 ECS 发布配置
 
-已经编写两条workflow，按用户决定保留手动部署，架构见[ADR-050](../03-architecture/ADR-050-GitHub-Actions与GHCR及ECS手动发布.md)。用户授权后已提交并推main：`b7bfcfb`，标题 `feat(cicd): add Docker builds and manual ECS deployment`。仓库Actions enabled=true、workflow active，但推送未产生运行记录，手动构建dispatch返回HTTP422：`Actions has been disabled for this user`。需要先处理GitHub提示的账号限制，再在main运行构建；本轮尚未发布GHCR或部署ECS。
+已经编写两条workflow，按用户决定保留手动部署，架构见[ADR-050](../03-architecture/ADR-050-GitHub-Actions与GHCR及ECS手动发布.md)。当前发布仓库按用户要求切换为 `rochefort12/baoding-ai-sports`，分支仍为main，见[ADR-053](../03-architecture/ADR-053-发布仓库与Git认证切换.md)。旧仓库提交b7bfcfb的构建触发曾返回HTTP422／Actions has been disabled for this user；该结果属于旧账号，不能据此推断新仓库的运行状态。新仓库上传及实际CI结果接续交接记录。
 
 ## 流程
 
@@ -15,7 +15,7 @@ artifact保留14天，过期构建需重新生成可审核清单；GHCR镜像不
 
 ## GitHub 一次配置
 
-[仓库配置页](https://github.com/WorkAccountZYT/baoding-ai-sports/settings/secrets/actions) → Secrets and variables → Actions，添加以下两个Repository Secrets。按用户决定，SSH使用账号密码登录，见[ADR-052](../03-architecture/ADR-052-ECS密码认证与凭据传递.md)：
+[新仓库配置页](https://github.com/rochefort12/baoding-ai-sports/settings/secrets/actions) → Secrets and variables → Actions，添加以下两个Repository Secrets。旧仓库中已经添加的Secrets不会随Git推送迁移；新仓库是否已添加需单独核对。CI构建与GHCR推送不依赖这两项ECS凭据，手动ECS部署需要。按用户决定，SSH使用账号密码登录，见[ADR-052](../03-architecture/ADR-052-ECS密码认证与凭据传递.md)：
 
 | 名称 | 内容 |
 | --- | --- |
@@ -67,4 +67,4 @@ Variables可选：`ECS_HOST` 默认 `47.92.212.93`、`ECS_USER` 默认 `root`、
 
 后端启动会执行Flyway，所以确认项要对应实际备份和本次SQL变更。勾选是操作人声明，流水线没有生成、验证或演练备份。应用旧digest回退也须确认新数据库结构兼容，不能把换镜像当数据回退；没有自动恢复数据库、删卷、prune或恢复旧业务库。
 
-当前本地检查包含workflow/actionlint、Linux Bash语法及shellcheck、19个发布来源／digest／LF封装与密码传递案例和非敏感占位Compose渲染；密码传递使用合成夹具和模拟进程。用户提供的主机公钥已生成known_hosts记录，截图确认两项Repository Secrets名称已添加，Secret值没有读取或回显。没有实际SSH登录；托管执行、GHCR发布／ECS拉取／HTTPS／数据服务及普通角色真实验收接续本次推送记录。本地已有581 Java／83前端等历史通过是Docker化证据，不冒充本轮GitHub或ECS执行结果。
+当前本地检查包含workflow/actionlint、Linux Bash语法及shellcheck、19个发布来源／digest／LF封装与密码传递案例和非敏感占位Compose渲染；密码传递使用合成夹具和模拟进程。用户提供的主机公钥已生成known_hosts记录，截图曾确认旧仓库两项Repository Secrets名称已添加，Secret值没有读取或回显。没有实际SSH登录；新仓库托管执行、GHCR发布／ECS拉取／HTTPS／数据服务及普通角色真实验收接续本次推送记录。本地已有581 Java／83前端等历史通过是Docker化证据，不冒充本轮GitHub或ECS执行结果。
