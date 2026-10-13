@@ -32,7 +32,11 @@ for file in [ROOT/'README.md', ROOT/'docs/README.md', *list((ROOT/'docs/01-devel
     for link in re.findall(r'\[[^\]]+\]\(([^)]+)\)',file.read_text(encoding='utf-8')):
         if link.startswith(('http:','https:','app:','#')):continue
         target = link.split('#')[0]
-        assert (file.parent/target).exists(), f'Broken document link: {file} -> {link}'
+        resolved = (file.parent/target).resolve()
+        # Operator credentials/evidence live outside Git. A clean CI checkout must
+        # never require these private files; public document links remain checked.
+        if resolved.is_relative_to(ROOT/'.local'):continue
+        assert resolved.exists(), f'Broken document link: {file} -> {link}'
 statuses=json.loads((ROOT/'docs/04-verification/acceptance-status.json').read_text(encoding='utf-8'))
 assert len(statuses)==80
 for code,value in statuses.items():
