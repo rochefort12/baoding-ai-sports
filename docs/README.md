@@ -4,7 +4,7 @@
 
 2026-10-13 终端范围修订：[ADR-051](03-architecture/ADR-051-本地终端约束范围与Linux原生发布.md)。本地Windows开发终端约束不适用于CI/ECS/容器；Actions采用Bash/Python，ECS采用原生Bash发布入口。
 
-2026-10-14 发布仓库切换：[ADR-053](03-architecture/ADR-053-发布仓库与Git认证切换.md)。rochefort12认证成功，新仓库main已上传fc578d7并真实触发Actions；首次检查因私有.local账号链接缺失失败，修复不上传私有文件，后续结果接续交接。[发布配置说明](01-development/GitHub-Actions与ECS发布配置-20261013.md)使用新仓库链接；ECS保持手动发布，一次准备及实际发布仍待。
+2026-10-14 发布仓库切换：[ADR-053](03-architecture/ADR-053-发布仓库与Git认证切换.md)。rochefort12认证成功，新仓库main的9e50d09已通过[真实CI运行38428654974](https://github.com/rochefort12/baoding-ai-sports/actions/runs/38428654974)，三镜像已推GHCR且ecs-release发布包已封存并下载核对。修复了干净检出的私有文档链接及前端声明生成顺序；[发布配置说明](01-development/GitHub-Actions与ECS发布配置-20261013.md)使用新仓库链接。ECS保持手动发布，新Secrets、服务器一次准备及实际部署仍待。
 
 2026-10-13 本地全 Docker：[运行与访问说明](01-development/本地全Docker运行-20261013.md)。六服务已实际启动，新基线空库、Flyway V001—V003、581项Java／83项前端测试及36项就绪检查通过；参赛者需要重新注册，普通角色业务与容量验收仍待用户测试。
 

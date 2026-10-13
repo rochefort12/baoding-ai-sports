@@ -1,6 +1,6 @@
 # GitHub Actions 与 ECS 发布配置
 
-已经编写两条workflow，按用户决定保留手动部署，架构见[ADR-050](../03-architecture/ADR-050-GitHub-Actions与GHCR及ECS手动发布.md)。当前发布仓库按用户要求切换为 `rochefort12/baoding-ai-sports`，分支仍为main，见[ADR-053](../03-architecture/ADR-053-发布仓库与Git认证切换.md)。旧仓库提交b7bfcfb的构建触发曾返回HTTP422／Actions has been disabled for this user；该结果属于旧账号，不能据此推断新仓库的运行状态。新仓库上传及实际CI结果接续交接记录。
+已经编写两条workflow，按用户决定保留手动部署，架构见[ADR-050](../03-architecture/ADR-050-GitHub-Actions与GHCR及ECS手动发布.md)。当前发布仓库按用户要求切换为 `rochefort12/baoding-ai-sports`，分支仍为main，见[ADR-053](../03-architecture/ADR-053-发布仓库与Git认证切换.md)。2026-10-14实际构建提交 `9e50d09f55d9ec8cef03092d1e6a097ba81b5328` 的[CI运行38428654974](https://github.com/rochefort12/baoding-ai-sports/actions/runs/38428654974)已全部成功，三镜像已推GHCR，ecs-release已封存并下载核对。手动部署可选择此构建ID，但仍须先完成新仓库Secrets和服务器准备。旧账号触发失败及本次首次两项干净检出修复见交接记录，不冒充ECS部署已验证。
 
 ## 流程
 
