@@ -38,6 +38,8 @@ Variables可选：`ECS_HOST` 默认 `47.92.212.93`、`ECS_USER` 默认 `root`、
 
 ## ECS 一次准备
 
+2026-10-14按用户授权已完成目标ECS三依赖、框架/版本0、受限角色及私有存储准备并实际验证，见[ECS依赖运行说明](ECS依赖环境运行-20261014.md)及ADR-054。新仓库两项Secrets名称已核对；server.env/gateway.env就绪，backend.env.pending仍需网站域名/供应商参数，文件HTTPS入口也待配置。下面的环境要求有相应已完成项，不表示三个应用已部署。
+
 现有Docker Engine之外需要Docker CLI的Compose插件、SSH服务，以及Linux常规Bash/coreutils/flock工具。发布入口为 `scripts/deploy-ecs.sh`，不要求安装额外脚本运行时。Python3只在GitHub托管runner上处理清单和SSH传输；服务器和应用镜像不需要CI端Python。
 
 由运维准备以下目录，发布账号可写releases及根目录的清单／锁文件，私有配置仅授权必要账号；logs和legacy-files须让容器UID10001可写：
@@ -65,6 +67,6 @@ Variables可选：`ECS_HOST` 默认 `47.92.212.93`、`ECS_USER` 默认 `root`、
 
 发布有GitHub串行控制和服务器文件锁。镜像拉取或配置校验失败时不更新应用；更新阶段失败可能已有部分容器替换，服务器日志由授权运维检查，不上传含凭据的解析配置或完整日志。之前的当前清单会复制到本次 `previous-release.json`，成功才替换根目录current-release.json。
 
-后端启动会执行Flyway，所以确认项要对应实际备份和本次SQL变更。勾选是操作人声明，流水线没有生成、验证或演练备份。应用旧digest回退也须确认新数据库结构兼容，不能把换镜像当数据回退；没有自动恢复数据库、删卷、prune或恢复旧业务库。
+后端启动自动执行Flyway，不需要操作人另行执行迁移SQL。发布确认文案为“已有数据库/文件已备份，或确认本次是无业务数据的首次部署”，字段名为兼容既有dispatch保留backup_and_migrations_confirmed；勾选是操作人声明，流水线没有生成、验证或演练备份。应用旧digest回退也须确认新数据库结构兼容，不能把换镜像当数据回退；没有自动恢复数据库、删卷、prune或恢复旧业务库。
 
 当前本地检查包含workflow/actionlint、Linux Bash语法及shellcheck、19个发布来源／digest／LF封装与密码传递案例和非敏感占位Compose渲染；密码传递使用合成夹具和模拟进程。用户提供的主机公钥已生成known_hosts记录，截图曾确认旧仓库两项Repository Secrets名称已添加，Secret值没有读取或回显。没有实际SSH登录；新仓库托管执行、GHCR发布／ECS拉取／HTTPS／数据服务及普通角色真实验收接续本次推送记录。本地已有581 Java／83前端等历史通过是Docker化证据，不冒充本轮GitHub或ECS执行结果。

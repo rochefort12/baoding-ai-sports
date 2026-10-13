@@ -28,7 +28,9 @@ jobs:
         run: |
           python3 scripts/test_ci_release.py
           python3 scripts/check-source.py
+          python3 -m py_compile scripts/prepare-ecs-dependencies.py
           bash -n scripts/deploy-ecs.sh
+          bash -n scripts/init-ecs-postgres.sh
       - name: Exercise Linux deployment control flow with fake Docker
         run: |
           docker run --rm --name aisports-dev-ci-release-tests --user 0:0 --read-only --network none \

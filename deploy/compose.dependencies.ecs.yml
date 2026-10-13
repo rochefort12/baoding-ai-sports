@@ -1,0 +1,93 @@
+# Separate lifetime from application releases. Bootstrap verifies imported image IDs.
+name: aisports-dev-ecs-dependencies
+x-common: &common
+  restart: unless-stopped
+  security_opt: [no-new-privileges:true]
+  labels:
+    aisports.deployment.root: /opt/aisports
+    aisports.lifecycle: dependencies
+  pull_policy: never
+  logging:
+    driver: local
+    options: {max-size: '10m', max-file: '3'}
+services:
+  postgres:
+    <<: *common
+    image: postgres:17.11-bookworm
+    container_name: aisports-dev-ecs-postgres
+    mem_limit: 512m
+    cap_drop: [ALL]
+    cap_add: [CHOWN, DAC_OVERRIDE, FOWNER, SETGID, SETUID]
+    environment:
+      POSTGRES_DB: aisports
+      POSTGRES_USER: aisports_bootstrap
+      POSTGRES_PASSWORD: ${PG_BOOTSTRAP_PASSWORD:?}
+      OWNER_PASSWORD: ${PG_OWNER_PASSWORD:?}
+      APP_PASSWORD: ${APP_DB_PASSWORD:?}
+      PLATFORM_PASSWORD: ${PLATFORM_ADMIN_PASSWORD:?}
+      POSTGRES_INITDB_ARGS: --auth-host=scram-sha-256
+    command: [postgres, -c, shared_buffers=64MB, -c, work_mem=4MB, -c, maintenance_work_mem=32MB, -c, max_connections=50, -c, password_encryption=scram-sha-256]
+    ports: ['127.0.0.1:5432:5432']
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - /opt/aisports/dependencies/postgres_ry_vue_5.X.sql:/docker-entrypoint-initdb.d/10-framework.sql:ro
+      - /opt/aisports/dependencies/postgres_ry_workflow.sql:/docker-entrypoint-initdb.d/20-workflow.sql:ro
+      - /opt/aisports/dependencies/init-ecs-postgres.sh:/docker-entrypoint-initdb.d/30-roles.sh:ro
+    healthcheck:
+      test: [CMD-SHELL, 'pg_isready -U aisports_bootstrap -d aisports']
+      start_period: 30s
+      interval: 5s
+      timeout: 3s
+      retries: 30
+    networks:
+      dependencies: {aliases: [postgres]}
+  redis:
+    <<: *common
+    image: redis:7.4.11-bookworm
+    container_name: aisports-dev-ecs-redis
+    mem_limit: 192m
+    cap_drop: [ALL]
+    cap_add: [CHOWN, DAC_OVERRIDE, SETGID, SETUID]
+    environment: {REDISCLI_AUTH: '${REDIS_PASSWORD:?}'}
+    command: [redis-server, /usr/local/etc/redis/redis.conf]
+    ports: ['127.0.0.1:6379:6379']
+    volumes:
+      - redis-data:/data
+      - /opt/aisports/config/redis.conf:/usr/local/etc/redis/redis.conf:ro
+    healthcheck:
+      test: [CMD, redis-cli, ping]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    networks:
+      dependencies: {aliases: [redis]}
+  minio:
+    <<: *common
+    # Maintained MinIO-compatible distribution; source/version recorded in ADR-054.
+    image: pgsty/silo:RELEASE.2026-09-16T00-00-00Z
+    container_name: aisports-dev-ecs-minio
+    user: '10001:10001'
+    read_only: true
+    cap_drop: [ALL]
+    mem_limit: 384m
+    env_file: [/opt/aisports/config/minio.env]
+    command: [server, --address, ':9000', --console-address, ':9001', /data]
+    ports: ['127.0.0.1:9000:9000', '127.0.0.1:9001:9001']
+    tmpfs: ['/tmp:rw,nosuid,size=64m,uid=10001,gid=10001']
+    volumes: [minio-data:/data]
+    healthcheck:
+      test: [CMD, curl, --fail, --silent, --output, /dev/null, 'http://127.0.0.1:9000/minio/health/ready']
+      start_period: 30s
+      interval: 5s
+      timeout: 3s
+      retries: 30
+    networks:
+      dependencies: {aliases: [minio]}
+networks:
+  dependencies:
+    external: true
+    name: aisports-dev-ecs-dependencies
+volumes:
+  postgres-data: {name: aisports-dev-ecs-postgres-data}
+  redis-data: {name: aisports-dev-ecs-redis-data}
+  minio-data: {name: aisports-dev-ecs-minio-data}

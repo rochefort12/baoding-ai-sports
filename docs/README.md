@@ -1,5 +1,7 @@
 # AISports 文档入口
 
+2026-10-14 ECS依赖：[运行说明](01-development/ECS依赖环境运行-20261014.md)／[ADR-054](03-architecture/ADR-054-ECS依赖服务与首次框架库准备.md)。已真实SSH连接，三依赖healthy、框架/版本0/受限账号与私有存储就绪，重启后复验通过；新仓库两项Secrets名称已核对。网站应用、域名/HTTPS和生产备份恢复仍待。
+
 2026-10-13 ECS认证：[ADR-052](03-architecture/ADR-052-ECS密码认证与凭据传递.md)。按用户决定使用密码登录，默认root@47.92.212.93:22；[发布配置说明](01-development/GitHub-Actions与ECS发布配置-20261013.md)包含可信主机公钥记录及两项必需Secrets，旧仓库已添加，新仓库需重新配置，实际SSH和部署仍待验证。
 
 2026-10-13 终端范围修订：[ADR-051](03-architecture/ADR-051-本地终端约束范围与Linux原生发布.md)。本地Windows开发终端约束不适用于CI/ECS/容器；Actions采用Bash/Python，ECS采用原生Bash发布入口。
