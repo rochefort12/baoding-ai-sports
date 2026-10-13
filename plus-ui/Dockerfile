@@ -11,9 +11,11 @@ COPY . .
 # Public build setting paired with the local backend's disabled API encryption.
 ARG VITE_APP_ENCRYPT=false
 ENV VITE_APP_ENCRYPT=${VITE_APP_ENCRYPT}
+# Vite generates the ignored auto-import/component declarations on a clean checkout.
+# Keep type checking and tests as gates before copying the resulting assets to runtime.
+RUN ["pnpm", "run", "build:prod"]
 RUN ["pnpm", "run", "typecheck"]
 RUN ["pnpm", "exec", "vitest", "run"]
-RUN ["pnpm", "run", "build:prod"]
 FROM nginx:1.28-alpine AS runtime
 COPY docker/nginx.conf /etc/nginx/nginx.conf
 COPY --from=build --chown=101:101 /build/dist /usr/share/nginx/html
