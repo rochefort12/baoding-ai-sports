@@ -63,7 +63,7 @@ def render():
     if len(by_name) != len(TABLES):
         raise ValueError("Duplicate table")
     sql = ["-- GENERATED from database/model/catalog.py. Do not hand edit.",
-           "-- Current model, not an applied migration. V001 stays frozen; ship changes as a new migration after review.",
+           "-- Current model, not the applied baseline. Ship structure changes as a new migration after review.",
            "-- PostgreSQL 17; bigint IDs supplied by application; NO cascading deletes.",
            "BEGIN;", "SET LOCAL TIME ZONE 'Asia/Shanghai';"]
     docs = ["# AISports 数据字典（生成）", "",
@@ -135,7 +135,7 @@ def main():
     if args.bootstrap_migration:
         if args.check:
             parser.error("--bootstrap-migration cannot be combined with --check")
-        migration = ROOT / "database/migrations/V001__aisports_core.sql"
+        migration = ROOT / "database/migrations/V001__schema_baseline.sql"
         if migration.exists():
             raise SystemExit("V001 already exists; model generation never overwrites applied migrations")
         artifacts[migration] = artifacts[ROOT / "database/schema/current.sql"]

@@ -21,7 +21,7 @@ $taskRestore='aisports_agent_restore_'+$taskId;$taskDump=Join-Path $taskOut 'mai
 $taskReceipt=@{at=[DateTimeOffset]::Now.ToString('o');passed=$false;state='STAGING';scope='Stopped main package installation and forward migration; no main model run, business write or capability activation';jarSha256=$taskBuild.jarSha256;restoreDatabase=$taskRestore;checks=@()}
 $env:PGPASSWORD=$env:POSTGRES_PASSWORD
 function Fingerprint([string]$Database,[bool]$BusinessOnly=$false){
- $taskExclusion=if($BusinessOnly){" AND table_name NOT IN('aisports_schema_history','asp_agent_version','asp_agent_run')"}else{''}
+ $taskExclusion=if($BusinessOnly){" AND table_name NOT IN('aisports_schema_history','flyway_schema_history','asp_agent_version','asp_agent_run')"}else{''}
  $taskQuery="SELECT format('SELECT %L,count(*),md5(COALESCE(string_agg(md5(t::text),%L ORDER BY t::text),%L)) FROM public.%I t;',table_name,'','',table_name) FROM information_schema.tables WHERE table_schema='public' AND table_type='BASE TABLE'$taskExclusion ORDER BY table_name;"
  $taskLines=& "$taskBin/psql.exe" -X -h 127.0.0.1 -p $env:POSTGRES_PORT -U $env:POSTGRES_USER -d $Database -At -v ON_ERROR_STOP=1 -c $taskQuery;Assert-NativeExit 'Read fingerprint statements'
  $taskRows=("BEGIN READ ONLY;`n"+($taskLines -join "`n")+"`nROLLBACK;")|& "$taskBin/psql.exe" -X -h 127.0.0.1 -p $env:POSTGRES_PORT -U $env:POSTGRES_USER -d $Database -At -v ON_ERROR_STOP=1;Assert-NativeExit 'Read table fingerprints'

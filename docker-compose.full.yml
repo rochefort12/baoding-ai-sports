@@ -1,0 +1,108 @@
+name: aisports-dev-docker
+x-runtime: &runtime
+  restart: unless-stopped
+  init: true
+  security_opt: [no-new-privileges:true]
+  logging:
+    driver: local
+    options: {max-size: '10m', max-file: '3'}
+services:
+  postgres:
+    <<: *runtime
+    image: ${POSTGRES_IMAGE:?Prepare private Docker trial configuration}
+    container_name: aisports-dev-docker-postgres
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:?}
+      POSTGRES_USER: ${POSTGRES_USER:?}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?}
+      TZ: UTC
+    ports: ['127.0.0.1:${POSTGRES_PORT:-55432}:5432']
+    volumes: [postgres-data:/var/lib/postgresql/data]
+    healthcheck:
+      test: [CMD, pg_isready, -U, '${POSTGRES_USER}', -d, '${POSTGRES_DB}']
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    networks: [aisports]
+  redis:
+    <<: *runtime
+    image: ${REDIS_IMAGE:?Prepare private Docker trial configuration}
+    container_name: aisports-dev-docker-redis
+    environment: {REDISCLI_AUTH: '${REDIS_PASSWORD:?}'}
+    command: [redis-server, /usr/local/etc/redis/redis.conf]
+    ports: ['127.0.0.1:${REDIS_PORT:-56379}:6379']
+    volumes:
+      - redis-data:/data
+      - ./.local/docker-stack/redis.conf:/usr/local/etc/redis/redis.conf:ro
+    healthcheck: {test: [CMD, redis-cli, ping], interval: 5s, timeout: 3s, retries: 20}
+    networks: [aisports]
+  minio:
+    <<: *runtime
+    image: pgsty/minio:RELEASE.2026-02-14T12-00-00Z
+    container_name: aisports-dev-docker-minio
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:?}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:?}
+    command: [server, --address, ':9000', --console-address, ':9001', /data]
+    ports: ['127.0.0.1:${MINIO_API_PORT:-29000}:9000', '127.0.0.1:${MINIO_CONSOLE_PORT:-29001}:9001']
+    volumes: [minio-data:/data]
+    networks: [aisports]
+  backend:
+    <<: *runtime
+    image: aisports-dev-backend:local
+    container_name: aisports-dev-docker-backend
+    build: {context: ., dockerfile: backend/Dockerfile}
+    env_file: [./.local/docker-stack/backend.env]
+    environment: {SPRING_PROFILES_ACTIVE: docker}
+    healthcheck:
+      test: [CMD, curl, --fail, --silent, --output, /dev/null, 'http://127.0.0.1:8080/auth/code']
+      interval: 30s
+      timeout: 5s
+      start_period: 120s
+      retries: 5
+    read_only: true
+    cap_drop: [ALL]
+    mem_limit: 2560m
+    stop_grace_period: 60s
+    tmpfs: ['/tmp:rw,nosuid,size=256m,uid=10001,gid=10001']
+    volumes:
+      - ./.local/docker-stack/backend-logs:/app/logs
+      - ./.local/organization-files:/app/legacy-files:ro
+    depends_on:
+      postgres: {condition: service_healthy}
+      redis: {condition: service_healthy}
+      minio: {condition: service_started}
+    networks: [aisports]
+  ai-gateway:
+    <<: *runtime
+    image: aisports-dev-ai-gateway:local
+    container_name: aisports-dev-docker-ai-gateway
+    build: {context: ./ai-gateway}
+    env_file: [./.local/docker-stack/gateway.env]
+    # Private container namespace sharing preserves existing loopback callback checks.
+    network_mode: service:backend
+    depends_on: {backend: {condition: service_healthy}}
+    read_only: true
+    cap_drop: [ALL]
+    mem_limit: 640m
+    tmpfs: ['/tmp:rw,nosuid,size=64m,uid=1000,gid=1000']
+  frontend:
+    <<: *runtime
+    image: aisports-dev-frontend:local
+    container_name: aisports-dev-docker-frontend
+    build: {context: ./plus-ui}
+    ports: ['127.0.0.1:${DOCKER_WEB_PORT:-5193}:8080']
+    depends_on:
+      backend: {condition: service_healthy}
+      ai-gateway: {condition: service_healthy}
+    read_only: true
+    cap_drop: [ALL]
+    mem_limit: 256m
+    tmpfs: ['/tmp:rw,nosuid,size=64m,uid=101,gid=101']
+    networks: [aisports]
+volumes:
+  postgres-data: {name: aisports-dev-docker-postgres-data}
+  redis-data: {name: aisports-dev-docker-redis-data}
+  minio-data: {name: aisports-dev-docker-minio-data}
+networks:
+  aisports: {name: aisports-dev-docker-network}

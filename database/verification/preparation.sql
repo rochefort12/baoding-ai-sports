@@ -5,13 +5,13 @@ DO $verify$
 DECLARE table_count integer;
 DECLARE column_count integer;
 BEGIN
-    -- 这里核对已经应用的迁移，不是 catalog.py 的目标模型。
+    -- 这里核对已经应用的基线，不是 catalog.py 的目标模型。
     -- 目标模型可以多出尚未迁移的表；那些表不能写进下面两个数字。
     SELECT count(*) INTO table_count FROM pg_tables WHERE schemaname='public' AND tablename LIKE 'asp_%';
-    -- V021—V024 在原84表/1292列上增加7表/111列（含宣传文案5列）。
-    IF table_count <> 91 THEN RAISE EXCEPTION 'Expected 91 applied ASP tables through V024, got %', table_count; END IF;
+    -- 结构基线等于原先 V001–V041 的最终业务表。属性目录三表仍只在模型里。
+    IF table_count <> 118 THEN RAISE EXCEPTION 'Expected 118 applied ASP tables, got %', table_count; END IF;
     SELECT count(*) INTO column_count FROM information_schema.columns WHERE table_schema='public' AND table_name LIKE 'asp_%';
-    IF column_count <> 1403 THEN RAISE EXCEPTION 'Expected 1403 applied ASP columns through V024, got %', column_count; END IF;
+    IF column_count <> 1805 THEN RAISE EXCEPTION 'Expected 1805 applied ASP columns, got %', column_count; END IF;
     IF EXISTS (SELECT 1 FROM pg_attribute a JOIN pg_class t ON t.oid=a.attrelid
         WHERE t.relname LIKE 'asp_%' AND t.relkind='r' AND a.attnum>0 AND NOT a.attisdropped AND col_description(t.oid,a.attnum) IS NULL) THEN
         RAISE EXCEPTION 'Missing column documentation';

@@ -41,7 +41,7 @@ UNION ALL SELECT 'registration', count(*)::text FROM asp_registration
 UNION ALL SELECT 'tenant', count(*)::text FROM sys_tenant
 UNION ALL SELECT 'user', count(*)::text FROM sys_user
 UNION ALL SELECT 'sport', count(*)::text FROM asp_sport
-UNION ALL SELECT 'migration', count(*)::text FROM aisports_schema_history
+UNION ALL SELECT 'migration', (xpath('//count/text()', query_to_xml(CASE WHEN to_regclass('public.flyway_schema_history') IS NOT NULL THEN 'SELECT count(*) AS count FROM flyway_schema_history WHERE success' ELSE 'SELECT count(*) AS count FROM aisports_schema_history' END, false, false, '')))[1]::text
 ORDER BY item;
 '@
 $check | & $dockerCli exec -i aisports-dev-postgres psql -U $env:POSTGRES_USER -d $env:POSTGRES_DB -v ON_ERROR_STOP=1

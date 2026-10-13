@@ -1,0 +1,58 @@
+# Application-only deployment. Long-lived data services join the external network.
+name: aisports-dev-ecs
+x-app: &app
+  restart: unless-stopped
+  init: true
+  read_only: true
+  cap_drop: [ALL]
+  security_opt: [no-new-privileges:true]
+  labels:
+    aisports.deployment.root: ${ECS_DEPLOY_ROOT:?}
+  logging:
+    driver: local
+    options: {max-size: '10m', max-file: '3'}
+services:
+  backend:
+    <<: *app
+    image: ${BACKEND_IMAGE:?Use a sealed release digest}
+    container_name: aisports-dev-ecs-backend
+    env_file: ['${ECS_CONFIG_DIR:?}/backend.env']
+    environment: {SPRING_PROFILES_ACTIVE: ecs}
+    mem_limit: ${BACKEND_MEMORY_LIMIT:-1792m}
+    stop_grace_period: 60s
+    tmpfs: ['/tmp:rw,nosuid,size=256m,uid=10001,gid=10001']
+    volumes:
+      - ${ECS_DEPLOY_ROOT}/logs:/app/logs
+      - ${ECS_DEPLOY_ROOT}/legacy-files:/app/legacy-files
+    healthcheck:
+      test: [CMD, curl, --fail, --silent, --output, /dev/null, 'http://127.0.0.1:8080/auth/code']
+      start_period: 120s
+      interval: 15s
+      timeout: 5s
+      retries: 20
+    networks: [dependencies]
+  ai-gateway:
+    <<: *app
+    image: ${GATEWAY_IMAGE:?Use a sealed release digest}
+    container_name: aisports-dev-ecs-ai-gateway
+    env_file: ['${ECS_CONFIG_DIR:?}/gateway.env']
+    network_mode: service:backend
+    mem_limit: 512m
+    tmpfs: ['/tmp:rw,nosuid,size=64m,uid=1000,gid=1000']
+    depends_on: {backend: {condition: service_healthy}}
+  frontend:
+    <<: *app
+    image: ${FRONTEND_IMAGE:?Use a sealed release digest}
+    container_name: aisports-dev-ecs-frontend
+    # An independently managed HTTPS reverse proxy forwards to this loopback port.
+    ports: ['127.0.0.1:${WEB_PORT:-8088}:8080']
+    mem_limit: 128m
+    tmpfs: ['/tmp:rw,nosuid,size=64m,uid=101,gid=101']
+    depends_on:
+      backend: {condition: service_healthy}
+      ai-gateway: {condition: service_healthy}
+    networks: [dependencies]
+networks:
+  dependencies:
+    external: true
+    name: ${ECS_NETWORK:-aisports-dev-ecs-dependencies}

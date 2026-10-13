@@ -1,4 +1,5 @@
-"""Create the new V030 once from the approved model. Applied migrations are never regenerated."""
+"""Retired. Phase-one tables are in V001__schema_baseline.sql."""
+raise SystemExit("V030 is folded into database/migrations/V001__schema_baseline.sql. Add a new version instead of regenerating V030.")
 from pathlib import Path
 import importlib.util,sys,re
 from generate_table_helpers import ROOT,load_catalog

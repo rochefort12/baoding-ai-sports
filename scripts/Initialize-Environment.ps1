@@ -20,7 +20,6 @@ foreach ($key in @('POSTGRES_PASSWORD','APP_DB_PASSWORD','REDIS_PASSWORD','JWT_S
     if ([Environment]::GetEnvironmentVariable($key) -notmatch '^[a-f0-9]{64}$') { throw "Use generated hex credentials for $key" }
 }
 New-Item -ItemType Directory -Path '.local/postgres', '.local/redis' -Force | Out-Null
-$migrationHash = (Get-FileHash -LiteralPath 'database/migrations/V001__aisports_core.sql' -Algorithm SHA256).Hash.ToLowerInvariant()
 $roleSql = @"
 CREATE ROLE $env:APP_DB_USER LOGIN PASSWORD '$env:APP_DB_PASSWORD' NOSUPERUSER NOCREATEDB NOCREATEROLE;
 GRANT CONNECT ON DATABASE $env:POSTGRES_DB TO $env:APP_DB_USER;
@@ -29,9 +28,6 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO $env:APP_
 GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO $env:APP_DB_USER;
 ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO $env:APP_DB_USER;
 ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT USAGE, SELECT ON SEQUENCES TO $env:APP_DB_USER;
-CREATE TABLE aisports_schema_history (version varchar(20) PRIMARY KEY, checksum char(64) NOT NULL, applied_at timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP);
-INSERT INTO aisports_schema_history(version, checksum) VALUES ('V001', '$migrationHash');
-COMMENT ON TABLE aisports_schema_history IS 'Development migration ledger. V001 draft must be frozen before shared environments.';
 "@
 [IO.File]::WriteAllText((Join-Path $WorkspaceRoot '.local/postgres/90-role-and-history.sql'), $roleSql)
 $redisConfig = "bind 0.0.0.0`nprotected-mode yes`nport 6379`nappendonly yes`nrequirepass $env:REDIS_PASSWORD`n"

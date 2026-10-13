@@ -10,8 +10,9 @@
 
 ## 命令与环境
 
-- 所有终端命令使用 PowerShell 7（`pwsh`），不得切换 Windows PowerShell 5.1、cmd.exe 或 Bash。找不到 pwsh 时停止并报告。
-- 使用 `scripts/` 中的 PowerShell 入口。Docker 资源统一为 `aisports-dev-*`，不得操作其他项目容器、网络和数据卷。
+- 本机 Windows 开发终端使用 PowerShell 7（`pwsh`），不使用 Windows PowerShell 5.1、cmd.exe 或 Bash；本机找不到 pwsh 时停止并报告。此限制只适用于本地 Windows 开发，不适用于 CI、生产服务器或 Docker 内部。
+- 本地 Windows 复用 `scripts/` 的 PowerShell 入口；GitHub Actions Linux runner、Linux ECS 和 Docker 内部使用平台原生工具及 Bash/sh 等适合该环境的入口，不安装、挂载或依赖 PowerShell。不得把本地终端约束扩展为镜像或生产部署依赖。
+- Docker 资源统一为 `aisports-dev-*`，不得操作其他项目容器、网络和数据卷。
 - 凭据保存在未跟踪的 `.env` 或 `.local/`。不得在日志、文档、测试证据和提交中输出真实密码、Token、个人材料。
 - PostgreSQL 为业务权威数据源，Redis 用于缓存、会话、锁等辅助能力。资金、名额及成绩不能仅靠 Redis 维护。
 
@@ -24,6 +25,12 @@
 - 生成器仅下载 ZIP 并审查差异，保留上游禁用本地任意路径生成的修复。禁止覆盖手写业务。
 - 共用前端样式集中于 `plus-ui/src/assets/styles/`，生成页面使用共享类。不得在多个页面重复粘贴相同样式。
 - MCP/Agent 按 ADR-029 本期启用：能力须注册并按渠道开放，身份、clientid、组织和动作范围由服务端核验。未经验证的生成入口保持关闭；AI不得直接接库或确认真实资金、政府审批、正式结果。只记录可见业务过程，不请求或保存隐藏思考。
+
+## Git 提交规范
+
+- 提交标题遵循 Conventional Commits：`type(scope): 描述`，scope 可省略为 `type: 描述`。例如 `feat(cicd): add Docker image builds and manual ECS deployment`。
+- type 使用 `feat`、`fix`、`docs`、`style`、`refactor`、`perf`、`test`、`build`、`ci`、`chore` 或 `revert`；scope 使用简短模块名，冒号后留一个空格，描述明确本次实际变化。破坏性变更用 `!` 或正文的 `BREAKING CHANGE:` 标识。
+- 提交前核对暂存差异、敏感文件排除和与改动相称的验证；只纳入本次任务及必要依赖，不夹带其他未完成修改。按用户指定分支推送，禁止未经授权强推或重写远端历史。
 
 ## 数据与文档
 

@@ -1,9 +1,17 @@
 # 迁移管理
 
-V001 为本次准备的完整初始化快照，已在独立本地库执行。后续生成模型只更新 `database/schema/current.sql`、目录和字典，不覆盖 V001。
+`local` 和 `docker` 配置下，后端启动时由 Spring Boot 集成的 Flyway 11.7.2 执行这些脚本。迁移连接使用数据库所有者。业务连接池仍是 `aisports_app`，没有建表权限。`dev` 和 `prod` 不打开 Flyway。
 
-后续模型改变：修改 catalog.py → 生成当前完整DDL与文档 → 根据已部署结构编写 V002、V003 的增量迁移（含已有数据处理）→ 审查备份及外部事实影响 → Apply-Migrations.ps1 在事务内执行并登记checksum。当前完整DDL供建模审查和新旧比较，不能作为现有库升级脚本。
+脚本按版本顺序：
 
-未来迁移不包含 BEGIN/COMMIT/ROLLBACK，由迁移入口管理事务。版本唯一，按数字排序，禁止重复版本、修改已登记内容或自动删除数据。生产发布前需补齐备份/恢复演练及发布者权限。
+1. `V001__schema_baseline.sql`：原先 V001 到 V041 在空库上的最终业务表结构。
+2. `V002__platform_seed.sql`：相对框架初始数据新增或改写的租户、角色、菜单和套餐。
+3. `V003__catalog_seed.sql`：运动项目、比赛类型、成长规则和智能体定义。收回应用账号对 `flyway_schema_history` 的权限。
 
-`--bootstrap-migration` 仅用于无V001的首次工程初始化，目标已存在时立即拒绝。本仓库已有V001，日常开发不要使用此选项。
+打包时把 `V*.sql` 复制到 `classpath:db/migration`。占位符替换关闭，`clean` 关闭。
+
+空库先由容器初始化框架表、工作流表和应用角色，再启动后端。已有业务表但没有 Flyway 账本时，启动会失败并回滚，不能当成新库重放。删除本项目数据卷后重建。
+
+`scripts/Apply-Migrations.ps1` 仍可用独立 Flyway 容器在不启动后端时执行同一目录。两边共用 `flyway_schema_history`。
+
+模型源仍是 `database/model/catalog.py`。以后的变化另写 `V004` 起的新文件，不写 `BEGIN`/`COMMIT`，也不修改这三份已登记脚本。

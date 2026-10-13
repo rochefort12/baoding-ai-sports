@@ -7,6 +7,12 @@ import { composeEventMaterial } from './materials.mjs';
 const port = Number(process.env.AI_GATEWAY_PORT || 8091);
 
 const server = createServer(async (request, response) => {
+  // Liveness returns no credential/model/business details; this listener remains private.
+  if (request.method === 'GET' && request.url === '/healthz') {
+    response.writeHead(200, { 'Content-Type': 'application/json' });
+    response.end(JSON.stringify({ ok: true }));
+    return;
+  }
   if (request.method !== 'POST' || !['/internal/run','/internal/discuss','/internal/assist','/internal/promote','/internal/guide','/internal/visual','/internal/agent','/internal/material'].includes(request.url)) {
     response.writeHead(404, { 'Content-Type': 'application/json' });
     response.end(JSON.stringify({ ok: false, errorCode: 'NOT_FOUND' }));

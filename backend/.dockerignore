@@ -1,0 +1,10 @@
+**/target
+**/node_modules
+**/logs
+**/*.log
+**/.env
+**/.env.*
+**/.local
+**/.idea
+**/.flattened-pom.xml
+.git

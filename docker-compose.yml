@@ -15,7 +15,6 @@ services:
       - postgres-data:/var/lib/postgresql/data
       - ./backend/script/sql/postgres/postgres_ry_vue_5.X.sql:/docker-entrypoint-initdb.d/10-ruoyi.sql:ro
       - ./backend/script/sql/postgres/postgres_ry_workflow.sql:/docker-entrypoint-initdb.d/20-workflow.sql:ro
-      - ./database/migrations/V001__aisports_core.sql:/docker-entrypoint-initdb.d/30-aisports.sql:ro
       - ./.local/postgres/90-role-and-history.sql:/docker-entrypoint-initdb.d/90-role-and-history.sql:ro
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]

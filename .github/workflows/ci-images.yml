@@ -1,0 +1,180 @@
+name: CI and GHCR images
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+env:
+  DOCKER_BUILD_RECORD_UPLOAD: 'false'
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Check release guards and source contracts
+        run: |
+          python3 scripts/test_ci_release.py
+          python3 scripts/check-source.py
+          bash -n scripts/deploy-ecs.sh
+      - name: Exercise Linux deployment control flow with fake Docker
+        run: |
+          docker run --rm --name aisports-dev-ci-release-tests --user 0:0 --read-only --network none \
+            --tmpfs /opt:rw,exec,nosuid,size=16m --tmpfs /tmp:rw,nosuid,size=16m \
+            --cap-drop ALL --security-opt no-new-privileges:true \
+            --entrypoint bash -v "$PWD/scripts:/scripts:ro" \
+            node:24-bookworm-slim /scripts/test-deploy-ecs.sh
+
+  pr-check:
+    needs: validate
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    concurrency:
+      group: ci-pr-${{ github.event.pull_request.number }}-${{ matrix.service }}
+      cancel-in-progress: true
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - service: backend
+            context: .
+            dockerfile: backend/Dockerfile
+          - service: frontend
+            context: ./plus-ui
+            dockerfile: plus-ui/Dockerfile
+          - service: ai-gateway
+            context: ./ai-gateway
+            dockerfile: ai-gateway/Dockerfile
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f # v3
+      # Dockerfiles run Java tests / frontend typecheck, tests and build / Node tests.
+      # PRs receive no registry login, server secrets or writable shared build cache.
+      - uses: docker/build-push-action@10e90e3645eae34f1e60eeb005ba3a3d33f178e8 # v6
+        with:
+          context: ${{ matrix.context }}
+          file: ${{ matrix.dockerfile }}
+          platforms: linux/amd64
+          push: false
+          cache-from: type=gha,scope=release-${{ matrix.service }}
+
+  publish:
+    needs: validate
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    permissions:
+      contents: read
+      packages: write
+    concurrency:
+      group: ghcr-${{ github.ref }}-${{ matrix.service }}
+      cancel-in-progress: false
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - service: backend
+            context: .
+            dockerfile: backend/Dockerfile
+          - service: frontend
+            context: ./plus-ui
+            dockerfile: plus-ui/Dockerfile
+          - service: ai-gateway
+            context: ./ai-gateway
+            dockerfile: ai-gateway/Dockerfile
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Resolve immutable image name
+        id: image
+        env:
+          REPOSITORY: ${{ github.repository }}
+          SERVICE: ${{ matrix.service }}
+        run: |
+          python3 scripts/ci_release.py image-name
+      - uses: docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f # v3
+      - uses: docker/login-action@c94ce9fb468520275223c153574b00df6fe4bcc9 # v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Test, build and push the tested image
+        id: build
+        uses: docker/build-push-action@10e90e3645eae34f1e60eeb005ba3a3d33f178e8 # v6
+        with:
+          context: ${{ matrix.context }}
+          file: ${{ matrix.dockerfile }}
+          platforms: linux/amd64
+          push: true
+          tags: ${{ steps.image.outputs.name }}:sha-${{ github.sha }}
+          labels: |
+            org.opencontainers.image.source=https://github.com/${{ github.repository }}
+            org.opencontainers.image.revision=${{ github.sha }}
+          provenance: mode=min
+          sbom: true
+          cache-from: type=gha,scope=release-${{ matrix.service }}
+          cache-to: type=gha,mode=max,scope=release-${{ matrix.service }}
+      - name: Record pushed digest
+        env:
+          SERVICE: ${{ matrix.service }}
+          REPOSITORY: ${{ github.repository }}
+          DIGEST: ${{ steps.build.outputs.digest }}
+          COMMIT: ${{ github.sha }}
+        run: python3 scripts/ci_release.py record-image
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: image-${{ matrix.service }}
+          path: image-records/${{ matrix.service }}.json
+          retention-days: 14
+          if-no-files-found: error
+          overwrite: true
+
+  release-manifest:
+    needs: publish
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          pattern: image-*
+          path: image-records
+          merge-multiple: true
+      - name: Seal the three-image release bundle
+        env:
+          RELEASE_REPOSITORY: ${{ github.repository }}
+          RELEASE_COMMIT: ${{ github.sha }}
+          RELEASE_RUN_ID: ${{ github.run_id }}
+        run: python3 scripts/ci_release.py bundle
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: ecs-release
+          path: .local/ci-release/bundle/
+          # This directory contains exactly four whitelisted, non-secret release files.
+          include-hidden-files: true
+          retention-days: 14
+          if-no-files-found: error
+          overwrite: true
+      - name: Publish deployment instructions
+        env:
+          RELEASE_RUN_ID: ${{ github.run_id }}
+          RELEASE_COMMIT: ${{ github.sha }}
+        run: python3 scripts/ci_release.py summary

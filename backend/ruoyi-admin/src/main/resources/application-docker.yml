@@ -1,0 +1,34 @@
+# Local Docker trial; retain native defaults and existing identity secret semantics.
+spring.config.import: classpath:application-local.yml
+---
+spring:
+  datasource:
+    dynamic:
+      datasource:
+        master:
+          url: jdbc:postgresql://postgres:5432/${POSTGRES_DB}?reWriteBatchedInserts=true
+  flyway:
+    url: jdbc:postgresql://postgres:5432/${POSTGRES_DB}
+  data:
+    redis:
+      host: redis
+      port: 6379
+server:
+  address: 0.0.0.0
+  port: 8080
+redisson:
+  keyPrefix: "aisports:docker-trial:"
+  singleServerConfig:
+    clientName: aisports-docker-trial
+justauth:
+  address: http://localhost:5193
+captcha:
+  enable: false
+sports:
+  organization:
+    file-dir: /app/legacy-files
+aisports:
+  ai:
+    # Share a private namespace with Node, preserving loopback-only callback checks.
+    gateway-url: http://127.0.0.1:8091
+    daily-tasks: 100

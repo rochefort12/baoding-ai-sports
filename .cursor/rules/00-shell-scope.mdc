@@ -1,0 +1,9 @@
+---
+description: 终端约束只覆盖本机 Windows 开发，不扩展到 CI、生产或容器
+alwaysApply: true
+---
+
+- 本机 Windows 开发使用 PowerShell 7；找不到本机 pwsh 时报告，不静默换用其他本机 shell。
+- GitHub Actions Linux runner、Linux ECS、Docker 构建和运行使用原生 Bash/sh、Python、Java、Node、Docker 等工具；不得为遵守本地开发约束安装或依赖 PowerShell。
+- 选择脚本入口时明确执行环境：本机开发脚本可为 .ps1，Linux CI/发布脚本使用 .sh/.py 等原生入口。部署文档不得要求 ECS 或应用镜像具备本机开发终端。
+- 用户当前决定优先；Docker 资源及凭据边界继续遵循 AGENTS.md。

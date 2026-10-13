@@ -3,13 +3,11 @@
 Import-LocalEnvironment
 Set-Location -LiteralPath $WorkspaceRoot
 $dockerCli = Get-DockerCommand
-foreach ($migrationFile in Get-ChildItem -LiteralPath 'database/migrations' -File | Where-Object Name -Match '^V[0-9]+__.*\.sql$') {
-    $version = [regex]::Match($migrationFile.Name,'^(V[0-9]+)').Groups[1].Value
-    $expectedHash = (Get-FileHash -LiteralPath $migrationFile.FullName -Algorithm SHA256).Hash.ToLowerInvariant()
-    $actualHash = & $dockerCli exec aisports-dev-postgres psql -U $env:POSTGRES_USER -d $env:POSTGRES_DB -Atc "SELECT checksum FROM aisports_schema_history WHERE version='$version'"
-    Assert-NativeExit 'Migration history verification'
-    if (!$actualHash -or $actualHash.Trim() -ne $expectedHash) { throw "$version absent or checksum differs; apply a reviewed migration instead of rewriting deployed DDL." }
-}
+& "$PSScriptRoot/Invoke-Flyway.ps1" -Command validate
+$expectedCount = @(Get-ChildItem -LiteralPath 'database/migrations' -File | Where-Object Name -Match '^V[0-9]+__[a-z0-9_]+\.sql$').Count
+$appliedCount = & $dockerCli exec aisports-dev-postgres psql -U $env:POSTGRES_USER -d $env:POSTGRES_DB -Atc "SELECT count(*) FROM flyway_schema_history WHERE success"
+Assert-NativeExit 'Migration history verification'
+if ([int]$appliedCount.Trim() -ne $expectedCount) { throw "Expected $expectedCount successful Flyway migrations, found $($appliedCount.Trim())." }
 Get-Content -LiteralPath 'database/verification/preparation.sql' -Raw | & $dockerCli exec -i aisports-dev-postgres psql -U $env:POSTGRES_USER -d $env:POSTGRES_DB -v ON_ERROR_STOP=1
 Assert-NativeExit 'Database structural checks'
 $previousPassword = $env:PGPASSWORD
@@ -21,4 +19,4 @@ try {
 $redisResult = & $dockerCli exec aisports-dev-redis redis-cli ping
 Assert-NativeExit 'Redis connectivity'
 if ($redisResult.Trim() -ne 'PONG') { throw 'Redis did not respond with PONG' }
-Write-Host 'PASS: migration checksum, application role authentication and Redis.'
+Write-Host 'PASS: Flyway validate, application role authentication and Redis.'

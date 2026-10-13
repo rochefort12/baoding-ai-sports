@@ -1,5 +1,5 @@
 -- GENERATED from database/model/catalog.py. Do not hand edit.
--- Current model, not an applied migration. V001 stays frozen; ship changes as a new migration after review.
+-- Current model, not the applied baseline. Ship structure changes as a new migration after review.
 -- PostgreSQL 17; bigint IDs supplied by application; NO cascading deletes.
 BEGIN;
 SET LOCAL TIME ZONE 'Asia/Shanghai';

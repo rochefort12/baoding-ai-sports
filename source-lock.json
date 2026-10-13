@@ -20,8 +20,9 @@
   "pnpm": "11.19.0",
   "model": "database/model/catalog.py",
   "migrationSnapshots": {
-    "V001__aisports_core.sql": "63a716a715cfd34399bff172c0a6e09ddb382519e4acf7a32724a1bba98166b7",
-    "V002__mcp_permission.sql": "4063801ec907d9986ea2091395e4260f602665857804e50ab88931c2e8c53665"
+    "V001__schema_baseline.sql": "2f9c7e3bd09964490d984533511fdc26432cb679f42f102a08105dec4c61bd3d",
+    "V002__platform_seed.sql": "1fcc00255ff79d378dfb2683502041dd02c82a193f3a4753a63086bd7c545947",
+    "V003__catalog_seed.sql": "09b61c17840812518fadbf7744dd68ca18b1e03980eed58b8450ad20a946355b"
   },
   "note": "Root Git owns sources and local changes. .upstream is optional ignored provenance cache; no nested Git checkout is required."
 }

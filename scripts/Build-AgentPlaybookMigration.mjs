@@ -27,6 +27,7 @@ FROM asp_agent WHERE id BETWEEN 831000000010 AND 831000000017
 ON CONFLICT(agent_id,revision) DO NOTHING;
 -- Revision 1 remains immutable for existing runs. New runs select the newest active revision.
 `;
+if(fs.existsSync('database/migrations/V001__schema_baseline.sql')) throw Error('Playbook revision 2 is in database/migrations/V003__catalog_seed.sql. Add a new migration for a later revision.');
 const target='database/migrations/V036__agent_playbook_catalog.sql';
 if(fs.existsSync(target)&&fs.readFileSync(target,'utf8')!==output)throw Error('Existing migration bytes differ; create a new approved revision and migration instead of overwriting V036.');
 if(!fs.existsSync(target))fs.writeFileSync(target,output);

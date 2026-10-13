@@ -21,6 +21,16 @@ spring:
       hikari:
         maxPoolSize: 10
         minIdle: 2
+  # 迁移使用数据库所有者。业务连接池仍是上面的 aisports_app，没有建表权限。
+  flyway:
+    enabled: true
+    url: jdbc:postgresql://127.0.0.1:${POSTGRES_PORT:25432}/${POSTGRES_DB:aisports}
+    user: ${POSTGRES_USER:aisports}
+    password: ${POSTGRES_PASSWORD}
+    locations: classpath:db/migration
+    placeholder-replacement: false
+    clean-disabled: true
+    baseline-on-migrate: false
   data:
     redis:
       host: 127.0.0.1

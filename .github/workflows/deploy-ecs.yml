@@ -1,0 +1,76 @@
+name: Deploy to Alibaba ECS
+
+on:
+  workflow_dispatch:
+    inputs:
+      build_run_id:
+        description: '成功的 CI and GHCR images 运行 ID（main 分支）'
+        required: true
+        type: string
+      backup_and_migrations_confirmed:
+        description: '已核对可恢复的数据库/文件备份，并确认本次 Flyway 迁移'
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+  actions: read
+  packages: read
+
+concurrency:
+  group: aisports-ecs-deployment
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  deploy:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - name: Require main and explicit deployment confirmation
+        env:
+          DEPLOYMENT_REF: ${{ github.ref }}
+          CONFIRMED: ${{ inputs.backup_and_migrations_confirmed }}
+        run: |
+          if [[ "$DEPLOYMENT_REF" != refs/heads/main || "$CONFIRMED" != true ]]; then
+            echo 'Run from main after confirming backup readiness and Flyway migrations.' >&2
+            exit 1
+          fi
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install password SSH transport on the CI runner
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends sshpass
+      - name: Verify source build succeeded on this repository's main branch
+        id: source
+        env:
+          BUILD_RUN_ID: ${{ inputs.build_run_id }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RELEASE_REPOSITORY: ${{ github.repository }}
+        run: python3 scripts/ci_release.py source-run
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: ecs-release
+          path: .local/ecs-release
+          run-id: ${{ inputs.build_run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Pull pinned images and update ECS application services
+        env:
+          RELEASE_REPOSITORY: ${{ github.repository }}
+          RELEASE_COMMIT: ${{ steps.source.outputs.commit }}
+          RELEASE_RUN_ID: ${{ inputs.build_run_id }}
+          GHCR_USER: ${{ github.actor }}
+          GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ECS_HOST: ${{ vars.ECS_HOST || '47.92.212.93' }}
+          ECS_USER: ${{ vars.ECS_USER || 'root' }}
+          ECS_SSH_PASSWORD: ${{ secrets.ECS_SSH_PASSWORD }}
+          ECS_KNOWN_HOSTS: ${{ secrets.ECS_KNOWN_HOSTS }}
+          ECS_SSH_PORT: ${{ vars.ECS_SSH_PORT || '22' }}
+          ECS_DEPLOY_ROOT: ${{ vars.ECS_DEPLOY_ROOT || '/opt/aisports' }}
+        run: python3 scripts/ci_release.py deploy

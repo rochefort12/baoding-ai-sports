@@ -1,0 +1,46 @@
+# ECS deployment overrides: private values stay in the server's backend.env.
+# Reuse framework settings but replace local-only addresses and secrets explicitly.
+spring.config.import: classpath:application-local.yml
+---
+spring:
+  datasource:
+    dynamic:
+      datasource:
+        master:
+          url: ${DB_JDBC_URL}
+          username: ${APP_DB_USER}
+          password: ${APP_DB_PASSWORD}
+  flyway:
+    url: ${DB_JDBC_URL}
+    user: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+  data:
+    redis:
+      host: ${REDIS_HOST}
+      port: ${REDIS_PORT:6379}
+      database: ${REDIS_DATABASE:0}
+server:
+  address: 0.0.0.0
+  port: 8080
+redisson:
+  keyPrefix: "aisports:ecs:"
+  singleServerConfig:
+    clientName: aisports-ecs
+justauth:
+  address: ${PUBLIC_BASE_URL}
+participant:
+  phone-pepper: ${PARTICIPANT_PHONE_PEPPER}
+  sms-echo-code: false
+captcha:
+  enable: true
+springdoc:
+  api-docs:
+    enabled: false
+  swagger-ui:
+    enabled: false
+sports:
+  organization:
+    file-dir: /app/legacy-files
+aisports:
+  ai:
+    gateway-url: http://127.0.0.1:8091
