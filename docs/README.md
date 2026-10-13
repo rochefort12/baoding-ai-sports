@@ -4,7 +4,7 @@
 
 2026-10-13 终端范围修订：[ADR-051](03-architecture/ADR-051-本地终端约束范围与Linux原生发布.md)。本地Windows开发终端约束不适用于CI/ECS/容器；Actions采用Bash/Python，ECS采用原生Bash发布入口。
 
-2026-10-13 发布配置：[GitHub Actions与ECS使用说明](01-development/GitHub-Actions与ECS发布配置-20261013.md)。已编写PR检查／main推GHCR及手动SSH部署workflow，固定digest、数据服务独立；两项GitHub Secrets已由用户添加，ECS一次准备及远端实际发布仍待配置／验证。
+2026-10-13 发布配置：[GitHub Actions与ECS使用说明](01-development/GitHub-Actions与ECS发布配置-20261013.md)。配置已推main（b7bfcfb），两项Secrets已由用户添加；实际CI触发被GitHub账号限制拒绝（Actions has been disabled for this user），尚无运行/GHCR镜像。ECS保持手动发布，一次准备及实际发布仍待。
 
 2026-10-13 本地全 Docker：[运行与访问说明](01-development/本地全Docker运行-20261013.md)。六服务已实际启动，新基线空库、Flyway V001—V003、581项Java／83项前端测试及36项就绪检查通过；参赛者需要重新注册，普通角色业务与容量验收仍待用户测试。
 

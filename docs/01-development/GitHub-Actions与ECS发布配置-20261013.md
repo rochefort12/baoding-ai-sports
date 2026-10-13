@@ -1,6 +1,6 @@
 # GitHub Actions 与 ECS 发布配置
 
-已经编写两条workflow，按用户决定保留手动部署，架构见[ADR-050](../03-architecture/ADR-050-GitHub-Actions与GHCR及ECS手动发布.md)。本轮未提交／推送Git、未实际发布GHCR或部署ECS。
+已经编写两条workflow，按用户决定保留手动部署，架构见[ADR-050](../03-architecture/ADR-050-GitHub-Actions与GHCR及ECS手动发布.md)。用户授权后已提交并推main：`b7bfcfb`，标题 `feat(cicd): add Docker builds and manual ECS deployment`。仓库Actions enabled=true、workflow active，但推送未产生运行记录，手动构建dispatch返回HTTP422：`Actions has been disabled for this user`。需要先处理GitHub提示的账号限制，再在main运行构建；本轮尚未发布GHCR或部署ECS。
 
 ## 流程
 
