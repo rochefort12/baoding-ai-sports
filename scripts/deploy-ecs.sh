@@ -62,7 +62,19 @@ docker login ghcr.io --username "$registry_user" --password-stdin < "$token_file
 compose=(docker compose --project-name aisports-dev-ecs --env-file "$config/server.env" --env-file "$release/images.env" -f "$release/compose.ecs.yml")
 "${compose[@]}" config --quiet
 # Pull all images before replacing apps. Data services are managed independently.
-"${compose[@]}" pull backend ai-gateway frontend
+for attempt in 1 2 3; do
+    if "${compose[@]}" pull backend ai-gateway frontend; then
+        break
+    else
+        pull_status=$?
+        if [[ $attempt == 3 ]]; then
+            echo 'Image pull failed after three attempts; applications have not been updated' >&2
+            exit "$pull_status"
+        fi
+        echo "Image transfer interrupted; retrying pull ($attempt/3) before application updates" >&2
+        sleep "$((attempt * 5))"
+    fi
+done
 if [[ -f "$root/current-release.json" ]]; then
     cp -- "$root/current-release.json" "$release/previous-release.json"
 fi

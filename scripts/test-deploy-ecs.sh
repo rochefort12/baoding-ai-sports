@@ -27,12 +27,21 @@ case "$1" in
         elif [[ ${MOCK_FOREIGN_OWNER:-0} == 1 ]]; then echo /opt/other-deployment
         else echo "$MOCK_ROOT"; fi ;;
     compose)
-        if [[ " $* " == *' pull '* && ${MOCK_FAIL_PULL:-0} == 1 ]]; then exit 42; fi ;;
+        if [[ " $* " == *' pull '* ]]; then
+            if [[ ${MOCK_FAIL_PULL:-0} == 1 ]]; then exit 42; fi
+            if [[ ${MOCK_FAIL_ONCE:-0} == 1 && ! -f "$MOCK_ROOT/pull-failed-once" ]]; then
+                touch "$MOCK_ROOT/pull-failed-once"
+                exit 42
+            fi
+        fi ;;
     exec) : ;;
     *) echo 'Unexpected Docker command' >&2; exit 1 ;;
 esac
 MOCK
 chmod 700 "$root/bin/docker"
+# Exercise retry control flow without delaying the isolated simulation.
+printf '#!/usr/bin/env bash\nexit 0\n' > "$root/bin/sleep"
+chmod 700 "$root/bin/sleep"
 printf '# synthetic config\n' > "$root/config/server.env"
 printf '# synthetic config\n' > "$root/config/backend.env"
 printf 'AI_INTERNAL_TOKEN=synthetic-not-a-real-secret\n' > "$root/config/gateway.env"
@@ -40,6 +49,7 @@ printf '{"synthetic":true}\n' > "$release/release.json"
 printf '# synthetic compose\n' > "$release/compose.ecs.yml"
 prepare() {
     : > "$MOCK_LOG"
+    rm -f -- "$root/pull-failed-once"
     printf 'synthetic-not-a-real-token\n' > "$release/registry-token"
     printf 'BACKEND_IMAGE=ghcr.io/example/aisports-backend@sha256:%s\nFRONTEND_IMAGE=ghcr.io/example/aisports-frontend@sha256:%s\nGATEWAY_IMAGE=ghcr.io/example/aisports-ai-gateway@sha256:%s\n' "$digest" "$digest" "$digest" > "$release/images.env"
 }
@@ -57,6 +67,12 @@ if grep -Eq '(^| )(down|prune)( |$)' "$MOCK_LOG"; then echo 'Unexpected data-lif
 prepare
 if MOCK_FAIL_PULL=1 invoke; then echo 'Pull failure was accepted' >&2; exit 1; fi
 assert_not_updated
+[[ $(grep -c ' pull ' "$MOCK_LOG") == 3 ]]
+prepare
+MOCK_FAIL_ONCE=1 invoke
+[[ $(grep -c ' pull ' "$MOCK_LOG") == 2 ]]
+[[ $(grep -c ' up ' "$MOCK_LOG") == 1 ]]
+assert_clean
 prepare
 printf 'BACKEND_IMAGE=ghcr.io/example/aisports-backend:latest\n' > "$release/images.env"
 if invoke; then echo 'Floating image was accepted' >&2; exit 1; fi
@@ -70,4 +86,4 @@ flock -n 8
 if invoke; then echo 'Concurrent deployment was accepted' >&2; exit 1; fi
 exec 8>&-
 assert_not_updated
-echo 'PASS: five simulated native Linux deployment scenarios, no real deployment'
+echo 'PASS: six simulated native Linux deployment scenarios, including bounded pull retry; no real deployment'
